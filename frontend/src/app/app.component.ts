@@ -13,6 +13,13 @@ export class AppComponent {
   title = 'frontend';
   constructor() {
     // console.log(process.env);
+    fetch(environment.API_URL)
+      .then((res) => {
+        if (res.ok) return res.json();
+        else throw new Error();
+      })
+      .then((d) => console.log(d))
+      .catch((e) => console.log(e));
     console.log(environment.API_URL);
     console.log('bilo sta');
   }

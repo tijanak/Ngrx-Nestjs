@@ -86,16 +86,20 @@
   "fileMap": {
     "nonProjectFiles": [
       {
-        "file": ".prettierrc",
-        "hash": "16267754514737964994"
+        "file": ".vscode/extensions.json",
+        "hash": "4934098906304722861"
       },
       {
-        "file": ".prettierignore",
-        "hash": "5407418692668764289"
+        "file": "nx.json",
+        "hash": "2036045768797828"
       },
       {
-        "file": "package.json",
-        "hash": "11093121004464370337"
+        "file": ".eslintignore",
+        "hash": "7663861978715868291"
+      },
+      {
+        "file": "README.md",
+        "hash": "14534800709022261397"
       },
       {
         "file": ".eslintrc.json",
@@ -106,44 +110,40 @@
         "hash": "3494843969422251966"
       },
       {
-        "file": ".gitattributes",
-        "hash": "13194702717607086212"
+        "file": ".gitignore",
+        "hash": "13917007966464669153"
+      },
+      {
+        "file": ".prettierignore",
+        "hash": "5407418692668764289"
       },
       {
         "file": "package-lock.json",
         "hash": "8060185647715511862"
       },
       {
-        "file": "jest.preset.js",
-        "hash": "9430166341120122740"
+        "file": "tsconfig.base.json",
+        "hash": "4768428391854219114"
       },
       {
-        "file": ".eslintignore",
-        "hash": "7663861978715868291"
+        "file": ".prettierrc",
+        "hash": "16267754514737964994"
       },
       {
         "file": ".editorconfig",
         "hash": "5443105041930014821"
       },
       {
-        "file": "nx.json",
-        "hash": "2036045768797828"
+        "file": "jest.preset.js",
+        "hash": "9430166341120122740"
       },
       {
-        "file": ".gitignore",
-        "hash": "13917007966464669153"
+        "file": "package.json",
+        "hash": "11093121004464370337"
       },
       {
-        "file": "README.md",
-        "hash": "14534800709022261397"
-      },
-      {
-        "file": ".vscode/extensions.json",
-        "hash": "4934098906304722861"
-      },
-      {
-        "file": "tsconfig.base.json",
-        "hash": "4768428391854219114"
+        "file": ".gitattributes",
+        "hash": "13194702717607086212"
       }
     ],
     "projectFileMap": {
@@ -245,7 +245,7 @@
         },
         {
           "file": "backend/src/main.ts",
-          "hash": "3136303740002023602",
+          "hash": "6086006533242537984",
           "deps": [
             "npm:@nestjs/common",
             "npm:@nestjs/core",
@@ -307,7 +307,7 @@
         },
         {
           "file": "frontend/src/app/app.component.ts",
-          "hash": "6555940513159825258",
+          "hash": "9378612998539582180",
           "deps": [
             "npm:@angular/core",
             "npm:@angular/router",
