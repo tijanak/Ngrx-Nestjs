@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { NxWelcomeComponent } from './nx-welcome.component';
-
+import { environment } from '@org/shared';
 @Component({
   standalone: true,
   imports: [NxWelcomeComponent, RouterModule],
@@ -11,4 +11,9 @@ import { NxWelcomeComponent } from './nx-welcome.component';
 })
 export class AppComponent {
   title = 'frontend';
+  constructor() {
+    // console.log(process.env);
+    console.log(environment.API_URL);
+    console.log('bilo sta');
+  }
 }
