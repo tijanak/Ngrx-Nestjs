@@ -63,8 +63,11 @@
     "webpack-cli": "^5.1.4"
   },
   "pathMappings": {
-    "@org/shared": [
-      "shared/src/index.ts"
+    "@org/environment": [
+      "environment/src/index.ts"
+    ],
+    "@org/models": [
+      "models/src/index.ts"
     ]
   },
   "nxJsonPlugins": [
@@ -86,44 +89,24 @@
   "fileMap": {
     "nonProjectFiles": [
       {
-        "file": ".vscode/extensions.json",
-        "hash": "4934098906304722861"
-      },
-      {
-        "file": "nx.json",
-        "hash": "2036045768797828"
+        "file": "package-lock.json",
+        "hash": "8060185647715511862"
       },
       {
         "file": ".eslintignore",
         "hash": "7663861978715868291"
       },
       {
-        "file": "README.md",
-        "hash": "14534800709022261397"
-      },
-      {
-        "file": ".eslintrc.json",
-        "hash": "18315524891129148814"
-      },
-      {
-        "file": "jest.config.ts",
-        "hash": "3494843969422251966"
+        "file": ".gitattributes",
+        "hash": "13194702717607086212"
       },
       {
         "file": ".gitignore",
         "hash": "13917007966464669153"
       },
       {
-        "file": ".prettierignore",
-        "hash": "5407418692668764289"
-      },
-      {
-        "file": "package-lock.json",
-        "hash": "8060185647715511862"
-      },
-      {
-        "file": "tsconfig.base.json",
-        "hash": "4768428391854219114"
+        "file": "package.json",
+        "hash": "11093121004464370337"
       },
       {
         "file": ".prettierrc",
@@ -138,59 +121,35 @@
         "hash": "9430166341120122740"
       },
       {
-        "file": "package.json",
-        "hash": "11093121004464370337"
+        "file": "README.md",
+        "hash": "14534800709022261397"
       },
       {
-        "file": ".gitattributes",
-        "hash": "13194702717607086212"
+        "file": "jest.config.ts",
+        "hash": "3494843969422251966"
+      },
+      {
+        "file": ".eslintrc.json",
+        "hash": "18315524891129148814"
+      },
+      {
+        "file": "tsconfig.base.json",
+        "hash": "3551299669992616240"
+      },
+      {
+        "file": "nx.json",
+        "hash": "2036045768797828"
+      },
+      {
+        "file": ".prettierignore",
+        "hash": "5407418692668764289"
+      },
+      {
+        "file": ".vscode/extensions.json",
+        "hash": "4934098906304722861"
       }
     ],
     "projectFileMap": {
-      "backend-e2e": [
-        {
-          "file": "backend-e2e/.eslintrc.json",
-          "hash": "11808533155536463924"
-        },
-        {
-          "file": "backend-e2e/jest.config.ts",
-          "hash": "2507509416108260741"
-        },
-        {
-          "file": "backend-e2e/project.json",
-          "hash": "1188065140152122076"
-        },
-        {
-          "file": "backend-e2e/src/backend/backend.spec.ts",
-          "hash": "110394728024017389",
-          "deps": [
-            "npm:axios"
-          ]
-        },
-        {
-          "file": "backend-e2e/src/support/global-setup.ts",
-          "hash": "2568409276037275290"
-        },
-        {
-          "file": "backend-e2e/src/support/global-teardown.ts",
-          "hash": "5275447082211835490"
-        },
-        {
-          "file": "backend-e2e/src/support/test-setup.ts",
-          "hash": "10984585515912236441",
-          "deps": [
-            "npm:axios"
-          ]
-        },
-        {
-          "file": "backend-e2e/tsconfig.json",
-          "hash": "2346920493880922870"
-        },
-        {
-          "file": "backend-e2e/tsconfig.spec.json",
-          "hash": "14226830188665428950"
-        }
-      ],
       "backend": [
         {
           "file": "backend/.eslintrc.json",
@@ -220,7 +179,7 @@
         },
         {
           "file": "backend/src/app/app.module.ts",
-          "hash": "3163250445227373966",
+          "hash": "7186894831141768241",
           "deps": [
             "npm:@nestjs/common"
           ]
@@ -245,11 +204,11 @@
         },
         {
           "file": "backend/src/main.ts",
-          "hash": "6086006533242537984",
+          "hash": "14544901449694700634",
           "deps": [
             "npm:@nestjs/common",
             "npm:@nestjs/core",
-            "shared"
+            "environment"
           ]
         },
         {
@@ -269,6 +228,13 @@
           "hash": "6894082794571774823",
           "deps": [
             "npm:@nx/webpack"
+          ]
+        },
+        {
+          "file": "backend/src/auction/auction.module.ts",
+          "hash": "15449583592896867282",
+          "deps": [
+            "npm:@nestjs/common"
           ]
         }
       ],
@@ -307,11 +273,11 @@
         },
         {
           "file": "frontend/src/app/app.component.ts",
-          "hash": "9378612998539582180",
+          "hash": "1705012387059651235",
           "deps": [
             "npm:@angular/core",
             "npm:@angular/router",
-            "shared"
+            "environment"
           ]
         },
         {
@@ -376,34 +342,108 @@
           "hash": "2129196202529263968"
         }
       ],
-      "shared": [
+      "models": [
         {
-          "file": "shared/.eslintrc.json",
+          "file": "models/.eslintrc.json",
           "hash": "11808533155536463924"
         },
         {
-          "file": "shared/README.md",
-          "hash": "11786132251247811791"
+          "file": "models/README.md",
+          "hash": "7182395557623318021"
         },
         {
-          "file": "shared/project.json",
-          "hash": "10610351706025454345"
+          "file": "models/project.json",
+          "hash": "9957053256605098995"
         },
         {
-          "file": "shared/src/index.ts",
-          "hash": "15721632429446788800"
+          "file": "models/src/index.ts",
+          "hash": "5783204083390380591"
         },
         {
-          "file": "shared/src/lib/shared.ts",
-          "hash": "5045790899675071255"
+          "file": "models/src/lib/models.ts",
+          "hash": "8523957753006659617"
         },
         {
-          "file": "shared/tsconfig.json",
+          "file": "models/tsconfig.json",
           "hash": "14391392062619267752"
         },
         {
-          "file": "shared/tsconfig.lib.json",
+          "file": "models/tsconfig.lib.json",
           "hash": "12638394678519115349"
+        }
+      ],
+      "environment": [
+        {
+          "file": "environment/.eslintrc.json",
+          "hash": "11808533155536463924"
+        },
+        {
+          "file": "environment/README.md",
+          "hash": "6433089988361343598"
+        },
+        {
+          "file": "environment/project.json",
+          "hash": "4453501035852770958"
+        },
+        {
+          "file": "environment/src/index.ts",
+          "hash": "17629727789544416765"
+        },
+        {
+          "file": "environment/src/lib/environment.ts",
+          "hash": "5045790899675071255"
+        },
+        {
+          "file": "environment/tsconfig.json",
+          "hash": "14391392062619267752"
+        },
+        {
+          "file": "environment/tsconfig.lib.json",
+          "hash": "12638394678519115349"
+        }
+      ],
+      "backend-e2e": [
+        {
+          "file": "backend-e2e/.eslintrc.json",
+          "hash": "11808533155536463924"
+        },
+        {
+          "file": "backend-e2e/jest.config.ts",
+          "hash": "2507509416108260741"
+        },
+        {
+          "file": "backend-e2e/project.json",
+          "hash": "1188065140152122076"
+        },
+        {
+          "file": "backend-e2e/src/backend/backend.spec.ts",
+          "hash": "110394728024017389",
+          "deps": [
+            "npm:axios"
+          ]
+        },
+        {
+          "file": "backend-e2e/src/support/global-setup.ts",
+          "hash": "2568409276037275290"
+        },
+        {
+          "file": "backend-e2e/src/support/global-teardown.ts",
+          "hash": "5275447082211835490"
+        },
+        {
+          "file": "backend-e2e/src/support/test-setup.ts",
+          "hash": "10984585515912236441",
+          "deps": [
+            "npm:axios"
+          ]
+        },
+        {
+          "file": "backend-e2e/tsconfig.json",
+          "hash": "2346920493880922870"
+        },
+        {
+          "file": "backend-e2e/tsconfig.spec.json",
+          "hash": "14226830188665428950"
         }
       ]
     }

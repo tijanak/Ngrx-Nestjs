@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { NxWelcomeComponent } from './nx-welcome.component';
-import { environment } from '@org/shared';
+import { environment } from '@org/environment';
 @Component({
   standalone: true,
   imports: [NxWelcomeComponent, RouterModule],
@@ -12,15 +12,6 @@ import { environment } from '@org/shared';
 export class AppComponent {
   title = 'frontend';
   constructor() {
-    // console.log(process.env);
-    fetch(environment.API_URL)
-      .then((res) => {
-        if (res.ok) return res.json();
-        else throw new Error();
-      })
-      .then((d) => console.log(d))
-      .catch((e) => console.log(e));
-    console.log(environment.API_URL);
     console.log('bilo sta');
   }
 }

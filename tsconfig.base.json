@@ -15,7 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@org/shared": ["shared/src/index.ts"]
+      "@org/environment": ["environment/src/index.ts"],
+      "@org/models": ["models/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

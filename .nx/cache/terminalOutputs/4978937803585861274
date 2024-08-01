@@ -1,0 +1,26 @@
+
+[2m> [22m[2mnx run[22m backend:build  [2m[existing outputs match the cache, left as is][22m
+
+[2m> [22mwebpack-cli build --node-env=production
+
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 3.14 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (39515fe8af0dfdb2)
+
+
+
+[0m[7m[1m[32m NX [39m[22m[27m[0m  [32mSuccessfully ran target build for project backend[39m
+
+[2mNx read the output from the cache instead of running the command for 1 out of 1 tasks.[22m
+
+D:\RWA\Projekti\Ngrx-Nestjs\node_modules\@nx\js\src\executors\node\node.impl.js:311
+    throw new Error(`Could not find ${fileToRun}. Make sure your build succeeded.`);
+          ^
+
+Error: Could not find dist\backend\main.js. Make sure your build succeeded.
+    at fileToRunCorrectPath (D:\RWA\Projekti\Ngrx-Nestjs\node_modules\[4m@nx[24m\js\src\executors\node\node.impl.js:311:11)
+    at D:\RWA\Projekti\Ngrx-Nestjs\node_modules\[4m@nx[24m\js\src\executors\node\node.impl.js:99:49
+    at new Promise (<anonymous>)
+    at Object.start (D:\RWA\Projekti\Ngrx-Nestjs\node_modules\[4m@nx[24m\js\src\executors\node\node.impl.js:93:36)
+    at async Timeout.processQueue [as _onTimeout] (D:\RWA\Projekti\Ngrx-Nestjs\node_modules\[4m@nx[24m\js\src\executors\node\node.impl.js:64:13)
+
+Node.js v20.15.0
