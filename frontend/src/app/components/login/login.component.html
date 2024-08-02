@@ -1,0 +1,43 @@
+<p>login works!</p>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <mat-form-field>
+    <mat-label>Email</mat-label>
+    <input matInput formControlName="email" />
+    <ng-container *ngIf="form.get('email') as emailControl">
+      <mat-error *ngIf="emailControl.hasError('required')">
+        Email is <strong>required</strong>
+      </mat-error>
+      <mat-error *ngIf="emailControl.hasError('email')">
+        Enter a <strong>valid email</strong>
+      </mat-error>
+    </ng-container> </mat-form-field
+  ><br />
+  <mat-form-field appearance="fill">
+    <mat-label>Lozinka</mat-label>
+    <input
+      matInput
+      [type]="hide() ? 'password' : 'text'"
+      formControlName="password"
+    />
+    <button
+      mat-icon-button
+      matSuffix
+      (click)="clickEvent($event)"
+      [attr.aria-label]="'Hide password'"
+      [attr.aria-pressed]="hide()"
+    >
+      <mat-icon>{{ hide() ? 'visibility_off' : 'visibility' }}</mat-icon>
+    </button>
+    <ng-container *ngIf="form.get('password') as nameControl">
+      <mat-error *ngIf="nameControl.hasError('required')">
+        Password is <strong>required</strong>
+      </mat-error>
+    </ng-container>
+  </mat-form-field>
+
+  <br />
+  <button mat-raised-button type="submit">Submit</button>
+</form>
+
+<button mat-raised-button (click)="get()">get</button>
+<a [routerLink]="['/register']">Register</a>
