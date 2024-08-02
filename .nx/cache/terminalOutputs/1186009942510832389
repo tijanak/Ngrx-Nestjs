@@ -1,0 +1,57 @@
+
+[2m> [22m[2mnx run[22m backend:build  [2m[existing outputs match the cache, left as is][22m
+
+[2m> [22mwebpack-cli build --node-env=production
+
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 25.3 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (1de96fb457dad667)
+
+
+
+[0m[7m[1m[32m NX [39m[22m[27m[0m  [32mSuccessfully ran target build for project backend[39m
+
+[2mNx read the output from the cache instead of running the command for 1 out of 1 tasks.[22m
+
+[1m[31mDebugger listening on ws://localhost:9229/14ef34d9-a10b-42f4-96f7-9ad9d98c8c8d[39m[22m
+[1m[31mDebugger listening on ws://localhost:9229/14ef34d9-a10b-42f4-96f7-9ad9d98c8c8d[39m[22m
+[1m[31mFor help, see: https://nodejs.org/en/docs/inspector[39m[22m
+[1m[31m[39m[22m
+[32m[Nest] 22572  - [39m08/02/2024, 5:50:04 PM [32m    LOG[39m [38;5;3m[NestFactory] [39m[32mStarting Nest application...[39m
+[32m[Nest] 22572  - [39m08/02/2024, 5:50:04 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mTypeOrmModule dependencies initialized[39m[38;5;3m +56ms[39m
+[32m[Nest] 22572  - [39m08/02/2024, 5:50:04 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mPassportModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 22572  - [39m08/02/2024, 5:50:04 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAppModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 22572  - [39m08/02/2024, 5:50:04 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mTypeOrmCoreModule dependencies initialized[39m[38;5;3m +93ms[39m
+[32m[Nest] 22572  - [39m08/02/2024, 5:50:04 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mTypeOrmModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 22572  - [39m08/02/2024, 5:50:04 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mTypeOrmModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 22572  - [39m08/02/2024, 5:50:04 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mUserModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 22572  - [39m08/02/2024, 5:50:04 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAuctionModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 22572  - [39m08/02/2024, 5:50:04 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAuthModule dependencies initialized[39m[38;5;3m +3ms[39m
+[32m[Nest] 22572  - [39m08/02/2024, 5:50:04 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mAppController {/}:[39m[38;5;3m +6ms[39m
+[32m[Nest] 22572  - [39m08/02/2024, 5:50:04 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/, GET} route[39m[38;5;3m +3ms[39m
+[32m[Nest] 22572  - [39m08/02/2024, 5:50:04 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mAuctionController {/auction}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 22572  - [39m08/02/2024, 5:50:04 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auction, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 22572  - [39m08/02/2024, 5:50:04 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mUserController {/user}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 22572  - [39m08/02/2024, 5:50:04 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mAuthController {/auth}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 22572  - [39m08/02/2024, 5:50:04 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/login, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 22572  - [39m08/02/2024, 5:50:04 PM [32m    LOG[39m [38;5;3m[NestApplication] [39m[32mNest application successfully started[39m[38;5;3m +3ms[39m
+[32m[Nest] 22572  - [39m08/02/2024, 5:50:04 PM [32m    LOG[39m [32m🚀 Application is running on: http://localhost:4100/[39m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31mD:\RWA\Projekti\Ngrx-Nestjs\node_modules\bcrypt\bcrypt.js:215[39m[22m
+[1m[31m        error = new Error('data and hash must be strings');[39m[22m
+[1m[31m                ^[39m[22m
+[1m[31mError: data and hash must be strings[39m[22m
+[1m[31m    at Object.compare (D:\RWA\Projekti\Ngrx-Nestjs\node_modules\bcrypt\bcrypt.js:215:17)[39m[22m
+[1m[31m    at D:\RWA\Projekti\Ngrx-Nestjs\node_modules\bcrypt\promises.js:29:12[39m[22m
+[1m[31m    at new Promise (<anonymous>)[39m[22m
+[1m[31m    at Object.module.exports.promise (D:\RWA\Projekti\Ngrx-Nestjs\node_modules\bcrypt\promises.js:20:12)[39m[22m
+[1m[31m    at Object.compare (D:\RWA\Projekti\Ngrx-Nestjs\node_modules\bcrypt\bcrypt.js:204:25)[39m[22m
+[1m[31m    at AuthService.validateUser (D:\RWA\Projekti\Ngrx-Nestjs\dist\backend\main.js:705:28)[39m[22m
+[1m[31m    at processTicksAndRejections (node:internal/process/task_queues:95:5)[39m[22m
+[1m[31m    at LocalStrategy.validate (D:\RWA\Projekti\Ngrx-Nestjs\dist\backend\main.js:744:22)[39m[22m
+[1m[31m    at LocalStrategy.callback [as _verify] (D:\RWA\Projekti\Ngrx-Nestjs\node_modules\@nestjs\passport\dist\passport\passport.strategy.js:11:44)[39m[22m
+[1m[31m[39m[22m
+
+[7m[1m[36m NX [39m[22m[27m [1mProcess exited with code 1, waiting for changes to restart...[22m
+
+[1m[31mWatch error: Daemon closed the connection[39m[22m
