@@ -22,8 +22,17 @@ export class AuthService {
   }
   async login(user: any) {
     const payload = { username: user.email, sub: user.id };
-    return {
-      access_token: this.jwtService.sign(payload),
-    };
+    const token = this.jwtService.sign(payload);
+    return token;
+  }
+  async setCookie(res: any, token: string) {
+    res.cookie('accessToken', token, {
+      httpOnly: true,
+      secure: true,
+      sameSite: 'Strict',
+    });
+  }
+  async clearCookie(res: any) {
+    res.clearCookie('accessToken');
   }
 }

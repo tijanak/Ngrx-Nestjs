@@ -3,6 +3,7 @@ import { NestFactory } from '@nestjs/core';
 
 import { AppModule } from './app/app.module';
 import { environment } from '@org/environment';
+import cookieParser from 'cookie-parser';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
@@ -11,6 +12,7 @@ async function bootstrap() {
     methods: ['GET', 'POST', 'DELETE', 'PUT'],
   });
   const port = environment.PORT;
+  app.use(cookieParser());
   await app.listen(port);
   Logger.log(`🚀 Application is running on: http://localhost:${port}/`);
 }
