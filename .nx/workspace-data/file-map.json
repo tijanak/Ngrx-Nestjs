@@ -21,6 +21,8 @@
     "axios": "^1.6.0",
     "bcrypt": "^5.1.1",
     "class-validator": "^0.14.1",
+    "cookie-parser": "^1.4.6",
+    "jsonwebtoken": "^9.0.2",
     "passport": "^0.7.0",
     "passport-jwt": "^4.0.1",
     "passport-local": "^1.0.0",
@@ -102,56 +104,40 @@
   "fileMap": {
     "nonProjectFiles": [
       {
-        "file": "jest.preset.js",
-        "hash": "9430166341120122740"
-      },
-      {
-        "file": ".prettierignore",
-        "hash": "5407418692668764289"
-      },
-      {
-        "file": "jest.config.ts",
-        "hash": "3494843969422251966"
-      },
-      {
-        "file": "tsconfig.base.json",
-        "hash": "3551299669992616240"
-      },
-      {
-        "file": ".editorconfig",
-        "hash": "5443105041930014821"
-      },
-      {
         "file": "package.json",
-        "hash": "14840632373212564520"
-      },
-      {
-        "file": ".gitignore",
-        "hash": "13917007966464669153"
+        "hash": "440746821202785417"
       },
       {
         "file": "package-lock.json",
         "hash": "2226052363157440897"
       },
       {
-        "file": ".vscode/extensions.json",
-        "hash": "4934098906304722861"
-      },
-      {
-        "file": "README.md",
-        "hash": "14534800709022261397"
-      },
-      {
         "file": ".gitattributes",
         "hash": "13194702717607086212"
+      },
+      {
+        "file": ".gitignore",
+        "hash": "13917007966464669153"
       },
       {
         "file": ".prettierrc",
         "hash": "16267754514737964994"
       },
       {
-        "file": ".eslintignore",
-        "hash": "7663861978715868291"
+        "file": "jest.preset.js",
+        "hash": "9430166341120122740"
+      },
+      {
+        "file": "jest.config.ts",
+        "hash": "3494843969422251966"
+      },
+      {
+        "file": "README.md",
+        "hash": "14534800709022261397"
+      },
+      {
+        "file": ".vscode/extensions.json",
+        "hash": "4934098906304722861"
       },
       {
         "file": "nx.json",
@@ -160,6 +146,22 @@
       {
         "file": ".eslintrc.json",
         "hash": "18315524891129148814"
+      },
+      {
+        "file": ".prettierignore",
+        "hash": "5407418692668764289"
+      },
+      {
+        "file": ".editorconfig",
+        "hash": "5443105041930014821"
+      },
+      {
+        "file": "tsconfig.base.json",
+        "hash": "3551299669992616240"
+      },
+      {
+        "file": ".eslintignore",
+        "hash": "7663861978715868291"
       }
     ],
     "projectFileMap": {
@@ -178,7 +180,7 @@
         },
         {
           "file": "models/src/index.ts",
-          "hash": "4105926468603034633"
+          "hash": "7954580003656632107"
         },
         {
           "file": "models/src/lib/dto.ts",
@@ -198,6 +200,10 @@
         {
           "file": "models/tsconfig.lib.json",
           "hash": "12638394678519115349"
+        },
+        {
+          "file": "models/src/lib/transformUtility.ts",
+          "hash": "8652294317219306696"
         }
       ],
       "environment": [
@@ -411,7 +417,7 @@
         },
         {
           "file": "backend/src/auth/auth.controller.ts",
-          "hash": "14921452309440841092",
+          "hash": "2178455897271273373",
           "deps": [
             "npm:@nestjs/common",
             "npm:@nestjs/passport"
@@ -504,7 +510,7 @@
         },
         {
           "file": "backend/src/user/user.entity.ts",
-          "hash": "9671509020457696410",
+          "hash": "81415718148272237",
           "deps": [
             "models",
             "npm:class-validator",
@@ -559,11 +565,12 @@
         },
         {
           "file": "backend/src/auth/strategies/jwt.strategy.ts",
-          "hash": "11665592837440380672",
+          "hash": "11153644893617785093",
           "deps": [
             "npm:passport-jwt",
             "npm:@nestjs/passport",
-            "npm:@nestjs/common"
+            "npm:@nestjs/common",
+            "models"
           ]
         },
         {

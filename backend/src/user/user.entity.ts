@@ -11,7 +11,6 @@ import { Auction } from '../auction/auction.entity';
 import { Bid } from '../bid/bid.entity';
 
 @Entity()
-@Unique(['email'])
 export class User implements IUser {
   @PrimaryGeneratedColumn()
   id: number;
@@ -24,7 +23,7 @@ export class User implements IUser {
   @Column()
   @IsEmail()
   email: string;
-  @Column()
+  @Column({ unique: true })
   @IsPhoneNumber()
   phone_number: string;
 
