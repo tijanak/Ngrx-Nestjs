@@ -1,10 +1,17 @@
 import { IUser } from '@org/models';
 import { IsEmail, IsPhoneNumber } from 'class-validator';
-import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  Column,
+  Entity,
+  OneToMany,
+  PrimaryGeneratedColumn,
+  Unique,
+} from 'typeorm';
 import { Auction } from '../auction/auction.entity';
 import { Bid } from '../bid/bid.entity';
 
 @Entity()
+@Unique(['email'])
 export class User implements IUser {
   @PrimaryGeneratedColumn()
   id: number;
@@ -12,7 +19,7 @@ export class User implements IUser {
   name: string;
   @Column()
   surname: string;
-  @Column({ select: false })
+  @Column()
   password: string;
   @Column()
   @IsEmail()

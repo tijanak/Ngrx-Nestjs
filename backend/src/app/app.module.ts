@@ -6,6 +6,7 @@ import { AuctionModule } from '../auction/auction.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { environment } from '@org/environment';
 import { Auction } from '../auction/auction.entity';
+import { UserModule } from '../user/user.module';
 
 @Module({
   imports: [
@@ -15,11 +16,12 @@ import { Auction } from '../auction/auction.entity';
       port: 5432,
       username: environment.DB_USERNAME,
       password: environment.DB_PASSWORD,
-      database: 'auctions',
+      database: 'e-auction',
       entities: [Auction],
       synchronize: true,
     }),
     AuctionModule,
+    UserModule,
   ],
   controllers: [AppController],
   providers: [AppService],
