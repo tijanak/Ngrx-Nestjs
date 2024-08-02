@@ -9,32 +9,30 @@ export interface IAuction {
   owner: IUser;
   images: IAuction_Image[];
   sale_certificate: ISale_Certificate | null;
+  bids: IBid[];
 }
 export interface IUser {
   id: number;
-  username: string;
+  name: string;
+  surname: string;
   email: string;
   phone_number: string;
   auctions: IAuction[];
   bids: IBid[];
-  certificatesBought: ISale_Certificate[];
-  certificatesSold: ISale_Certificate[];
 }
 export interface IBid {
+  id: number;
   time_created: Date;
   amount: number;
   bidder: IUser;
   auction: IAuction;
+  sale_certificate: ISale_Certificate | null;
 }
 export interface ISale_Certificate {
   id: number;
   time_granted: Date;
-  amount: number;
-  winner: IUser;
-  owner: IUser;
-  images: IAuction_Image[];
-  title: string;
-  description: string;
+  winning_bid: IBid;
+  auction: IAuction;
 }
 export interface IAuction_Category {
   id: number;

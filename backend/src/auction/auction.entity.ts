@@ -1,12 +1,19 @@
-import {
-  IAuction,
-  IAuction_Category,
-  IAuction_Image,
-  ISale_Certificate,
-  IUser,
-} from '@org/models';
 import { IsDate, Min } from 'class-validator';
-import { Column, Entity, OneToOne, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  Column,
+  Entity,
+  ManyToMany,
+  ManyToOne,
+  OneToMany,
+  OneToOne,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
+import { Bid } from '../bid/bid.entity';
+import { IAuction } from '@org/models';
+import { AuctionCategory } from '../auction_category/auction_category.entity';
+import { User } from '../user/user.entity';
+import { AuctionImage } from '../auction_image/auction_image.entity';
+import { SaleCertificate } from '../sale_certificate/sale_certificate.entity';
 @Entity()
 export class Auction implements IAuction {
   @PrimaryGeneratedColumn()
@@ -26,8 +33,18 @@ export class Auction implements IAuction {
   @Min(1, { message: 'Minimalna cena mora biti veca od 0' })
   min_price: number;
 
-  categories: IAuction_Category[];
-  owner: IUser;
-  images: IAuction_Image[];
-  sale_certificate: ISale_Certificate;
+  @ManyToMany(() => AuctionCategory, (category) => category.auctions)
+  categories: AuctionCategory[];
+  @ManyToOne(() => User, (user) => user.auctions)
+  owner: User;
+  @OneToMany(() => AuctionImage, (image) => image.auction)
+  images: AuctionImage[];
+  @OneToOne(() => SaleCertificate, (certificate) => certificate.auction, {
+    nullable: true,
+    onDelete: 'SET NULL',
+  })
+  sale_certificate: SaleCertificate | null;
+
+  @OneToMany(() => Bid, (bid) => bid.auction, { cascade: true })
+  bids: Bid[];
 }
