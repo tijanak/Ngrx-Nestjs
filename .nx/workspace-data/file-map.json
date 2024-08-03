@@ -116,40 +116,32 @@
   "fileMap": {
     "nonProjectFiles": [
       {
-        "file": ".editorconfig",
-        "hash": "5443105041930014821"
-      },
-      {
-        "file": ".gitattributes",
-        "hash": "13194702717607086212"
-      },
-      {
-        "file": "package-lock.json",
-        "hash": "17216222708811596682"
-      },
-      {
-        "file": ".gitignore",
-        "hash": "13917007966464669153"
-      },
-      {
-        "file": ".prettierignore",
-        "hash": "5407418692668764289"
-      },
-      {
-        "file": "README.md",
-        "hash": "14534800709022261397"
-      },
-      {
-        "file": ".eslintignore",
-        "hash": "7663861978715868291"
-      },
-      {
         "file": ".eslintrc.json",
         "hash": "18315524891129148814"
       },
       {
         "file": "jest.config.ts",
         "hash": "3494843969422251966"
+      },
+      {
+        "file": ".eslintignore",
+        "hash": "7663861978715868291"
+      },
+      {
+        "file": ".editorconfig",
+        "hash": "5443105041930014821"
+      },
+      {
+        "file": ".gitignore",
+        "hash": "13917007966464669153"
+      },
+      {
+        "file": "tsconfig.base.json",
+        "hash": "3551299669992616240"
+      },
+      {
+        "file": "README.md",
+        "hash": "14534800709022261397"
       },
       {
         "file": "nx.json",
@@ -160,6 +152,10 @@
         "hash": "9430166341120122740"
       },
       {
+        "file": ".gitattributes",
+        "hash": "13194702717607086212"
+      },
+      {
         "file": ".vscode/extensions.json",
         "hash": "4934098906304722861"
       },
@@ -168,12 +164,16 @@
         "hash": "4061843506327483891"
       },
       {
-        "file": ".prettierrc",
-        "hash": "16267754514737964994"
+        "file": ".prettierignore",
+        "hash": "5407418692668764289"
       },
       {
-        "file": "tsconfig.base.json",
-        "hash": "3551299669992616240"
+        "file": "package-lock.json",
+        "hash": "17216222708811596682"
+      },
+      {
+        "file": ".prettierrc",
+        "hash": "16267754514737964994"
       }
     ],
     "projectFileMap": {
@@ -387,7 +387,7 @@
         },
         {
           "file": "frontend/src/app/components/login/login.component.html",
-          "hash": "6124205759268354690"
+          "hash": "14428194757403981930"
         },
         {
           "file": "frontend/src/app/components/login/login.component.spec.ts",
@@ -414,7 +414,7 @@
         },
         {
           "file": "frontend/src/app/components/register/register.component.html",
-          "hash": "17167499644403597174"
+          "hash": "6321626403914099604"
         },
         {
           "file": "frontend/src/app/components/register/register.component.spec.ts",
@@ -425,7 +425,7 @@
         },
         {
           "file": "frontend/src/app/components/register/register.component.ts",
-          "hash": "15160631200630301735",
+          "hash": "15446237240498860048",
           "deps": [
             "npm:@angular/core",
             "npm:@angular/common",
@@ -695,7 +695,7 @@
         },
         {
           "file": "backend/src/auth/auth.controller.ts",
-          "hash": "8420342507796837996",
+          "hash": "6852528446330487514",
           "deps": [
             "npm:@nestjs/common",
             "npm:@nestjs/passport",
@@ -846,7 +846,7 @@
         },
         {
           "file": "backend/src/user/user.service.ts",
-          "hash": "11044827633273954871",
+          "hash": "11819976695602524121",
           "deps": [
             "npm:@nestjs/common",
             "npm:@nestjs/typeorm",

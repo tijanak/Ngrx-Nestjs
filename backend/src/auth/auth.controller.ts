@@ -7,6 +7,7 @@ import {
   Req,
   Body,
   HttpStatus,
+  Logger,
 } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
 import { LocalAuthGuard } from './guards/local-auth.guard';
@@ -44,9 +45,13 @@ export class AuthController {
       await this.authService.setCookie(res, token);
       res.send({ message: 'Registered' });
     } catch (error) {
+      Logger.log(error.code);
       res.status(HttpStatus.BAD_REQUEST).json({
         statusCode: HttpStatus.BAD_REQUEST,
-        message: error.message || 'An error occurred during registration',
+        message:
+          error.code == 23505
+            ? 'Email je zauzet'
+            : error.message || 'Desila se greska prilikom registracije',
       });
     }
   }

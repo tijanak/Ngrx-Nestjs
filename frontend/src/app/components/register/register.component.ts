@@ -51,7 +51,11 @@ export class RegisterComponent implements OnInit {
       ],
     });
     this.store.select(selectAuthFeature).subscribe((auth) => {
-      if (auth.loggedIn) this.router.navigate(['/home']);
+      if (auth.loggedIn) {
+        this.router.navigate(['/home']);
+        alert(auth.loggedIn);
+        alert(auth.error);
+      }
       if (auth.error) {
         console.log(auth.error.error);
         this.snackBar.open(auth.error.error.message, 'Close', {

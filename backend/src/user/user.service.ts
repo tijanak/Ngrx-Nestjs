@@ -30,7 +30,7 @@ export class UserService {
 
       const message = firstError.constraints
         ? Object.values(firstError.constraints)[0]
-        : 'Unknown error';
+        : 'Nepoznata greska';
 
       throw new BadRequestException({ message: message });
     }
