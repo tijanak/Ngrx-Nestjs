@@ -26,7 +26,13 @@ export class UserService {
     const errors = await validate(user);
 
     if (errors.length > 0) {
-      throw new BadRequestException(errors);
+      const firstError = errors[0];
+
+      const message = firstError.constraints
+        ? Object.values(firstError.constraints)[0]
+        : 'Unknown error';
+
+      throw new BadRequestException({ message: message });
     }
     user.password = await this.hashPassword(user.password);
     return this.userRepo.save(user);

@@ -38,27 +38,16 @@ export class AuthController {
   }
   @Post('register')
   async register(@Body() userDto: CreateUserDto, @Res() res: Response) {
-    this.authService
-      .register(userDto)
-      .then((user) => {
-        {
-          return this.authService.login(user);
-        }
-      })
-      .then((token) => {
-        return this.authService.setCookie(res, token);
-      })
-      .then(() => {
-        res.send({ message: 'Registered' });
-      })
-      .catch((error) => {
-        res
-          .status(HttpStatus.BAD_REQUEST)
-          .json({
-            statusCode: HttpStatus.BAD_REQUEST,
-            message: error.message || 'An error occurred during registration',
-          })
-          .send();
+    try {
+      const user = await this.authService.register(userDto);
+      const token = await this.authService.login(user);
+      await this.authService.setCookie(res, token);
+      res.send({ message: 'Registered' });
+    } catch (error) {
+      res.status(HttpStatus.BAD_REQUEST).json({
+        statusCode: HttpStatus.BAD_REQUEST,
+        message: error.message || 'An error occurred during registration',
       });
+    }
   }
 }

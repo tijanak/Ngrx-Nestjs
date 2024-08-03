@@ -186,7 +186,6 @@
               "{options.outputPath}"
             ],
             "options": {
-              "generatePackageJson": true,
               "outputPath": "dist/frontend",
               "index": "frontend/src/index.html",
               "browser": "frontend/src/main.ts",
@@ -319,9 +318,7 @@
           "targets": {
             "build": {
               "executor": "@nx/webpack:webpack",
-              "options": {
-                "generatePackageJson": true
-              }
+              "options": {}
             }
           }
         },
@@ -14462,6 +14459,11 @@
       },
       {
         "source": "frontend",
+        "target": "npm:@ngrx/store",
+        "type": "static"
+      },
+      {
+        "source": "frontend",
         "target": "npm:@angular/forms",
         "type": "static"
       },
@@ -14477,7 +14479,12 @@
       },
       {
         "source": "frontend",
-        "target": "npm:@ngrx/store",
+        "target": "models",
+        "type": "static"
+      },
+      {
+        "source": "frontend",
+        "target": "npm:@ngrx/effects",
         "type": "static"
       },
       {

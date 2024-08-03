@@ -7,6 +7,9 @@ import {
   loginFailure,
   logout,
   loginAuthorized,
+  registration,
+  registrationSucces,
+  registrationFailure,
 } from './auth.actions';
 import { catchError, map, switchMap, tap } from 'rxjs/operators';
 import { of } from 'rxjs';
@@ -20,19 +23,12 @@ export class AuthEffects {
       ofType(login),
       switchMap(({ email, password }) =>
         this.authService.login(email, password).pipe(
-          map((response) => loginAuthorized()),
-          catchError((error) => of(loginFailure({ error })))
-        )
-      )
-    )
-  );
-  loginAuthorization$ = createEffect(() =>
-    this.actions$.pipe(
-      ofType(loginAuthorized),
-      switchMap(() =>
-        this.authService.getProfile().pipe(
-          map((user) => loginSuccess({ user })),
-          catchError((error) => of(loginFailure({ error })))
+          map((response) => {
+            return loginSuccess();
+          }),
+          catchError((error) => {
+            return of(loginFailure({ error }));
+          })
         )
       )
     )
@@ -44,6 +40,20 @@ export class AuthEffects {
         this.authService.logout().pipe(
           map(() => loginFailure({ error: null })),
           catchError((error) => of(loginFailure({ error })))
+        )
+      )
+    )
+  );
+  registration$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(registration),
+      switchMap((userData) =>
+        this.authService.register(userData).pipe(
+          map((r) => {
+            console.log(r, 'succes');
+            return registrationSucces();
+          }),
+          catchError((error) => of(registrationFailure({ error })))
         )
       )
     )

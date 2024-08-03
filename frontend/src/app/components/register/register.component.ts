@@ -8,6 +8,12 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { ReactiveFormsModule } from '@angular/forms';
+import { selectAuthFeature } from '../../store/auth/auth.selectors';
+import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
+import { AppState } from '../../store/app.reducer';
+import { registration } from '../../store/auth/auth.actions';
+import { error } from 'console';
 @Component({
   selector: 'app-register',
   standalone: true,
@@ -27,7 +33,12 @@ import { ReactiveFormsModule } from '@angular/forms';
 export class RegisterComponent implements OnInit {
   registerForm: FormGroup | undefined;
 
-  constructor(private fb: FormBuilder, private snackBar: MatSnackBar) {}
+  constructor(
+    private store: Store<AppState>,
+    private router: Router,
+    private fb: FormBuilder,
+    private snackBar: MatSnackBar
+  ) {}
   ngOnInit(): void {
     this.registerForm = this.fb.group({
       name: ['', [Validators.required]],
@@ -39,21 +50,30 @@ export class RegisterComponent implements OnInit {
         [Validators.required, Validators.pattern(/^\+?\d{10,15}$/)],
       ],
     });
+    this.store.select(selectAuthFeature).subscribe((auth) => {
+      if (auth.loggedIn) this.router.navigate(['/home']);
+      if (auth.error) {
+        console.log(auth.error.error);
+        this.snackBar.open(auth.error.error.message, 'Close', {
+          duration: 2000,
+        });
+      }
+    });
   }
 
   onSubmit(): void {
     if (this.registerForm?.valid) {
-      // Handle form submission
       const formValues = this.registerForm.value;
       console.log('Form Submitted', formValues);
-
-      // Example notification
-      this.snackBar.open('Registration successful!', 'Close', {
-        duration: 2000,
-      });
-
-      // Clear the form
-      this.registerForm.reset();
+      this.store.dispatch(
+        registration({
+          name: formValues.name,
+          surname: formValues.surname,
+          phone_number: formValues.phoneNumber,
+          password: formValues.password,
+          email: formValues.email,
+        })
+      );
     } else {
       this.snackBar.open('Please fill out the form correctly.', 'Close', {
         duration: 2000,

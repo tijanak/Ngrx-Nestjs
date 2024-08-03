@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '@org/environment';
+import { CreateUserDto } from '@org/models';
 import { catchError, Observable, of } from 'rxjs';
 
 @Injectable({
@@ -30,5 +31,12 @@ export class AuthService {
   }
   logout() {
     return this.httpClient.post(`${environment.API_URL}auth/logout`, null);
+  }
+  register(dto: CreateUserDto) {
+    return this.httpClient.post(`${environment.API_URL}auth/register`, dto, {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
   }
 }

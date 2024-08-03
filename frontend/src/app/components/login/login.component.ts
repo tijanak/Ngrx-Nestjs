@@ -47,7 +47,7 @@ export class LoginComponent implements OnInit {
   }
   ngOnInit(): void {
     this.store.select(selectAuthFeature).subscribe((auth) => {
-      this.router.navigate(['/login']);
+      if (auth.loggedIn) this.router.navigate(['/home']);
     });
   }
 

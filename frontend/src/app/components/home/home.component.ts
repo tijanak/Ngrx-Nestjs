@@ -19,11 +19,7 @@ export class HomeComponent implements OnInit {
   constructor(private store: Store<AppState>, private router: Router) {}
   ngOnInit(): void {
     this.store.select(selectAuthFeature).subscribe((auth) => {
-      console.log(auth);
-      this.router.navigate([
-        '/home',
-        { queryParams: { refresh: new Date().getTime() } },
-      ]);
+      if (auth.loggedIn == false) this.router.navigate(['/login']);
     });
   }
   logout() {

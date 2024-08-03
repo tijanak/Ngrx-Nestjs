@@ -23,10 +23,10 @@ export class User implements IUser {
   @Column()
   password: string;
   @Column({ unique: true })
-  @IsEmail()
+  @IsEmail(undefined, { message: 'Email je neispravan' })
   email: string;
   @Column()
-  @IsPhoneNumber()
+  @IsPhoneNumber(undefined, { message: 'Broj je loseg formata' })
   phone_number: string;
 
   @OneToMany(() => Auction, (auction) => auction.owner, {
