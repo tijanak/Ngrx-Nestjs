@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '@org/environment';
-import { Observable } from 'rxjs';
+import { catchError, Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -10,13 +10,25 @@ export class AuthService {
   constructor(private httpClient: HttpClient) {}
 
   getProfile() {
-    return this.httpClient.get<any>(`${environment.API_URL}auth/profile`);
+    return this.httpClient.get<any>(`${environment.API_URL}auth/profile`).pipe(
+      catchError((error) => {
+        console.error('Profile retrieval failed:', error);
+        return of(null);
+      })
+    );
   }
-  login(data: any): Observable<any> {
-    return this.httpClient.post<any>(`${environment.API_URL}auth/login`, data, {
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    });
+  login(email: string, password: string): Observable<any> {
+    return this.httpClient.post<any>(
+      `${environment.API_URL}auth/login`,
+      { username: email, password },
+      {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      }
+    );
+  }
+  logout() {
+    return this.httpClient.post(`${environment.API_URL}auth/logout`, null);
   }
 }
