@@ -8,6 +8,11 @@ import { environment } from '@org/environment';
 import { Auction } from '../auction/auction.entity';
 import { UserModule } from '../user/user.module';
 import { AuthModule } from '../auth/auth.module';
+import { User } from '../user/user.entity';
+import { Bid } from '../bid/bid.entity';
+import { AuctionCategory } from '../auction_category/auction_category.entity';
+import { AuctionImage } from '../auction_image/auction_image.entity';
+import { SaleCertificate } from '../sale_certificate/sale_certificate.entity';
 
 @Module({
   imports: [
@@ -18,7 +23,14 @@ import { AuthModule } from '../auth/auth.module';
       username: environment.DB_USERNAME,
       password: environment.DB_PASSWORD,
       database: 'e-auction',
-      entities: [__dirname + '/**/*.entity{.ts,.js}'],
+      entities: [
+        User,
+        Auction,
+        Bid,
+        AuctionCategory,
+        AuctionImage,
+        SaleCertificate,
+      ],
       synchronize: true,
     }),
     AuctionModule,

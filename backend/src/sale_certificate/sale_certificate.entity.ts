@@ -2,6 +2,7 @@ import { ISale_Certificate } from '@org/models';
 import {
   Column,
   Entity,
+  JoinColumn,
   OneToOne,
   PrimaryGeneratedColumn,
   Unique,
@@ -24,7 +25,9 @@ export class SaleCertificate implements ISale_Certificate {
   @OneToOne(() => Auction, (auction) => auction.sale_certificate, {
     nullable: false,
   })
+  @JoinColumn()
   auction: Auction;
   @OneToOne(() => Bid, (bid) => bid.sale_certificate, { nullable: false })
+  @JoinColumn()
   winning_bid: Bid;
 }

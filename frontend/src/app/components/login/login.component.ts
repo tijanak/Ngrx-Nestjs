@@ -50,6 +50,7 @@ export class LoginComponent implements OnInit {
       this.router.navigate(['/login']);
     });
   }
+
   onSubmit() {
     if (this.form.valid) {
       console.log(this.form.value);

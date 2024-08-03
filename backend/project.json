@@ -28,6 +28,10 @@
       "options": {
         "jestConfig": "backend/jest.config.ts"
       }
+    },
+    "docker-build": {
+      "dependsOn": ["build"],
+      "command": "docker build -f backend/Dockerfile . -t backend"
     }
   }
 }

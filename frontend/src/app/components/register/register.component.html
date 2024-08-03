@@ -1,1 +1,69 @@
-<p>register works!</p>
+<form
+  *ngIf="registerForm"
+  [formGroup]="registerForm"
+  (ngSubmit)="onSubmit()"
+  class="register-form"
+>
+  <mat-card>
+    <mat-card-title>Register</mat-card-title>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Name</mat-label>
+      <input matInput formControlName="name" />
+      <mat-error *ngIf="registerForm.controls['name'].hasError('required')">
+        Name is required
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Surname</mat-label>
+      <input matInput formControlName="surname" />
+      <mat-error *ngIf="registerForm.controls['surname'].hasError('required')">
+        Surname is required
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="email" />
+      <mat-error *ngIf="registerForm.controls['email'].hasError('required')">
+        Email is required
+      </mat-error>
+      <mat-error *ngIf="registerForm.controls['email'].hasError('email')">
+        Invalid email format
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Password</mat-label>
+      <input matInput type="password" formControlName="password" />
+      <mat-error *ngIf="registerForm.controls['password'].hasError('required')">
+        Password is required
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Phone Number</mat-label>
+      <input matInput formControlName="phoneNumber" />
+      <mat-error
+        *ngIf="registerForm.controls['phoneNumber'].hasError('required')"
+      >
+        Phone number is required
+      </mat-error>
+      <mat-error
+        *ngIf="registerForm.controls['phoneNumber'].hasError('pattern')"
+      >
+        Invalid phone number format
+      </mat-error>
+    </mat-form-field>
+
+    <button
+      mat-raised-button
+      color="primary"
+      type="submit"
+      [disabled]="registerForm.invalid"
+    >
+      Register
+    </button>
+  </mat-card>
+</form>

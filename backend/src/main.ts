@@ -13,6 +13,8 @@ async function bootstrap() {
     credentials: true,
   });
   const port = environment.PORT;
+  app.useLogger(['error', 'warn', 'log', 'debug', 'verbose']);
+
   app.use(cookieParser());
   await app.listen(port);
   Logger.log(`🚀 Application is running on: http://localhost:${port}/`);

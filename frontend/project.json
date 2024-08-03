@@ -4,20 +4,27 @@
   "projectType": "application",
   "prefix": "app",
   "sourceRoot": "frontend/src",
+  "nx": {
+    "targets": {
+      "build": {
+        "executor": "@nx/webpack:webpack",
+        "options": {
+          "generatePackageJson": true
+        }
+      }
+    }
+  },
   "tags": [],
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:application",
-      "outputs": [
-        "{options.outputPath}"
-      ],
+      "outputs": ["{options.outputPath}"],
       "options": {
+        "generatePackageJson": true,
         "outputPath": "dist/frontend",
         "index": "frontend/src/index.html",
         "browser": "frontend/src/main.ts",
-        "polyfills": [
-          "zone.js"
-        ],
+        "polyfills": ["zone.js"],
         "tsConfig": "frontend/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
         "assets": [
@@ -79,12 +86,14 @@
     },
     "test": {
       "executor": "@nx/jest:jest",
-      "outputs": [
-        "{workspaceRoot}/coverage/{projectRoot}"
-      ],
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
         "jestConfig": "frontend/jest.config.ts"
       }
+    },
+    "docker-build": {
+      "dependsOn": ["build"],
+      "command": "docker build -f frontend/Dockerfile . -t frontend"
     }
   }
 }

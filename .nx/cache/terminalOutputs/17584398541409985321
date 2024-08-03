@@ -1,0 +1,3 @@
+[2m> [22mnpx webpack-cli build --cache=true --parallelism=true
+
+Error: spawn C:\Windows\system32\cmd.exe ENOENT

@@ -1,0 +1,72 @@
+[2m> [22mdocker build -f backend/Dockerfile . -t backend
+
+#0 building with "desktop-linux" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 703B 0.0s done
+#1 DONE 0.1s
+
+#2 [internal] load metadata for docker.io/library/node:lts-alpine
+#2 ...
+
+#3 [auth] library/node:pull token for registry-1.docker.io
+#3 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/node:lts-alpine
+#2 DONE 1.2s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 2B done
+#4 DONE 0.1s
+
+#5 [1/6] FROM docker.io/library/node:lts-alpine@sha256:eb8101caae9ac02229bd64c024919fe3d4504ff7f329da79ca60a04db08cef52
+#5 DONE 0.0s
+
+#6 [internal] load build context
+#6 transferring context: 183B done
+#6 DONE 0.1s
+
+#7 [2/6] WORKDIR /app
+#7 CACHED
+
+#8 [3/6] RUN addgroup --system backend &&           adduser --system -G backend backend
+#8 CACHED
+
+#9 [4/6] COPY dist/backend backend/
+#9 CACHED
+
+#10 [5/6] RUN chown -R backend:backend .
+#10 CACHED
+
+#11 [6/6] RUN npm --prefix backend --omit=dev -f install
+#11 1.030 npm warn using --force Recommended protections disabled.
+#11 1.763 npm error code ENOENT
+#11 1.763 npm error syscall open
+#11 1.763 npm error path /app/backend/package.json
+#11 1.763 npm error errno -2
+#11 1.763 npm error enoent Could not read package.json: Error: ENOENT: no such file or directory, open '/app/backend/package.json'
+#11 1.764 npm error enoent This is related to npm not being able to find a file.
+#11 1.764 npm error enoent
+#11 1.766 npm error A complete log of this run can be found in: /root/.npm/_logs/2024-08-03T14_26_43_963Z-debug-0.log
+#11 ERROR: process "/bin/sh -c npm --prefix backend --omit=dev -f install" did not complete successfully: exit code: 254
+------
+ > [6/6] RUN npm --prefix backend --omit=dev -f install:
+1.030 npm warn using --force Recommended protections disabled.
+1.763 npm error code ENOENT
+1.763 npm error syscall open
+1.763 npm error path /app/backend/package.json
+1.763 npm error errno -2
+1.763 npm error enoent Could not read package.json: Error: ENOENT: no such file or directory, open '/app/backend/package.json'
+1.764 npm error enoent This is related to npm not being able to find a file.
+1.764 npm error enoent
+1.766 npm error A complete log of this run can be found in: /root/.npm/_logs/2024-08-03T14_26_43_963Z-debug-0.log
+------
+Dockerfile:22
+--------------------
+  20 |     # You can remove this install step if you build with `--bundle` option.
+  21 |     # The bundled output will include external dependencies.
+  22 | >>> RUN npm --prefix backend --omit=dev -f install
+  23 |     
+  24 |     CMD [ "node", "backend" ]
+--------------------
+ERROR: failed to solve: process "/bin/sh -c npm --prefix backend --omit=dev -f install" did not complete successfully: exit code: 254

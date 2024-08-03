@@ -3,6 +3,7 @@ import { IsDate } from 'class-validator';
 import {
   Column,
   Entity,
+  JoinColumn,
   ManyToOne,
   OneToOne,
   PrimaryGeneratedColumn,
@@ -32,5 +33,6 @@ export class Bid implements IBid {
     (sale_certificate) => sale_certificate.winning_bid,
     { nullable: true, onDelete: 'SET NULL' }
   )
+  @JoinColumn()
   sale_certificate: SaleCertificate;
 }

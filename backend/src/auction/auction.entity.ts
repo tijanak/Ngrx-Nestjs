@@ -2,6 +2,7 @@ import { IsDate, Min } from 'class-validator';
 import {
   Column,
   Entity,
+  JoinColumn,
   ManyToMany,
   ManyToOne,
   OneToMany,
@@ -37,14 +38,23 @@ export class Auction implements IAuction {
   categories: AuctionCategory[];
   @ManyToOne(() => User, (user) => user.auctions)
   owner: User;
-  @OneToMany(() => AuctionImage, (image) => image.auction)
+  @OneToMany(() => AuctionImage, (image) => image.auction, {
+    onDelete: 'CASCADE',
+    onUpdate: 'CASCADE',
+  })
   images: AuctionImage[];
+
   @OneToOne(() => SaleCertificate, (certificate) => certificate.auction, {
     nullable: true,
     onDelete: 'SET NULL',
   })
+  @JoinColumn()
   sale_certificate: SaleCertificate | null;
 
-  @OneToMany(() => Bid, (bid) => bid.auction, { cascade: true })
+  @OneToMany(() => Bid, (bid) => bid.auction, {
+    cascade: true,
+    onDelete: 'CASCADE',
+    onUpdate: 'CASCADE',
+  })
   bids: Bid[];
 }

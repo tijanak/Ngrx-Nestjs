@@ -35,4 +35,7 @@ export class AuthService {
   async clearCookie(res: any) {
     res.clearCookie('accessToken');
   }
+  async register(user) {
+    return this.usersService.register(user);
+  }
 }

@@ -1,8 +1,8 @@
 {
   "run": {
     "command": "nx run backend:build:development",
-    "startTime": "2024-08-03T01:29:40.115Z",
-    "endTime": "2024-08-03T01:29:40.171Z",
+    "startTime": "2024-08-03T21:32:51.091Z",
+    "endTime": "2024-08-03T21:32:58.342Z",
     "inner": false
   },
   "tasks": [
@@ -10,11 +10,11 @@
       "taskId": "backend:build",
       "target": "build",
       "projectName": "backend",
-      "hash": "7589076541763753079",
-      "startTime": "2024-08-03T01:29:40.126Z",
-      "endTime": "2024-08-03T01:29:40.166Z",
+      "hash": "1292727908514355552",
+      "startTime": "2024-08-03T21:32:51.101Z",
+      "endTime": "2024-08-03T21:32:58.341Z",
       "params": "",
-      "cacheStatus": "local-cache-hit",
+      "cacheStatus": "cache-miss",
       "status": 0
     }
   ]

@@ -1,0 +1,81 @@
+[2m> [22mdocker build -f backend/Dockerfile . -t backend
+
+#0 building with "desktop-linux" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 697B 0.0s done
+#1 DONE 0.1s
+
+#2 [internal] load metadata for docker.io/library/node:lts-alpine
+#2 ...
+
+#3 [auth] library/node:pull token for registry-1.docker.io
+#3 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/node:lts-alpine
+#2 DONE 2.3s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 2B done
+#4 DONE 0.2s
+
+#5 [internal] load build context
+#5 DONE 0.0s
+
+#6 [1/6] FROM docker.io/library/node:lts-alpine@sha256:eb8101caae9ac02229bd64c024919fe3d4504ff7f329da79ca60a04db08cef52
+#6 resolve docker.io/library/node:lts-alpine@sha256:eb8101caae9ac02229bd64c024919fe3d4504ff7f329da79ca60a04db08cef52
+#6 resolve docker.io/library/node:lts-alpine@sha256:eb8101caae9ac02229bd64c024919fe3d4504ff7f329da79ca60a04db08cef52 0.2s done
+#6 sha256:eb8101caae9ac02229bd64c024919fe3d4504ff7f329da79ca60a04db08cef52 7.67kB / 7.67kB done
+#6 sha256:375518d70893d14665b99393079e77bd4947884f123a66ade28744eb8340d229 1.72kB / 1.72kB done
+#6 sha256:e2997a3fdff8b88aee369a7de727d89bff21c0e2927d7c0487dbbaab6eaf8f14 6.38kB / 6.38kB done
+#6 sha256:c6a83fedfae6ed8a4f5f7cbb6a7b6f1c1ec3d86fea8cb9e5ba2e5e6673fde9f6 0B / 3.62MB 0.1s
+#6 sha256:d9aac50bc34e2a0199701ebddca85c36acd90c4d1ad915ca0849364c41547d70 0B / 42.24MB 0.3s
+#6 sha256:0150f131fd2fb613a281e43d320d5772ad190446bcbb177a28f53838f53fdd3c 0B / 1.39MB 0.3s
+#6 sha256:c6a83fedfae6ed8a4f5f7cbb6a7b6f1c1ec3d86fea8cb9e5ba2e5e6673fde9f6 3.62MB / 3.62MB 0.5s
+#6 sha256:d9aac50bc34e2a0199701ebddca85c36acd90c4d1ad915ca0849364c41547d70 4.19MB / 42.24MB 0.7s
+#6 sha256:0150f131fd2fb613a281e43d320d5772ad190446bcbb177a28f53838f53fdd3c 1.39MB / 1.39MB 0.7s
+#6 sha256:c6a83fedfae6ed8a4f5f7cbb6a7b6f1c1ec3d86fea8cb9e5ba2e5e6673fde9f6 3.62MB / 3.62MB 0.7s done
+#6 extracting sha256:c6a83fedfae6ed8a4f5f7cbb6a7b6f1c1ec3d86fea8cb9e5ba2e5e6673fde9f6
+#6 sha256:d9aac50bc34e2a0199701ebddca85c36acd90c4d1ad915ca0849364c41547d70 9.44MB / 42.24MB 0.9s
+#6 sha256:0150f131fd2fb613a281e43d320d5772ad190446bcbb177a28f53838f53fdd3c 1.39MB / 1.39MB 0.9s done
+#6 sha256:d9aac50bc34e2a0199701ebddca85c36acd90c4d1ad915ca0849364c41547d70 14.68MB / 42.24MB 1.1s
+#6 extracting sha256:c6a83fedfae6ed8a4f5f7cbb6a7b6f1c1ec3d86fea8cb9e5ba2e5e6673fde9f6 0.3s done
+#6 sha256:c0ce3bd8f30377d0ed394d1177e5009ffc3f6907a980562779583174e8b04acc 0B / 446B 1.1s
+#6 sha256:d9aac50bc34e2a0199701ebddca85c36acd90c4d1ad915ca0849364c41547d70 19.92MB / 42.24MB 1.3s
+#6 sha256:c0ce3bd8f30377d0ed394d1177e5009ffc3f6907a980562779583174e8b04acc 446B / 446B 1.3s done
+#6 sha256:d9aac50bc34e2a0199701ebddca85c36acd90c4d1ad915ca0849364c41547d70 24.12MB / 42.24MB 1.5s
+#6 sha256:d9aac50bc34e2a0199701ebddca85c36acd90c4d1ad915ca0849364c41547d70 30.41MB / 42.24MB 1.7s
+#6 sha256:d9aac50bc34e2a0199701ebddca85c36acd90c4d1ad915ca0849364c41547d70 35.65MB / 42.24MB 1.9s
+#6 sha256:d9aac50bc34e2a0199701ebddca85c36acd90c4d1ad915ca0849364c41547d70 39.85MB / 42.24MB 2.1s
+#6 sha256:d9aac50bc34e2a0199701ebddca85c36acd90c4d1ad915ca0849364c41547d70 42.24MB / 42.24MB 2.3s
+#6 sha256:d9aac50bc34e2a0199701ebddca85c36acd90c4d1ad915ca0849364c41547d70 42.24MB / 42.24MB 4.3s done
+#6 extracting sha256:d9aac50bc34e2a0199701ebddca85c36acd90c4d1ad915ca0849364c41547d70
+#6 ...
+
+#5 [internal] load build context
+#5 transferring context: 2B 4.9s done
+#5 DONE 5.2s
+
+#7 [2/6] WORKDIR /app
+#7 CACHED
+
+#8 [3/6] RUN addgroup --system backend &&           adduser --system -G backend backend
+#8 CACHED
+
+#9 [4/6] COPY docker backend/
+#9 ERROR: failed to calculate checksum of ref 381ea5b3-2a07-4c5b-a7e1-02f3fc6ad366::kulga4233m6tbqpfqjo1w1nkp: "/docker": not found
+
+#6 [1/6] FROM docker.io/library/node:lts-alpine@sha256:eb8101caae9ac02229bd64c024919fe3d4504ff7f329da79ca60a04db08cef52
+#6 CANCELED
+------
+ > [4/6] COPY docker backend/:
+------
+Dockerfile:17
+--------------------
+  15 |               adduser --system -G backend backend
+  16 |     
+  17 | >>> COPY docker backend/
+  18 |     RUN chown -R backend:backend .
+  19 |     
+--------------------
+ERROR: failed to solve: failed to compute cache key: failed to calculate checksum of ref 381ea5b3-2a07-4c5b-a7e1-02f3fc6ad366::kulga4233m6tbqpfqjo1w1nkp: "/docker": not found

@@ -1,45 +1,40 @@
-import { Injectable } from '@nestjs/common';
+import {
+  BadRequestException,
+  ConflictException,
+  Injectable,
+} from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { User } from './user.entity';
 import { Repository } from 'typeorm';
 
 import * as bcrypt from 'bcrypt';
+import { CreateUserDto, toIUser } from '@org/models';
+import { validate } from 'class-validator';
 @Injectable()
 export class UserService {
-  private users = [];
   constructor(
     @InjectRepository(User)
     private userRepo: Repository<User>
-  ) {
-    bcrypt.genSalt(10).then((salt) => {
-      bcrypt.hash('changeme', salt).then((value) => {
-        this.users.push({
-          id: 1,
-          name: 'john',
-          surname: 'haha',
-          email: 'john@email.com',
-          password: value,
-          phone_number: '123456',
-          auctions: [],
-          bids: [],
-        });
-      });
-      bcrypt.hash('guess', salt).then((value) => {
-        this.users.push({
-          id: 2,
-          name: 'maria',
-          surname: 'kvaic',
-          email: 'maria@email.com',
-          password: value,
-          phone_number: '123456',
-          auctions: [],
-          bids: [],
-        });
-      });
-    });
+  ) {}
+  private async hashPassword(password: string): Promise<string> {
+    let salt = await bcrypt.genSalt(10);
+    let hashed = await bcrypt.hash(password, salt);
+    return hashed;
+  }
+  async register(userCreateDto: CreateUserDto) {
+    const user = this.userRepo.create(userCreateDto);
+    const errors = await validate(user);
+
+    if (errors.length > 0) {
+      throw new BadRequestException(errors);
+    }
+    user.password = await this.hashPassword(user.password);
+    return this.userRepo.save(user);
   }
   async findOne(email: string): Promise<User | undefined> {
-    //return this.userRepo.findOne({ where: [{ email: email }] });
-    return this.users.find((user) => user.email === email);
+    return this.userRepo.findOne({ where: [{ email: email }] });
+  }
+  async delete(id: number) {
+    return this.userRepo.delete(id);
   }
 }
