@@ -58,18 +58,6 @@ export class RegisterComponent implements OnInit, OnDestroy {
     });
     this.subscriptions.push(
       this.store
-        .select(selectAuthError)
-        .pipe(skip(1))
-        .subscribe((error) => {
-          if (error) {
-            this.snackBar.open(error.error.message, 'Close', {
-              duration: 2000,
-            });
-          }
-        })
-    );
-    this.subscriptions.push(
-      this.store
         .select(selectLoggedIn)
         .pipe(skip(1))
         .subscribe((loggedIn) => {

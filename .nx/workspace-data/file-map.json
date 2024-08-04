@@ -116,6 +116,34 @@
   "fileMap": {
     "nonProjectFiles": [
       {
+        "file": "package.json",
+        "hash": "4061843506327483891"
+      },
+      {
+        "file": "jest.preset.js",
+        "hash": "9430166341120122740"
+      },
+      {
+        "file": ".eslintrc.json",
+        "hash": "18315524891129148814"
+      },
+      {
+        "file": ".gitignore",
+        "hash": "13917007966464669153"
+      },
+      {
+        "file": ".gitattributes",
+        "hash": "13194702717607086212"
+      },
+      {
+        "file": "tsconfig.base.json",
+        "hash": "3551299669992616240"
+      },
+      {
+        "file": ".prettierignore",
+        "hash": "5407418692668764289"
+      },
+      {
         "file": ".prettierrc",
         "hash": "16267754514737964994"
       },
@@ -124,56 +152,28 @@
         "hash": "17216222708811596682"
       },
       {
-        "file": ".gitattributes",
-        "hash": "13194702717607086212"
-      },
-      {
-        "file": "README.md",
-        "hash": "14534800709022261397"
-      },
-      {
         "file": ".eslintignore",
         "hash": "7663861978715868291"
-      },
-      {
-        "file": "jest.preset.js",
-        "hash": "9430166341120122740"
-      },
-      {
-        "file": "package.json",
-        "hash": "4061843506327483891"
-      },
-      {
-        "file": ".eslintrc.json",
-        "hash": "18315524891129148814"
       },
       {
         "file": "jest.config.ts",
         "hash": "3494843969422251966"
       },
       {
-        "file": ".editorconfig",
-        "hash": "5443105041930014821"
+        "file": "nx.json",
+        "hash": "1097630411021103535"
+      },
+      {
+        "file": "README.md",
+        "hash": "14534800709022261397"
       },
       {
         "file": ".vscode/extensions.json",
         "hash": "4934098906304722861"
       },
       {
-        "file": "nx.json",
-        "hash": "1097630411021103535"
-      },
-      {
-        "file": "tsconfig.base.json",
-        "hash": "3551299669992616240"
-      },
-      {
-        "file": ".gitignore",
-        "hash": "13917007966464669153"
-      },
-      {
-        "file": ".prettierignore",
-        "hash": "5407418692668764289"
+        "file": ".editorconfig",
+        "hash": "5443105041930014821"
       }
     ],
     "projectFileMap": {
@@ -315,7 +315,7 @@
         },
         {
           "file": "frontend/src/app/app.component.html",
-          "hash": "17816966185630879015"
+          "hash": "2519808892619378553"
         },
         {
           "file": "frontend/src/app/app.component.scss",
@@ -323,11 +323,12 @@
         },
         {
           "file": "frontend/src/app/app.component.ts",
-          "hash": "12094213384465993336",
+          "hash": "13024984088505578199",
           "deps": [
             "npm:@angular/core",
             "npm:@angular/router",
-            "npm:@angular/common"
+            "npm:@angular/common",
+            "npm:@ngrx/store"
           ]
         },
         {
@@ -399,7 +400,7 @@
         },
         {
           "file": "frontend/src/app/components/login/login.component.ts",
-          "hash": "1117654623720616506",
+          "hash": "10430911618012375125",
           "deps": [
             "npm:@angular/core",
             "npm:@angular/common",
@@ -427,7 +428,7 @@
         },
         {
           "file": "frontend/src/app/components/register/register.component.ts",
-          "hash": "10948062896677433281",
+          "hash": "17602780269588302140",
           "deps": [
             "npm:@angular/core",
             "npm:@angular/common",
@@ -555,6 +556,32 @@
         {
           "file": "frontend/tsconfig.spec.json",
           "hash": "2129196202529263968"
+        },
+        {
+          "file": "frontend/src/app/components/message-snackbar/message-snackbar.component.css",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "frontend/src/app/components/message-snackbar/message-snackbar.component.ts",
+          "hash": "14603875125045587242",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/common",
+            "npm:@angular/material",
+            "npm:@ngrx/store",
+            "npm:rxjs"
+          ]
+        },
+        {
+          "file": "frontend/src/app/components/message-snackbar/message-snackbar.component.html",
+          "hash": "4055606894390288348"
+        },
+        {
+          "file": "frontend/src/app/components/message-snackbar/message-snackbar.component.spec.ts",
+          "hash": "944740910300057551",
+          "deps": [
+            "npm:@angular/core"
+          ]
         }
       ],
       "backend": [
@@ -746,7 +773,7 @@
         },
         {
           "file": "backend/src/auth/strategies/jwt.strategy.ts",
-          "hash": "1024838402257646405",
+          "hash": "5045961719524366060",
           "deps": [
             "npm:passport-jwt",
             "npm:@nestjs/passport",
@@ -757,7 +784,7 @@
         },
         {
           "file": "backend/src/auth/strategies/local.strategy.ts",
-          "hash": "5479962917441951086",
+          "hash": "614181876764549957",
           "deps": [
             "npm:passport-local",
             "npm:@nestjs/passport",

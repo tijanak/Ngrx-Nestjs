@@ -23,7 +23,7 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
   async validate(payload: any): Promise<IUser | null> {
     const authUser = await this.userService.findOne(payload.username);
     if (!authUser) {
-      throw new UnauthorizedException();
+      throw new UnauthorizedException('Nevalidan token');
     }
     return toIUser(authUser);
   }

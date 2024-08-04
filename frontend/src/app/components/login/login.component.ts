@@ -12,11 +12,13 @@ import { Store } from '@ngrx/store';
 import { AppState } from '../../store/app.reducer';
 import { login } from '../../store/auth/auth.actions';
 import {
+  selectAuthError,
   selectAuthFeature,
   selectLoggedIn,
 } from '../../store/auth/auth.selectors';
 import { MatCardModule } from '@angular/material/card';
 import { skip, Subscription } from 'rxjs';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-login',
@@ -41,11 +43,12 @@ export class LoginComponent implements OnInit, OnDestroy {
     this.hide.set(!this.hide());
     event.stopPropagation();
   }
-  private loginListener: Subscription;
+  private subscriptions: Subscription[] = [];
   constructor(
     private router: Router,
     private fb: FormBuilder,
-    private store: Store<AppState>
+    private store: Store<AppState>,
+    private snackBar: MatSnackBar
   ) {
     this.form = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
@@ -53,17 +56,19 @@ export class LoginComponent implements OnInit, OnDestroy {
     });
   }
   ngOnInit(): void {
-    this.loginListener = this.store
-      .select(selectLoggedIn)
-      .pipe(skip(1))
-      .subscribe((loggedIn) => {
-        if (loggedIn) {
-          this.router.navigate(['/home']);
-        }
-      });
+    this.subscriptions.push(
+      this.store
+        .select(selectLoggedIn)
+        .pipe(skip(1))
+        .subscribe((loggedIn) => {
+          if (loggedIn) {
+            this.router.navigate(['/home']);
+          }
+        })
+    );
   }
   ngOnDestroy(): void {
-    if (this.loginListener) this.loginListener.unsubscribe();
+    this.subscriptions.forEach((sub) => sub.unsubscribe());
   }
   onSubmit() {
     if (this.form.valid) {

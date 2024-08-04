@@ -14449,17 +14449,17 @@
       },
       {
         "source": "frontend",
+        "target": "npm:@ngrx/store",
+        "type": "static"
+      },
+      {
+        "source": "frontend",
         "target": "npm:@angular/platform-browser",
         "type": "static"
       },
       {
         "source": "frontend",
         "target": "npm:@angular/material",
-        "type": "static"
-      },
-      {
-        "source": "frontend",
-        "target": "npm:@ngrx/store",
         "type": "static"
       },
       {

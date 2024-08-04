@@ -6,10 +6,11 @@ import { AuthInterceptor } from './auth.interceptor';
 import { Store } from '@ngrx/store';
 import { AppState } from './store/app.reducer';
 import { selectAuthFeature } from './store/auth/auth.selectors';
+import { MessageSnackbarComponent } from './components/message-snackbar/message-snackbar.component';
 
 @Component({
   standalone: true,
-  imports: [RouterModule, LoginComponent],
+  imports: [RouterModule, LoginComponent, MessageSnackbarComponent],
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
