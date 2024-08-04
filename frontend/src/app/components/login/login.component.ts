@@ -1,4 +1,4 @@
-import { Component, OnInit, signal } from '@angular/core';
+import { Component, OnDestroy, OnInit, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router, RouterModule } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
@@ -11,7 +11,12 @@ import { AuthService } from '../../services/auth.service';
 import { Store } from '@ngrx/store';
 import { AppState } from '../../store/app.reducer';
 import { login } from '../../store/auth/auth.actions';
-import { selectAuthFeature } from '../../store/auth/auth.selectors';
+import {
+  selectAuthFeature,
+  selectLoggedIn,
+} from '../../store/auth/auth.selectors';
+import { MatCardModule } from '@angular/material/card';
+import { skip, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -24,17 +29,19 @@ import { selectAuthFeature } from '../../store/auth/auth.selectors';
     MatFormFieldModule,
     MatIconModule,
     MatInputModule,
+    MatCardModule,
   ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css',
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent implements OnInit, OnDestroy {
   form: FormGroup;
   hide = signal(true);
   clickEvent(event: MouseEvent) {
     this.hide.set(!this.hide());
     event.stopPropagation();
   }
+  private loginListener: Subscription;
   constructor(
     private router: Router,
     private fb: FormBuilder,
@@ -46,11 +53,18 @@ export class LoginComponent implements OnInit {
     });
   }
   ngOnInit(): void {
-    this.store.select(selectAuthFeature).subscribe((auth) => {
-      if (auth.loggedIn) this.router.navigate(['/home']);
-    });
+    this.loginListener = this.store
+      .select(selectLoggedIn)
+      .pipe(skip(1))
+      .subscribe((loggedIn) => {
+        if (loggedIn) {
+          this.router.navigate(['/home']);
+        }
+      });
   }
-
+  ngOnDestroy(): void {
+    if (this.loginListener) this.loginListener.unsubscribe();
+  }
   onSubmit() {
     if (this.form.valid) {
       console.log(this.form.value);

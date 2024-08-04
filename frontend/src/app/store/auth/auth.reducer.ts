@@ -33,7 +33,7 @@ export const authReducer = createReducer(
   on(loginFailure, (state, { error }) => ({
     ...state,
     loggedIn: false,
-    error,
+    error: error,
   })),
   on(logout, () => initialState),
   on(registrationSucces, (state, {}) => ({
@@ -44,6 +44,6 @@ export const authReducer = createReducer(
   on(registrationFailure, (state, { error }) => ({
     ...state,
     loggedIn: false,
-    error,
+    error: error,
   }))
 );

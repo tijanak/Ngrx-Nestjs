@@ -116,6 +116,34 @@
   "fileMap": {
     "nonProjectFiles": [
       {
+        "file": ".prettierrc",
+        "hash": "16267754514737964994"
+      },
+      {
+        "file": "package-lock.json",
+        "hash": "17216222708811596682"
+      },
+      {
+        "file": ".gitattributes",
+        "hash": "13194702717607086212"
+      },
+      {
+        "file": "README.md",
+        "hash": "14534800709022261397"
+      },
+      {
+        "file": ".eslintignore",
+        "hash": "7663861978715868291"
+      },
+      {
+        "file": "jest.preset.js",
+        "hash": "9430166341120122740"
+      },
+      {
+        "file": "package.json",
+        "hash": "4061843506327483891"
+      },
+      {
         "file": ".eslintrc.json",
         "hash": "18315524891129148814"
       },
@@ -124,56 +152,28 @@
         "hash": "3494843969422251966"
       },
       {
-        "file": ".eslintignore",
-        "hash": "7663861978715868291"
-      },
-      {
         "file": ".editorconfig",
         "hash": "5443105041930014821"
-      },
-      {
-        "file": ".gitignore",
-        "hash": "13917007966464669153"
-      },
-      {
-        "file": "tsconfig.base.json",
-        "hash": "3551299669992616240"
-      },
-      {
-        "file": "README.md",
-        "hash": "14534800709022261397"
-      },
-      {
-        "file": "nx.json",
-        "hash": "1097630411021103535"
-      },
-      {
-        "file": "jest.preset.js",
-        "hash": "9430166341120122740"
-      },
-      {
-        "file": ".gitattributes",
-        "hash": "13194702717607086212"
       },
       {
         "file": ".vscode/extensions.json",
         "hash": "4934098906304722861"
       },
       {
-        "file": "package.json",
-        "hash": "4061843506327483891"
+        "file": "nx.json",
+        "hash": "1097630411021103535"
+      },
+      {
+        "file": "tsconfig.base.json",
+        "hash": "3551299669992616240"
+      },
+      {
+        "file": ".gitignore",
+        "hash": "13917007966464669153"
       },
       {
         "file": ".prettierignore",
         "hash": "5407418692668764289"
-      },
-      {
-        "file": "package-lock.json",
-        "hash": "17216222708811596682"
-      },
-      {
-        "file": ".prettierrc",
-        "hash": "16267754514737964994"
       }
     ],
     "projectFileMap": {
@@ -372,13 +372,14 @@
         },
         {
           "file": "frontend/src/app/components/home/home.component.ts",
-          "hash": "9409130411398839703",
+          "hash": "16771727360766738851",
           "deps": [
             "npm:@angular/core",
             "npm:@angular/common",
             "npm:@angular/material",
             "npm:@angular/router",
-            "npm:@ngrx/store"
+            "npm:@ngrx/store",
+            "npm:rxjs"
           ]
         },
         {
@@ -387,7 +388,7 @@
         },
         {
           "file": "frontend/src/app/components/login/login.component.html",
-          "hash": "14428194757403981930"
+          "hash": "16449235779541542704"
         },
         {
           "file": "frontend/src/app/components/login/login.component.spec.ts",
@@ -398,14 +399,15 @@
         },
         {
           "file": "frontend/src/app/components/login/login.component.ts",
-          "hash": "2361632160538908583",
+          "hash": "1117654623720616506",
           "deps": [
             "npm:@angular/core",
             "npm:@angular/common",
             "npm:@angular/router",
             "npm:@angular/material",
             "npm:@angular/forms",
-            "npm:@ngrx/store"
+            "npm:@ngrx/store",
+            "npm:rxjs"
           ]
         },
         {
@@ -425,14 +427,15 @@
         },
         {
           "file": "frontend/src/app/components/register/register.component.ts",
-          "hash": "15446237240498860048",
+          "hash": "10948062896677433281",
           "deps": [
             "npm:@angular/core",
             "npm:@angular/common",
             "npm:@angular/forms",
             "npm:@angular/material",
             "npm:@angular/router",
-            "npm:@ngrx/store"
+            "npm:@ngrx/store",
+            "npm:rxjs"
           ]
         },
         {
@@ -502,7 +505,7 @@
         },
         {
           "file": "frontend/src/app/store/auth/auth.reducer.ts",
-          "hash": "8254336060772228588",
+          "hash": "2840011551678352396",
           "deps": [
             "npm:@ngrx/store",
             "npm:@angular/common"
@@ -510,7 +513,7 @@
         },
         {
           "file": "frontend/src/app/store/auth/auth.selectors.ts",
-          "hash": "13459558583773598740",
+          "hash": "12174127476304940267",
           "deps": [
             "npm:@ngrx/store"
           ]

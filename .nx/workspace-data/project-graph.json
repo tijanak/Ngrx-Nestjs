@@ -14464,12 +14464,12 @@
       },
       {
         "source": "frontend",
-        "target": "npm:@angular/forms",
+        "target": "npm:rxjs",
         "type": "static"
       },
       {
         "source": "frontend",
-        "target": "npm:rxjs",
+        "target": "npm:@angular/forms",
         "type": "static"
       },
       {
