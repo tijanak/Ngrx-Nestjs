@@ -7693,6 +7693,15 @@
         "hash": "sha512-a3KdPAANPbNE4ZUv9h6LckSl9zLsYOP4MBmhIPkRaeyybt+r4UghLvq+xw/YwUcC1gqylCkL4rdVs3Lwupjm4Q=="
       }
     },
+    "npm:class-transformer": {
+      "type": "npm",
+      "name": "npm:class-transformer",
+      "data": {
+        "version": "0.5.1",
+        "packageName": "class-transformer",
+        "hash": "sha512-SQa1Ws6hUbfC98vKGxZH3KFY0Y1lm5Zm0SY8XX9zbK7FJCyVEac3ATW0RIpwzW+oOfmHE5PMPufDG9hCfoEOMw=="
+      }
+    },
     "npm:class-validator": {
       "type": "npm",
       "name": "npm:class-validator",
@@ -14459,17 +14468,27 @@
       },
       {
         "source": "frontend",
+        "target": "npm:@ngrx/store-devtools",
+        "type": "static"
+      },
+      {
+        "source": "frontend",
+        "target": "npm:@ngrx/effects",
+        "type": "static"
+      },
+      {
+        "source": "frontend",
         "target": "npm:@angular/material",
         "type": "static"
       },
       {
         "source": "frontend",
-        "target": "npm:rxjs",
+        "target": "npm:@angular/forms",
         "type": "static"
       },
       {
         "source": "frontend",
-        "target": "npm:@angular/forms",
+        "target": "npm:rxjs",
         "type": "static"
       },
       {
@@ -14484,7 +14503,7 @@
       },
       {
         "source": "frontend",
-        "target": "npm:@ngrx/effects",
+        "target": "npm:@ngrx/entity",
         "type": "static"
       },
       {
@@ -14526,6 +14545,11 @@
       },
       {
         "source": "backend",
+        "target": "npm:@nestjs/core",
+        "type": "static"
+      },
+      {
+        "source": "backend",
         "target": "npm:@nestjs/swagger",
         "type": "static"
       },
@@ -14561,17 +14585,17 @@
       },
       {
         "source": "backend",
-        "target": "npm:@nestjs/core",
-        "type": "static"
-      },
-      {
-        "source": "backend",
         "target": "npm:cookie-parser",
         "type": "static"
       },
       {
         "source": "backend",
         "target": "npm:@nx/webpack",
+        "type": "static"
+      },
+      {
+        "source": "backend",
+        "target": "npm:rxjs",
         "type": "static"
       }
     ],
@@ -20637,6 +20661,11 @@
     "npm:@nestjs/common": [
       {
         "source": "npm:@nestjs/common",
+        "target": "npm:class-transformer",
+        "type": "static"
+      },
+      {
+        "source": "npm:@nestjs/common",
         "target": "npm:class-validator",
         "type": "static"
       },
@@ -20739,6 +20768,11 @@
       {
         "source": "npm:@nestjs/mapped-types",
         "target": "npm:@nestjs/common",
+        "type": "static"
+      },
+      {
+        "source": "npm:@nestjs/mapped-types",
+        "target": "npm:class-transformer",
         "type": "static"
       },
       {
@@ -20947,6 +20981,11 @@
       {
         "source": "npm:@nestjs/swagger",
         "target": "npm:@nestjs/core",
+        "type": "static"
+      },
+      {
+        "source": "npm:@nestjs/swagger",
+        "target": "npm:class-transformer",
         "type": "static"
       },
       {

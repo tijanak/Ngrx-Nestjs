@@ -1,5 +1,13 @@
 import { IUser } from '@org/models';
-import { IsEmail, IsPhoneNumber, validateOrReject } from 'class-validator';
+import {
+  IsEmail,
+  IsPhoneNumber,
+  IsString,
+  Length,
+  Matches,
+  MaxLength,
+  validateOrReject,
+} from 'class-validator';
 import {
   BeforeInsert,
   BeforeUpdate,
@@ -17,10 +25,13 @@ export class User implements IUser {
   @PrimaryGeneratedColumn()
   id: number;
   @Column()
+  @IsString()
   name: string;
   @Column()
+  @IsString()
   surname: string;
   @Column()
+  @IsString()
   password: string;
   @Column({ unique: true })
   @IsEmail(undefined, { message: 'Email je neispravan' })

@@ -23,17 +23,6 @@ export class UserService {
   }
   async register(userCreateDto: CreateUserDto) {
     const user = this.userRepo.create(userCreateDto);
-    const errors = await validate(user);
-
-    if (errors.length > 0) {
-      const firstError = errors[0];
-
-      const message = firstError.constraints
-        ? Object.values(firstError.constraints)[0]
-        : 'Nepoznata greska';
-
-      throw new BadRequestException({ message: message });
-    }
     user.password = await this.hashPassword(user.password);
     return this.userRepo.save(user);
   }

@@ -25,6 +25,6 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
     if (!authUser) {
       throw new UnauthorizedException('Nevalidan token');
     }
-    return toIUser(authUser);
+    return authUser;
   }
 }

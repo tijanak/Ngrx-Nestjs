@@ -1,9 +1,0 @@
-Project 'frontend' contains extension with invalid name (nx).
-
-[0m[7m[1m[31m NX [39m[22m[27m[0m  [31mSchema validation failed with the following errors:[39m
-
-  Data path "" must NOT have additional properties(generatePackageJson).
-
-Error: Schema validation failed with the following errors:
-  Data path "" must NOT have additional properties(generatePackageJson).
-    at name (D:\RWA\Projekti\Ngrx-Nestjs\node_modules\@angular-devkit\architect\src\architect.js:227:19)

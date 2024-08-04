@@ -47,8 +47,7 @@ export class LoginComponent implements OnInit, OnDestroy {
   constructor(
     private router: Router,
     private fb: FormBuilder,
-    private store: Store<AppState>,
-    private snackBar: MatSnackBar
+    private store: Store<AppState>
   ) {
     this.form = this.fb.group({
       email: ['', [Validators.required, Validators.email]],

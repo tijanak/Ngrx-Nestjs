@@ -24,14 +24,11 @@ export class Auction implements IAuction {
   @Column()
   description: string;
   @Column({ type: 'timestamptz' })
-  @IsDate()
   end_time: Date;
-  @IsDate()
   @Column({ type: 'timestamptz' })
   start_time: Date;
 
   @Column()
-  @Min(1, { message: 'Minimalna cena mora biti veca od 0' })
   min_price: number;
 
   @ManyToMany(() => AuctionCategory, (category) => category.auctions)

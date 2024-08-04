@@ -1,24 +1,22 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
 import { CommonModule, NgIf } from '@angular/common';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MatSnackBar } from '@angular/material/snack-bar';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import {
+  FormBuilder,
+  FormGroup,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { MatButtonModule } from '@angular/material/button';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { ReactiveFormsModule } from '@angular/forms';
-import {
-  selectAuthError,
-  selectAuthFeature,
-  selectLoggedIn,
-} from '../../store/auth/auth.selectors';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
+import { Subscription, skip } from 'rxjs';
 import { AppState } from '../../store/app.reducer';
 import { registration } from '../../store/auth/auth.actions';
-import { error } from 'console';
-import { Subscription, pipe, skip } from 'rxjs';
+import { selectLoggedIn } from '../../store/auth/auth.selectors';
 @Component({
   selector: 'app-register',
   standalone: true,
@@ -42,8 +40,7 @@ export class RegisterComponent implements OnInit, OnDestroy {
   constructor(
     private store: Store<AppState>,
     private router: Router,
-    private fb: FormBuilder,
-    private snackBar: MatSnackBar
+    private fb: FormBuilder
   ) {}
   ngOnInit(): void {
     this.registerForm = this.fb.group({

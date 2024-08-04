@@ -35,7 +35,7 @@ export class AuthController {
   @UseGuards(JwtAuthGuard)
   @Get('profile')
   getProfile(@Req() req) {
-    return req.user;
+    return toIUser(req.user);
   }
   @Post('register')
   async register(@Body() userDto: CreateUserDto, @Res() res: Response) {
