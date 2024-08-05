@@ -1,0 +1,15 @@
+[2m> [22mwebpack-cli build --node-env=production
+
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 55 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./src/bid/bid.controller.ts:[32m[1m54:35[22m[39m[1m[39m[22m
+[90mTS2345: [39mArgument of type 'string' is not assignable to parameter of type 'number'.
+  [0m [90m 52 |[39m   [33m@[39m[33mDelete[39m([32m':id'[39m)
+   [90m 53 |[39m   remove([33m@[39m[33mParam[39m([32m'id'[39m[33m,[39m [33mParseIntPipe[39m) id[33m:[39m string) {
+  [31m[1m>[22m[39m[90m 54 |[39m     [36mreturn[39m [36mthis[39m[33m.[39mbidService[33m.[39mremove(id)[33m;[39m
+   [90m    |[39m                                   [31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 55 |[39m   }
+   [90m 56 |[39m }
+   [90m 57 |[39m[0m
+
+webpack compiled with [1m[31m1 error[39m[22m (2ef2cdae7fe0479b)

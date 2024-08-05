@@ -9,11 +9,13 @@ import {
   ParseIntPipe,
   UseGuards,
   Req,
+  Put,
 } from '@nestjs/common';
 import { BidService } from './bid.service';
 import { CreateBidDto } from './dto/bid.create-dto';
 import { UpdateBidDto } from './dto/bid.update-dto';
 import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
+import { OwnerGuard } from './guards/owner.guard';
 
 @Controller('bid')
 @UseGuards(JwtAuthGuard)
@@ -43,12 +45,17 @@ export class BidController {
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateBidDto: UpdateBidDto) {
-    return this.bidService.update(+id, updateBidDto);
+  @UseGuards(OwnerGuard)
+  update(
+    @Param('id', ParseIntPipe) id: number,
+    @Body() updateBidDto: UpdateBidDto
+  ) {
+    return this.bidService.update(id, updateBidDto);
   }
 
   @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.bidService.remove(+id);
+  @UseGuards(OwnerGuard)
+  remove(@Param('id', ParseIntPipe) id: number) {
+    return this.bidService.remove(id);
   }
 }

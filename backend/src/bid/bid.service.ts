@@ -1,4 +1,8 @@
-import { ForbiddenException, Injectable } from '@nestjs/common';
+import {
+  BadRequestException,
+  ForbiddenException,
+  Injectable,
+} from '@nestjs/common';
 import { CreateBidDto } from './dto/bid.create-dto';
 import { UpdateBidDto } from './dto/bid.update-dto';
 import { InjectRepository } from '@nestjs/typeorm';
@@ -39,11 +43,17 @@ export class BidService {
     return this.bidRepo.findOne({ where: { id }, relations });
   }
 
-  update(id: number, updateBidDto: UpdateBidDto) {
+  async update(id: number, updateBidDto: UpdateBidDto) {
+    const bid = await this.findOne(id);
+    if (bid.amount > updateBidDto.amount)
+      throw new ForbiddenException('Iznos ponude ne može da se smanjuje');
     return this.bidRepo.update(id, updateBidDto);
   }
 
-  remove(id: number) {
+  async remove(id: number) {
+    const bid = await this.findOne(id, ['auction']);
+    if (bid.auction.end_time < new Date())
+      throw new ForbiddenException('Aukcija je završena');
     return this.bidRepo.delete(id);
   }
   async findUserBids(id: number) {

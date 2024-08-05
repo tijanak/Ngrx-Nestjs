@@ -4,6 +4,7 @@ import {
   Injectable,
   ForbiddenException,
   Logger,
+  BadRequestException,
 } from '@nestjs/common';
 import { Reflector } from '@nestjs/core';
 import { Observable } from 'rxjs';
@@ -20,7 +21,9 @@ export class OwnerGuard implements CanActivate {
     const request = context.switchToHttp().getRequest();
     const user = request.user;
     const bidId = +request.params.id;
-
+    if (!Number.isInteger(bidId)) {
+      throw new BadRequestException();
+    }
     const bid = await this.bidService.findOne(bidId, ['bidder']);
     if (!bid) {
       throw new ForbiddenException('Bid not found');
