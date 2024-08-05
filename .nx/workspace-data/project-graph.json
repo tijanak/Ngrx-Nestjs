@@ -14503,6 +14503,11 @@
       },
       {
         "source": "frontend",
+        "target": "npm:@nestjs/common",
+        "type": "static"
+      },
+      {
+        "source": "frontend",
         "target": "npm:@ngrx/entity",
         "type": "static"
       },
@@ -14530,17 +14535,17 @@
       },
       {
         "source": "backend",
+        "target": "models",
+        "type": "static"
+      },
+      {
+        "source": "backend",
         "target": "npm:class-validator",
         "type": "static"
       },
       {
         "source": "backend",
         "target": "npm:typeorm",
-        "type": "static"
-      },
-      {
-        "source": "backend",
-        "target": "models",
         "type": "static"
       },
       {

@@ -117,60 +117,44 @@
   "fileMap": {
     "nonProjectFiles": [
       {
-        "file": ".vscode/extensions.json",
-        "hash": "4934098906304722861"
-      },
-      {
         "file": ".prettierignore",
         "hash": "5407418692668764289"
-      },
-      {
-        "file": "README.md",
-        "hash": "14534800709022261397"
-      },
-      {
-        "file": "nx.json",
-        "hash": "1097630411021103535"
-      },
-      {
-        "file": ".eslintignore",
-        "hash": "7663861978715868291"
       },
       {
         "file": "package.json",
         "hash": "17644374381299265211"
       },
       {
-        "file": "jest.config.ts",
-        "hash": "3494843969422251966"
+        "file": "docker-compose.yml",
+        "hash": "9104989849604268909"
       },
       {
         "file": "jest.preset.js",
         "hash": "9430166341120122740"
       },
       {
-        "file": ".dockerignore",
-        "hash": "13419663892536652965"
-      },
-      {
-        "file": ".vscode/tasks.json",
-        "hash": "2459902084299443877"
-      },
-      {
-        "file": "docker-compose.yml",
-        "hash": "9104989849604268909"
-      },
-      {
         "file": "package-lock.json",
         "hash": "5406802926290510729"
       },
       {
-        "file": ".gitignore",
-        "hash": "13917007966464669153"
+        "file": "jest.config.ts",
+        "hash": "3494843969422251966"
       },
       {
-        "file": "Dockerfile",
-        "hash": "6244065497927133712"
+        "file": "docker-compose.debug.yml",
+        "hash": "14168878783884762562"
+      },
+      {
+        "file": "nx.json",
+        "hash": "1097630411021103535"
+      },
+      {
+        "file": ".gitattributes",
+        "hash": "13194702717607086212"
+      },
+      {
+        "file": ".vscode/extensions.json",
+        "hash": "4934098906304722861"
       },
       {
         "file": "tsconfig.base.json",
@@ -185,20 +169,36 @@
         "hash": "5443105041930014821"
       },
       {
-        "file": ".eslintrc.json",
-        "hash": "18315524891129148814"
+        "file": "README.md",
+        "hash": "14534800709022261397"
       },
       {
-        "file": "docker-compose.debug.yml",
-        "hash": "14168878783884762562"
+        "file": "Dockerfile",
+        "hash": "6244065497927133712"
       },
       {
         "file": ".prettierrc",
         "hash": "16267754514737964994"
       },
       {
-        "file": ".gitattributes",
-        "hash": "13194702717607086212"
+        "file": ".eslintignore",
+        "hash": "7663861978715868291"
+      },
+      {
+        "file": ".eslintrc.json",
+        "hash": "18315524891129148814"
+      },
+      {
+        "file": ".dockerignore",
+        "hash": "13419663892536652965"
+      },
+      {
+        "file": ".gitignore",
+        "hash": "13917007966464669153"
+      },
+      {
+        "file": ".vscode/tasks.json",
+        "hash": "2459902084299443877"
       }
     ],
     "projectFileMap": {
@@ -514,7 +514,11 @@
         },
         {
           "file": "frontend/src/app/store/auctions/auctions.effects.ts",
-          "hash": "3244421341483603138"
+          "hash": "3536712613739067626",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@ngrx/effects"
+          ]
         },
         {
           "file": "frontend/src/app/store/auctions/auctions.reducer.ts",
@@ -761,9 +765,10 @@
         },
         {
           "file": "backend/src/auction/auction.controller.ts",
-          "hash": "14074526550888981154",
+          "hash": "617445711392261255",
           "deps": [
-            "npm:@nestjs/common"
+            "npm:@nestjs/common",
+            "models"
           ]
         },
         {
@@ -786,11 +791,12 @@
         },
         {
           "file": "backend/src/auction/auction.service.ts",
-          "hash": "16444096709526567293",
+          "hash": "4266716123305254540",
           "deps": [
             "npm:@nestjs/common",
             "npm:@nestjs/typeorm",
-            "npm:typeorm"
+            "npm:typeorm",
+            "models"
           ]
         },
         {
@@ -803,14 +809,15 @@
         },
         {
           "file": "backend/src/auction/dto/auction.update-dto.ts",
-          "hash": "6240100554572541999",
+          "hash": "11380691141294394487",
           "deps": [
-            "npm:@nestjs/swagger"
+            "npm:@nestjs/swagger",
+            "npm:class-validator"
           ]
         },
         {
           "file": "backend/src/auction/guards/owner.guard.ts",
-          "hash": "12282893191292663421",
+          "hash": "14099153336767625720",
           "deps": [
             "npm:@nestjs/common",
             "npm:@nestjs/core",
@@ -1007,9 +1014,10 @@
         },
         {
           "file": "backend/src/user/dto/user.update-dto.ts",
-          "hash": "7698053916093221432",
+          "hash": "11479793412584443720",
           "deps": [
-            "npm:@nestjs/swagger"
+            "npm:@nestjs/swagger",
+            "npm:class-validator"
           ]
         },
         {
@@ -1098,6 +1106,13 @@
             "npm:@nestjs/common",
             "npm:@nestjs/core",
             "npm:rxjs"
+          ]
+        },
+        {
+          "file": "backend/src/validation/validators/has-at-least-one-field.ts",
+          "hash": "13131955229402138980",
+          "deps": [
+            "npm:class-validator"
           ]
         }
       ]

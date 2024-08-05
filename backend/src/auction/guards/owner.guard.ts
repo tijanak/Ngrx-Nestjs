@@ -26,7 +26,7 @@ export class OwnerGuard implements CanActivate {
     }
     const auction = await this.auctionService.get(auctionId, ['owner']);
     if (!auction) {
-      throw new ForbiddenException('Auction not found');
+      throw new ForbiddenException('Aukcija ne postoji');
     }
 
     if (auction.owner.id !== user.id) {

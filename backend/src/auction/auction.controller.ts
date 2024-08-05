@@ -1,4 +1,5 @@
 import {
+  BadRequestException,
   Body,
   Controller,
   Delete,
@@ -6,6 +7,7 @@ import {
   Logger,
   Param,
   ParseIntPipe,
+  Patch,
   Post,
   Req,
   UseGuards,
@@ -14,6 +16,7 @@ import { AuctionService } from './auction.service';
 import { CreateAuctionDto } from './dto/auction.create-dto';
 import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
 import { OwnerGuard } from './guards/owner.guard';
+import { UpdateAuctionDto } from '@org/models';
 
 @Controller('auction')
 @UseGuards(JwtAuthGuard)
@@ -39,5 +42,15 @@ export class AuctionController {
   @Delete(':id')
   async delete(@Param('id', ParseIntPipe) id: number) {
     return this.service.delete(id);
+  }
+  @UseGuards(OwnerGuard)
+  @Patch(':id')
+  async update(
+    @Param('id', ParseIntPipe) id: number,
+    @Body() updateDto: UpdateAuctionDto
+  ) {
+    if (updateDto == null || updateDto == undefined)
+      throw new BadRequestException();
+    return this.service.update(id, updateDto);
   }
 }
