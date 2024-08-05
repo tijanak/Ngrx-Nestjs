@@ -7,7 +7,7 @@ export interface IAuction {
   description: string;
   categories: IAuction_Category[];
   owner: IUser;
-  images: IAuction_Image[];
+  images: IImage[];
   sale_certificate: ISale_Certificate | null;
   bids: IBid[];
 }
@@ -39,7 +39,7 @@ export interface IAuction_Category {
   name: string;
   auctions: IAuction[];
 }
-export interface IAuction_Image {
+export interface IImage {
   id: number;
   url: string;
 }
