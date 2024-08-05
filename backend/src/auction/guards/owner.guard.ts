@@ -21,13 +21,13 @@ export class OwnerGuard implements CanActivate {
     const user = request.user;
     const auctionId = +request.params.id;
 
-    const auction = await this.auctionService.get(auctionId);
+    const auction = await this.auctionService.get(auctionId, ['owner']);
     if (!auction) {
       throw new ForbiddenException('Auction not found');
     }
 
     if (auction.owner.id !== user.id) {
-      throw new ForbiddenException('Not authorized to delete this auction');
+      throw new ForbiddenException('Not authorized to access this auction');
     }
 
     return true;

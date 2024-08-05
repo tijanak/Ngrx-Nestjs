@@ -1,9 +1,8 @@
 import { OmitType } from '@nestjs/swagger';
 import { Bid } from '../bid.entity';
-export class CreateBidDto extends OmitType(Bid, [
-  'bidder',
-  'auction',
-  'time_created',
-  'id',
-  'sale_certificate',
-] as const) {}
+import { IsNumber, Min } from 'class-validator';
+export class CreateBidDto {
+  @Min(1, { message: 'Iznos ponude mora biti veći od 0' })
+  @IsNumber()
+  amount: number;
+}

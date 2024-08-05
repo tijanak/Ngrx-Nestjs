@@ -27,9 +27,13 @@ export class AuctionController {
   async getAll() {
     return await this.service.getAll();
   }
+  @Get()
+  async getForUser(@Req() req) {
+    return await this.service.getForUser(req.user.id);
+  }
   @Get(':id')
   async get(@Param('id', ParseIntPipe) id: number) {
-    return this.service.get(id);
+    return this.service.get(id, ['owner']);
   }
   @UseGuards(OwnerGuard)
   @Delete(':id')

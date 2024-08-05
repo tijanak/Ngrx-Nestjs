@@ -30,7 +30,7 @@ export class User implements IUser {
   @Column()
   @IsString()
   surname: string;
-  @Column()
+  @Column({ select: false })
   @IsString()
   password: string;
   @Column({ unique: true })

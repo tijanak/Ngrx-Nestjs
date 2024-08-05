@@ -11,23 +11,25 @@ export class CreateUserDto {
   name: string;
   @IsString()
   surname: string;
-  @IsString()
   @IsStrongPassword(
     {
-      minLength: 8, // Minimum length of the password
-      minUppercase: 1, // Minimum number of uppercase letters
-      minLowercase: 1, // Minimum number of lowercase letters
-      minNumbers: 1, // Minimum number of digits
-      minSymbols: 1, // Minimum number of special characters
+      minLength: 8,
+      minUppercase: 1,
+      minLowercase: 1,
+      minNumbers: 1,
+      minSymbols: 1,
     },
     {
       message:
         'Lozinka mora imati barem 8 karaktera, jedno veliko slovo, jedno malo slovo, jedan broj i jedan specijalan znak.',
     }
   )
+  @IsString()
   password: string;
   @IsEmail(undefined, { message: 'Email je neispravan' })
+  @IsString()
   email: string;
   @IsPhoneNumber(undefined, { message: 'Broj je loseg formata' })
+  @IsString()
   phone_number: string;
 }

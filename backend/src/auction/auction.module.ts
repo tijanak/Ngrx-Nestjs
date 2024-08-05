@@ -10,5 +10,6 @@ import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
   imports: [TypeOrmModule.forFeature([Auction])],
   providers: [AuctionService],
   controllers: [AuctionController],
+  exports: [AuctionService],
 })
 export class AuctionModule {}

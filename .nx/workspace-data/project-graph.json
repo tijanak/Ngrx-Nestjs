@@ -14555,6 +14555,11 @@
       },
       {
         "source": "backend",
+        "target": "npm:rxjs",
+        "type": "static"
+      },
+      {
+        "source": "backend",
         "target": "npm:@nestjs/passport",
         "type": "static"
       },
@@ -14591,11 +14596,6 @@
       {
         "source": "backend",
         "target": "npm:@nx/webpack",
-        "type": "static"
-      },
-      {
-        "source": "backend",
-        "target": "npm:rxjs",
         "type": "static"
       }
     ],

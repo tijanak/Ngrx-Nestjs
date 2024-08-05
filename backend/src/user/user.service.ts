@@ -32,4 +32,11 @@ export class UserService {
   async delete(id: number) {
     return this.userRepo.delete(id);
   }
+  async findOneIncludePassword(email: string) {
+    return this.userRepo
+      .createQueryBuilder('user')
+      .addSelect('user.password')
+      .where('user.email = :email', { email })
+      .getOne();
+  }
 }

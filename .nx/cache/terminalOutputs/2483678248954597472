@@ -1,0 +1,15 @@
+[2m> [22mwebpack-cli build --node-env=production
+
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 52.7 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./src/bid/bid.controller.ts:[32m[1m33:28[22m[39m[1m[39m[22m
+[90mTS2339: [39mProperty 'findUserBids' does not exist on type 'BidService'.
+  [0m [90m 31 |[39m   [33m@[39m[33mGet[39m()
+   [90m 32 |[39m   findForUser([33m@[39m[33mReq[39m() req) {
+  [31m[1m>[22m[39m[90m 33 |[39m     [36mreturn[39m [36mthis[39m[33m.[39mbidService[33m.[39mfindUserBids(req[33m.[39muser[33m.[39mid)[33m;[39m
+   [90m    |[39m                            [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 34 |[39m   }
+   [90m 35 |[39m   [33m@[39m[33mGet[39m([32m'all'[39m)
+   [90m 36 |[39m   findAll() {[0m
+
+webpack compiled with [1m[31m1 error[39m[22m (64aa52285c4e3714)

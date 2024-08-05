@@ -13,6 +13,7 @@ import { Bid } from '../bid/bid.entity';
 import { AuctionCategory } from '../auction_category/auction_category.entity';
 import { AuctionImage } from '../auction_image/auction_image.entity';
 import { SaleCertificate } from '../sale_certificate/sale_certificate.entity';
+import { BidModule } from '../bid/bid.module';
 
 @Module({
   imports: [
@@ -35,6 +36,7 @@ import { SaleCertificate } from '../sale_certificate/sale_certificate.entity';
     }),
     AuctionModule,
     UserModule,
+    BidModule,
     AuthModule,
   ],
   controllers: [AppController],

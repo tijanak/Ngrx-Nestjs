@@ -2,6 +2,7 @@ import { IBid } from '@org/models';
 import { IsDate } from 'class-validator';
 import {
   Column,
+  CreateDateColumn,
   Entity,
   JoinColumn,
   ManyToOne,
@@ -19,8 +20,7 @@ export class Bid implements IBid {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column({ type: 'timestamptz' })
-  @IsDate()
+  @CreateDateColumn({ type: 'timestamptz' })
   time_created: Date;
   @Column()
   amount: number;

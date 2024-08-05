@@ -22,10 +22,18 @@ export class AuctionService {
   delete(id) {
     return this.auctionRepo.delete(id);
   }
-  get(id) {
+  get(id: number, relations: string[] = []) {
     return this.auctionRepo.findOne({
       where: [{ id: id }],
-      relations: ['owner'],
+      relations,
     });
+  }
+
+  getForUser(id: number) {
+    return this.auctionRepo
+      .createQueryBuilder('auction')
+      .leftJoinAndSelect('auction.owner', 'owner')
+      .where('owner.id = :id', { id })
+      .getMany();
   }
 }
