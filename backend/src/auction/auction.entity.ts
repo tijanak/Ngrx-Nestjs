@@ -36,6 +36,7 @@ export class Auction implements IAuction {
   @ManyToOne(() => User, (user) => user.auctions)
   owner: User;
   @OneToMany(() => AuctionImage, (image) => image.auction, {
+    cascade: true,
     onDelete: 'CASCADE',
     onUpdate: 'CASCADE',
   })
@@ -43,7 +44,7 @@ export class Auction implements IAuction {
 
   @OneToOne(() => SaleCertificate, (certificate) => certificate.auction, {
     nullable: true,
-    onDelete: 'SET NULL',
+    onDelete: 'RESTRICT',
   })
   @JoinColumn()
   sale_certificate: SaleCertificate | null;

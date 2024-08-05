@@ -49,8 +49,6 @@ export class AuctionController {
     @Param('id', ParseIntPipe) id: number,
     @Body() updateDto: UpdateAuctionDto
   ) {
-    if (updateDto == null || updateDto == undefined)
-      throw new BadRequestException();
     return this.service.update(id, updateDto);
   }
 }

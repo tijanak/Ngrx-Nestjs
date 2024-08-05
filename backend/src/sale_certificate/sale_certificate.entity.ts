@@ -24,6 +24,7 @@ export class SaleCertificate implements ISale_Certificate {
   amount: number;
   @OneToOne(() => Auction, (auction) => auction.sale_certificate, {
     nullable: false,
+    onDelete: 'CASCADE',
   })
   @JoinColumn()
   auction: Auction;

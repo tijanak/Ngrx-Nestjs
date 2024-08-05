@@ -36,7 +36,7 @@ export interface ISale_Certificate {
 }
 export interface IAuction_Category {
   id: number;
-  category_name: string;
+  name: string;
   auctions: IAuction[];
 }
 export interface IAuction_Image {
