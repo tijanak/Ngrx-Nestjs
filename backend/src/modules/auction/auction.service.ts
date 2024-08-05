@@ -1,24 +1,59 @@
-import { ForbiddenException, Injectable } from '@nestjs/common';
+import {
+  ForbiddenException,
+  Injectable,
+  Logger,
+  NotFoundException,
+} from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Auction } from './auction.entity';
 import { Repository } from 'typeorm';
 import { CreateAuctionDto } from './dto/auction.create-dto';
 import { User } from '../user/user.entity';
 import { UpdateAuctionDto } from '@org/models';
+import { SaleSertificateService } from '../sale_certificate/sale_sertificate.service';
+import { max, of } from 'rxjs';
+import { SchedulerRegistry } from '@nestjs/schedule';
+import { CronJob } from 'cron';
 
 @Injectable()
 export class AuctionService {
   constructor(
     @InjectRepository(Auction)
-    private auctionRepo: Repository<Auction>
-  ) {}
+    private auctionRepo: Repository<Auction>,
+    private saleCertificateService: SaleSertificateService,
+    private schedulerRegistry: SchedulerRegistry
+  ) {
+    this.getAll(['sale_certificate']).then((auctions) => {
+      of(...auctions).forEach((auction) => {
+        if (auction.sale_certificate == null && auction.end_time < new Date()) {
+          this.endAuction(auction.id);
+        } else {
+          this.setAuctionEnd(auction);
+        }
+      });
+    });
+  }
+  private setAuctionEnd(auction) {
+    const job = new CronJob(auction.end_time, () => {
+      try {
+        this.endAuction(auction.id);
+      } catch (e) {
+        Logger.log(e);
+      }
+    });
+    this.schedulerRegistry.addCronJob('end auction ' + auction.id, job);
+    job.start();
+  }
   create(auctionDto: CreateAuctionDto, owner: User): Promise<Auction> {
     let auction = this.auctionRepo.create(auctionDto);
-    auction.owner = owner;
+    if (auction) {
+      auction.owner = owner;
+      this.setAuctionEnd(auction);
+    }
     return this.auctionRepo.save(auction);
   }
-  getAll() {
-    return this.auctionRepo.find();
+  getAll(relations: string[] = []) {
+    return this.auctionRepo.find({ relations });
   }
   async update(id, updateDto: UpdateAuctionDto) {
     const auction = await this.auctionRepo.findOne({ where: [{ id }] });
@@ -55,5 +90,20 @@ export class AuctionService {
       .where('owner.id = :id', { id })
       .getMany();
   }
-  endAuction(id: number) {}
+  async endAuction(id: number) {
+    const auction = await this.auctionRepo.findOne({
+      where: { id },
+      relations: ['bids'],
+    });
+    if (!auction) {
+      throw new NotFoundException();
+    }
+    if (auction.bids.length > 0) {
+      of(...auction.bids)
+        .pipe(max((a, b) => a.amount - b.amount))
+        .subscribe((winningBid) => {
+          return this.saleCertificateService.create({ winningBid, auction });
+        });
+    }
+  }
 }

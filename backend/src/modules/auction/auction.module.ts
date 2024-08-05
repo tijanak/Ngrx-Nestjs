@@ -5,9 +5,10 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { Auction } from './auction.entity';
 import { APP_GUARD } from '@nestjs/core';
 import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
+import { SaleSertificateModule } from '../sale_certificate/sale_sertificate.module';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([Auction])],
+  imports: [TypeOrmModule.forFeature([Auction]), SaleSertificateModule],
   providers: [AuctionService],
   controllers: [AuctionController],
   exports: [AuctionService],

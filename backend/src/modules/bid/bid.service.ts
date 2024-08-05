@@ -23,6 +23,12 @@ export class BidService {
     if (!auction) {
       throw new ForbiddenException('Aukcija ne postoji');
     }
+    if (auction.start_time > new Date()) {
+      throw new ForbiddenException('Aukcija nije pocela');
+    }
+    if (auction.end_time < new Date()) {
+      throw new ForbiddenException('Aukcija je zavrsena');
+    }
     if (auction.owner.id == bidder.id) {
       throw new ForbiddenException(
         'Vlasnik aukcije ne može da učestvuje u licitaciji za tu aukciju'
@@ -55,13 +61,5 @@ export class BidService {
     if (bid.auction.end_time < new Date())
       throw new ForbiddenException('Aukcija je završena');
     return this.bidRepo.delete(id);
-  }
-  async findUserBids(id: number) {
-    return this.bidRepo
-      .createQueryBuilder('bid')
-      .leftJoinAndSelect('bid.auction', 'auction')
-      .leftJoinAndSelect('bid.bidder', 'bidder')
-      .where('bidder.id = :id', { id })
-      .getMany();
   }
 }

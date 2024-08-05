@@ -3,7 +3,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { APP_GUARD } from '@nestjs/core';
 import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
 import { Image } from './image.entity';
-import { ImagesController } from './auction_image.controller';
+import { ImagesController } from './image.controller';
 
 @Module({
   imports: [TypeOrmModule.forFeature([Image])],

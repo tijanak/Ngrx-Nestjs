@@ -30,10 +30,6 @@ export class BidController {
   ) {
     return this.bidService.create(createBidDto, req.user, auctionId);
   }
-  @Get()
-  findForUser(@Req() req) {
-    return this.bidService.findUserBids(req.user.id);
-  }
   @Get('all')
   findAll() {
     return this.bidService.findAll();

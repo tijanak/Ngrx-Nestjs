@@ -11,12 +11,13 @@ import { AuthModule } from '../auth/auth.module';
 import { User } from '../user/user.entity';
 import { Bid } from '../bid/bid.entity';
 import { AuctionCategory } from '../auction_category/auction_category.entity';
-import { Image } from '../auction_image/image.entity';
+import { Image } from '../image/image.entity';
 import { SaleCertificate } from '../sale_certificate/sale_certificate.entity';
 import { BidModule } from '../bid/bid.module';
-import { AuctionImageModule } from '../auction_image/image.module';
+import { AuctionImageModule } from '../image/image.module';
 import { SaleSertificateModule } from '../sale_certificate/sale_sertificate.module';
 
+import { ScheduleModule } from '@nestjs/schedule';
 @Module({
   imports: [
     TypeOrmModule.forRoot({
@@ -35,6 +36,7 @@ import { SaleSertificateModule } from '../sale_certificate/sale_sertificate.modu
     AuthModule,
     AuctionImageModule,
     SaleSertificateModule,
+    ScheduleModule.forRoot(),
   ],
   controllers: [AppController],
   providers: [AppService],

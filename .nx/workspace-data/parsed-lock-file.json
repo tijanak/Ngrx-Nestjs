@@ -3483,6 +3483,42 @@
         "hash": "sha512-ywPWvcDMeH+z9gQq5qYHCCy+ethsk4goepZ45GLD63fOu0YcNecQxi64nDs3qluZB+murG3/D4dJ7+dGctcCQQ=="
       }
     },
+    "npm:@nestjs/schedule": {
+      "type": "npm",
+      "name": "npm:@nestjs/schedule",
+      "data": {
+        "version": "4.1.0",
+        "packageName": "@nestjs/schedule",
+        "hash": "sha512-WEc96WTXZW+VI/Ng+uBpiBUwm6TWtAbQ4RKWkfbmzKvmbRGzA/9k/UyAWDS9k0pp+ZcbC+MaZQtt7TjQHrwX6g=="
+      }
+    },
+    "npm:uuid@10.0.0": {
+      "type": "npm",
+      "name": "npm:uuid@10.0.0",
+      "data": {
+        "version": "10.0.0",
+        "packageName": "uuid",
+        "hash": "sha512-8XkAphELsDnEGrDxUOHB3RGvXz6TeuYSGEZBOjtTtPm2lwhGBjLgOzLHB63IUWfBpNucQjND6d3AOudO+H3RWQ=="
+      }
+    },
+    "npm:uuid@9.0.1": {
+      "type": "npm",
+      "name": "npm:uuid@9.0.1",
+      "data": {
+        "version": "9.0.1",
+        "packageName": "uuid",
+        "hash": "sha512-b+1eJOlsR9K8HJpow9Ok3fiWOWSIcIzXodvv0rQjVoOVNpWMpxf1wZNpt4y9h10odCNrqnYp1OBzRktckBe3sA=="
+      }
+    },
+    "npm:uuid": {
+      "type": "npm",
+      "name": "npm:uuid",
+      "data": {
+        "version": "8.3.2",
+        "packageName": "uuid",
+        "hash": "sha512-+NYs2QeMWy+GWFOEm9xnn6HCDp0l7QBD7ml8zLUmJ+93Q5NF0NocErnwkTkXVFNiX3/fpC6afS8Dhb/gz7R7eg=="
+      }
+    },
     "npm:@nestjs/schematics": {
       "type": "npm",
       "name": "npm:@nestjs/schematics",
@@ -3571,24 +3607,6 @@
         "version": "10.0.2",
         "packageName": "@nestjs/typeorm",
         "hash": "sha512-H738bJyydK4SQkRCTeh1aFBxoO1E9xdL/HaLGThwrqN95os5mEyAtK7BLADOS+vldP4jDZ2VQPLj4epWwRqCeQ=="
-      }
-    },
-    "npm:uuid@9.0.1": {
-      "type": "npm",
-      "name": "npm:uuid@9.0.1",
-      "data": {
-        "version": "9.0.1",
-        "packageName": "uuid",
-        "hash": "sha512-b+1eJOlsR9K8HJpow9Ok3fiWOWSIcIzXodvv0rQjVoOVNpWMpxf1wZNpt4y9h10odCNrqnYp1OBzRktckBe3sA=="
-      }
-    },
-    "npm:uuid": {
-      "type": "npm",
-      "name": "npm:uuid",
-      "data": {
-        "version": "8.3.2",
-        "packageName": "uuid",
-        "hash": "sha512-+NYs2QeMWy+GWFOEm9xnn6HCDp0l7QBD7ml8zLUmJ+93Q5NF0NocErnwkTkXVFNiX3/fpC6afS8Dhb/gz7R7eg=="
       }
     },
     "npm:@ngrx/effects": {
@@ -5580,6 +5598,15 @@
         "hash": "sha512-VRLSGzik+Unrup6BsouBeHsf4d1hOEgYWTm/7Nmw1sXoN1+tRly/Gy/po3yeahnP4jfnQWWAhQAqcNfH7ngOkA=="
       }
     },
+    "npm:@types/luxon": {
+      "type": "npm",
+      "name": "npm:@types/luxon",
+      "data": {
+        "version": "3.4.2",
+        "packageName": "@types/luxon",
+        "hash": "sha512-TifLZlFudklWlMBfhubvgqTXRzLDI5pCbGa4P8a3wPyUQSW+1xQ5eDsreP9DWHX3tjq1ke96uYG/nwundroWcA=="
+      }
+    },
     "npm:@types/mime": {
       "type": "npm",
       "name": "npm:@types/mime",
@@ -5668,6 +5695,15 @@
         "version": "1.2.7",
         "packageName": "@types/range-parser",
         "hash": "sha512-hKormJbkJqzQGhziax5PItDUTMAM9uE2XXQmM37dyd4hVM+5aVl7oVxMVUiVQn2oCQFN/LKCZdvSM0pFRqbSmQ=="
+      }
+    },
+    "npm:@types/schedule": {
+      "type": "npm",
+      "name": "npm:@types/schedule",
+      "data": {
+        "version": "0.5.3",
+        "packageName": "@types/schedule",
+        "hash": "sha512-JfO0Sjd5P8WMfgirYssgRO460WIAxfJeBN7a268KGle3M8w3JkxyCkrgRw40cGyCnfPFQ2lzrZy6J+GNqP9Eaw=="
       }
     },
     "npm:@types/send": {
@@ -7666,6 +7702,15 @@
         "version": "0.0.24",
         "packageName": "critters",
         "hash": "sha512-Oyqew0FGM0wYUSNqR0L6AteO5MpMoUU0rhKRieXeiKs+PmRTxiJMyaunYB2KF6fQ3dzChXKCpbFOEJx3OQ1v/Q=="
+      }
+    },
+    "npm:cron": {
+      "type": "npm",
+      "name": "npm:cron",
+      "data": {
+        "version": "3.1.7",
+        "packageName": "cron",
+        "hash": "sha512-tlBg7ARsAMQLzgwqVxy8AZl/qlTc5nibqYwtNGoCrd+cV+ugI+tvZC1oT/8dFH8W455YrywGykx/KMmAqOr7Jw=="
       }
     },
     "npm:cron-parser": {
@@ -20467,6 +20512,26 @@
       "type": "static"
     },
     {
+      "source": "npm:@nestjs/schedule",
+      "target": "npm:@nestjs/common",
+      "type": "static"
+    },
+    {
+      "source": "npm:@nestjs/schedule",
+      "target": "npm:@nestjs/core",
+      "type": "static"
+    },
+    {
+      "source": "npm:@nestjs/schedule",
+      "target": "npm:cron",
+      "type": "static"
+    },
+    {
+      "source": "npm:@nestjs/schedule",
+      "target": "npm:uuid@10.0.0",
+      "type": "static"
+    },
+    {
       "source": "npm:@nestjs/schematics",
       "target": "npm:typescript",
       "type": "static"
@@ -26969,6 +27034,16 @@
     {
       "source": "npm:critters",
       "target": "npm:postcss-media-query-parser",
+      "type": "static"
+    },
+    {
+      "source": "npm:cron",
+      "target": "npm:@types/luxon",
+      "type": "static"
+    },
+    {
+      "source": "npm:cron",
+      "target": "npm:luxon",
       "type": "static"
     },
     {

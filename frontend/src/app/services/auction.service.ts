@@ -12,6 +12,9 @@ export class AuctionService {
   getAuctions() {
     return this.httpClient.get<any>(`${environment.API_URL}auction`);
   }
+  getAuction(id: number) {
+    return this.httpClient.get<any>(`${environment.API_URL}auction/${id}`);
+  }
   createAuction(auction: CreateAuctionDto) {
     return this.httpClient.post(`${environment.API_URL}auction`, auction, {
       headers: {

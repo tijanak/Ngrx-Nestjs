@@ -9,8 +9,9 @@ body {
 /* Container Styles */
 .register-form {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
+  justify-content: center;
   height: 100vh;
   padding: 20px;
 }
@@ -22,6 +23,7 @@ mat-card {
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   background-color: #ffffff;
+  margin-bottom: 16px; /* Adds space below the card */
 }
 
 mat-form-field {
@@ -29,7 +31,6 @@ mat-form-field {
   margin-bottom: 16px;
 }
 
-/* Form Field Styles */
 mat-form-field mat-label {
   color: #333;
 }
@@ -46,9 +47,15 @@ mat-form-field mat-error {
 button[mat-raised-button] {
   background-color: #007bff;
   color: #ffffff;
-  padding: 10px 20px;
+  padding: 12px 24px;
   border-radius: 4px;
   font-size: 16px;
+  width: 100%;
+  transition: background-color 0.3s;
+}
+
+button[mat-raised-button]:hover {
+  background-color: #0056b3;
 }
 
 button[mat-raised-button]:disabled {
@@ -67,9 +74,9 @@ mat-icon {
 a {
   display: block;
   text-align: center;
-  margin-top: 16px;
   color: #007bff;
   text-decoration: none;
+  margin-top: 16px; /* Ensures the link is spaced properly from the form */
 }
 
 a:hover {
