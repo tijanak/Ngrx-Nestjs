@@ -8,9 +8,13 @@ import {
   Min,
   MinLength,
   Validate,
+  ValidateNested,
 } from 'class-validator';
+import { Type } from 'class-transformer';
 import { IsDateGreaterThan } from 'backend/src/validation/validators/is-date-greater-than.validator';
 import { IsNotInPast } from 'backend/src/validation/validators/is-not-in-past.validator';
+import { IImage } from '@org/models';
+import { Image } from '../../image/image.entity';
 export class CreateAuctionDto {
   @IsString()
   title: string;
@@ -27,4 +31,7 @@ export class CreateAuctionDto {
   @Min(1, { message: 'Minimalna cena mora biti veca od 0' })
   @IsNumber()
   min_price: number;
+  @ValidateNested({ each: true, message: 'Slika nije dobrog formata' })
+  @Type(() => Image)
+  images: Image[];
 }

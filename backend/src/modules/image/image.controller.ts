@@ -8,6 +8,7 @@ import {
   Post,
   UploadedFiles,
   UseInterceptors,
+  BadRequestException,
 } from '@nestjs/common';
 import { join } from 'path';
 import * as fs from 'fs';
@@ -15,17 +16,19 @@ import { Response } from 'express';
 import * as path from 'path';
 import { diskStorage } from 'multer';
 import { FilesInterceptor } from '@nestjs/platform-express';
-
-@Controller('images')
+import { map, of, scan, switchMap } from 'rxjs';
+import { ImageService } from './image.service';
+import { Image } from './image.entity';
+const imagesFolder = 'backend/public/images/';
+@Controller()
 export class ImagesController {
-  private readonly imagesFolder = 'backend/public/images/auctions';
-
-  @Post()
+  constructor(private imageService: ImageService) {}
+  @Post('auctions')
   @UseInterceptors(
     FilesInterceptor('images', 10, {
       storage: diskStorage({
         destination: (req, file, cb) => {
-          const uploadPath = path.join(__dirname, '../../uploads');
+          const uploadPath = path.join(__dirname, '../../', imagesFolder);
           if (!fs.existsSync(uploadPath)) {
             fs.mkdirSync(uploadPath, { recursive: true });
           }
@@ -45,10 +48,26 @@ export class ImagesController {
       },
     })
   )
-  async create(@UploadedFiles() files: Array<Express.Multer.File>) {}
+  async upload(@UploadedFiles() files: Array<Express.Multer.File>) {
+    if (!files || files.length === 0) {
+      throw new BadRequestException('No files uploaded.');
+    }
+
+    try {
+      const images = await Promise.all(
+        files.map((file) =>
+          this.imageService.create({ fileName: file.filename })
+        )
+      );
+
+      return images;
+    } catch (error) {
+      throw new BadRequestException('Error processing files.');
+    }
+  }
   @Get(':filename')
   async getImage(@Param('filename') filename: string, @Res() res: Response) {
-    const filePath = join(__dirname, '../../', this.imagesFolder, filename);
+    const filePath = join(__dirname, '../../', imagesFolder, filename);
 
     try {
       await fs.promises.access(filePath);

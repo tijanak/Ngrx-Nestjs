@@ -41,5 +41,5 @@ export interface IAuction_Category {
 }
 export interface IImage {
   id: number;
-  url: string;
+  fileName: string;
 }

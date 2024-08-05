@@ -1,2 +1,6 @@
 import { OmitType } from '@nestjs/swagger';
-export class CreateAuctionImageDto {}
+import { IsString } from 'class-validator';
+export class CreateImageDto {
+  @IsString()
+  fileName: string;
+}

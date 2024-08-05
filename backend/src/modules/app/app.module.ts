@@ -14,7 +14,7 @@ import { AuctionCategory } from '../auction_category/auction_category.entity';
 import { Image } from '../image/image.entity';
 import { SaleCertificate } from '../sale_certificate/sale_certificate.entity';
 import { BidModule } from '../bid/bid.module';
-import { AuctionImageModule } from '../image/image.module';
+import { ImageModule } from '../image/image.module';
 import { SaleSertificateModule } from '../sale_certificate/sale_sertificate.module';
 
 import { ScheduleModule } from '@nestjs/schedule';
@@ -34,7 +34,7 @@ import { ScheduleModule } from '@nestjs/schedule';
     UserModule,
     BidModule,
     AuthModule,
-    AuctionImageModule,
+    ImageModule,
     SaleSertificateModule,
     ScheduleModule.forRoot(),
   ],

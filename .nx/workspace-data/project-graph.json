@@ -14643,6 +14643,11 @@
       },
       {
         "source": "backend",
+        "target": "npm:class-transformer",
+        "type": "static"
+      },
+      {
+        "source": "backend",
         "target": "npm:@nestjs/passport",
         "type": "static"
       },

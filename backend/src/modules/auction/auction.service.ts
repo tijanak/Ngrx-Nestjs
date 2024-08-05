@@ -1,4 +1,5 @@
 import {
+  BadRequestException,
   ForbiddenException,
   Injectable,
   Logger,
@@ -44,13 +45,18 @@ export class AuctionService {
     this.schedulerRegistry.addCronJob('end auction ' + auction.id, job);
     job.start();
   }
-  create(auctionDto: CreateAuctionDto, owner: User): Promise<Auction> {
+  async create(auctionDto: CreateAuctionDto, owner: User) {
     let auction = this.auctionRepo.create(auctionDto);
     if (auction) {
       auction.owner = owner;
-      this.setAuctionEnd(auction);
+
+      auction = await this.auctionRepo.save(auction);
+      if (auction) {
+        this.setAuctionEnd(auction);
+        return auction;
+      }
     }
-    return this.auctionRepo.save(auction);
+    throw new BadRequestException();
   }
   getAll(relations: string[] = []) {
     return this.auctionRepo.find({ relations });
