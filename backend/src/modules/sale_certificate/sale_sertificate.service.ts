@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, Logger } from '@nestjs/common';
 import { CreateSaleCertificateDto } from './dto/sale_certificate.create-dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { SaleCertificate } from './sale_certificate.entity';
@@ -12,6 +12,7 @@ export class SaleSertificateService {
   ) {}
   create(createSaleSertificateDto: CreateSaleCertificateDto) {
     const certificate = this.certificateRepo.create(createSaleSertificateDto);
+    Logger.log(certificate.winning_bid);
     return this.certificateRepo.save(certificate);
   }
 

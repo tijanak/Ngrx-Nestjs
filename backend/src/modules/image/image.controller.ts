@@ -9,6 +9,7 @@ import {
   UploadedFiles,
   UseInterceptors,
   BadRequestException,
+  UseGuards,
 } from '@nestjs/common';
 import { join } from 'path';
 import * as fs from 'fs';
@@ -19,11 +20,13 @@ import { FilesInterceptor } from '@nestjs/platform-express';
 import { map, of, scan, switchMap } from 'rxjs';
 import { ImageService } from './image.service';
 import { Image } from './image.entity';
+import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
 const imagesFolder = 'backend/public/images/';
-@Controller()
+@Controller('images')
 export class ImagesController {
   constructor(private imageService: ImageService) {}
-  @Post('auctions')
+  @UseGuards(JwtAuthGuard)
+  @Post()
   @UseInterceptors(
     FilesInterceptor('images', 10, {
       storage: diskStorage({

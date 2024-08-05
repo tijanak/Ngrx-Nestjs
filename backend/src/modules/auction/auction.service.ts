@@ -108,7 +108,11 @@ export class AuctionService {
       of(...auction.bids)
         .pipe(max((a, b) => a.amount - b.amount))
         .subscribe((winningBid) => {
-          return this.saleCertificateService.create({ winningBid, auction });
+          Logger.log(winningBid.id);
+          return this.saleCertificateService.create({
+            winning_bid: winningBid,
+            auction,
+          });
         });
     }
   }

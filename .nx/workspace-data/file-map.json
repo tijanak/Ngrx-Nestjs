@@ -122,76 +122,56 @@
   "fileMap": {
     "nonProjectFiles": [
       {
-        "file": ".gitattributes",
-        "hash": "13194702717607086212"
-      },
-      {
         "file": ".eslintignore",
         "hash": "7663861978715868291"
       },
       {
-        "file": ".prettierrc",
-        "hash": "16267754514737964994"
-      },
-      {
-        "file": "jest.preset.js",
-        "hash": "9430166341120122740"
-      },
-      {
-        "file": ".dockerignore",
-        "hash": "13419663892536652965"
+        "file": "package-lock.json",
+        "hash": "18001484492942309687"
       },
       {
         "file": "README.md",
         "hash": "14534800709022261397"
       },
       {
-        "file": ".gitignore",
-        "hash": "13917007966464669153"
+        "file": "docker-compose.yml",
+        "hash": "9104989849604268909"
       },
       {
-        "file": "jest.config.ts",
-        "hash": "3494843969422251966"
+        "file": ".gitignore",
+        "hash": "13917007966464669153"
       },
       {
         "file": ".prettierignore",
         "hash": "5407418692668764289"
       },
       {
-        "file": ".editorconfig",
-        "hash": "5443105041930014821"
-      },
-      {
-        "file": "docker-compose.debug.yml",
-        "hash": "14168878783884762562"
-      },
-      {
-        "file": "docker-compose.yml",
-        "hash": "9104989849604268909"
-      },
-      {
         "file": ".vscode/launch.json",
         "hash": "11840498223564460082"
-      },
-      {
-        "file": ".eslintrc.json",
-        "hash": "18315524891129148814"
-      },
-      {
-        "file": "package.json",
-        "hash": "12878877664415082473"
       },
       {
         "file": "nx.json",
         "hash": "1097630411021103535"
       },
       {
+        "file": ".editorconfig",
+        "hash": "5443105041930014821"
+      },
+      {
+        "file": ".vscode/extensions.json",
+        "hash": "4934098906304722861"
+      },
+      {
+        "file": ".prettierrc",
+        "hash": "16267754514737964994"
+      },
+      {
         "file": "Dockerfile",
         "hash": "6244065497927133712"
       },
       {
-        "file": "package-lock.json",
-        "hash": "18001484492942309687"
+        "file": ".dockerignore",
+        "hash": "13419663892536652965"
       },
       {
         "file": "tsconfig.base.json",
@@ -202,8 +182,28 @@
         "hash": "2459902084299443877"
       },
       {
-        "file": ".vscode/extensions.json",
-        "hash": "4934098906304722861"
+        "file": "package.json",
+        "hash": "12878877664415082473"
+      },
+      {
+        "file": "jest.preset.js",
+        "hash": "9430166341120122740"
+      },
+      {
+        "file": ".eslintrc.json",
+        "hash": "18315524891129148814"
+      },
+      {
+        "file": "jest.config.ts",
+        "hash": "3494843969422251966"
+      },
+      {
+        "file": ".gitattributes",
+        "hash": "13194702717607086212"
+      },
+      {
+        "file": "docker-compose.debug.yml",
+        "hash": "14168878783884762562"
       }
     ],
     "projectFileMap": {
@@ -329,7 +329,7 @@
         },
         {
           "file": "frontend/src/app/components/home/home.component.html",
-          "hash": "10432833425166386693"
+          "hash": "12544092179100470729"
         },
         {
           "file": "frontend/src/app/components/home/home.component.spec.ts",
@@ -769,7 +769,7 @@
         },
         {
           "file": "backend/src/modules/auction/auction.service.ts",
-          "hash": "3923260344819422492",
+          "hash": "983405948178372931",
           "deps": [
             "npm:@nestjs/common",
             "npm:@nestjs/typeorm",
@@ -968,7 +968,7 @@
         },
         {
           "file": "backend/src/modules/image/image.controller.ts",
-          "hash": "3932431774954101805",
+          "hash": "12514984338238468077",
           "deps": [
             "npm:@nestjs/common",
             "npm:express",
@@ -1007,11 +1007,11 @@
         },
         {
           "file": "backend/src/modules/sale_certificate/dto/sale_certificate.create-dto.ts",
-          "hash": "10479202238107425048"
+          "hash": "13889680654706627430"
         },
         {
           "file": "backend/src/modules/sale_certificate/sale_certificate.entity.ts",
-          "hash": "14461089004970508403",
+          "hash": "17640403074114960988",
           "deps": [
             "models",
             "npm:typeorm",
@@ -1035,7 +1035,7 @@
         },
         {
           "file": "backend/src/modules/sale_certificate/sale_sertificate.service.ts",
-          "hash": "178625012178754783",
+          "hash": "1028929659722202116",
           "deps": [
             "npm:@nestjs/common",
             "npm:@nestjs/typeorm",
@@ -1158,6 +1158,26 @@
         },
         {
           "file": "backend/public/images/1722888791138_driving.png",
+          "hash": "13612425076140924845"
+        },
+        {
+          "file": "backend/public/images/1722895491406_driving.png",
+          "hash": "13612425076140924845"
+        },
+        {
+          "file": "backend/public/images/1722895525425_stationary.png",
+          "hash": "13500420847320857845"
+        },
+        {
+          "file": "backend/public/images/1722895525425_driving.png",
+          "hash": "13612425076140924845"
+        },
+        {
+          "file": "backend/public/images/1722895616783_driving.png",
+          "hash": "13612425076140924845"
+        },
+        {
+          "file": "backend/public/images/1722895616784_driving.png",
           "hash": "13612425076140924845"
         }
       ],

@@ -1,0 +1,15 @@
+[2m> [22mwebpack-cli build --node-env=production
+
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 70.8 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./src/modules/auction/auction.service.ts:[32m[1m112:55[22m[39m[1m[39m[22m
+[90mTS2561: [39mObject literal may only specify known properties, but 'winningBid' does not exist in type 'CreateSaleCertificateDto'. Did you mean to write 'winning_bid'?
+  [0m [90m 110 |[39m         [33m.[39msubscribe((winningBid) [33m=>[39m {
+   [90m 111 |[39m           [33mLogger[39m[33m.[39mlog(winningBid[33m.[39mid)[33m;[39m
+  [31m[1m>[22m[39m[90m 112 |[39m           [36mreturn[39m [36mthis[39m[33m.[39msaleCertificateService[33m.[39mcreate({ winningBid[33m,[39m auction })[33m;[39m
+   [90m     |[39m                                                       [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 113 |[39m         })[33m;[39m
+   [90m 114 |[39m     }
+   [90m 115 |[39m   }[0m
+
+webpack compiled with [1m[31m1 error[39m[22m (5b9d4745a024efe2)

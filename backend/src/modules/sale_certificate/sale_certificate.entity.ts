@@ -1,6 +1,7 @@
 import { ISale_Certificate } from '@org/models';
 import {
   Column,
+  CreateDateColumn,
   Entity,
   JoinColumn,
   OneToOne,
@@ -17,8 +18,7 @@ export class SaleCertificate implements ISale_Certificate {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column({ type: 'timestamptz' })
-  @IsDate()
+  @CreateDateColumn({ type: 'timestamptz' })
   time_granted: Date;
   @OneToOne(() => Auction, (auction) => auction.sale_certificate, {
     nullable: false,
