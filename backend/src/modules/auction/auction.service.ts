@@ -27,9 +27,11 @@ export class AuctionService {
     this.getAll(['sale_certificate']).then((auctions) => {
       of(...auctions).forEach((auction) => {
         if (auction.sale_certificate == null && auction.end_time < new Date()) {
+          Logger.log(auction.id, auction.sale_certificate, auction.end_time);
+
           this.endAuction(auction.id);
         } else {
-          this.setAuctionEnd(auction);
+          if (auction.end_time >= new Date()) this.setAuctionEnd(auction);
         }
       });
     });

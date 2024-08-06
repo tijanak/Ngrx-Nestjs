@@ -21,12 +21,16 @@ export class SaleCertificate implements ISale_Certificate {
   @CreateDateColumn({ type: 'timestamptz' })
   time_granted: Date;
   @OneToOne(() => Auction, (auction) => auction.sale_certificate, {
+    cascade: true,
     nullable: false,
     onDelete: 'CASCADE',
   })
   @JoinColumn()
   auction: Auction;
-  @OneToOne(() => Bid, (bid) => bid.sale_certificate, { nullable: false })
+  @OneToOne(() => Bid, (bid) => bid.sale_certificate, {
+    cascade: true,
+    nullable: false,
+  })
   @JoinColumn()
   winning_bid: Bid;
 }

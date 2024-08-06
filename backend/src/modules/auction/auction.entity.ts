@@ -46,7 +46,6 @@ export class Auction implements IAuction {
     nullable: true,
     onDelete: 'RESTRICT',
   })
-  @JoinColumn()
   sale_certificate: SaleCertificate | null;
 
   @OneToMany(() => Bid, (bid) => bid.auction, {

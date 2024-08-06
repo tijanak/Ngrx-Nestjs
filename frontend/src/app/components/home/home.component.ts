@@ -19,6 +19,7 @@ import { AuctionsComponent } from '../auctions/auctions.component';
   styleUrl: './home.component.css',
 })
 export class HomeComponent implements OnInit, OnDestroy {
+  
   constructor(private router: Router) {}
   ngOnInit(): void {}
   ngOnDestroy(): void {}

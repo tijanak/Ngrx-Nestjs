@@ -1,6 +1,6 @@
 {
   "version": "6.0",
-  "nxVersion": "19.5.4",
+  "nxVersion": "19.5.6",
   "deps": {
     "@angular/animations": "~18.1.0",
     "@angular/cdk": "^18.1.3",
@@ -55,18 +55,18 @@
     "@angular/language-service": "~18.1.0",
     "@nestjs/schematics": "^10.0.1",
     "@nestjs/testing": "^10.0.2",
-    "@nrwl/node": "^19.5.6",
-    "@nrwl/webpack": "^19.5.6",
-    "@nx/angular": "^19.5.4",
-    "@nx/eslint": "19.5.4",
-    "@nx/eslint-plugin": "19.5.4",
-    "@nx/jest": "19.5.4",
-    "@nx/js": "^19.5.4",
-    "@nx/nest": "^19.5.4",
-    "@nx/node": "19.5.4",
-    "@nx/web": "19.5.4",
-    "@nx/webpack": "19.5.4",
-    "@nx/workspace": "19.5.4",
+    "@nrwl/node": "19.5.6",
+    "@nrwl/webpack": "19.5.6",
+    "@nx/angular": "19.5.6",
+    "@nx/eslint": "19.5.6",
+    "@nx/eslint-plugin": "19.5.6",
+    "@nx/jest": "19.5.6",
+    "@nx/js": "19.5.6",
+    "@nx/nest": "19.5.6",
+    "@nx/node": "19.5.6",
+    "@nx/web": "19.5.6",
+    "@nx/webpack": "19.5.6",
+    "@nx/workspace": "19.5.6",
     "@schematics/angular": "~18.1.0",
     "@swc-node/register": "~1.9.1",
     "@swc/core": "~1.5.7",
@@ -86,7 +86,7 @@
     "jest-environment-jsdom": "^29.4.1",
     "jest-environment-node": "^29.4.1",
     "jest-preset-angular": "~14.1.0",
-    "nx": "19.5.4",
+    "nx": "19.5.6",
     "prettier": "^2.6.2",
     "ts-jest": "^29.1.0",
     "ts-loader": "^9.5.1",
@@ -122,60 +122,16 @@
   "fileMap": {
     "nonProjectFiles": [
       {
-        "file": ".eslintignore",
-        "hash": "7663861978715868291"
-      },
-      {
-        "file": "README.md",
-        "hash": "14534800709022261397"
-      },
-      {
-        "file": ".prettierignore",
-        "hash": "5407418692668764289"
-      },
-      {
-        "file": ".dockerignore",
-        "hash": "13419663892536652965"
-      },
-      {
-        "file": "jest.config.ts",
-        "hash": "3494843969422251966"
-      },
-      {
-        "file": "Dockerfile",
-        "hash": "6244065497927133712"
-      },
-      {
-        "file": "package.json",
-        "hash": "12878877664415082473"
-      },
-      {
-        "file": "tsconfig.base.json",
-        "hash": "3551299669992616240"
+        "file": ".gitignore",
+        "hash": "13917007966464669153"
       },
       {
         "file": ".vscode/extensions.json",
         "hash": "4934098906304722861"
       },
       {
-        "file": ".eslintrc.json",
-        "hash": "18315524891129148814"
-      },
-      {
-        "file": "package-lock.json",
-        "hash": "18001484492942309687"
-      },
-      {
-        "file": ".editorconfig",
-        "hash": "5443105041930014821"
-      },
-      {
-        "file": ".vscode/launch.json",
-        "hash": "11840498223564460082"
-      },
-      {
-        "file": ".gitignore",
-        "hash": "13917007966464669153"
+        "file": "jest.preset.js",
+        "hash": "9430166341120122740"
       },
       {
         "file": "nx.json",
@@ -186,27 +142,651 @@
         "hash": "9104989849604268909"
       },
       {
-        "file": ".vscode/tasks.json",
-        "hash": "2459902084299443877"
-      },
-      {
         "file": ".prettierrc",
         "hash": "16267754514737964994"
       },
       {
-        "file": ".gitattributes",
-        "hash": "13194702717607086212"
+        "file": ".vscode/tasks.json",
+        "hash": "2459902084299443877"
+      },
+      {
+        "file": ".prettierignore",
+        "hash": "5407418692668764289"
+      },
+      {
+        "file": ".editorconfig",
+        "hash": "5443105041930014821"
+      },
+      {
+        "file": ".vscode/launch.json",
+        "hash": "11840498223564460082"
+      },
+      {
+        "file": "package.json",
+        "hash": "11821497172794160160"
+      },
+      {
+        "file": "Dockerfile",
+        "hash": "6244065497927133712"
       },
       {
         "file": "docker-compose.debug.yml",
         "hash": "14168878783884762562"
       },
       {
-        "file": "jest.preset.js",
-        "hash": "9430166341120122740"
+        "file": "tsconfig.base.json",
+        "hash": "3551299669992616240"
+      },
+      {
+        "file": "package-lock.json",
+        "hash": "1630455859569500945"
+      },
+      {
+        "file": ".dockerignore",
+        "hash": "13419663892536652965"
+      },
+      {
+        "file": ".eslintignore",
+        "hash": "7663861978715868291"
+      },
+      {
+        "file": ".gitattributes",
+        "hash": "13194702717607086212"
+      },
+      {
+        "file": ".eslintrc.json",
+        "hash": "18315524891129148814"
+      },
+      {
+        "file": "README.md",
+        "hash": "14534800709022261397"
+      },
+      {
+        "file": "jest.config.ts",
+        "hash": "3494843969422251966"
       }
     ],
     "projectFileMap": {
+      "models": [
+        {
+          "file": "models/.eslintrc.json",
+          "hash": "11808533155536463924"
+        },
+        {
+          "file": "models/README.md",
+          "hash": "7182395557623318021"
+        },
+        {
+          "file": "models/project.json",
+          "hash": "9957053256605098995"
+        },
+        {
+          "file": "models/src/index.ts",
+          "hash": "7954580003656632107"
+        },
+        {
+          "file": "models/src/lib/dto.ts",
+          "hash": "4067021020327264992",
+          "deps": [
+            "backend"
+          ]
+        },
+        {
+          "file": "models/src/lib/models.ts",
+          "hash": "451230243355638932"
+        },
+        {
+          "file": "models/src/lib/transformUtility.ts",
+          "hash": "8652294317219306696"
+        },
+        {
+          "file": "models/tsconfig.json",
+          "hash": "14391392062619267752"
+        },
+        {
+          "file": "models/tsconfig.lib.json",
+          "hash": "12638394678519115349"
+        }
+      ],
+      "backend-e2e": [
+        {
+          "file": "backend-e2e/.eslintrc.json",
+          "hash": "11808533155536463924"
+        },
+        {
+          "file": "backend-e2e/jest.config.ts",
+          "hash": "2507509416108260741"
+        },
+        {
+          "file": "backend-e2e/project.json",
+          "hash": "1188065140152122076"
+        },
+        {
+          "file": "backend-e2e/src/backend/backend.spec.ts",
+          "hash": "110394728024017389",
+          "deps": [
+            "npm:axios"
+          ]
+        },
+        {
+          "file": "backend-e2e/src/support/global-setup.ts",
+          "hash": "2568409276037275290"
+        },
+        {
+          "file": "backend-e2e/src/support/global-teardown.ts",
+          "hash": "5275447082211835490"
+        },
+        {
+          "file": "backend-e2e/src/support/test-setup.ts",
+          "hash": "10984585515912236441",
+          "deps": [
+            "npm:axios"
+          ]
+        },
+        {
+          "file": "backend-e2e/tsconfig.json",
+          "hash": "2346920493880922870"
+        },
+        {
+          "file": "backend-e2e/tsconfig.spec.json",
+          "hash": "14226830188665428950"
+        }
+      ],
+      "backend": [
+        {
+          "file": "backend/.eslintrc.json",
+          "hash": "11808533155536463924"
+        },
+        {
+          "file": "backend/.vscode/settings.json",
+          "hash": "325400461912797385"
+        },
+        {
+          "file": "backend/jest.config.ts",
+          "hash": "16506059037693097726"
+        },
+        {
+          "file": "backend/project.json",
+          "hash": "6372494387891773846"
+        },
+        {
+          "file": "backend/public/images/1722888791138_driving.png",
+          "hash": "13612425076140924845"
+        },
+        {
+          "file": "backend/public/images/1722892789775_driving.png",
+          "hash": "13612425076140924845"
+        },
+        {
+          "file": "backend/public/images/1722893101979_driving.png",
+          "hash": "13612425076140924845"
+        },
+        {
+          "file": "backend/public/images/1722895491406_driving.png",
+          "hash": "13612425076140924845"
+        },
+        {
+          "file": "backend/public/images/1722895525425_driving.png",
+          "hash": "13612425076140924845"
+        },
+        {
+          "file": "backend/public/images/1722895525425_stationary.png",
+          "hash": "13500420847320857845"
+        },
+        {
+          "file": "backend/public/images/1722895616783_driving.png",
+          "hash": "13612425076140924845"
+        },
+        {
+          "file": "backend/public/images/1722895616784_driving.png",
+          "hash": "13612425076140924845"
+        },
+        {
+          "file": "backend/public/images/download.png",
+          "hash": "9787592787789889780"
+        },
+        {
+          "file": "backend/src/assets/.gitkeep",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "backend/src/main.ts",
+          "hash": "9985919922490511435",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/core",
+            "environment",
+            "npm:cookie-parser"
+          ]
+        },
+        {
+          "file": "backend/src/modules/app/app.controller.ts",
+          "hash": "9005150069945785676",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "backend/src/modules/app/app.module.ts",
+          "hash": "10669772140522698506",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/typeorm",
+            "environment",
+            "npm:@nestjs/schedule"
+          ]
+        },
+        {
+          "file": "backend/src/modules/app/app.service.ts",
+          "hash": "9967902337593410053",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "backend/src/modules/auction/auction.controller.ts",
+          "hash": "8706597673512917010",
+          "deps": [
+            "npm:@nestjs/common",
+            "models"
+          ]
+        },
+        {
+          "file": "backend/src/modules/auction/auction.entity.ts",
+          "hash": "16672606198384623536",
+          "deps": [
+            "npm:class-validator",
+            "npm:typeorm",
+            "models"
+          ]
+        },
+        {
+          "file": "backend/src/modules/auction/auction.module.ts",
+          "hash": "2185843832990877163",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/typeorm",
+            "npm:@nestjs/core"
+          ]
+        },
+        {
+          "file": "backend/src/modules/auction/auction.service.ts",
+          "hash": "18128321947606512291",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/typeorm",
+            "npm:typeorm",
+            "models",
+            "npm:rxjs",
+            "npm:@nestjs/schedule",
+            "npm:cron"
+          ]
+        },
+        {
+          "file": "backend/src/modules/auction/dto/auction.create-dto.ts",
+          "hash": "16858169791515497746",
+          "deps": [
+            "npm:@nestjs/swagger",
+            "npm:class-validator",
+            "npm:class-transformer",
+            "models"
+          ]
+        },
+        {
+          "file": "backend/src/modules/auction/dto/auction.update-dto.ts",
+          "hash": "11380691141294394487",
+          "deps": [
+            "npm:@nestjs/swagger",
+            "npm:class-validator"
+          ]
+        },
+        {
+          "file": "backend/src/modules/auction/guards/owner.guard.ts",
+          "hash": "14099153336767625720",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/core",
+            "npm:rxjs"
+          ]
+        },
+        {
+          "file": "backend/src/modules/auction_category/auction_category.entity.ts",
+          "hash": "8352874665795679029",
+          "deps": [
+            "models",
+            "npm:typeorm"
+          ]
+        },
+        {
+          "file": "backend/src/modules/auction_category/auction_category.module.ts",
+          "hash": "11094758272549708553",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "backend/src/modules/auction_category/dto/auction_category.create-dto.ts",
+          "hash": "788088586842550273",
+          "deps": [
+            "npm:@nestjs/swagger"
+          ]
+        },
+        {
+          "file": "backend/src/modules/auction_category/dto/auction_category.update-dto.ts",
+          "hash": "2903089607952589883",
+          "deps": [
+            "npm:@nestjs/swagger"
+          ]
+        },
+        {
+          "file": "backend/src/modules/auth/auth.controller.ts",
+          "hash": "2000981894922086476",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/passport",
+            "npm:express",
+            "models"
+          ]
+        },
+        {
+          "file": "backend/src/modules/auth/auth.module.ts",
+          "hash": "15334308523368021283",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/passport",
+            "npm:@nestjs/jwt"
+          ]
+        },
+        {
+          "file": "backend/src/modules/auth/auth.service.ts",
+          "hash": "8575156271003775753",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:bcrypt",
+            "npm:@nestjs/jwt"
+          ]
+        },
+        {
+          "file": "backend/src/modules/auth/constants.ts",
+          "hash": "9427380078952287063"
+        },
+        {
+          "file": "backend/src/modules/auth/guards/jwt-auth.guard.ts",
+          "hash": "12907724048518590633",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/passport"
+          ]
+        },
+        {
+          "file": "backend/src/modules/auth/guards/local-auth.guard.ts",
+          "hash": "7734598441570167745",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/passport"
+          ]
+        },
+        {
+          "file": "backend/src/modules/auth/strategies/jwt.strategy.ts",
+          "hash": "10379578844759951373",
+          "deps": [
+            "npm:passport-jwt",
+            "npm:@nestjs/passport",
+            "npm:@nestjs/common",
+            "models",
+            "npm:express"
+          ]
+        },
+        {
+          "file": "backend/src/modules/auth/strategies/local.strategy.ts",
+          "hash": "17239007613458995651",
+          "deps": [
+            "npm:passport-local",
+            "npm:@nestjs/passport",
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "backend/src/modules/bid/bid.controller.ts",
+          "hash": "12202896434056864793",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "backend/src/modules/bid/bid.entity.ts",
+          "hash": "13957026023313009377",
+          "deps": [
+            "models",
+            "npm:class-validator",
+            "npm:typeorm"
+          ]
+        },
+        {
+          "file": "backend/src/modules/bid/bid.module.ts",
+          "hash": "8353888663870014865",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/typeorm"
+          ]
+        },
+        {
+          "file": "backend/src/modules/bid/bid.service.ts",
+          "hash": "3300238603350494833",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/typeorm",
+            "npm:typeorm"
+          ]
+        },
+        {
+          "file": "backend/src/modules/bid/dto/bid.create-dto.ts",
+          "hash": "5704909759799413877",
+          "deps": [
+            "npm:@nestjs/swagger",
+            "npm:class-validator"
+          ]
+        },
+        {
+          "file": "backend/src/modules/bid/dto/bid.update-dto.ts",
+          "hash": "7199653760245622018"
+        },
+        {
+          "file": "backend/src/modules/bid/guards/owner.guard.ts",
+          "hash": "10799838823617183510",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/core",
+            "npm:rxjs"
+          ]
+        },
+        {
+          "file": "backend/src/modules/image/dto/image.create-dto.ts",
+          "hash": "1926604602834756344",
+          "deps": [
+            "npm:@nestjs/swagger",
+            "npm:class-validator"
+          ]
+        },
+        {
+          "file": "backend/src/modules/image/image.controller.ts",
+          "hash": "12514984338238468077",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:express",
+            "npm:multer",
+            "npm:@nestjs/platform-express",
+            "npm:rxjs"
+          ]
+        },
+        {
+          "file": "backend/src/modules/image/image.entity.ts",
+          "hash": "9777948038303249539",
+          "deps": [
+            "models",
+            "npm:typeorm",
+            "npm:class-validator"
+          ]
+        },
+        {
+          "file": "backend/src/modules/image/image.module.ts",
+          "hash": "10194375958773909584",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/typeorm",
+            "npm:@nestjs/core"
+          ]
+        },
+        {
+          "file": "backend/src/modules/image/image.service.ts",
+          "hash": "11161310866149258762",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:typeorm",
+            "models",
+            "npm:@nestjs/typeorm"
+          ]
+        },
+        {
+          "file": "backend/src/modules/sale_certificate/dto/sale_certificate.create-dto.ts",
+          "hash": "13889680654706627430"
+        },
+        {
+          "file": "backend/src/modules/sale_certificate/sale_certificate.entity.ts",
+          "hash": "14412696140975985154",
+          "deps": [
+            "models",
+            "npm:typeorm",
+            "npm:class-validator"
+          ]
+        },
+        {
+          "file": "backend/src/modules/sale_certificate/sale_sertificate.controller.ts",
+          "hash": "3674577718360936511",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "backend/src/modules/sale_certificate/sale_sertificate.module.ts",
+          "hash": "1865700098856004452",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/typeorm"
+          ]
+        },
+        {
+          "file": "backend/src/modules/sale_certificate/sale_sertificate.service.ts",
+          "hash": "1028929659722202116",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/typeorm",
+            "npm:typeorm"
+          ]
+        },
+        {
+          "file": "backend/src/modules/user/dto/user.create-dto.ts",
+          "hash": "17331683331232308940",
+          "deps": [
+            "npm:@nestjs/swagger",
+            "npm:class-validator"
+          ]
+        },
+        {
+          "file": "backend/src/modules/user/dto/user.update-dto.ts",
+          "hash": "11479793412584443720",
+          "deps": [
+            "npm:@nestjs/swagger",
+            "npm:class-validator"
+          ]
+        },
+        {
+          "file": "backend/src/modules/user/user.controller.ts",
+          "hash": "17258363857509713349",
+          "deps": [
+            "npm:@nestjs/common",
+            "models",
+            "npm:express"
+          ]
+        },
+        {
+          "file": "backend/src/modules/user/user.entity.ts",
+          "hash": "8771624441221068592",
+          "deps": [
+            "models",
+            "npm:class-validator",
+            "npm:typeorm"
+          ]
+        },
+        {
+          "file": "backend/src/modules/user/user.module.ts",
+          "hash": "10374383121252798631",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/typeorm"
+          ]
+        },
+        {
+          "file": "backend/src/modules/user/user.service.ts",
+          "hash": "1554993208867517565",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/typeorm",
+            "npm:typeorm",
+            "npm:bcrypt",
+            "models",
+            "npm:class-validator"
+          ]
+        },
+        {
+          "file": "backend/src/validation/exception-factory.ts",
+          "hash": "15964458163970965707",
+          "deps": [
+            "npm:class-validator",
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "backend/src/validation/validators/has-at-least-one-field.ts",
+          "hash": "13131955229402138980",
+          "deps": [
+            "npm:class-validator"
+          ]
+        },
+        {
+          "file": "backend/src/validation/validators/is-date-greater-than.validator.ts",
+          "hash": "3007442157832415271",
+          "deps": [
+            "npm:class-validator"
+          ]
+        },
+        {
+          "file": "backend/src/validation/validators/is-not-in-past.validator.ts",
+          "hash": "8368606673290523854",
+          "deps": [
+            "npm:class-validator"
+          ]
+        },
+        {
+          "file": "backend/tsconfig.app.json",
+          "hash": "12134917424893484864"
+        },
+        {
+          "file": "backend/tsconfig.json",
+          "hash": "9420862676426701392"
+        },
+        {
+          "file": "backend/tsconfig.spec.json",
+          "hash": "17313551537729802733"
+        },
+        {
+          "file": "backend/webpack.config.js",
+          "hash": "1279870486852937806",
+          "deps": [
+            "npm:@nx/webpack"
+          ]
+        }
+      ],
       "environment": [
         {
           "file": "environment/.eslintrc.json",
@@ -301,6 +881,30 @@
           ]
         },
         {
+          "file": "frontend/src/app/components/auctions/auction/auction.component.css",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "frontend/src/app/components/auctions/auction/auction.component.html",
+          "hash": "2251746448563138762"
+        },
+        {
+          "file": "frontend/src/app/components/auctions/auction/auction.component.spec.ts",
+          "hash": "6590778714911544323",
+          "deps": [
+            "npm:@angular/core"
+          ]
+        },
+        {
+          "file": "frontend/src/app/components/auctions/auction/auction.component.ts",
+          "hash": "17880129969246285396",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/common",
+            "models"
+          ]
+        },
+        {
           "file": "frontend/src/app/components/auctions/auctions.component.css",
           "hash": "3244421341483603138"
         },
@@ -324,12 +928,62 @@
           ]
         },
         {
+          "file": "frontend/src/app/components/bids/bid/bid.component.css",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "frontend/src/app/components/bids/bid/bid.component.html",
+          "hash": "2451594913651909824"
+        },
+        {
+          "file": "frontend/src/app/components/bids/bid/bid.component.spec.ts",
+          "hash": "6142544644818065242",
+          "deps": [
+            "npm:@angular/core"
+          ]
+        },
+        {
+          "file": "frontend/src/app/components/bids/bid/bid.component.ts",
+          "hash": "3119512908801643746",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/common",
+            "models",
+            "npm:@angular/material"
+          ]
+        },
+        {
+          "file": "frontend/src/app/components/bids/bids.component.css",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "frontend/src/app/components/bids/bids.component.html",
+          "hash": "9696403512762106590"
+        },
+        {
+          "file": "frontend/src/app/components/bids/bids.component.spec.ts",
+          "hash": "8778863034800629175",
+          "deps": [
+            "npm:@angular/core"
+          ]
+        },
+        {
+          "file": "frontend/src/app/components/bids/bids.component.ts",
+          "hash": "6481933673044973910",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/common",
+            "npm:@angular/material",
+            "models"
+          ]
+        },
+        {
           "file": "frontend/src/app/components/home/home.component.css",
           "hash": "3244421341483603138"
         },
         {
           "file": "frontend/src/app/components/home/home.component.html",
-          "hash": "16267133042507327433"
+          "hash": "8044095409807991993"
         },
         {
           "file": "frontend/src/app/components/home/home.component.spec.ts",
@@ -340,7 +994,7 @@
         },
         {
           "file": "frontend/src/app/components/home/home.component.ts",
-          "hash": "7830582872421169172",
+          "hash": "8137582345831571015",
           "deps": [
             "npm:@angular/common",
             "npm:@angular/core",
@@ -605,7 +1259,7 @@
         },
         {
           "file": "frontend/src/index.html",
-          "hash": "7282413117022224071"
+          "hash": "1577618371997422704"
         },
         {
           "file": "frontend/src/main.ts",
@@ -640,660 +1294,6 @@
         {
           "file": "frontend/tsconfig.spec.json",
           "hash": "2129196202529263968"
-        },
-        {
-          "file": "frontend/src/app/components/auctions/auction/auction.component.ts",
-          "hash": "17880129969246285396",
-          "deps": [
-            "npm:@angular/core",
-            "npm:@angular/common",
-            "models"
-          ]
-        },
-        {
-          "file": "frontend/src/app/components/auctions/auction/auction.component.html",
-          "hash": "2251746448563138762"
-        },
-        {
-          "file": "frontend/src/app/components/auctions/auction/auction.component.spec.ts",
-          "hash": "6590778714911544323",
-          "deps": [
-            "npm:@angular/core"
-          ]
-        },
-        {
-          "file": "frontend/src/app/components/auctions/auction/auction.component.css",
-          "hash": "3244421341483603138"
-        },
-        {
-          "file": "frontend/src/app/components/bids/bid/bid.component.spec.ts",
-          "hash": "6142544644818065242",
-          "deps": [
-            "npm:@angular/core"
-          ]
-        },
-        {
-          "file": "frontend/src/app/components/bids/bid/bid.component.ts",
-          "hash": "3119512908801643746",
-          "deps": [
-            "npm:@angular/core",
-            "npm:@angular/common",
-            "models",
-            "npm:@angular/material"
-          ]
-        },
-        {
-          "file": "frontend/src/app/components/bids/bid/bid.component.css",
-          "hash": "3244421341483603138"
-        },
-        {
-          "file": "frontend/src/app/components/bids/bid/bid.component.html",
-          "hash": "2451594913651909824"
-        },
-        {
-          "file": "frontend/src/app/components/bids/bids.component.spec.ts",
-          "hash": "8778863034800629175",
-          "deps": [
-            "npm:@angular/core"
-          ]
-        },
-        {
-          "file": "frontend/src/app/components/bids/bids.component.ts",
-          "hash": "6481933673044973910",
-          "deps": [
-            "npm:@angular/core",
-            "npm:@angular/common",
-            "npm:@angular/material",
-            "models"
-          ]
-        },
-        {
-          "file": "frontend/src/app/components/bids/bids.component.css",
-          "hash": "3244421341483603138"
-        },
-        {
-          "file": "frontend/src/app/components/bids/bids.component.html",
-          "hash": "9696403512762106590"
-        }
-      ],
-      "backend-e2e": [
-        {
-          "file": "backend-e2e/.eslintrc.json",
-          "hash": "11808533155536463924"
-        },
-        {
-          "file": "backend-e2e/jest.config.ts",
-          "hash": "2507509416108260741"
-        },
-        {
-          "file": "backend-e2e/project.json",
-          "hash": "1188065140152122076"
-        },
-        {
-          "file": "backend-e2e/src/backend/backend.spec.ts",
-          "hash": "110394728024017389",
-          "deps": [
-            "npm:axios"
-          ]
-        },
-        {
-          "file": "backend-e2e/src/support/global-setup.ts",
-          "hash": "2568409276037275290"
-        },
-        {
-          "file": "backend-e2e/src/support/global-teardown.ts",
-          "hash": "5275447082211835490"
-        },
-        {
-          "file": "backend-e2e/src/support/test-setup.ts",
-          "hash": "10984585515912236441",
-          "deps": [
-            "npm:axios"
-          ]
-        },
-        {
-          "file": "backend-e2e/tsconfig.json",
-          "hash": "2346920493880922870"
-        },
-        {
-          "file": "backend-e2e/tsconfig.spec.json",
-          "hash": "14226830188665428950"
-        }
-      ],
-      "backend": [
-        {
-          "file": "backend/.eslintrc.json",
-          "hash": "11808533155536463924"
-        },
-        {
-          "file": "backend/.vscode/settings.json",
-          "hash": "325400461912797385"
-        },
-        {
-          "file": "backend/jest.config.ts",
-          "hash": "16506059037693097726"
-        },
-        {
-          "file": "backend/project.json",
-          "hash": "6372494387891773846"
-        },
-        {
-          "file": "backend/src/assets/.gitkeep",
-          "hash": "3244421341483603138"
-        },
-        {
-          "file": "backend/src/main.ts",
-          "hash": "9985919922490511435",
-          "deps": [
-            "npm:@nestjs/common",
-            "npm:@nestjs/core",
-            "environment",
-            "npm:cookie-parser"
-          ]
-        },
-        {
-          "file": "backend/src/modules/app/app.controller.ts",
-          "hash": "9005150069945785676",
-          "deps": [
-            "npm:@nestjs/common"
-          ]
-        },
-        {
-          "file": "backend/src/modules/app/app.module.ts",
-          "hash": "10669772140522698506",
-          "deps": [
-            "npm:@nestjs/common",
-            "npm:@nestjs/typeorm",
-            "environment",
-            "npm:@nestjs/schedule"
-          ]
-        },
-        {
-          "file": "backend/src/modules/app/app.service.ts",
-          "hash": "9967902337593410053",
-          "deps": [
-            "npm:@nestjs/common"
-          ]
-        },
-        {
-          "file": "backend/src/modules/auction/auction.controller.ts",
-          "hash": "8706597673512917010",
-          "deps": [
-            "npm:@nestjs/common",
-            "models"
-          ]
-        },
-        {
-          "file": "backend/src/modules/auction/auction.entity.ts",
-          "hash": "582568795621323535",
-          "deps": [
-            "npm:class-validator",
-            "npm:typeorm",
-            "models"
-          ]
-        },
-        {
-          "file": "backend/src/modules/auction/auction.module.ts",
-          "hash": "2185843832990877163",
-          "deps": [
-            "npm:@nestjs/common",
-            "npm:@nestjs/typeorm",
-            "npm:@nestjs/core"
-          ]
-        },
-        {
-          "file": "backend/src/modules/auction/auction.service.ts",
-          "hash": "7994288163323273490",
-          "deps": [
-            "npm:@nestjs/common",
-            "npm:@nestjs/typeorm",
-            "npm:typeorm",
-            "models",
-            "npm:rxjs",
-            "npm:@nestjs/schedule",
-            "npm:cron"
-          ]
-        },
-        {
-          "file": "backend/src/modules/auction/dto/auction.create-dto.ts",
-          "hash": "16858169791515497746",
-          "deps": [
-            "npm:@nestjs/swagger",
-            "npm:class-validator",
-            "npm:class-transformer",
-            "models"
-          ]
-        },
-        {
-          "file": "backend/src/modules/auction/dto/auction.update-dto.ts",
-          "hash": "11380691141294394487",
-          "deps": [
-            "npm:@nestjs/swagger",
-            "npm:class-validator"
-          ]
-        },
-        {
-          "file": "backend/src/modules/auction/guards/owner.guard.ts",
-          "hash": "14099153336767625720",
-          "deps": [
-            "npm:@nestjs/common",
-            "npm:@nestjs/core",
-            "npm:rxjs"
-          ]
-        },
-        {
-          "file": "backend/src/modules/auction_category/auction_category.entity.ts",
-          "hash": "8352874665795679029",
-          "deps": [
-            "models",
-            "npm:typeorm"
-          ]
-        },
-        {
-          "file": "backend/src/modules/auction_category/auction_category.module.ts",
-          "hash": "11094758272549708553",
-          "deps": [
-            "npm:@nestjs/common"
-          ]
-        },
-        {
-          "file": "backend/src/modules/auction_category/dto/auction_category.create-dto.ts",
-          "hash": "788088586842550273",
-          "deps": [
-            "npm:@nestjs/swagger"
-          ]
-        },
-        {
-          "file": "backend/src/modules/auction_category/dto/auction_category.update-dto.ts",
-          "hash": "2903089607952589883",
-          "deps": [
-            "npm:@nestjs/swagger"
-          ]
-        },
-        {
-          "file": "backend/src/modules/auth/auth.controller.ts",
-          "hash": "2000981894922086476",
-          "deps": [
-            "npm:@nestjs/common",
-            "npm:@nestjs/passport",
-            "npm:express",
-            "models"
-          ]
-        },
-        {
-          "file": "backend/src/modules/auth/auth.module.ts",
-          "hash": "15334308523368021283",
-          "deps": [
-            "npm:@nestjs/common",
-            "npm:@nestjs/passport",
-            "npm:@nestjs/jwt"
-          ]
-        },
-        {
-          "file": "backend/src/modules/auth/auth.service.ts",
-          "hash": "8575156271003775753",
-          "deps": [
-            "npm:@nestjs/common",
-            "npm:bcrypt",
-            "npm:@nestjs/jwt"
-          ]
-        },
-        {
-          "file": "backend/src/modules/auth/constants.ts",
-          "hash": "9427380078952287063"
-        },
-        {
-          "file": "backend/src/modules/auth/guards/jwt-auth.guard.ts",
-          "hash": "12907724048518590633",
-          "deps": [
-            "npm:@nestjs/common",
-            "npm:@nestjs/passport"
-          ]
-        },
-        {
-          "file": "backend/src/modules/auth/guards/local-auth.guard.ts",
-          "hash": "7734598441570167745",
-          "deps": [
-            "npm:@nestjs/common",
-            "npm:@nestjs/passport"
-          ]
-        },
-        {
-          "file": "backend/src/modules/auth/strategies/jwt.strategy.ts",
-          "hash": "10379578844759951373",
-          "deps": [
-            "npm:passport-jwt",
-            "npm:@nestjs/passport",
-            "npm:@nestjs/common",
-            "models",
-            "npm:express"
-          ]
-        },
-        {
-          "file": "backend/src/modules/auth/strategies/local.strategy.ts",
-          "hash": "17239007613458995651",
-          "deps": [
-            "npm:passport-local",
-            "npm:@nestjs/passport",
-            "npm:@nestjs/common"
-          ]
-        },
-        {
-          "file": "backend/src/modules/bid/bid.controller.ts",
-          "hash": "12202896434056864793",
-          "deps": [
-            "npm:@nestjs/common"
-          ]
-        },
-        {
-          "file": "backend/src/modules/bid/bid.entity.ts",
-          "hash": "10565596481897227907",
-          "deps": [
-            "models",
-            "npm:class-validator",
-            "npm:typeorm"
-          ]
-        },
-        {
-          "file": "backend/src/modules/bid/bid.module.ts",
-          "hash": "8353888663870014865",
-          "deps": [
-            "npm:@nestjs/common",
-            "npm:@nestjs/typeorm"
-          ]
-        },
-        {
-          "file": "backend/src/modules/bid/bid.service.ts",
-          "hash": "3300238603350494833",
-          "deps": [
-            "npm:@nestjs/common",
-            "npm:@nestjs/typeorm",
-            "npm:typeorm"
-          ]
-        },
-        {
-          "file": "backend/src/modules/bid/dto/bid.create-dto.ts",
-          "hash": "5704909759799413877",
-          "deps": [
-            "npm:@nestjs/swagger",
-            "npm:class-validator"
-          ]
-        },
-        {
-          "file": "backend/src/modules/bid/dto/bid.update-dto.ts",
-          "hash": "7199653760245622018"
-        },
-        {
-          "file": "backend/src/modules/bid/guards/owner.guard.ts",
-          "hash": "10799838823617183510",
-          "deps": [
-            "npm:@nestjs/common",
-            "npm:@nestjs/core",
-            "npm:rxjs"
-          ]
-        },
-        {
-          "file": "backend/src/modules/image/dto/image.create-dto.ts",
-          "hash": "1926604602834756344",
-          "deps": [
-            "npm:@nestjs/swagger",
-            "npm:class-validator"
-          ]
-        },
-        {
-          "file": "backend/src/modules/image/image.controller.ts",
-          "hash": "12514984338238468077",
-          "deps": [
-            "npm:@nestjs/common",
-            "npm:express",
-            "npm:multer",
-            "npm:@nestjs/platform-express",
-            "npm:rxjs"
-          ]
-        },
-        {
-          "file": "backend/src/modules/image/image.entity.ts",
-          "hash": "9777948038303249539",
-          "deps": [
-            "models",
-            "npm:typeorm",
-            "npm:class-validator"
-          ]
-        },
-        {
-          "file": "backend/src/modules/image/image.module.ts",
-          "hash": "10194375958773909584",
-          "deps": [
-            "npm:@nestjs/common",
-            "npm:@nestjs/typeorm",
-            "npm:@nestjs/core"
-          ]
-        },
-        {
-          "file": "backend/src/modules/image/image.service.ts",
-          "hash": "11161310866149258762",
-          "deps": [
-            "npm:@nestjs/common",
-            "npm:typeorm",
-            "models",
-            "npm:@nestjs/typeorm"
-          ]
-        },
-        {
-          "file": "backend/src/modules/sale_certificate/dto/sale_certificate.create-dto.ts",
-          "hash": "13889680654706627430"
-        },
-        {
-          "file": "backend/src/modules/sale_certificate/sale_certificate.entity.ts",
-          "hash": "17640403074114960988",
-          "deps": [
-            "models",
-            "npm:typeorm",
-            "npm:class-validator"
-          ]
-        },
-        {
-          "file": "backend/src/modules/sale_certificate/sale_sertificate.controller.ts",
-          "hash": "3674577718360936511",
-          "deps": [
-            "npm:@nestjs/common"
-          ]
-        },
-        {
-          "file": "backend/src/modules/sale_certificate/sale_sertificate.module.ts",
-          "hash": "1865700098856004452",
-          "deps": [
-            "npm:@nestjs/common",
-            "npm:@nestjs/typeorm"
-          ]
-        },
-        {
-          "file": "backend/src/modules/sale_certificate/sale_sertificate.service.ts",
-          "hash": "1028929659722202116",
-          "deps": [
-            "npm:@nestjs/common",
-            "npm:@nestjs/typeorm",
-            "npm:typeorm"
-          ]
-        },
-        {
-          "file": "backend/src/modules/user/dto/user.create-dto.ts",
-          "hash": "17331683331232308940",
-          "deps": [
-            "npm:@nestjs/swagger",
-            "npm:class-validator"
-          ]
-        },
-        {
-          "file": "backend/src/modules/user/dto/user.update-dto.ts",
-          "hash": "11479793412584443720",
-          "deps": [
-            "npm:@nestjs/swagger",
-            "npm:class-validator"
-          ]
-        },
-        {
-          "file": "backend/src/modules/user/user.controller.ts",
-          "hash": "17258363857509713349",
-          "deps": [
-            "npm:@nestjs/common",
-            "models",
-            "npm:express"
-          ]
-        },
-        {
-          "file": "backend/src/modules/user/user.entity.ts",
-          "hash": "8771624441221068592",
-          "deps": [
-            "models",
-            "npm:class-validator",
-            "npm:typeorm"
-          ]
-        },
-        {
-          "file": "backend/src/modules/user/user.module.ts",
-          "hash": "10374383121252798631",
-          "deps": [
-            "npm:@nestjs/common",
-            "npm:@nestjs/typeorm"
-          ]
-        },
-        {
-          "file": "backend/src/modules/user/user.service.ts",
-          "hash": "1554993208867517565",
-          "deps": [
-            "npm:@nestjs/common",
-            "npm:@nestjs/typeorm",
-            "npm:typeorm",
-            "npm:bcrypt",
-            "models",
-            "npm:class-validator"
-          ]
-        },
-        {
-          "file": "backend/src/validation/exception-factory.ts",
-          "hash": "15964458163970965707",
-          "deps": [
-            "npm:class-validator",
-            "npm:@nestjs/common"
-          ]
-        },
-        {
-          "file": "backend/src/validation/validators/has-at-least-one-field.ts",
-          "hash": "13131955229402138980",
-          "deps": [
-            "npm:class-validator"
-          ]
-        },
-        {
-          "file": "backend/src/validation/validators/is-date-greater-than.validator.ts",
-          "hash": "3007442157832415271",
-          "deps": [
-            "npm:class-validator"
-          ]
-        },
-        {
-          "file": "backend/src/validation/validators/is-not-in-past.validator.ts",
-          "hash": "8368606673290523854",
-          "deps": [
-            "npm:class-validator"
-          ]
-        },
-        {
-          "file": "backend/tsconfig.app.json",
-          "hash": "12134917424893484864"
-        },
-        {
-          "file": "backend/tsconfig.json",
-          "hash": "9420862676426701392"
-        },
-        {
-          "file": "backend/tsconfig.spec.json",
-          "hash": "17313551537729802733"
-        },
-        {
-          "file": "backend/webpack.config.js",
-          "hash": "1279870486852937806",
-          "deps": [
-            "npm:@nx/webpack"
-          ]
-        },
-        {
-          "file": "backend/public/images/download.png",
-          "hash": "9787592787789889780"
-        },
-        {
-          "file": "backend/public/images/1722893101979_driving.png",
-          "hash": "13612425076140924845"
-        },
-        {
-          "file": "backend/public/images/1722892789775_driving.png",
-          "hash": "13612425076140924845"
-        },
-        {
-          "file": "backend/public/images/1722888791138_driving.png",
-          "hash": "13612425076140924845"
-        },
-        {
-          "file": "backend/public/images/1722895491406_driving.png",
-          "hash": "13612425076140924845"
-        },
-        {
-          "file": "backend/public/images/1722895525425_stationary.png",
-          "hash": "13500420847320857845"
-        },
-        {
-          "file": "backend/public/images/1722895525425_driving.png",
-          "hash": "13612425076140924845"
-        },
-        {
-          "file": "backend/public/images/1722895616783_driving.png",
-          "hash": "13612425076140924845"
-        },
-        {
-          "file": "backend/public/images/1722895616784_driving.png",
-          "hash": "13612425076140924845"
-        }
-      ],
-      "models": [
-        {
-          "file": "models/.eslintrc.json",
-          "hash": "11808533155536463924"
-        },
-        {
-          "file": "models/README.md",
-          "hash": "7182395557623318021"
-        },
-        {
-          "file": "models/project.json",
-          "hash": "9957053256605098995"
-        },
-        {
-          "file": "models/src/index.ts",
-          "hash": "7954580003656632107"
-        },
-        {
-          "file": "models/src/lib/dto.ts",
-          "hash": "4067021020327264992",
-          "deps": [
-            "backend"
-          ]
-        },
-        {
-          "file": "models/src/lib/models.ts",
-          "hash": "451230243355638932"
-        },
-        {
-          "file": "models/src/lib/transformUtility.ts",
-          "hash": "8652294317219306696"
-        },
-        {
-          "file": "models/tsconfig.json",
-          "hash": "14391392062619267752"
-        },
-        {
-          "file": "models/tsconfig.lib.json",
-          "hash": "12638394678519115349"
         }
       ]
     }

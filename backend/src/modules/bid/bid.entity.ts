@@ -33,6 +33,5 @@ export class Bid implements IBid {
     (sale_certificate) => sale_certificate.winning_bid,
     { nullable: true, onDelete: 'RESTRICT' }
   )
-  @JoinColumn()
   sale_certificate: SaleCertificate;
 }

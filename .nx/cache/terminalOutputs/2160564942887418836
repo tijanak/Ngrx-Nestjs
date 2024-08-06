@@ -1,0 +1,15 @@
+[2m> [22mwebpack-cli build --node-env=production
+
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 71.8 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./src/modules/sale_certificate/sale_sertificate.service.ts:[32m[1m18:10[22m[39m[1m[39m[22m
+[90mTS2339: [39mProperty 'auctionService' does not exist on type 'SaleSertificateService'.
+  [0m [90m 16 |[39m   create(createSaleSertificateDto[33m:[39m [33mCreateSaleCertificateDto[39m) {
+   [90m 17 |[39m     [36mconst[39m certificate [33m=[39m [36mthis[39m[33m.[39mcertificateRepo[33m.[39mcreate(createSaleSertificateDto)[33m;[39m
+  [31m[1m>[22m[39m[90m 18 |[39m     [36mthis[39m[33m.[39mauctionService[33m.[39maddCertificate(
+   [90m    |[39m          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 19 |[39m       createSaleSertificateDto[33m.[39mauction[33m.[39mid[33m,[39m
+   [90m 20 |[39m       certificate
+   [90m 21 |[39m     )[33m;[39m[0m
+
+webpack compiled with [1m[31m1 error[39m[22m (6b1086ada3b16d9f)
