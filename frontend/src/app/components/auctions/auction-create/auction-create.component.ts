@@ -17,6 +17,7 @@ import {
   OwlDateTimeModule,
   OwlNativeDateTimeModule,
 } from '@danielmoncada/angular-datetime-picker';
+import { maxImageAmount } from './validators/max-image-amount-validator';
 
 @Component({
   selector: 'app-auction-create',
@@ -43,16 +44,15 @@ export class AuctionCreateComponent {
     this.auctionForm = this.fb.group({
       title: ['', Validators.required],
       description: ['', Validators.required],
-      min_price: [null, [Validators.required, Validators.min(0)]],
+      min_price: [null, [Validators.required, Validators.min(1)]],
       start_time: [null, Validators.required],
       end_time: [null, Validators.required],
-      images: [null],
+      images: [Array(), maxImageAmount(10)],
     });
   }
-
   onFileChange(event: any) {
     const fileInput = event.target;
-    if (fileInput.files && fileInput.files.length > 0) {
+    if (fileInput.files) {
       this.auctionForm.patchValue({
         images: fileInput.files,
       });

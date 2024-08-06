@@ -1,66 +1,75 @@
 <form [formGroup]="auctionForm" (ngSubmit)="onSubmit()">
   <mat-form-field appearance="fill">
-    <mat-label>Title</mat-label>
+    <mat-label>Naziv</mat-label>
     <input matInput formControlName="title" />
     <mat-error *ngIf="auctionForm.controls['title'].hasError('required')">
-      Title is required
+      Naziv je obavezno polje
     </mat-error>
   </mat-form-field>
 
   <mat-form-field appearance="fill">
-    <mat-label>Description</mat-label>
+    <mat-label>Opis</mat-label>
     <textarea matInput formControlName="description"></textarea>
     <mat-error *ngIf="auctionForm.controls['description'].hasError('required')">
-      Description is required
+      Opis je obavezno polje
     </mat-error>
   </mat-form-field>
 
   <mat-form-field appearance="fill">
-    <mat-label>Minimum Price</mat-label>
+    <mat-label>Minimalna cena</mat-label>
     <input matInput formControlName="min_price" type="number" />
     <mat-error *ngIf="auctionForm.controls['min_price'].hasError('required')">
-      Minimum price is required
+      Minimalna cena je obavezno polje
     </mat-error>
     <mat-error *ngIf="auctionForm.controls['min_price'].hasError('min')">
-      Minimum price must be a positive number
+      Minimalna cena mora biti pozitivan broj
     </mat-error>
   </mat-form-field>
 
   <mat-form-field appearance="fill">
-    <mat-label>Start Time</mat-label>
+    <mat-label>Početak aukcije</mat-label>
     <input
       matInput
       [owlDateTime]="dt1"
       [owlDateTimeTrigger]="dt1"
       placeholder=""
       formControlName="start_time"
+      readonly="true"
     />
     <owl-date-time #dt1></owl-date-time>
     <mat-error *ngIf="auctionForm.controls['start_time'].hasError('required')">
-      Start time is required
+      Početak je obavezno polje
     </mat-error>
   </mat-form-field>
   <mat-form-field appearance="fill">
-    <mat-label>End Time</mat-label>
+    <mat-label>Kraj aukcije</mat-label>
     <input
       matInput
       [owlDateTime]="dt2"
       [owlDateTimeTrigger]="dt2"
       placeholder=""
       formControlName="end_time"
+      readonly="true"
     />
     <owl-date-time #dt2></owl-date-time>
     <mat-error *ngIf="auctionForm.controls['end_time'].hasError('required')">
-      End time is required
+      Kraj aukcije je obavezno polje
     </mat-error>
   </mat-form-field>
 
-  <mat-label>Images</mat-label>
+  <mat-label>Slike</mat-label>
   <br />
-  <input type="file" (change)="onFileChange($event)" multiple />
-  <mat-error *ngIf="auctionForm.controls['images'].hasError('required')">
-    You can upload up to 10 images
+  <input
+    type="file"
+    accept="image/*"
+    (change)="onFileChange($event)"
+    multiple
+  />
+  <mat-error *ngIf="auctionForm.controls['images'].hasError('maxImageAmount')">
+    Možete maksimalno 10 slika da izaberete
   </mat-error>
 
-  <button mat-raised-button color="primary" type="submit">Submit</button>
+  <button mat-raised-button color="primary" type="submit">
+    Napravi aukciju
+  </button>
 </form>
