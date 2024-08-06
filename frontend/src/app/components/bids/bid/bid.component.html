@@ -1,0 +1,14 @@
+<mat-list-item lines="3">
+  <span matListItemTitle>{{ bid.amount | currency }}</span>
+  <span matListItemLine
+    >Vreme ponude: {{ bid.time_created | date : 'short' }}</span
+  >
+  <span matListItemLine>
+    Licitant: {{ bid.bidder.name }} {{ bid.bidder.surname }}
+    <button mat-icon-button (click)="onDelete()">
+      <mat-icon fontSize="small">delete</mat-icon></button
+    ><button mat-icon-button (click)="onDelete()">
+      <mat-icon fontSize="small">expand_more</mat-icon>
+    </button></span
+  >
+</mat-list-item>

@@ -126,76 +126,72 @@
         "hash": "7663861978715868291"
       },
       {
-        "file": "package-lock.json",
-        "hash": "18001484492942309687"
-      },
-      {
         "file": "README.md",
         "hash": "14534800709022261397"
-      },
-      {
-        "file": "docker-compose.yml",
-        "hash": "9104989849604268909"
-      },
-      {
-        "file": ".gitignore",
-        "hash": "13917007966464669153"
       },
       {
         "file": ".prettierignore",
         "hash": "5407418692668764289"
       },
       {
-        "file": ".vscode/launch.json",
-        "hash": "11840498223564460082"
+        "file": ".dockerignore",
+        "hash": "13419663892536652965"
       },
       {
-        "file": "nx.json",
-        "hash": "1097630411021103535"
-      },
-      {
-        "file": ".editorconfig",
-        "hash": "5443105041930014821"
-      },
-      {
-        "file": ".vscode/extensions.json",
-        "hash": "4934098906304722861"
-      },
-      {
-        "file": ".prettierrc",
-        "hash": "16267754514737964994"
+        "file": "jest.config.ts",
+        "hash": "3494843969422251966"
       },
       {
         "file": "Dockerfile",
         "hash": "6244065497927133712"
       },
       {
-        "file": ".dockerignore",
-        "hash": "13419663892536652965"
+        "file": "package.json",
+        "hash": "12878877664415082473"
       },
       {
         "file": "tsconfig.base.json",
         "hash": "3551299669992616240"
       },
       {
-        "file": ".vscode/tasks.json",
-        "hash": "2459902084299443877"
-      },
-      {
-        "file": "package.json",
-        "hash": "12878877664415082473"
-      },
-      {
-        "file": "jest.preset.js",
-        "hash": "9430166341120122740"
+        "file": ".vscode/extensions.json",
+        "hash": "4934098906304722861"
       },
       {
         "file": ".eslintrc.json",
         "hash": "18315524891129148814"
       },
       {
-        "file": "jest.config.ts",
-        "hash": "3494843969422251966"
+        "file": "package-lock.json",
+        "hash": "18001484492942309687"
+      },
+      {
+        "file": ".editorconfig",
+        "hash": "5443105041930014821"
+      },
+      {
+        "file": ".vscode/launch.json",
+        "hash": "11840498223564460082"
+      },
+      {
+        "file": ".gitignore",
+        "hash": "13917007966464669153"
+      },
+      {
+        "file": "nx.json",
+        "hash": "1097630411021103535"
+      },
+      {
+        "file": "docker-compose.yml",
+        "hash": "9104989849604268909"
+      },
+      {
+        "file": ".vscode/tasks.json",
+        "hash": "2459902084299443877"
+      },
+      {
+        "file": ".prettierrc",
+        "hash": "16267754514737964994"
       },
       {
         "file": ".gitattributes",
@@ -204,6 +200,10 @@
       {
         "file": "docker-compose.debug.yml",
         "hash": "14168878783884762562"
+      },
+      {
+        "file": "jest.preset.js",
+        "hash": "9430166341120122740"
       }
     ],
     "projectFileMap": {
@@ -306,7 +306,7 @@
         },
         {
           "file": "frontend/src/app/components/auctions/auctions.component.html",
-          "hash": "15735327229244779466"
+          "hash": "14578980081555283220"
         },
         {
           "file": "frontend/src/app/components/auctions/auctions.component.spec.ts",
@@ -317,7 +317,7 @@
         },
         {
           "file": "frontend/src/app/components/auctions/auctions.component.ts",
-          "hash": "14467994492751581221",
+          "hash": "16835349402707440017",
           "deps": [
             "npm:@angular/core",
             "npm:@angular/common"
@@ -329,7 +329,7 @@
         },
         {
           "file": "frontend/src/app/components/home/home.component.html",
-          "hash": "12544092179100470729"
+          "hash": "16267133042507327433"
         },
         {
           "file": "frontend/src/app/components/home/home.component.spec.ts",
@@ -340,7 +340,7 @@
         },
         {
           "file": "frontend/src/app/components/home/home.component.ts",
-          "hash": "12467882846735505205",
+          "hash": "7830582872421169172",
           "deps": [
             "npm:@angular/common",
             "npm:@angular/core",
@@ -640,6 +640,80 @@
         {
           "file": "frontend/tsconfig.spec.json",
           "hash": "2129196202529263968"
+        },
+        {
+          "file": "frontend/src/app/components/auctions/auction/auction.component.ts",
+          "hash": "17880129969246285396",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/common",
+            "models"
+          ]
+        },
+        {
+          "file": "frontend/src/app/components/auctions/auction/auction.component.html",
+          "hash": "2251746448563138762"
+        },
+        {
+          "file": "frontend/src/app/components/auctions/auction/auction.component.spec.ts",
+          "hash": "6590778714911544323",
+          "deps": [
+            "npm:@angular/core"
+          ]
+        },
+        {
+          "file": "frontend/src/app/components/auctions/auction/auction.component.css",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "frontend/src/app/components/bids/bid/bid.component.spec.ts",
+          "hash": "6142544644818065242",
+          "deps": [
+            "npm:@angular/core"
+          ]
+        },
+        {
+          "file": "frontend/src/app/components/bids/bid/bid.component.ts",
+          "hash": "3119512908801643746",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/common",
+            "models",
+            "npm:@angular/material"
+          ]
+        },
+        {
+          "file": "frontend/src/app/components/bids/bid/bid.component.css",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "frontend/src/app/components/bids/bid/bid.component.html",
+          "hash": "2451594913651909824"
+        },
+        {
+          "file": "frontend/src/app/components/bids/bids.component.spec.ts",
+          "hash": "8778863034800629175",
+          "deps": [
+            "npm:@angular/core"
+          ]
+        },
+        {
+          "file": "frontend/src/app/components/bids/bids.component.ts",
+          "hash": "6481933673044973910",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/common",
+            "npm:@angular/material",
+            "models"
+          ]
+        },
+        {
+          "file": "frontend/src/app/components/bids/bids.component.css",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "frontend/src/app/components/bids/bids.component.html",
+          "hash": "9696403512762106590"
         }
       ],
       "backend-e2e": [
@@ -769,7 +843,7 @@
         },
         {
           "file": "backend/src/modules/auction/auction.service.ts",
-          "hash": "983405948178372931",
+          "hash": "7994288163323273490",
           "deps": [
             "npm:@nestjs/common",
             "npm:@nestjs/typeorm",

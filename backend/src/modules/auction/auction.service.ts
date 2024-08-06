@@ -106,7 +106,7 @@ export class AuctionService {
     }
     if (auction.bids.length > 0) {
       of(...auction.bids)
-        .pipe(max((a, b) => a.amount - b.amount))
+        .pipe(max((a, b) => b.amount - a.amount))
         .subscribe((winningBid) => {
           Logger.log(winningBid.id);
           return this.saleCertificateService.create({
