@@ -13,6 +13,11 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatDividerModule } from '@angular/material/divider';
+import {
+  OwlDateTimeModule,
+  OwlNativeDateTimeModule,
+} from '@danielmoncada/angular-datetime-picker';
+
 @Component({
   selector: 'app-auction-create',
   standalone: true,
@@ -25,6 +30,8 @@ import { MatDividerModule } from '@angular/material/divider';
     MatNativeDateModule,
     MatDividerModule,
     ReactiveFormsModule,
+    OwlDateTimeModule,
+    OwlNativeDateTimeModule,
   ],
   templateUrl: './auction-create.component.html',
   styleUrl: './auction-create.component.css',
@@ -54,7 +61,6 @@ export class AuctionCreateComponent {
 
   onSubmit() {
     if (this.auctionForm.valid) {
-      // Handle form submission
       console.log(this.auctionForm.value);
     } else {
       console.log('Form is invalid');

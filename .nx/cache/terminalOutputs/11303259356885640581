@@ -12,56 +12,55 @@ webpack compiled [1m[32msuccessfully[39m[22m (7d43a453a4ff9f68)
 
 [2mNx read the output from the cache instead of running the command for 1 out of 1 tasks.[22m
 
-[1m[31mDebugger listening on ws://localhost:9229/fa6d083e-82ac-4b4f-a3b1-d8d8f2c6a20f[39m[22m
-[1m[31mDebugger listening on ws://localhost:9229/fa6d083e-82ac-4b4f-a3b1-d8d8f2c6a20f[39m[22m
+[1m[31mDebugger listening on ws://localhost:9229/ca1327b5-08f0-4a72-879f-7da3a763e43c[39m[22m
+[1m[31mDebugger listening on ws://localhost:9229/ca1327b5-08f0-4a72-879f-7da3a763e43c[39m[22m
 [1m[31mFor help, see: https://nodejs.org/en/docs/inspector[39m[22m
 [1m[31m[39m[22m
-[32m[Nest] 14392  - [39m08/06/2024, 7:21:39 PM [32m    LOG[39m [38;5;3m[NestFactory] [39m[32mStarting Nest application...[39m
-[32m[Nest] 14392  - [39m08/06/2024, 7:21:39 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mTypeOrmModule dependencies initialized[39m[38;5;3m +537ms[39m
-[32m[Nest] 14392  - [39m08/06/2024, 7:21:39 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mPassportModule dependencies initialized[39m[38;5;3m +0ms[39m
-[32m[Nest] 14392  - [39m08/06/2024, 7:21:39 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mJwtModule dependencies initialized[39m[38;5;3m +0ms[39m
-[32m[Nest] 14392  - [39m08/06/2024, 7:21:39 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAppModule dependencies initialized[39m[38;5;3m +0ms[39m
-[32m[Nest] 14392  - [39m08/06/2024, 7:21:39 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mDiscoveryModule dependencies initialized[39m[38;5;3m +0ms[39m
-[32m[Nest] 14392  - [39m08/06/2024, 7:21:39 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mScheduleModule dependencies initialized[39m[38;5;3m +0ms[39m
-[32m[Nest] 14392  - [39m08/06/2024, 7:21:39 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mTypeOrmCoreModule dependencies initialized[39m[38;5;3m +204ms[39m
-[32m[Nest] 14392  - [39m08/06/2024, 7:21:39 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mTypeOrmModule dependencies initialized[39m[38;5;3m +0ms[39m
-[32m[Nest] 14392  - [39m08/06/2024, 7:21:39 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mTypeOrmModule dependencies initialized[39m[38;5;3m +0ms[39m
-[32m[Nest] 14392  - [39m08/06/2024, 7:21:39 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mTypeOrmModule dependencies initialized[39m[38;5;3m +0ms[39m
-[32m[Nest] 14392  - [39m08/06/2024, 7:21:39 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mTypeOrmModule dependencies initialized[39m[38;5;3m +1ms[39m
-[32m[Nest] 14392  - [39m08/06/2024, 7:21:39 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mTypeOrmModule dependencies initialized[39m[38;5;3m +0ms[39m
-[32m[Nest] 14392  - [39m08/06/2024, 7:21:40 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mUserModule dependencies initialized[39m[38;5;3m +10ms[39m
-[32m[Nest] 14392  - [39m08/06/2024, 7:21:40 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mSaleSertificateModule dependencies initialized[39m[38;5;3m +3ms[39m
-[32m[Nest] 14392  - [39m08/06/2024, 7:21:40 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mImageModule dependencies initialized[39m[38;5;3m +0ms[39m
-[32m[Nest] 14392  - [39m08/06/2024, 7:21:40 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAuctionModule dependencies initialized[39m[38;5;3m +1ms[39m
-[32m[Nest] 14392  - [39m08/06/2024, 7:21:40 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAuthModule dependencies initialized[39m[38;5;3m +0ms[39m
-[32m[Nest] 14392  - [39m08/06/2024, 7:21:40 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mBidModule dependencies initialized[39m[38;5;3m +1ms[39m
-[32m[Nest] 14392  - [39m08/06/2024, 7:21:40 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mAppController {/}:[39m[38;5;3m +12ms[39m
-[32m[Nest] 14392  - [39m08/06/2024, 7:21:40 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/, GET} route[39m[38;5;3m +4ms[39m
-[32m[Nest] 14392  - [39m08/06/2024, 7:21:40 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mAuctionController {/auction}:[39m[38;5;3m +1ms[39m
-[32m[Nest] 14392  - [39m08/06/2024, 7:21:40 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auction, POST} route[39m[38;5;3m +1ms[39m
-[32m[Nest] 14392  - [39m08/06/2024, 7:21:40 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auction/all, GET} route[39m[38;5;3m +1ms[39m
-[32m[Nest] 14392  - [39m08/06/2024, 7:21:40 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auction, GET} route[39m[38;5;3m +1ms[39m
-[32m[Nest] 14392  - [39m08/06/2024, 7:21:40 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auction/:id, GET} route[39m[38;5;3m +5ms[39m
-[32m[Nest] 14392  - [39m08/06/2024, 7:21:40 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auction/:id, DELETE} route[39m[38;5;3m +2ms[39m
-[32m[Nest] 14392  - [39m08/06/2024, 7:21:40 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auction/:id, PATCH} route[39m[38;5;3m +1ms[39m
-[32m[Nest] 14392  - [39m08/06/2024, 7:21:40 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mSaleSertificateController {/sale-certificate}:[39m[38;5;3m +0ms[39m
-[32m[Nest] 14392  - [39m08/06/2024, 7:21:40 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/sale-certificate, GET} route[39m[38;5;3m +0ms[39m
-[32m[Nest] 14392  - [39m08/06/2024, 7:21:40 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mUserController {/user}:[39m[38;5;3m +0ms[39m
-[32m[Nest] 14392  - [39m08/06/2024, 7:21:40 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mBidController {/bid}:[39m[38;5;3m +1ms[39m
-[32m[Nest] 14392  - [39m08/06/2024, 7:21:40 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/bid/:auctionId, POST} route[39m[38;5;3m +0ms[39m
-[32m[Nest] 14392  - [39m08/06/2024, 7:21:40 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/bid/all, GET} route[39m[38;5;3m +1ms[39m
-[32m[Nest] 14392  - [39m08/06/2024, 7:21:40 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/bid/:id, GET} route[39m[38;5;3m +0ms[39m
-[32m[Nest] 14392  - [39m08/06/2024, 7:21:40 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/bid/:id, PATCH} route[39m[38;5;3m +1ms[39m
-[32m[Nest] 14392  - [39m08/06/2024, 7:21:40 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/bid/:id, DELETE} route[39m[38;5;3m +0ms[39m
-[32m[Nest] 14392  - [39m08/06/2024, 7:21:40 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mAuthController {/auth}:[39m[38;5;3m +0ms[39m
-[32m[Nest] 14392  - [39m08/06/2024, 7:21:40 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/login, POST} route[39m[38;5;3m +0ms[39m
-[32m[Nest] 14392  - [39m08/06/2024, 7:21:40 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/logout, POST} route[39m[38;5;3m +0ms[39m
-[32m[Nest] 14392  - [39m08/06/2024, 7:21:40 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/profile, GET} route[39m[38;5;3m +1ms[39m
-[32m[Nest] 14392  - [39m08/06/2024, 7:21:40 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/register, POST} route[39m[38;5;3m +0ms[39m
-[32m[Nest] 14392  - [39m08/06/2024, 7:21:40 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mImagesController {/images}:[39m[38;5;3m +0ms[39m
-[32m[Nest] 14392  - [39m08/06/2024, 7:21:40 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/images, POST} route[39m[38;5;3m +0ms[39m
-[32m[Nest] 14392  - [39m08/06/2024, 7:21:40 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/images/:filename, GET} route[39m[38;5;3m +0ms[39m
-[32m[Nest] 14392  - [39m08/06/2024, 7:21:40 PM [32m    LOG[39m [38;5;3m[NestApplication] [39m[32mNest application successfully started[39m[38;5;3m +16ms[39m
-[32m[Nest] 14392  - [39m08/06/2024, 7:21:40 PM [32m    LOG[39m [32m🚀 Application is running on: http://localhost:4105/[39m
-[32m[Nest] 14392  - [39m08/06/2024, 7:21:40 PM [32m    LOG[39m [32mlozinka[39m
+[32m[Nest] 6940  - [39m08/06/2024, 11:44:31 PM [32m    LOG[39m [38;5;3m[NestFactory] [39m[32mStarting Nest application...[39m
+[32m[Nest] 6940  - [39m08/06/2024, 11:44:32 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mTypeOrmModule dependencies initialized[39m[38;5;3m +534ms[39m
+[32m[Nest] 6940  - [39m08/06/2024, 11:44:32 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mPassportModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 6940  - [39m08/06/2024, 11:44:32 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mJwtModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 6940  - [39m08/06/2024, 11:44:32 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAppModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 6940  - [39m08/06/2024, 11:44:32 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mDiscoveryModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 6940  - [39m08/06/2024, 11:44:32 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mScheduleModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 6940  - [39m08/06/2024, 11:44:32 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mTypeOrmCoreModule dependencies initialized[39m[38;5;3m +133ms[39m
+[32m[Nest] 6940  - [39m08/06/2024, 11:44:32 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mTypeOrmModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 6940  - [39m08/06/2024, 11:44:32 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mTypeOrmModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 6940  - [39m08/06/2024, 11:44:32 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mTypeOrmModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 6940  - [39m08/06/2024, 11:44:32 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mTypeOrmModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 6940  - [39m08/06/2024, 11:44:32 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mTypeOrmModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 6940  - [39m08/06/2024, 11:44:32 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mUserModule dependencies initialized[39m[38;5;3m +7ms[39m
+[32m[Nest] 6940  - [39m08/06/2024, 11:44:32 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mSaleSertificateModule dependencies initialized[39m[38;5;3m +3ms[39m
+[32m[Nest] 6940  - [39m08/06/2024, 11:44:32 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mImageModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 6940  - [39m08/06/2024, 11:44:32 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAuctionModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 6940  - [39m08/06/2024, 11:44:32 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAuthModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 6940  - [39m08/06/2024, 11:44:32 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mBidModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 6940  - [39m08/06/2024, 11:44:32 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mAppController {/}:[39m[38;5;3m +7ms[39m
+[32m[Nest] 6940  - [39m08/06/2024, 11:44:32 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/, GET} route[39m[38;5;3m +3ms[39m
+[32m[Nest] 6940  - [39m08/06/2024, 11:44:32 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mAuctionController {/auction}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 6940  - [39m08/06/2024, 11:44:32 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auction, POST} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 6940  - [39m08/06/2024, 11:44:32 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auction/all, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 6940  - [39m08/06/2024, 11:44:32 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auction, GET} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 6940  - [39m08/06/2024, 11:44:32 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auction/:id, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 6940  - [39m08/06/2024, 11:44:32 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auction/:id, DELETE} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 6940  - [39m08/06/2024, 11:44:32 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auction/:id, PATCH} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 6940  - [39m08/06/2024, 11:44:32 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mSaleSertificateController {/sale-certificate}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 6940  - [39m08/06/2024, 11:44:32 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/sale-certificate, GET} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 6940  - [39m08/06/2024, 11:44:32 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mUserController {/user}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 6940  - [39m08/06/2024, 11:44:32 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mBidController {/bid}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 6940  - [39m08/06/2024, 11:44:32 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/bid/:auctionId, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 6940  - [39m08/06/2024, 11:44:32 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/bid/all, GET} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 6940  - [39m08/06/2024, 11:44:32 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/bid/:id, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 6940  - [39m08/06/2024, 11:44:32 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/bid/:id, PATCH} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 6940  - [39m08/06/2024, 11:44:32 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/bid/:id, DELETE} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 6940  - [39m08/06/2024, 11:44:32 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mAuthController {/auth}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 6940  - [39m08/06/2024, 11:44:32 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/login, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 6940  - [39m08/06/2024, 11:44:32 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/logout, POST} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 6940  - [39m08/06/2024, 11:44:32 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/profile, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 6940  - [39m08/06/2024, 11:44:32 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/register, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 6940  - [39m08/06/2024, 11:44:32 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mImagesController {/images}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 6940  - [39m08/06/2024, 11:44:32 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/images, POST} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 6940  - [39m08/06/2024, 11:44:32 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/images/:filename, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 6940  - [39m08/06/2024, 11:44:32 PM [32m    LOG[39m [38;5;3m[NestApplication] [39m[32mNest application successfully started[39m[38;5;3m +6ms[39m
+[32m[Nest] 6940  - [39m08/06/2024, 11:44:32 PM [32m    LOG[39m [32m🚀 Application is running on: http://localhost:4105/[39m
 [1m[31mWatch error: Daemon closed the connection[39m[22m

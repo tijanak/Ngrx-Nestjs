@@ -70,6 +70,7 @@
     "@coreui/angular": "^5.2.11",
     "@coreui/coreui": "^5.1.1",
     "@coreui/icons-angular": "^5.2.11",
+    "@danielmoncada/angular-datetime-picker": "^18.0.0",
     "@nestjs/common": "^10.0.2",
     "@nestjs/core": "^10.0.2",
     "@nestjs/jwt": "^10.2.0",
