@@ -15,6 +15,7 @@ COPY . .
 
 RUN npm install -g @angular/cli 
 RUN npm install -g @nrwl/cli@12.0.1
-
-RUN nx build --prod
+RUN npm i nx@17.0.0
+RUN echo "Contents  of /usr/src/app:" && ls -al /usr/src/app
+RUN npx nx build --prod
 CMD ["nx", "serve" ,APP]

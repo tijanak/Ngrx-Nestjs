@@ -6464,5 +6464,429 @@
       }
     },
     "metadata": {}
+  },
+  "12794273439189561717": {
+    "targets": {
+      "build": {
+        "command": "webpack-cli build",
+        "options": {
+          "cwd": "backend",
+          "args": [
+            "--node-env=production"
+          ]
+        },
+        "cache": true,
+        "dependsOn": [
+          "^build"
+        ],
+        "inputs": [
+          "production",
+          "^production",
+          {
+            "externalDependencies": [
+              "webpack-cli"
+            ]
+          }
+        ],
+        "outputs": [
+          "{workspaceRoot}/dist\\backend"
+        ],
+        "metadata": {
+          "technologies": [
+            "webpack"
+          ],
+          "description": "Runs Webpack build",
+          "help": {
+            "command": "npx webpack-cli build --help",
+            "example": {
+              "options": {
+                "json": "stats.json"
+              },
+              "args": [
+                "--profile"
+              ]
+            }
+          }
+        }
+      },
+      "serve": {
+        "command": "webpack-cli serve",
+        "options": {
+          "cwd": "backend",
+          "args": [
+            "--node-env=development"
+          ]
+        },
+        "metadata": {
+          "technologies": [
+            "webpack"
+          ],
+          "description": "Starts Webpack dev server",
+          "help": {
+            "command": "npx webpack-cli serve --help",
+            "example": {
+              "options": {
+                "args": [
+                  "--client-progress",
+                  "--history-api-fallback "
+                ]
+              }
+            }
+          }
+        }
+      },
+      "preview": {
+        "command": "webpack-cli serve",
+        "options": {
+          "cwd": "backend",
+          "args": [
+            "--node-env=production"
+          ]
+        },
+        "metadata": {
+          "technologies": [
+            "webpack"
+          ],
+          "description": "Starts Webpack dev server in production mode",
+          "help": {
+            "command": "npx webpack-cli serve --help",
+            "example": {
+              "options": {
+                "args": [
+                  "--client-progress",
+                  "--history-api-fallback "
+                ]
+              }
+            }
+          }
+        }
+      },
+      "serve-static": {
+        "executor": "@nx/web:file-server",
+        "options": {
+          "buildTarget": "build",
+          "spa": true
+        }
+      }
+    },
+    "metadata": {}
+  },
+  "8995844200924768457": {
+    "targets": {
+      "build": {
+        "command": "webpack-cli build",
+        "options": {
+          "cwd": "backend",
+          "args": [
+            "--node-env=production"
+          ]
+        },
+        "cache": true,
+        "dependsOn": [
+          "^build"
+        ],
+        "inputs": [
+          "production",
+          "^production",
+          {
+            "externalDependencies": [
+              "webpack-cli"
+            ]
+          }
+        ],
+        "outputs": [
+          "{workspaceRoot}/dist\\backend"
+        ],
+        "metadata": {
+          "technologies": [
+            "webpack"
+          ],
+          "description": "Runs Webpack build",
+          "help": {
+            "command": "npx webpack-cli build --help",
+            "example": {
+              "options": {
+                "json": "stats.json"
+              },
+              "args": [
+                "--profile"
+              ]
+            }
+          }
+        }
+      },
+      "serve": {
+        "command": "webpack-cli serve",
+        "options": {
+          "cwd": "backend",
+          "args": [
+            "--node-env=development"
+          ]
+        },
+        "metadata": {
+          "technologies": [
+            "webpack"
+          ],
+          "description": "Starts Webpack dev server",
+          "help": {
+            "command": "npx webpack-cli serve --help",
+            "example": {
+              "options": {
+                "args": [
+                  "--client-progress",
+                  "--history-api-fallback "
+                ]
+              }
+            }
+          }
+        }
+      },
+      "preview": {
+        "command": "webpack-cli serve",
+        "options": {
+          "cwd": "backend",
+          "args": [
+            "--node-env=production"
+          ]
+        },
+        "metadata": {
+          "technologies": [
+            "webpack"
+          ],
+          "description": "Starts Webpack dev server in production mode",
+          "help": {
+            "command": "npx webpack-cli serve --help",
+            "example": {
+              "options": {
+                "args": [
+                  "--client-progress",
+                  "--history-api-fallback "
+                ]
+              }
+            }
+          }
+        }
+      },
+      "serve-static": {
+        "executor": "@nx/web:file-server",
+        "options": {
+          "buildTarget": "build",
+          "spa": true
+        }
+      }
+    },
+    "metadata": {}
+  },
+  "7554565716517071234": {
+    "targets": {
+      "build": {
+        "command": "webpack-cli build",
+        "options": {
+          "cwd": "backend",
+          "args": [
+            "--node-env=production"
+          ]
+        },
+        "cache": true,
+        "dependsOn": [
+          "^build"
+        ],
+        "inputs": [
+          "production",
+          "^production",
+          {
+            "externalDependencies": [
+              "webpack-cli"
+            ]
+          }
+        ],
+        "outputs": [
+          "{workspaceRoot}/dist\\backend"
+        ],
+        "metadata": {
+          "technologies": [
+            "webpack"
+          ],
+          "description": "Runs Webpack build",
+          "help": {
+            "command": "npx webpack-cli build --help",
+            "example": {
+              "options": {
+                "json": "stats.json"
+              },
+              "args": [
+                "--profile"
+              ]
+            }
+          }
+        }
+      },
+      "serve": {
+        "command": "webpack-cli serve",
+        "options": {
+          "cwd": "backend",
+          "args": [
+            "--node-env=development"
+          ]
+        },
+        "metadata": {
+          "technologies": [
+            "webpack"
+          ],
+          "description": "Starts Webpack dev server",
+          "help": {
+            "command": "npx webpack-cli serve --help",
+            "example": {
+              "options": {
+                "args": [
+                  "--client-progress",
+                  "--history-api-fallback "
+                ]
+              }
+            }
+          }
+        }
+      },
+      "preview": {
+        "command": "webpack-cli serve",
+        "options": {
+          "cwd": "backend",
+          "args": [
+            "--node-env=production"
+          ]
+        },
+        "metadata": {
+          "technologies": [
+            "webpack"
+          ],
+          "description": "Starts Webpack dev server in production mode",
+          "help": {
+            "command": "npx webpack-cli serve --help",
+            "example": {
+              "options": {
+                "args": [
+                  "--client-progress",
+                  "--history-api-fallback "
+                ]
+              }
+            }
+          }
+        }
+      },
+      "serve-static": {
+        "executor": "@nx/web:file-server",
+        "options": {
+          "buildTarget": "build",
+          "spa": true
+        }
+      }
+    },
+    "metadata": {}
+  },
+  "4069535170271032083": {
+    "targets": {
+      "build": {
+        "command": "webpack-cli build",
+        "options": {
+          "cwd": "backend",
+          "args": [
+            "--node-env=production"
+          ]
+        },
+        "cache": true,
+        "dependsOn": [
+          "^build"
+        ],
+        "inputs": [
+          "production",
+          "^production",
+          {
+            "externalDependencies": [
+              "webpack-cli"
+            ]
+          }
+        ],
+        "outputs": [
+          "{workspaceRoot}/dist\\backend"
+        ],
+        "metadata": {
+          "technologies": [
+            "webpack"
+          ],
+          "description": "Runs Webpack build",
+          "help": {
+            "command": "npx webpack-cli build --help",
+            "example": {
+              "options": {
+                "json": "stats.json"
+              },
+              "args": [
+                "--profile"
+              ]
+            }
+          }
+        }
+      },
+      "serve": {
+        "command": "webpack-cli serve",
+        "options": {
+          "cwd": "backend",
+          "args": [
+            "--node-env=development"
+          ]
+        },
+        "metadata": {
+          "technologies": [
+            "webpack"
+          ],
+          "description": "Starts Webpack dev server",
+          "help": {
+            "command": "npx webpack-cli serve --help",
+            "example": {
+              "options": {
+                "args": [
+                  "--client-progress",
+                  "--history-api-fallback "
+                ]
+              }
+            }
+          }
+        }
+      },
+      "preview": {
+        "command": "webpack-cli serve",
+        "options": {
+          "cwd": "backend",
+          "args": [
+            "--node-env=production"
+          ]
+        },
+        "metadata": {
+          "technologies": [
+            "webpack"
+          ],
+          "description": "Starts Webpack dev server in production mode",
+          "help": {
+            "command": "npx webpack-cli serve --help",
+            "example": {
+              "options": {
+                "args": [
+                  "--client-progress",
+                  "--history-api-fallback "
+                ]
+              }
+            }
+          }
+        }
+      },
+      "serve-static": {
+        "executor": "@nx/web:file-server",
+        "options": {
+          "buildTarget": "build",
+          "spa": true
+        }
+      }
+    },
+    "metadata": {}
   }
 }

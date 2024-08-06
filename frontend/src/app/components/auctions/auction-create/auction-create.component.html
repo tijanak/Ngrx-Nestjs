@@ -1,0 +1,66 @@
+<form [formGroup]="auctionForm" (ngSubmit)="onSubmit()">
+  <mat-form-field appearance="fill">
+    <mat-label>Title</mat-label>
+    <input matInput formControlName="title" />
+    <mat-error *ngIf="auctionForm.controls['title'].hasError('required')">
+      Title is required
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Description</mat-label>
+    <textarea matInput formControlName="description"></textarea>
+    <mat-error *ngIf="auctionForm.controls['description'].hasError('required')">
+      Description is required
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Minimum Price</mat-label>
+    <input matInput formControlName="min_price" type="number" />
+    <mat-error *ngIf="auctionForm.controls['min_price'].hasError('required')">
+      Minimum price is required
+    </mat-error>
+    <mat-error *ngIf="auctionForm.controls['min_price'].hasError('min')">
+      Minimum price must be a positive number
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Start Time</mat-label>
+    <input
+      matInput
+      type="datetime-local"
+      formControlName="start_time"
+      [matDatepicker]="picker1"
+    />
+    <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+    <mat-datepicker #picker1></mat-datepicker>
+    <mat-error *ngIf="auctionForm.controls['start_time'].hasError('required')">
+      Start time is required
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>End Time</mat-label>
+    <input
+      matInput
+      type="datetime-local"
+      formControlName="end_time"
+      [matDatepicker]="picker2"
+    />
+    <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+    <mat-datepicker #picker2></mat-datepicker>
+    <mat-error *ngIf="auctionForm.controls['end_time'].hasError('required')">
+      End time is required
+    </mat-error>
+  </mat-form-field>
+
+  <mat-label>Images</mat-label>
+  <br />
+  <input type="file" (change)="onFileChange($event)" multiple />
+  <mat-error *ngIf="auctionForm.controls['images'].hasError('required')">
+    You can upload up to 10 images
+  </mat-error>
+
+  <button mat-raised-button color="primary" type="submit">Submit</button>
+</form>

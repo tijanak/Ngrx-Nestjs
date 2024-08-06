@@ -1,0 +1,37 @@
+<mat-card-header>
+  <mat-card-title>{{ auction.title }}</mat-card-title>
+  <mat-card-subtitle
+    >Minimalna cena: {{ auction.min_price | currency }}</mat-card-subtitle
+  >
+</mat-card-header>
+<mat-card-content>
+  <p>{{ auction.description }}</p>
+  <p>Početak aukcije: {{ auction.start_time | date : 'short' }}</p>
+  <p>Kraj aukcije: {{ auction.end_time | date : 'short' }}</p>
+
+  <mat-divider></mat-divider>
+
+  <mat-card-subtitle>Slike</mat-card-subtitle>
+  <c-carousel [dark]="true" [interval]="0">
+    <c-carousel-inner>
+      <c-carousel-item *ngFor="let image of auction.images">
+        <img
+          [src]="imageBaseUrl + image.fileName"
+          alt="{{ image.fileName }}"
+          class="d-block w-100"
+          loading="lazy"
+        />
+      </c-carousel-item>
+    </c-carousel-inner>
+    <c-carousel-control
+      [routerLink]
+      caption="Previous"
+      direction="prev"
+    ></c-carousel-control>
+    <c-carousel-control
+      [routerLink]
+      caption="Next"
+      direction="next"
+    ></c-carousel-control>
+  </c-carousel>
+</mat-card-content>

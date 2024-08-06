@@ -2016,6 +2016,33 @@
         "hash": "sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw=="
       }
     },
+    "npm:@coreui/angular": {
+      "type": "npm",
+      "name": "npm:@coreui/angular",
+      "data": {
+        "version": "5.2.11",
+        "packageName": "@coreui/angular",
+        "hash": "sha512-G49FfsWQjb+np69UIwP+OPZcJjUcW+fTk+kV/c55Ellv767aumUAAmyy90mE2d7ONpRFkLSPX6xMOOV9iL9TaQ=="
+      }
+    },
+    "npm:@coreui/coreui": {
+      "type": "npm",
+      "name": "npm:@coreui/coreui",
+      "data": {
+        "version": "5.1.1",
+        "packageName": "@coreui/coreui",
+        "hash": "sha512-oXAqIoHwY19Xj0uS6OKwAoCxpe7lw44YWJr54i9Sq1tDL0dzWK6GOqMav3a23SjvFW9yDSpqdC9xCbVZd2spBQ=="
+      }
+    },
+    "npm:@coreui/icons-angular": {
+      "type": "npm",
+      "name": "npm:@coreui/icons-angular",
+      "data": {
+        "version": "5.2.11",
+        "packageName": "@coreui/icons-angular",
+        "hash": "sha512-07Vu2mcyIseH0LG9y6w7KZLeynp/LlPL/d2fk2fay4PgDMbsiThDDZT4XxUl1pjwK40QsqTQ7Qk1E1B4A2QFKQ=="
+      }
+    },
     "npm:@cspotcode/source-map-support": {
       "type": "npm",
       "name": "npm:@cspotcode/source-map-support",
@@ -4642,6 +4669,15 @@
         "version": "0.11.0",
         "packageName": "@pkgjs/parseargs",
         "hash": "sha512-+1VkjdD0QBLPodGrJUeqarH8VAIvQODIbwh9XpP5Syisf7YoQgsJKPNFoqqLQlu+VQ/tVSshMR6loPMn8U+dPg=="
+      }
+    },
+    "npm:@popperjs/core": {
+      "type": "npm",
+      "name": "npm:@popperjs/core",
+      "data": {
+        "version": "2.11.8",
+        "packageName": "@popperjs/core",
+        "hash": "sha512-P1st0aksCrn9sGZhp8GMYwBnQsbvAWsZAX44oXNNvLHGqAOcoVxmjZiohstwQ7SqKnbR47akdNi+uleWD8+g6A=="
       }
     },
     "npm:@rollup/rollup-android-arm-eabi": {
@@ -17930,6 +17966,81 @@
     {
       "source": "npm:@babel/types",
       "target": "npm:to-fast-properties",
+      "type": "static"
+    },
+    {
+      "source": "npm:@coreui/angular",
+      "target": "npm:@angular/animations",
+      "type": "static"
+    },
+    {
+      "source": "npm:@coreui/angular",
+      "target": "npm:@angular/cdk",
+      "type": "static"
+    },
+    {
+      "source": "npm:@coreui/angular",
+      "target": "npm:@angular/common",
+      "type": "static"
+    },
+    {
+      "source": "npm:@coreui/angular",
+      "target": "npm:@angular/core",
+      "type": "static"
+    },
+    {
+      "source": "npm:@coreui/angular",
+      "target": "npm:@angular/router",
+      "type": "static"
+    },
+    {
+      "source": "npm:@coreui/angular",
+      "target": "npm:@coreui/coreui",
+      "type": "static"
+    },
+    {
+      "source": "npm:@coreui/angular",
+      "target": "npm:@coreui/icons-angular",
+      "type": "static"
+    },
+    {
+      "source": "npm:@coreui/angular",
+      "target": "npm:rxjs",
+      "type": "static"
+    },
+    {
+      "source": "npm:@coreui/angular",
+      "target": "npm:@popperjs/core",
+      "type": "static"
+    },
+    {
+      "source": "npm:@coreui/angular",
+      "target": "npm:tslib",
+      "type": "static"
+    },
+    {
+      "source": "npm:@coreui/coreui",
+      "target": "npm:@popperjs/core",
+      "type": "static"
+    },
+    {
+      "source": "npm:@coreui/icons-angular",
+      "target": "npm:@angular/common",
+      "type": "static"
+    },
+    {
+      "source": "npm:@coreui/icons-angular",
+      "target": "npm:@angular/core",
+      "type": "static"
+    },
+    {
+      "source": "npm:@coreui/icons-angular",
+      "target": "npm:@angular/platform-browser",
+      "type": "static"
+    },
+    {
+      "source": "npm:@coreui/icons-angular",
+      "target": "npm:tslib",
       "type": "static"
     },
     {

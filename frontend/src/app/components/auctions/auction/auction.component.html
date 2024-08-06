@@ -1,2 +1,14 @@
-<p>auction works!</p>
-<app-bids [bids]="bids"></app-bids>
+<mat-card *ngIf="auction" class="auction-card">
+  <app-auction-basic-info [auction]="auction"></app-auction-basic-info>
+  <mat-card-content>
+    <mat-divider></mat-divider>
+
+    <mat-card-subtitle></mat-card-subtitle>
+    <p>Ime: {{ auction.owner.name }} {{ auction.owner.surname }}</p>
+    <p>Broj telefona: {{ auction.owner.phone_number }}</p>
+
+    <mat-divider></mat-divider>
+
+    <app-bids [bids]="auction.bids"></app-bids>
+  </mat-card-content>
+</mat-card>

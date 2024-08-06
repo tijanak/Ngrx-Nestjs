@@ -1,2 +1,7 @@
-<p>auctions works!</p>
-<app-auction></app-auction>
+<mat-divider></mat-divider>
+<div *ngFor="let auction of auctions">
+  <mat-card>
+    <app-auction-basic-info [auction]="auction"></app-auction-basic-info>
+  </mat-card>
+  <mat-divider></mat-divider>
+</div>

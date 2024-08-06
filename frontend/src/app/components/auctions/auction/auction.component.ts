@@ -1,16 +1,36 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BidsComponent } from '../../bids/bids.component';
-import { IBid } from '@org/models';
-
+import { IAuction, IBid } from '@org/models';
+import { environment } from '@org/environment';
+import { MatCardModule } from '@angular/material/card';
+import { MatDividerModule } from '@angular/material/divider';
+import {
+  CarouselComponent,
+  CarouselControlComponent,
+  CarouselInnerComponent,
+  CarouselItemComponent,
+  CarouselModule,
+  ThemeDirective,
+} from '@coreui/angular';
+import { RouterLink } from '@angular/router';
+import { MatIconModule } from '@angular/material/icon';
+import { AuctionBasicInfoComponent } from '../auction-basic-info/auction-basic-info.component';
 @Component({
   selector: 'app-auction',
   standalone: true,
-  imports: [CommonModule, BidsComponent],
+  imports: [
+    AuctionBasicInfoComponent,
+    CommonModule,
+    BidsComponent,
+    MatCardModule,
+    MatDividerModule,
+  ],
   templateUrl: './auction.component.html',
   styleUrl: './auction.component.css',
 })
-export class AuctionComponent {
+export class AuctionComponent implements OnInit {
+  @Input() auction!: IAuction;
   bids: IBid[] = [
     {
       id: 2,
@@ -85,4 +105,7 @@ export class AuctionComponent {
       sale_certificate: null,
     },
   ];
+  ngOnInit(): void {
+    this.auction.bids = this.bids;
+  }
 }
