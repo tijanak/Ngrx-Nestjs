@@ -11574,5 +11574,91 @@
       }
     }
   },
-  "17904076715822324345": {}
+  "17904076715822324345": {},
+  "13049995125023569300": {
+    "backend": {
+      "targets": {
+        "eslint:lint": {
+          "command": "eslint .",
+          "cache": true,
+          "options": {
+            "cwd": "backend"
+          },
+          "inputs": [
+            "default",
+            "^default",
+            "{workspaceRoot}/.eslintrc.json",
+            "{projectRoot}/.eslintrc.json",
+            "{workspaceRoot}/tools/eslint-rules/**/*",
+            {
+              "externalDependencies": [
+                "eslint"
+              ]
+            }
+          ],
+          "outputs": [
+            "{options.outputFile}"
+          ],
+          "metadata": {
+            "technologies": [
+              "eslint"
+            ],
+            "description": "Runs ESLint on project",
+            "help": {
+              "command": "npx eslint --help",
+              "example": {
+                "options": {
+                  "max-warnings": 0
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "5409757207300166477": {},
+  "4867181557341085181": {
+    "backend": {
+      "targets": {
+        "eslint:lint": {
+          "command": "eslint .",
+          "cache": true,
+          "options": {
+            "cwd": "backend"
+          },
+          "inputs": [
+            "default",
+            "^default",
+            "{workspaceRoot}/.eslintrc.json",
+            "{projectRoot}/.eslintrc.json",
+            "{workspaceRoot}/tools/eslint-rules/**/*",
+            {
+              "externalDependencies": [
+                "eslint"
+              ]
+            }
+          ],
+          "outputs": [
+            "{options.outputFile}"
+          ],
+          "metadata": {
+            "technologies": [
+              "eslint"
+            ],
+            "description": "Runs ESLint on project",
+            "help": {
+              "command": "npx eslint --help",
+              "example": {
+                "options": {
+                  "max-warnings": 0
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "16690379706664653180": {}
 }

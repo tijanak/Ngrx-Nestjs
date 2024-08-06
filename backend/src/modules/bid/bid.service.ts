@@ -18,6 +18,7 @@ export class BidService {
     private bidRepo: Repository<Bid>,
     private auctionService: AuctionService
   ) {}
+
   async create(createBidDto: CreateBidDto, bidder: User, auctionId: number) {
     const auction = await this.auctionService.get(auctionId, ['owner']);
     if (!auction) {
@@ -32,6 +33,11 @@ export class BidService {
     if (auction.owner.id == bidder.id) {
       throw new ForbiddenException(
         'Vlasnik aukcije ne može da učestvuje u licitaciji za tu aukciju'
+      );
+    }
+    if (auction.min_price > createBidDto.amount) {
+      throw new ForbiddenException(
+        'Ponudjena cena je manja od minimalne prihvatljive za aukciju'
       );
     }
     const bid = this.bidRepo.create(createBidDto);
@@ -50,10 +56,11 @@ export class BidService {
   }
 
   async update(id: number, updateBidDto: UpdateBidDto) {
-    const bid = await this.findOne(id);
+    let bid = await this.findOne(id);
     if (bid.amount > updateBidDto.amount)
       throw new ForbiddenException('Iznos ponude ne može da se smanjuje');
-    return this.bidRepo.update(id, updateBidDto);
+    bid.amount += updateBidDto.amount;
+    return this.bidRepo.save(bid);
   }
 
   async remove(id: number) {
