@@ -596,5 +596,57 @@
       }
     }
   },
-  "13016142887689056743": {}
+  "13016142887689056743": {},
+  "4778147975204783140": {},
+  "12342907151089412015": {},
+  "6132538541986543238": {
+    "frontend": {
+      "targets": {
+        "eslint:lint": {
+          "command": "eslint .",
+          "cache": true,
+          "options": {
+            "cwd": "frontend"
+          },
+          "inputs": [
+            "default",
+            "^default",
+            "{workspaceRoot}/.eslintrc.json",
+            "{projectRoot}/.eslintrc.json",
+            "{workspaceRoot}/tools/eslint-rules/**/*",
+            {
+              "externalDependencies": [
+                "eslint"
+              ]
+            }
+          ],
+          "outputs": [
+            "{options.outputFile}"
+          ],
+          "metadata": {
+            "technologies": [
+              "eslint"
+            ],
+            "description": "Runs ESLint on project",
+            "help": {
+              "command": "npx eslint --help",
+              "example": {
+                "options": {
+                  "max-warnings": 0
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "10225286209841852976": {},
+  "8262981715996924603": {},
+  "4154304062595101658": {},
+  "6806402513921373020": {},
+  "16456037966716245801": {},
+  "13316794241850418500": {},
+  "12292041230851218648": {},
+  "12702707255278975302": {}
 }

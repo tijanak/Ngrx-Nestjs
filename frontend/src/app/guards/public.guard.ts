@@ -8,12 +8,19 @@ import {
 import { AuthService } from '../services/auth.service';
 import { Observable, of } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
+import { AppState } from '../store/app.reducer';
+import { Store } from '@ngrx/store';
+import { profileLoaded } from '../store/auth/auth.actions';
 
 @Injectable({
   providedIn: 'root',
 })
 export class PublicGuard implements CanActivate {
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+    private store: Store<AppState>
+  ) {}
 
   canActivate(
     route: ActivatedRouteSnapshot,
@@ -22,6 +29,7 @@ export class PublicGuard implements CanActivate {
     console.log('public guard');
     return this.authService.getProfile().pipe(
       map((user) => {
+        this.store.dispatch(profileLoaded(user));
         if (user) {
           this.router.navigate(['/home']);
           return false;

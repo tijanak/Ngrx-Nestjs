@@ -5,10 +5,13 @@
   >
   <span matListItemLine>
     Licitant: {{ bid.bidder.name }} {{ bid.bidder.surname }}
-    <button mat-icon-button (click)="onDelete()">
-      <mat-icon fontSize="small">delete</mat-icon></button
-    ><button mat-icon-button (click)="onDelete()">
-      <mat-icon fontSize="small">expand_more</mat-icon>
-    </button></span
-  >
+    <span *ngIf="isEditable">
+      <button mat-icon-button (click)="onDelete()">
+        <mat-icon fontSize="small">delete</mat-icon></button
+      ><button mat-icon-button (click)="onDelete()">
+        <mat-icon fontSize="small">upgrade</mat-icon>
+      </button>
+      <input type="number" />
+    </span>
+  </span>
 </mat-list-item>

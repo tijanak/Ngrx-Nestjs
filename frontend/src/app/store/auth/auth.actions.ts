@@ -32,3 +32,8 @@ export const logoutFailure = createAction(
   '[Auth] Logout',
   props<{ error: HttpErrorResponse }>()
 );
+
+export const profileLoaded = createAction(
+  '[Auth] Profile Loaded',
+  props<{ user: IUser }>()
+);

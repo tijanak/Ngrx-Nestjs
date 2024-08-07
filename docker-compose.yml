@@ -1,14 +1,12 @@
-version: '3.4'
-
 services:
-  orgsource:
-    image: orgsource
+  backend:
+    image: backend
     build:
       context: .
       dockerfile: ./Dockerfile
     volumes:
       - .:/usr/src/app
-      - usr/src/app/nodes_moduels
+      - /usr/src/app/node_modules
     environment:
       NODE_ENV: production
     ports:

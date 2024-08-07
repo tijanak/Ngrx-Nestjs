@@ -14,6 +14,7 @@ import { MatIcon, MatIconModule } from '@angular/material/icon';
 })
 export class BidComponent {
   @Input() bid: IBid;
+  @Input() isEditable: boolean;
   onDelete() {
     alert('klik ' + this.bid.amount);
   }
