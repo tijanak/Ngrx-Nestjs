@@ -32,7 +32,7 @@ export class AuthService {
   logout() {
     return this.httpClient.post(`${environment.API_URL}auth/logout`, null);
   }
-  register(dto: CreateUserDto) {
+  register(dto: CreateUserDto): Observable<any> {
     return this.httpClient.post(`${environment.API_URL}auth/register`, dto, {
       headers: {
         'Content-Type': 'application/json',

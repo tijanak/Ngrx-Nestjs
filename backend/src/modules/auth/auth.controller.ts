@@ -25,7 +25,7 @@ export class AuthController {
   async login(@Req() req, @Res() res: Response) {
     const token = await this.authService.login(req.user);
     await this.authService.setCookie(res, token);
-    res.send({ message: 'Logged in' });
+    res.send(toIUser(req.user));
   }
   @Post('logout')
   async logout(@Res() res: Response) {
@@ -43,7 +43,7 @@ export class AuthController {
       const user = await this.authService.register(userDto);
       const token = await this.authService.login(user);
       await this.authService.setCookie(res, token);
-      res.send({ message: 'Registered' });
+      res.send(toIUser(user));
     } catch (error) {
       Logger.log(error.code);
       res.status(HttpStatus.BAD_REQUEST).json({

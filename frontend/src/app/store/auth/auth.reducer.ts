@@ -8,9 +8,10 @@ import {
   registrationFailure,
 } from './auth.actions';
 import { HttpErrorResponse } from '@angular/common/http';
+import { IUser } from '@org/models';
 
 export interface AuthState {
-  user: any | null;
+  user: IUser | null;
   error: HttpErrorResponse | null;
   loggedIn: boolean | null;
 }
@@ -23,27 +24,25 @@ export const initialState: AuthState = {
 
 export const authReducer = createReducer(
   initialState,
-  on(loginSuccess, (state, {}) => {
+  on(loginSuccess, (state, { user }) => {
     return {
-      ...state,
       loggedIn: true,
+      user,
       error: null,
     };
   }),
   on(loginFailure, (state, { error }) => ({
     ...state,
-    loggedIn: false,
     error: error,
   })),
   on(logout, () => initialState),
-  on(registrationSucces, (state, {}) => ({
-    ...state,
+  on(registrationSucces, (state, { user }) => ({
     loggedIn: true,
+    user,
     error: null,
   })),
   on(registrationFailure, (state, { error }) => ({
     ...state,
-    loggedIn: false,
     error: error,
   }))
 );

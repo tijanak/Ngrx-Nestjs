@@ -6,7 +6,6 @@ import {
   loginSuccess,
   loginFailure,
   logout,
-  loginAuthorized,
   registration,
   registrationSucces,
   registrationFailure,
@@ -24,7 +23,7 @@ export class AuthEffects {
       switchMap(({ email, password }) =>
         this.authService.login(email, password).pipe(
           map((response) => {
-            return loginSuccess();
+            return loginSuccess(response);
           }),
           catchError((error) => {
             return of(loginFailure({ error }));
@@ -38,7 +37,7 @@ export class AuthEffects {
       ofType(logout),
       switchMap(() =>
         this.authService.logout().pipe(
-          map(() => loginFailure({ error: null })),
+          map(() => logout()),
           catchError((error) => of(loginFailure({ error })))
         )
       )
@@ -49,9 +48,8 @@ export class AuthEffects {
       ofType(registration),
       switchMap((userData) =>
         this.authService.register(userData).pipe(
-          map((r) => {
-            console.log(r, 'succes');
-            return registrationSucces();
+          map((user) => {
+            return registrationSucces(user);
           }),
           catchError((error) => of(registrationFailure({ error })))
         )
