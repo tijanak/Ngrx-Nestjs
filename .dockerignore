@@ -1,4 +1,6 @@
 **/.classpath
+
+**/.nx
 **/.dockerignore
 **/.env
 **/.git
@@ -20,6 +22,10 @@
 **/obj
 **/secrets.dev.yaml
 **/values.dev.yaml
-
+**/cache
+**/.nx/cache/
+**/cache/
+.nx/cache/
+.nx/cache
 LICENSE
 README.md

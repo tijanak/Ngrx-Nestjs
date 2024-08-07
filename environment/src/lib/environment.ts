@@ -1,4 +1,4 @@
-let port = 4105;
+let port = process.env['NX_PORT'];
 export const environment = {
   PORT: port,
   API_URL: `http://localhost:${port}/`,

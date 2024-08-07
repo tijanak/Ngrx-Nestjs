@@ -22,11 +22,11 @@ import { ScheduleModule } from '@nestjs/schedule';
   imports: [
     TypeOrmModule.forRoot({
       type: 'postgres',
-      host: 'localhost',
-      port: 5432,
-      username: environment.DB_USERNAME,
-      password: environment.DB_PASSWORD,
-      database: 'e-auction',
+      host: process.env.NX_POSTGRES_HOST,
+      port: +process.env.NX_POSTGRES_PORT,
+      username: process.env.NX_POSTGRES_USER,
+      password: process.env.NX_POSTGRES_PASSWORD,
+      database: process.env.NX_POSTGRES_DB,
       entities: [User, Auction, Bid, AuctionCategory, Image, SaleCertificate],
       synchronize: true,
     }),

@@ -7,6 +7,7 @@ import cookieParser from 'cookie-parser';
 import { exceptionFactory } from './validation/exception-factory';
 
 async function bootstrap() {
+  Logger.log(process.env.NX_POSTGRES_HOST);
   const app = await NestFactory.create(AppModule);
   app.enableCors({
     origin: ['http://localhost:4200'],

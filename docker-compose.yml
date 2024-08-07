@@ -1,13 +1,36 @@
 services:
+  db:
+    image: postgres:latest
+    ports:
+      - 5432:5432
+    env_file:
+      - .env
+    volumes:
+      - ./postgres-data:/var/lib/postgresql/data
   backend:
     image: backend
     build:
       context: .
-      dockerfile: ./Dockerfile
-    volumes:
-      - .:/usr/src/app
-      - /usr/src/app/node_modules
+      dockerfile: ./backend/Dockerfile
     environment:
       NODE_ENV: production
+      NX_POSTGRES_HOST: db
+    depends_on:
+      - db
+
     ports:
       - 4100:4100
+  # frontend:
+  #   image: frontend
+  #   build:
+  #     context: .
+  #     dockerfile: ./Dockerfile
+  #   depends_on:
+  #     backend:
+  #       condition: service_healthy
+  #   environment:
+  #     NODE_ENV: production
+  #     APP: frontend
+  #     PORT: 4200
+  #   ports:
+  #     - 4200:4200
