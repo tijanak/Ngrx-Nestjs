@@ -15,22 +15,22 @@ services:
     environment:
       NODE_ENV: production
       NX_POSTGRES_HOST: db
+      NX_PORT: 4100
     depends_on:
       - db
 
     ports:
       - 4100:4100
-  # frontend:
-  #   image: frontend
-  #   build:
-  #     context: .
-  #     dockerfile: ./Dockerfile
-  #   depends_on:
-  #     backend:
-  #       condition: service_healthy
-  #   environment:
-  #     NODE_ENV: production
-  #     APP: frontend
-  #     PORT: 4200
-  #   ports:
-  #     - 4200:4200
+  frontend:
+    image: frontend
+    build:
+      context: .
+      dockerfile: ./frontend/Dockerfile
+    depends_on:
+      - backend
+    environment:
+      NODE_ENV: production
+      NX_PORT: 4100
+      NX_BACKEND_HOST: backend
+    ports:
+      - 4200:4200

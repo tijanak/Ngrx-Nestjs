@@ -1,7 +1,6 @@
 let port = process.env['NX_PORT'];
+let host = process.env['NX_BACKEND_HOST'];
 export const environment = {
   PORT: port,
-  API_URL: `http://localhost:${port}/`,
-  DB_USERNAME: 'postgress',
-  DB_PASSWORD: 'mysecretpassword',
+  API_URL: `http://${host}:${port}/`,
 };

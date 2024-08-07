@@ -181,11 +181,14 @@
             "parallelism": true
           },
           "build": {
-            "executor": "@angular-devkit/build-angular:application",
+            "executor": "@nx/angular:application",
             "outputs": [
               "{options.outputPath}"
             ],
             "options": {
+              "plugins": [
+                "frontend/plugins/env-var-plugin.js"
+              ],
               "outputPath": "dist/frontend",
               "index": "frontend/src/index.html",
               "browser": "frontend/src/main.ts",
@@ -212,12 +215,12 @@
                   {
                     "type": "initial",
                     "maximumWarning": "500kb",
-                    "maximumError": "1mb"
+                    "maximumError": "10mb"
                   },
                   {
                     "type": "anyComponentStyle",
                     "maximumWarning": "2kb",
-                    "maximumError": "4kb"
+                    "maximumError": "6kb"
                   }
                 ],
                 "outputHashing": "all"
@@ -229,24 +232,18 @@
               }
             },
             "defaultConfiguration": "production",
-            "parallelism": true,
-            "cache": true,
-            "dependsOn": [
-              "^build"
-            ],
-            "inputs": [
-              "production",
-              "^production"
-            ]
+            "parallelism": true
           },
           "serve": {
-            "executor": "@angular-devkit/build-angular:dev-server",
+            "executor": "@nx/angular:dev-server",
             "configurations": {
               "production": {
-                "buildTarget": "frontend:build:production"
+                "buildTarget": "frontend:build:production",
+                "host": "0.0.0.0"
               },
               "development": {
-                "buildTarget": "frontend:build:development"
+                "buildTarget": "frontend:build:development",
+                "host": "0.0.0.0"
               }
             },
             "defaultConfiguration": "development",

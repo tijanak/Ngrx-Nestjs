@@ -11,6 +11,6 @@ COPY . .
 
 RUN npm install -g @angular/cli 
 RUN npm i nx@19.5.6
-RUN npx nx build frontend --prod
+RUN npx nx build frontend
 RUN npx nx reset
 CMD npx nx serve frontend
