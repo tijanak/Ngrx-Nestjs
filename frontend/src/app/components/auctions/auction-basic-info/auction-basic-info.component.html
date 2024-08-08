@@ -12,26 +12,28 @@
   <mat-divider></mat-divider>
 
   <mat-card-subtitle>Slike</mat-card-subtitle>
-  <c-carousel [dark]="true" [interval]="0">
-    <c-carousel-inner>
-      <c-carousel-item *ngFor="let image of auction.images">
-        <img
-          [src]="imageBaseUrl + image.fileName"
-          alt="{{ image.fileName }}"
-          class="d-block w-100"
-          loading="lazy"
-        />
-      </c-carousel-item>
-    </c-carousel-inner>
-    <c-carousel-control
-      [routerLink]
-      caption="Previous"
-      direction="prev"
-    ></c-carousel-control>
-    <c-carousel-control
-      [routerLink]
-      caption="Next"
-      direction="next"
-    ></c-carousel-control>
-  </c-carousel>
+  <ng-container *ngIf="auction.images.length > 0; else emptyImages">
+    <c-carousel [dark]="true" [interval]="0">
+      <c-carousel-inner>
+        <c-carousel-item *ngFor="let image of auction.images">
+          <img
+            [src]="imageBaseUrl + image.fileName"
+            alt="{{ image.fileName }}"
+            class="d-block w-100"
+            loading="lazy"
+          />
+        </c-carousel-item>
+      </c-carousel-inner>
+      <c-carousel-control
+        [routerLink]
+        caption="Previous"
+        direction="prev"
+      ></c-carousel-control>
+      <c-carousel-control
+        [routerLink]
+        caption="Next"
+        direction="next"
+      ></c-carousel-control> </c-carousel
+  ></ng-container>
+  <ng-template #emptyImages><img src="empty.jpg" /></ng-template>
 </mat-card-content>

@@ -30,6 +30,7 @@ export class AuctionsComponent implements OnInit, OnDestroy {
     this.subscription = this.store
       .select(selectAuctions)
       .subscribe((auctions) => {
+        console.log(auctions);
         this.auctions = auctions;
       });
   }

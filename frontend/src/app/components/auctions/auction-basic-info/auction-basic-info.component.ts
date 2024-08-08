@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IAuction } from '@org/models';
 import { environment } from '@org/environment';
@@ -31,7 +31,10 @@ import { MatIconModule } from '@angular/material/icon';
   templateUrl: './auction-basic-info.component.html',
   styleUrl: './auction-basic-info.component.css',
 })
-export class AuctionBasicInfoComponent {
+export class AuctionBasicInfoComponent implements OnInit {
+  ngOnInit(): void {
+    console.log(this.auction);
+  }
   @Input() auction!: IAuction;
   imageBaseUrl = `${environment.API_URL}images/`;
 }

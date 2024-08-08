@@ -10,7 +10,7 @@ import { catchError, of } from 'rxjs';
 export class AuctionService {
   constructor(private httpClient: HttpClient) {}
   getAuctions() {
-    return this.httpClient.get<any>(`${environment.API_URL}auction`);
+    return this.httpClient.get<any>(`${environment.API_URL}auction/all`);
   }
   getAuction(id: number) {
     return this.httpClient.get<any>(`${environment.API_URL}auction/${id}`);
