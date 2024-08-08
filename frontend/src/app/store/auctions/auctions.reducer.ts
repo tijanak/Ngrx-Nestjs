@@ -11,11 +11,11 @@ export const initialState: AuctionState = {
   selectedAuctionId: null,
 };
 
-export const adapter: EntityAdapter<IAuction> = createEntityAdapter<IAuction>();
+export const auctionAdapter: EntityAdapter<IAuction> = createEntityAdapter<IAuction>();
 
 export const auctionReducer = createReducer(
   initialState,
   on(actions.LoadAuctionsSuccess, (state, { auctions }) => {
-    return adapter.addMany(auctions, state);
+    return auctionAdapter.setAll(auctions, state);
   })
 );

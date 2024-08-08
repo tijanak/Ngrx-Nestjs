@@ -9,13 +9,15 @@ import {
   registration,
   registrationSucces,
   registrationFailure,
+  logoutFinished,
 } from './auth.actions';
 import { catchError, map, switchMap, tap } from 'rxjs/operators';
 import { of } from 'rxjs';
+import { Router, RouterLink } from '@angular/router';
 
 @Injectable()
 export class AuthEffects {
-  constructor(private actions$: Actions, private authService: AuthService) {}
+  constructor(private router:Router, private actions$: Actions, private authService: AuthService) {}
 
   login$ = createEffect(() =>
     this.actions$.pipe(
@@ -37,7 +39,7 @@ export class AuthEffects {
       ofType(logout),
       switchMap(() =>
         this.authService.logout().pipe(
-          map(() => logout()),
+          map(() => logoutFinished()),
           catchError((error) => of(loginFailure({ error })))
         )
       )
@@ -56,4 +58,16 @@ export class AuthEffects {
       )
     )
   );
+  loginSucces$=createEffect(()=>
+    this.actions$.pipe(
+      ofType(loginSuccess,registrationSucces),
+      map(()=>this.router.navigate(['/home']))
+    )
+  ,{dispatch:false});
+  logoutSucces$=createEffect(()=>
+    this.actions$.pipe(
+      ofType(logoutFinished),
+      map(()=>this.router.navigate(['/login']))
+    )
+  ,{dispatch:false})
 }

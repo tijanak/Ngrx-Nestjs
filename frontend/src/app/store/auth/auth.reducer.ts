@@ -7,6 +7,7 @@ import {
   registrationSucces,
   registrationFailure,
   profileLoaded,
+  logoutFinished,
 } from './auth.actions';
 import { HttpErrorResponse } from '@angular/common/http';
 import { IUser } from '@org/models';
@@ -49,5 +50,11 @@ export const authReducer = createReducer(
   on(profileLoaded, (state, { user }) => ({
     ...state,
     user,
-  }))
+  })),
+  on(logoutFinished, (state) => ({
+    ...state,
+    error:null,
+    loggedIn:false,
+    user:null
+  })),
 );

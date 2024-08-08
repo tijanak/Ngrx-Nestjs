@@ -43,7 +43,6 @@ export class LoginComponent implements OnInit, OnDestroy {
     this.hide.set(!this.hide());
     event.stopPropagation();
   }
-  private subscriptions: Subscription[] = [];
   constructor(
     private router: Router,
     private fb: FormBuilder,
@@ -55,19 +54,8 @@ export class LoginComponent implements OnInit, OnDestroy {
     });
   }
   ngOnInit(): void {
-    this.subscriptions.push(
-      this.store
-        .select(selectLoggedIn)
-        .pipe(skip(1))
-        .subscribe((loggedIn) => {
-          if (loggedIn) {
-            this.router.navigate(['/home']);
-          }
-        })
-    );
   }
   ngOnDestroy(): void {
-    this.subscriptions.forEach((sub) => sub.unsubscribe());
   }
   onSubmit() {
     if (this.form.valid) {

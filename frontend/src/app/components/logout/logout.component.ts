@@ -17,19 +17,13 @@ import { MatButtonModule } from '@angular/material/button';
 })
 export class LogoutComponent {
   constructor(private store: Store<AppState>, private router: Router) {}
-  private loginListener: Subscription;
+ 
   ngOnInit(): void {
-    this.loginListener = this.store
-      .select(selectLoggedIn)
-
-      .subscribe((loggedIn) => {
-        if (loggedIn == false) this.router.navigate(['/login']);
-      });
+    
   }
   logout() {
     this.store.dispatch(logout());
   }
   ngOnDestroy(): void {
-    if (this.loginListener) this.loginListener.unsubscribe();
   }
 }

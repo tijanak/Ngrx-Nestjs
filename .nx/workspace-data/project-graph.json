@@ -1,86 +1,5 @@
 {
   "nodes": {
-    "backend-e2e": {
-      "name": "backend-e2e",
-      "type": "e2e",
-      "data": {
-        "root": "backend-e2e",
-        "targets": {
-          "eslint:lint": {
-            "cache": true,
-            "options": {
-              "cwd": "backend-e2e",
-              "command": "eslint ."
-            },
-            "inputs": [
-              "default",
-              "^default",
-              "{workspaceRoot}/.eslintrc.json",
-              "{projectRoot}/.eslintrc.json",
-              "{workspaceRoot}/tools/eslint-rules/**/*",
-              {
-                "externalDependencies": [
-                  "eslint"
-                ]
-              }
-            ],
-            "outputs": [
-              "{options.outputFile}"
-            ],
-            "metadata": {
-              "technologies": [
-                "eslint"
-              ],
-              "description": "Runs ESLint on project",
-              "help": {
-                "command": "npx eslint --help",
-                "example": {
-                  "options": {
-                    "max-warnings": 0
-                  }
-                }
-              }
-            },
-            "executor": "nx:run-commands",
-            "configurations": {},
-            "parallelism": true
-          },
-          "e2e": {
-            "executor": "@nx/jest:jest",
-            "outputs": [
-              "{workspaceRoot}/coverage/{e2eProjectRoot}"
-            ],
-            "options": {
-              "jestConfig": "backend-e2e/jest.config.ts",
-              "passWithNoTests": true
-            },
-            "dependsOn": [
-              "backend:build"
-            ],
-            "configurations": {
-              "ci": {
-                "ci": true,
-                "codeCoverage": true
-              }
-            },
-            "parallelism": true,
-            "cache": true,
-            "inputs": [
-              "default",
-              "^production",
-              "{workspaceRoot}/jest.preset.js"
-            ]
-          }
-        },
-        "name": "backend-e2e",
-        "$schema": "../node_modules/nx/schemas/project-schema.json",
-        "projectType": "application",
-        "implicitDependencies": [
-          "backend"
-        ],
-        "tags": []
-      }
-    },
     "environment": {
       "name": "environment",
       "type": "lib",
@@ -14307,18 +14226,6 @@
     }
   },
   "dependencies": {
-    "backend-e2e": [
-      {
-        "source": "backend-e2e",
-        "target": "backend",
-        "type": "implicit"
-      },
-      {
-        "source": "backend-e2e",
-        "target": "npm:axios",
-        "type": "static"
-      }
-    ],
     "environment": [],
     "frontend": [
       {

@@ -36,7 +36,6 @@ import { selectLoggedIn } from '../../store/auth/auth.selectors';
 export class RegisterComponent implements OnInit, OnDestroy {
   registerForm: FormGroup | undefined;
 
-  private subscriptions: Subscription[] = [];
   constructor(
     private store: Store<AppState>,
     private router: Router,
@@ -53,19 +52,9 @@ export class RegisterComponent implements OnInit, OnDestroy {
         [Validators.required, Validators.pattern(/^\+?\d{10,15}$/)],
       ],
     });
-    this.subscriptions.push(
-      this.store
-        .select(selectLoggedIn)
-        .pipe(skip(1))
-        .subscribe((loggedIn) => {
-          if (loggedIn) {
-            this.router.navigate(['/home']);
-          }
-        })
-    );
+   
   }
   ngOnDestroy(): void {
-    this.subscriptions.forEach((sub) => sub.unsubscribe());
   }
   onSubmit(): void {
     if (this.registerForm?.valid) {

@@ -7,20 +7,27 @@ import {
 } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 import { catchError, map, Observable, of } from 'rxjs';
+import { AppState } from '../store/app.reducer';
+import { Store } from '@ngrx/store';
+import { profileLoaded } from '../store/auth/auth.actions';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthGuard implements CanActivate {
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(
+    private store: Store<AppState>,private authService: AuthService, private router: Router) {}
 
   canActivate(
     route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot
+    state: RouterStateSnapshot,
   ): Observable<boolean> | Promise<boolean> | boolean {
     console.log('auth guard');
     return this.authService.getProfile().pipe(
+      
       map((user) => {
+        console.log(user)
+        this.store.dispatch(profileLoaded({user}));
         if (user) {
           return true;
         } else {

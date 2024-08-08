@@ -28,6 +28,7 @@ export const registrationFailure = createAction(
   props<{ error: HttpErrorResponse }>()
 );
 export const logout = createAction('[Auth] Logout');
+export const logoutFinished=createAction('[Auth] Logout Finished')
 export const logoutFailure = createAction(
   '[Auth] Logout',
   props<{ error: HttpErrorResponse }>()
