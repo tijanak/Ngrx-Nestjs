@@ -34,7 +34,8 @@ import { CreateAuctionDto, IImage } from '@org/models';
 export class AuctionEffects {
   constructor(
     private actions$: Actions,
-    private auctionsService: AuctionService
+    private auctionsService: AuctionService,
+    private store: Store<AppState>
   ) {}
   auction$ = createEffect(() =>
     this.actions$
@@ -48,7 +49,7 @@ export class AuctionEffects {
       )
   );
 
-  /*startUploadImage$ = createEffect(() =>
+  startUploadImage$ = createEffect(() =>
     this.actions$.pipe(
       ofType(UploadAuction),
       map(({ auctionDto, images }) => {
@@ -68,14 +69,16 @@ export class AuctionEffects {
         withLatestFrom(this.store.select(selectAuctionDto)),
         filter((v) => v[1] != null),
         switchMap((v) => {
-          let auctionDto = v[1]!;
-          auctionDto.images = v[0].images;
+          let auctionDto: CreateAuctionDto = { ...v[1]!, images: v[0].images };
           return this.auctionsService.createAuction(auctionDto);
         })
       )
       .pipe(
         map(() => CreateAuctionSuccess()),
-        catchError((error) => of(CreateAuctionFailure(error)))
+        catchError((error) => {
+          console.log(error);
+          return of(CreateAuctionFailure({ error }));
+        })
       )
-  );*/
+  );
 }

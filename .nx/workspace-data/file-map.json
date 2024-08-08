@@ -126,84 +126,84 @@
   "fileMap": {
     "nonProjectFiles": [
       {
-        "file": "package.json",
-        "hash": "14395888007227376142"
-      },
-      {
-        "file": ".dockerignore",
-        "hash": "1386920771022941307"
-      },
-      {
-        "file": "jest.preset.js",
-        "hash": "7473220183190921152"
-      },
-      {
-        "file": "jest.config.ts",
-        "hash": "7544409015863045561"
-      },
-      {
-        "file": "README.md",
-        "hash": "10862541853819140661"
-      },
-      {
-        "file": ".editorconfig",
-        "hash": "11532813898455409296"
-      },
-      {
-        "file": "tsconfig.base.json",
-        "hash": "6504188510347568096"
-      },
-      {
-        "file": ".prettierignore",
-        "hash": "12269743867629339573"
-      },
-      {
-        "file": ".vscode/launch.json",
-        "hash": "11840498223564460082"
+        "file": ".gitignore",
+        "hash": "12203929471089777966"
       },
       {
         "file": ".prettierrc",
         "hash": "6820402234827505055"
       },
       {
-        "file": ".eslintrc.json",
-        "hash": "4566917484430375526"
+        "file": ".editorconfig",
+        "hash": "11532813898455409296"
       },
       {
-        "file": "docker-compose.yml",
-        "hash": "7827576988494241518"
+        "file": "package.json",
+        "hash": "14395888007227376142"
       },
       {
-        "file": ".eslintignore",
-        "hash": "13404745306227114823"
+        "file": ".vscode/extensions.json",
+        "hash": "60901680939730831"
+      },
+      {
+        "file": "README.md",
+        "hash": "10862541853819140661"
+      },
+      {
+        "file": "jest.config.ts",
+        "hash": "7544409015863045561"
+      },
+      {
+        "file": "jest.preset.js",
+        "hash": "7473220183190921152"
       },
       {
         "file": ".vscode/tasks.json",
         "hash": "12985731391048181481"
       },
       {
-        "file": ".gitignore",
-        "hash": "12203929471089777966"
+        "file": ".eslintignore",
+        "hash": "13404745306227114823"
       },
       {
-        "file": "nx.json",
-        "hash": "3412551311896126504"
+        "file": ".dockerignore",
+        "hash": "1386920771022941307"
+      },
+      {
+        "file": ".eslintrc.json",
+        "hash": "4566917484430375526"
       },
       {
         "file": ".gitattributes",
         "hash": "1572551857504561111"
       },
       {
-        "file": "docker-compose.debug.yml",
-        "hash": "14168878783884762562"
+        "file": "tsconfig.base.json",
+        "hash": "6504188510347568096"
+      },
+      {
+        "file": ".vscode/launch.json",
+        "hash": "11840498223564460082"
+      },
+      {
+        "file": ".prettierignore",
+        "hash": "12269743867629339573"
+      },
+      {
+        "file": "docker-compose.yml",
+        "hash": "7827576988494241518"
+      },
+      {
+        "file": "nx.json",
+        "hash": "3412551311896126504"
       },
       {
         "file": "package-lock.json",
         "hash": "15794118768912424165"
       },
       {
-        "file": ".vscode/extensions.json",
-        "hash": "60901680939730831"
+        "file": "docker-compose.debug.yml",
+        "hash": "14168878783884762562"
       }
     ],
     "projectFileMap": {
@@ -768,7 +768,7 @@
         },
         {
           "file": "frontend/src/app/app.component.html",
-          "hash": "2747332795115581672"
+          "hash": "13721735757397984960"
         },
         {
           "file": "frontend/src/app/app.component.scss",
@@ -1254,7 +1254,7 @@
         },
         {
           "file": "frontend/src/app/store/auctions/auctions.effects.ts",
-          "hash": "17644753380255769131",
+          "hash": "1723348186798643146",
           "deps": [
             "npm:@angular/core",
             "npm:@ngrx/effects",
