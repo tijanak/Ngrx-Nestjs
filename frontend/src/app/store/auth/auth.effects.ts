@@ -47,7 +47,7 @@ export class AuthEffects {
     this.actions$.pipe(
       ofType(registration),
       switchMap((userData) =>
-        this.authService.register(userData).pipe(
+        this.authService.register(userData.userDto).pipe(
           map((user) => {
             return registrationSucces(user);
           }),

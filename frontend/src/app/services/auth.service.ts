@@ -33,6 +33,7 @@ export class AuthService {
     return this.httpClient.post(`${environment.API_URL}auth/logout`, null);
   }
   register(dto: CreateUserDto): Observable<any> {
+    console.log('registering ',dto)
     return this.httpClient.post(`${environment.API_URL}auth/register`, dto, {
       headers: {
         'Content-Type': 'application/json',

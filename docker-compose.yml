@@ -1,3 +1,5 @@
+version: "3.7"
+
 services:
   db:
     image: postgres:latest
@@ -9,6 +11,7 @@ services:
       - ./postgres-data:/var/lib/postgresql/data
   backend:
     image: backend
+    restart: always
     build:
       context: .
       dockerfile: ./backend/Dockerfile
@@ -21,16 +24,32 @@ services:
 
     ports:
       - 4100:4100
+    develop:
+      watch:
+      - action: sync
+        path: ./frontend
+        target: /usr/src/app/backend
+      - action: rebuild
+        path: package.json
   frontend:
     image: frontend
     build:
       context: .
       dockerfile: ./frontend/Dockerfile
+    restart: always
     depends_on:
       - backend
     environment:
       NODE_ENV: production
       NX_PORT: 4100
-      NX_BACKEND_HOST: backend
     ports:
       - 4200:4200
+    develop:
+      watch:
+      - action: sync
+        path: ./frontend
+        target: /usr/src/app/frontend
+      - action: rebuild
+        path: package.json
+
+

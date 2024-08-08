@@ -73,12 +73,12 @@ export class RegisterComponent implements OnInit, OnDestroy {
       console.log('Form Submitted', formValues);
       this.store.dispatch(
         registration({
-          name: formValues.name,
+          userDto:{name: formValues.name,
           surname: formValues.surname,
           phone_number: formValues.phoneNumber,
           password: formValues.password,
           email: formValues.email,
-        })
+        }})
       );
     }
   }

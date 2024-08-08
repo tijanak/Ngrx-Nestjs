@@ -17,7 +17,7 @@ export const loginFailure = createAction(
 );
 export const registration = createAction(
   '[Auth] Register',
-  props<CreateUserDto>()
+  props<{userDto:CreateUserDto}>()
 );
 export const registrationSucces = createAction(
   '[Auth] Registration Success',
