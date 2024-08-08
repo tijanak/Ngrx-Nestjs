@@ -14,17 +14,11 @@ export const LoadAuctionsFailure = createAction(
 );
 export const UploadAuction = createAction(
   '[Auction] Upload Auction',
-  props<{ auctionDto: CreateAuctionDto,images:File[] }>()
-);
-export const CreateAuction = createAction(
-  '[Auction] Upload Auction',
-  props<{ createDto: CreateAuctionDto }>()
+  props<{ auctionDto: CreateAuctionDto; images: File[] }>()
 );
 
-export const CreateAuctionSuccess=createAction(
-  '[Auction] Created'
-)
-export const CreateAuctionFailure=createAction(
+export const CreateAuctionSuccess = createAction('[Auction] Created');
+export const CreateAuctionFailure = createAction(
   '[Auction] Failure',
-  props<{error:HttpErrorResponse}>()
-)
+  props<{ error: HttpErrorResponse }>()
+);

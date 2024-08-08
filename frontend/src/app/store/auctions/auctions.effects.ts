@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { AuctionService } from '../../services/auction.service';
 import {
-  CreateAuction,
   CreateAuctionFailure,
   CreateAuctionSuccess,
   LoadAuctions,
@@ -44,20 +43,22 @@ export class AuctionEffects {
         switchMap(() => this.auctionsService.getAuctions())
       )
       .pipe(
-        map((auctions) => LoadAuctionsSuccess(auctions)),
+        map((auctions) => {
+          return LoadAuctionsSuccess({ auctions });
+        }),
         catchError((error) => of(LoadAuctionsFailure(error)))
       )
   );
-
+  auctionUpload = 'auction upload';
   startUploadImage$ = createEffect(() =>
     this.actions$.pipe(
       ofType(UploadAuction),
       map(({ auctionDto, images }) => {
-        console.log('uploading');
+        console.log('uploading', images);
         if (images.length > 0)
-          return uploadImages({ images, event: 'auction upload' });
+          return uploadImages({ images, event: this.auctionUpload });
         else
-          return uploadImagesSuccess({ images: [], event: 'auction upload' });
+          return uploadImagesSuccess({ images: [], event: this.auctionUpload });
       })
     )
   );
@@ -65,16 +66,20 @@ export class AuctionEffects {
     this.actions$
       .pipe(
         ofType(uploadImagesSuccess),
-        filter(({ event }) => event == 'auction upload'),
+        filter(({ event }) => event == this.auctionUpload),
         withLatestFrom(this.store.select(selectAuctionDto)),
         filter((v) => v[1] != null),
         switchMap((v) => {
           let auctionDto: CreateAuctionDto = { ...v[1]!, images: v[0].images };
+          console.log('calling service', auctionDto);
           return this.auctionsService.createAuction(auctionDto);
         })
       )
       .pipe(
-        map(() => CreateAuctionSuccess()),
+        map(() => {
+          console.log('created');
+          return CreateAuctionSuccess();
+        }),
         catchError((error) => {
           console.log(error);
           return of(CreateAuctionFailure({ error }));

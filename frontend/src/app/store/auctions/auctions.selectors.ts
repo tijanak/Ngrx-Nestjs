@@ -6,13 +6,16 @@ export const selectAuctionFeature = createSelector(
   (state: AppState) => state.auction,
   (state) => state
 );
-export const selectAuctions=createSelector(
+export const selectAuctions = createSelector(
   selectAuctionFeature,
   auctionAdapter.getSelectors().selectAll
-)
-export const selectAuctionDto=createSelector(
+);
+export const selectAuctionDto = createSelector(
   selectAuctionFeature,
-  (auctionState)=>auctionState.uploadAuctionDto
-)
+  (auctionState) => auctionState.uploadAuctionDto
+);
 
-
+export const selectAuctionError = createSelector(
+  selectAuctionFeature,
+  (auctionState) => auctionState.error
+);

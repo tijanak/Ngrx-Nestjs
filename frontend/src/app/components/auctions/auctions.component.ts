@@ -18,20 +18,20 @@ import { LoadAuctions } from '../../store/auctions/auctions.actions';
   templateUrl: './auctions.component.html',
   styleUrl: './auctions.component.css',
 })
-export class AuctionsComponent implements OnInit,OnDestroy{
-  subscription:Subscription
-  constructor(private store:Store<AppState>){
-    this.store.dispatch(LoadAuctions())
+export class AuctionsComponent implements OnInit, OnDestroy {
+  subscription: Subscription;
+  constructor(private store: Store<AppState>) {
+    this.store.dispatch(LoadAuctions());
   }
   ngOnDestroy(): void {
-    if(this.subscription)this.subscription.unsubscribe()
+    if (this.subscription) this.subscription.unsubscribe();
   }
   ngOnInit(): void {
-    this.subscription=this.store.select(selectAuctions).subscribe((auctions)=>{
-      this.auctions=auctions
-    })
+    this.subscription = this.store
+      .select(selectAuctions)
+      .subscribe((auctions) => {
+        this.auctions = auctions;
+      });
   }
-  auctions: IAuction[] = [
-   
-  ];
+  auctions: IAuction[] = [];
 }
