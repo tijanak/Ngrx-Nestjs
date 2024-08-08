@@ -16,7 +16,6 @@ import { Store } from '@ngrx/store';
 import { Subscription, skip } from 'rxjs';
 import { AppState } from '../../store/app.reducer';
 import { registration } from '../../store/auth/auth.actions';
-import { selectLoggedIn } from '../../store/auth/auth.selectors';
 @Component({
   selector: 'app-register',
   standalone: true,

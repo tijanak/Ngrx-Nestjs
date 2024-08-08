@@ -4,7 +4,6 @@ import { Store } from '@ngrx/store';
 import { AppState } from '../../store/app.reducer';
 import { Router, RouterModule } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { selectLoggedIn } from '../../store/auth/auth.selectors';
 import { logout } from '../../store/auth/auth.actions';
 import { MatButtonModule } from '@angular/material/button';
 

@@ -32,7 +32,6 @@ export const appConfig: ApplicationConfig = {
         autoPause: true,
       })
     ),
-
     provideEffects(appEffects),
   ],
 };

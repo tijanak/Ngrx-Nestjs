@@ -14300,11 +14300,6 @@
       },
       {
         "source": "frontend",
-        "target": "npm:@nestjs/common",
-        "type": "static"
-      },
-      {
-        "source": "frontend",
         "target": "npm:@ngrx/entity",
         "type": "static"
       },

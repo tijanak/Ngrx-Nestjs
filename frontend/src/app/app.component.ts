@@ -7,6 +7,7 @@ import { Store } from '@ngrx/store';
 import { AppState } from './store/app.reducer';
 import { selectAuthFeature } from './store/auth/auth.selectors';
 import { MessageSnackbarComponent } from './components/message-snackbar/message-snackbar.component';
+import { ImageService } from './services/image.service';
 
 @Component({
   standalone: true,

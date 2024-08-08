@@ -18,6 +18,9 @@ import {
   OwlNativeDateTimeModule,
 } from '@danielmoncada/angular-datetime-picker';
 import { maxImageAmount } from './validators/max-image-amount-validator';
+import { Store } from '@ngrx/store';
+import { AppState } from 'frontend/src/app/store/app.reducer';
+import { UploadAuction } from 'frontend/src/app/store/auctions/auctions.actions';
 
 @Component({
   selector: 'app-auction-create',
@@ -40,7 +43,7 @@ import { maxImageAmount } from './validators/max-image-amount-validator';
 export class AuctionCreateComponent {
   auctionForm: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private store: Store<AppState>) {
     this.auctionForm = this.fb.group({
       title: ['', Validators.required],
       description: ['', Validators.required],
@@ -62,6 +65,20 @@ export class AuctionCreateComponent {
   onSubmit() {
     if (this.auctionForm.valid) {
       console.log(this.auctionForm.value);
+      let formData = this.auctionForm.value;
+      this.store.dispatch(
+        UploadAuction({
+          auctionDto: {
+            title: formData.title,
+            description: formData.description,
+            min_price: formData.min_price,
+            end_time: formData.end_time,
+            start_time: formData.start_time,
+            images: Array(),
+          },
+          images: formData.images,
+        })
+      );
     } else {
       console.log('Form is invalid');
     }

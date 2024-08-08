@@ -33,5 +33,5 @@ export class CreateAuctionDto {
   min_price: number;
   @ValidateNested({ each: true, message: 'Slika nije dobrog formata' })
   @Type(() => Image)
-  images: Image[];
+  images: IImage[];
 }

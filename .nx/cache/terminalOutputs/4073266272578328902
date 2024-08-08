@@ -1,7 +1,0 @@
-Project 'frontend' contains extension with invalid name (nx).
-
-[0m[7m[1m[31m NX [39m[22m[27m[0m  [31mSchema validation failed with the following errors:[39m
-
-  Data path "" must NOT have additional properties(plugins).
-Pass --verbose to see the stacktrace.
-

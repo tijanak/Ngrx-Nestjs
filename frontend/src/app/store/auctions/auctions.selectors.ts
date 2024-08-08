@@ -10,5 +10,9 @@ export const selectAuctions=createSelector(
   selectAuctionFeature,
   auctionAdapter.getSelectors().selectAll
 )
+export const selectAuctionDto=createSelector(
+  selectAuctionFeature,
+  (auctionState)=>auctionState.uploadAuctionDto
+)
 
 

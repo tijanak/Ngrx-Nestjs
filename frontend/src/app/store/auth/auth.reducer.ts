@@ -15,20 +15,17 @@ import { IUser } from '@org/models';
 export interface AuthState {
   user: IUser | null;
   error: HttpErrorResponse | null;
-  loggedIn: boolean | null;
 }
 
 export const initialState: AuthState = {
   user: null,
   error: null,
-  loggedIn: null,
 };
 
 export const authReducer = createReducer(
   initialState,
   on(loginSuccess, (state, { user }) => {
     return {
-      loggedIn: true,
       user,
       error: null,
     };
@@ -39,7 +36,6 @@ export const authReducer = createReducer(
   })),
   on(logout, () => initialState),
   on(registrationSucces, (state, { user }) => ({
-    loggedIn: true,
     user,
     error: null,
   })),
@@ -52,9 +48,8 @@ export const authReducer = createReducer(
     user,
   })),
   on(logoutFinished, (state) => ({
-    ...state,
+    ...state, 
     error:null,
-    loggedIn:false,
     user:null
   })),
 );

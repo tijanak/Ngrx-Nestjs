@@ -14,7 +14,6 @@ import { login } from '../../store/auth/auth.actions';
 import {
   selectAuthError,
   selectAuthFeature,
-  selectLoggedIn,
 } from '../../store/auth/auth.selectors';
 import { MatCardModule } from '@angular/material/card';
 import { skip, Subscription } from 'rxjs';

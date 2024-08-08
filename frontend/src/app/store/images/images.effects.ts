@@ -1,8 +1,12 @@
-import { Injectable } from "@nestjs/common";
-import { Actions, createEffect, ofType } from "@ngrx/effects";
-import { ImageService } from "../../services/image.service";
-import { uploadImages, uploadImagesFailure, uploadImagesSuccess } from "./images.actions";
-import { catchError, filter, map, of, switchMap, tap } from "rxjs";
+import { Injectable } from '@angular/core';
+import { Actions, createEffect, ofType } from '@ngrx/effects';
+import { ImageService } from '../../services/image.service';
+import {
+  uploadImages,
+  uploadImagesFailure,
+  uploadImagesSuccess,
+} from './images.actions';
+import { catchError, filter, map, of, switchMap, tap } from 'rxjs';
 
 @Injectable()
 export class ImageEffects {
@@ -11,10 +15,10 @@ export class ImageEffects {
   upload$ = createEffect(() =>
     this.actions$.pipe(
       ofType(uploadImages),
-      switchMap(({ images,event}) =>
+      switchMap(({ images, event }) =>
         this.imageService.postImages(images).pipe(
-          map(images => uploadImagesSuccess({images,event})),
-          catchError(error => of(uploadImagesFailure({ error ,event})))
+          map((images) => uploadImagesSuccess({ images, event })),
+          catchError((error) => of(uploadImagesFailure({ error, event })))
         )
       )
     )
