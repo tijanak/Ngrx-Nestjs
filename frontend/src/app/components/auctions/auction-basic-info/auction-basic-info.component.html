@@ -1,29 +1,31 @@
-<mat-card-header>
-  <div class="card-header-flex">
-    <div>
-      <mat-card-title>{{ auction.title }}</mat-card-title>
-      <mat-card-subtitle>
-        Minimalna cena: {{ auction.min_price | currency }}
-      </mat-card-subtitle>
+<div class="pointer-cursor">
+  <mat-card-header>
+    <div class="card-header-flex">
+      <div>
+        <mat-card-title>{{ auction.title }}</mat-card-title>
+        <mat-card-subtitle>
+          Minimalna cena: {{ auction.min_price | currency }}
+        </mat-card-subtitle>
+      </div>
+
+      <button
+        mat-icon-button
+        (click)="deleteAuction($event)"
+        aria-label="Delete auction"
+        *ngIf="userCanModify"
+      >
+        <mat-icon>delete</mat-icon>
+      </button>
     </div>
-
-    <button
-      mat-icon-button
-      (click)="deleteAuction($event)"
-      aria-label="Delete auction"
-      *ngIf="userCanModify"
-    >
-      <mat-icon>delete</mat-icon>
-    </button>
-  </div>
-</mat-card-header>
+  </mat-card-header>
+  <mat-card-content>
+    <p>{{ auction.description }}</p>
+    <p>Početak aukcije: {{ auction.start_time | date : 'short' }}</p>
+    <p>Kraj aukcije: {{ auction.end_time | date : 'short' }}</p>
+  </mat-card-content>
+</div>
 <mat-card-content>
-  <p>{{ auction.description }}</p>
-  <p>Početak aukcije: {{ auction.start_time | date : 'short' }}</p>
-  <p>Kraj aukcije: {{ auction.end_time | date : 'short' }}</p>
-
   <mat-divider></mat-divider>
-
   <mat-card-subtitle>Slike</mat-card-subtitle>
   <ng-container *ngIf="auction.images.length > 0; else emptyImages">
     <c-carousel [dark]="true" [interval]="0">

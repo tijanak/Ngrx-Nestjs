@@ -9,3 +9,6 @@ img {
   align-items: center;
   width: 100%;
 }
+.pointer-cursor {
+  cursor: pointer;
+}

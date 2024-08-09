@@ -6,6 +6,7 @@ import { AuthGuard } from './guards/auth.guard';
 import { PublicGuard } from './guards/public.guard';
 import { ProfileComponent } from './components/profile/profile.component';
 import { AuctionCreateComponent } from './components/auctions/auction-create/auction-create.component';
+import { AuctionComponent } from './components/auctions/auction/auction.component';
 
 export const appRoutes: Route[] = [
   { path: 'login', component: LoginComponent, canActivate: [PublicGuard] },
@@ -17,6 +18,11 @@ export const appRoutes: Route[] = [
   {
     path: 'auction-create',
     component: AuctionCreateComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'auction/:id',
+    component: AuctionComponent,
     canActivate: [AuthGuard],
   },
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },

@@ -1,0 +1,29 @@
+.menu-toolbar {
+  background-color: #1976d2;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+}
+.logo-image {
+  height: 40px;
+  width: auto;
+}
+.spacer {
+  flex: 1 1 auto;
+}
+.active-link {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
+}
+.menu-button {
+  color: white;
+  font-weight: 500;
+}
+
+.menu-button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BidsComponent } from '../../bids/bids.component';
 import { IAuction, IBid } from '@org/models';
@@ -16,6 +16,10 @@ import {
 import { RouterLink } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
 import { AuctionBasicInfoComponent } from '../auction-basic-info/auction-basic-info.component';
+import { Store } from '@ngrx/store';
+import { AppState } from 'frontend/src/app/store/app.reducer';
+import { selectSelectedAuction } from 'frontend/src/app/store/auctions/auctions.selectors';
+import { Subscription } from 'rxjs';
 @Component({
   selector: 'app-auction',
   standalone: true,
@@ -29,8 +33,23 @@ import { AuctionBasicInfoComponent } from '../auction-basic-info/auction-basic-i
   templateUrl: './auction.component.html',
   styleUrl: './auction.component.css',
 })
-export class AuctionComponent implements OnInit {
-  @Input() auction!: IAuction;
+export class AuctionComponent implements OnInit, OnDestroy {
+  subscription: Subscription;
+  constructor(private store: Store<AppState>) {
+    this.subscription = this.store
+      .select(selectSelectedAuction)
+      .subscribe((auction) => {
+        if (auction)
+          this.auction = {
+            ...auction,
+            bids: this.bids,
+          };
+      });
+  }
+  ngOnDestroy(): void {
+    if (this.subscription) this.subscription.unsubscribe();
+  }
+  @Input() auction!: IAuction | undefined;
   bids: IBid[] = [
     {
       id: 2,
@@ -105,7 +124,5 @@ export class AuctionComponent implements OnInit {
       sale_certificate: null,
     },
   ];
-  ngOnInit(): void {
-    this.auction.bids = this.bids;
-  }
+  ngOnInit(): void {}
 }

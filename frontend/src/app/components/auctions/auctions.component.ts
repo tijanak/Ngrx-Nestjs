@@ -14,18 +14,25 @@ import {
   LoadAuctions,
 } from '../../store/auctions/auctions.actions';
 import { selectUser } from '../../store/auth/auth.selectors';
+import { Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-auctions',
   standalone: true,
-  imports: [CommonModule, AuctionBasicInfoComponent, MatCardModule, MatDivider],
+  imports: [
+    RouterModule,
+    CommonModule,
+    AuctionBasicInfoComponent,
+    MatCardModule,
+    MatDivider,
+  ],
   templateUrl: './auctions.component.html',
   styleUrl: './auctions.component.css',
 })
 export class AuctionsComponent implements OnInit, OnDestroy {
   subscription: Subscription[] = [];
   user: IUser | null;
-  constructor(private store: Store<AppState>) {
+  constructor(private router: Router, private store: Store<AppState>) {
     this.store.dispatch(LoadAuctions());
     this.subscription.push(
       this.store.select(selectUser).subscribe((user) => (this.user = user))
@@ -46,6 +53,6 @@ export class AuctionsComponent implements OnInit, OnDestroy {
     this.store.dispatch(DeleteAuction({ id }));
   }
   open(id: number) {
-    console.log(id);
+    this.router.navigate(['/auction', id]);
   }
 }

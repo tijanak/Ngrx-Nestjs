@@ -18,6 +18,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { appEffects } from './store/app.effects';
 import { provideEffects } from '@ngrx/effects';
 
+import { provideRouterStore, routerReducer } from '@ngrx/router-store';
 export const appConfig: ApplicationConfig = {
   providers: [
     provideHttpClient(withInterceptorsFromDi()),
@@ -33,5 +34,6 @@ export const appConfig: ApplicationConfig = {
       })
     ),
     provideEffects(appEffects),
+    provideRouterStore(),
   ],
 };

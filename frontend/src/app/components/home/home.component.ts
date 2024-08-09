@@ -5,6 +5,7 @@ import { Router, RouterModule } from '@angular/router';
 import { LogoutComponent } from '../logout/logout.component';
 import { AuctionsComponent } from '../auctions/auctions.component';
 import { NewAuctionBtnComponent } from '../auctions/new-auction-btn/new-auction-btn.component';
+import { MenuComponent } from '../menu/menu.component';
 
 @Component({
   selector: 'app-home',
@@ -16,6 +17,7 @@ import { NewAuctionBtnComponent } from '../auctions/new-auction-btn/new-auction-
     LogoutComponent,
     AuctionsComponent,
     NewAuctionBtnComponent,
+    MenuComponent,
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',

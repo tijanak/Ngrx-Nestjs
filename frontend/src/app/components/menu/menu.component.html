@@ -1,0 +1,24 @@
+<mat-toolbar color="primary" class="menu-toolbar">
+  <img src="logo.jpg" alt="Logo" class="logo-image" />
+  <span class="logo">E-Aukcije</span>
+  <span class="spacer"></span>
+  <button
+    mat-button
+    routerLink="/home"
+    class="menu-button"
+    routerLinkActive="active-link"
+    [routerLinkActiveOptions]="{ exact: true }"
+  >
+    Pocetna
+  </button>
+  <button
+    routerLinkActive="active-link"
+    mat-button
+    routerLink="/profile"
+    class="menu-button"
+    [routerLinkActiveOptions]="{ exact: true }"
+  >
+    Profil
+  </button>
+  <app-logout></app-logout>
+</mat-toolbar>

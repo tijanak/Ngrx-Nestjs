@@ -1,4 +1,4 @@
-<mat-card *ngIf="auction" class="auction-card">
+<mat-card *ngIf="auction; else notFound" class="auction-card">
   <app-auction-basic-info [auction]="auction"></app-auction-basic-info>
   <mat-card-content>
     <mat-divider></mat-divider>
@@ -9,6 +9,7 @@
 
     <mat-divider></mat-divider>
 
-    <app-bids [bids]="auction.bids"></app-bids>
+    <app-bids *ngIf="auction && auction.bids" [bids]="auction.bids"></app-bids>
   </mat-card-content>
 </mat-card>
+<ng-template #notFound> Aukcija nije pronadjena </ng-template>
