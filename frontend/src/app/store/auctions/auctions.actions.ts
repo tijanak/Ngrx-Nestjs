@@ -38,3 +38,15 @@ export const DeleteAuctionFailure = createAction(
   '[Auction] Delete Auction Failure',
   props<{ error: HttpErrorResponse }>()
 );
+export const LoadAuction = createAction(
+  '[Auction] Load Auction',
+  props<{ id: number }>()
+);
+export const LoadAuctionSuccess = createAction(
+  '[Auction] Loaded Auction',
+  props<{ auction: IAuction }>()
+);
+export const LoadAuctionFailure = createAction(
+  '[Auction] Loaded Auction',
+  props<{ error: HttpErrorResponse }>()
+);

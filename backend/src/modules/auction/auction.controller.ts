@@ -36,7 +36,7 @@ export class AuctionController {
   }
   @Get(':id')
   async get(@Param('id', ParseIntPipe) id: number) {
-    return this.service.get(id, ['owner']);
+    return this.service.get(id, ['images', 'owner']);
   }
   @UseGuards(OwnerGuard)
   @Delete(':id')

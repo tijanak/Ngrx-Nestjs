@@ -4,14 +4,12 @@ import { CreateAuctionDto, IAuction } from '@org/models';
 import * as actions from './auctions.actions';
 import { HttpErrorResponse } from '@angular/common/http';
 export interface AuctionState extends EntityState<IAuction> {
-  selectedAuctionId: number | null;
   uploadAuctionDto: CreateAuctionDto | null;
   error: HttpErrorResponse | null;
 }
 export const initialState: AuctionState = {
   ids: [],
   entities: {},
-  selectedAuctionId: null,
   uploadAuctionDto: null,
   error: null,
 };
@@ -44,5 +42,11 @@ export const auctionReducer = createReducer(
   }),
   on(actions.DeleteAuctionSuccess, (state, { id }) => {
     return auctionAdapter.removeOne(id, state);
+  }),
+  on(actions.LoadAuctionSuccess, (state, { auction }) => {
+    return auctionAdapter.upsertOne(auction, state);
+  }),
+  on(actions.LoadAuctionFailure, (state, { error }) => {
+    return { ...state, error };
   })
 );

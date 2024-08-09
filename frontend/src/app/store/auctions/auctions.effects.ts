@@ -11,6 +11,9 @@ import {
   DeleteAuction,
   DeleteAuctionSuccess,
   DeleteAuctionFailure,
+  LoadAuction,
+  LoadAuctionSuccess,
+  LoadAuctionFailure,
 } from './auctions.actions';
 import {
   catchError,
@@ -49,6 +52,19 @@ export class AuctionEffects {
             return LoadAuctionsSuccess({ auctions });
           }),
           catchError((error) => of(LoadAuctionsFailure({ error })))
+        )
+      )
+    )
+  );
+  auctionLoad$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(LoadAuction),
+      switchMap(({ id }) =>
+        this.auctionsService.getAuction(id).pipe(
+          map((auction) => {
+            return LoadAuctionSuccess({ auction });
+          }),
+          catchError((error) => of(LoadAuctionFailure({ error })))
         )
       )
     )
