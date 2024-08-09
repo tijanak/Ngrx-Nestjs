@@ -41,17 +41,17 @@ export class AuctionEffects {
     private store: Store<AppState>
   ) {}
   auction$ = createEffect(() =>
-    this.actions$
-      .pipe(
-        ofType(LoadAuctions),
-        switchMap(() => this.auctionsService.getAuctions())
+    this.actions$.pipe(
+      ofType(LoadAuctions),
+      switchMap(() =>
+        this.auctionsService.getAuctions().pipe(
+          map((auctions) => {
+            return LoadAuctionsSuccess({ auctions });
+          }),
+          catchError((error) => of(LoadAuctionsFailure({ error })))
+        )
       )
-      .pipe(
-        map((auctions) => {
-          return LoadAuctionsSuccess({ auctions });
-        }),
-        catchError((error) => of(LoadAuctionsFailure({ error })))
-      )
+    )
   );
   auctionUpload = 'auction upload';
   startUploadImage$ = createEffect(() =>
@@ -62,49 +62,51 @@ export class AuctionEffects {
         console.log(images.length);
         if (images.length > 0) {
           return uploadImages({ images, event: this.auctionUpload });
-        } else
-          return uploadImagesSuccess({ images: [], event: this.auctionUpload });
+        }
+
+        return uploadImagesSuccess({
+          images: Array<IImage>(),
+          event: this.auctionUpload,
+        });
       })
     )
   );
   uploadAuction$ = createEffect(() =>
-    this.actions$
-      .pipe(
-        ofType(uploadImagesSuccess),
-        tap(() => console.log('uploadimagesuccess')),
-        filter(({ event }) => event == this.auctionUpload),
-        tap(() => console.log('filtered')),
-        withLatestFrom(this.store.select(selectAuctionDto)),
-        tap((v) => console.log('before filter', v)),
-        filter((v) => v[1] != null),
-        switchMap((v) => {
-          let auctionDto: CreateAuctionDto = { ...v[1]!, images: v[0].images };
-          console.log('calling service', auctionDto);
-          return this.auctionsService.createAuction(auctionDto);
-        })
-      )
-      .pipe(
-        map((auction) => {
-          console.log('created', auction);
-          return CreateAuctionSuccess({ auction });
-        }),
-        catchError((error) => {
-          console.log(error);
-          return of(CreateAuctionFailure({ error }));
-        })
-      )
+    this.actions$.pipe(
+      ofType(uploadImagesSuccess),
+      tap(() => console.log('uploadimagesuccess')),
+      filter(({ event }) => event == this.auctionUpload),
+      tap(() => console.log('filtered')),
+      withLatestFrom(this.store.select(selectAuctionDto)),
+      tap((v) => console.log('before filter', v)),
+      filter((v) => v[1] != null),
+      switchMap((v) => {
+        let auctionDto: CreateAuctionDto = { ...v[1]!, images: v[0].images };
+        console.log('calling service', auctionDto);
+        return this.auctionsService.createAuction(auctionDto).pipe(
+          map((auction) => {
+            console.log('created', auction);
+            return CreateAuctionSuccess({ auction });
+          }),
+          catchError((error) => {
+            console.log(error);
+            return of(CreateAuctionFailure({ error }));
+          })
+        );
+      })
+    )
   );
   deleteAuction$ = createEffect(() =>
-    this.actions$
-      .pipe(
-        ofType(DeleteAuction),
-        switchMap(({ id }) => this.auctionsService.deleteAuction(id))
+    this.actions$.pipe(
+      ofType(DeleteAuction),
+      switchMap(({ id }) =>
+        this.auctionsService.deleteAuction(id).pipe(
+          map((id) => {
+            return DeleteAuctionSuccess({ id });
+          }),
+          catchError((error) => of(DeleteAuctionFailure({ error })))
+        )
       )
-      .pipe(
-        map((id) => {
-          return DeleteAuctionSuccess({ id });
-        }),
-        catchError((error) => of(DeleteAuctionFailure({ error })))
-      )
+    )
   );
 }

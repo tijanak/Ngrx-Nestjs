@@ -97,6 +97,9 @@ export class AuctionService {
     await Promise.all(deleteImagePromises);
     try {
       await this.auctionRepo.delete(id);
+      let job = this.schedulerRegistry.getCronJob('end auction ' + auction.id);
+      job.stop();
+      this.schedulerRegistry.deleteCronJob('end auction ' + auction.id);
       return id;
     } catch (error) {
       Logger.error('Error deleting auction:', error);
