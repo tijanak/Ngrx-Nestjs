@@ -6,9 +6,14 @@ import { Auction } from './auction.entity';
 import { APP_GUARD } from '@nestjs/core';
 import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
 import { SaleSertificateModule } from '../sale_certificate/sale_sertificate.module';
+import { ImageModule } from '../image/image.module';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([Auction]), SaleSertificateModule],
+  imports: [
+    ImageModule,
+    TypeOrmModule.forFeature([Auction]),
+    SaleSertificateModule,
+  ],
   providers: [AuctionService],
   controllers: [AuctionController],
   exports: [AuctionService],

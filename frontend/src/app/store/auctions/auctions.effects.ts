@@ -7,7 +7,10 @@ import {
   LoadAuctions,
   LoadAuctionsFailure,
   LoadAuctionsSuccess,
-  UploadAuction,
+  CreateAuction,
+  DeleteAuction,
+  DeleteAuctionSuccess,
+  DeleteAuctionFailure,
 } from './auctions.actions';
 import {
   catchError,
@@ -16,6 +19,7 @@ import {
   map,
   of,
   switchMap,
+  tap,
   withLatestFrom,
   zip,
 } from 'rxjs';
@@ -52,12 +56,13 @@ export class AuctionEffects {
   auctionUpload = 'auction upload';
   startUploadImage$ = createEffect(() =>
     this.actions$.pipe(
-      ofType(UploadAuction),
+      ofType(CreateAuction),
       map(({ auctionDto, images }) => {
         console.log('uploading', images);
-        if (images.length > 0)
+        console.log(images.length);
+        if (images.length > 0) {
           return uploadImages({ images, event: this.auctionUpload });
-        else
+        } else
           return uploadImagesSuccess({ images: [], event: this.auctionUpload });
       })
     )
@@ -66,8 +71,11 @@ export class AuctionEffects {
     this.actions$
       .pipe(
         ofType(uploadImagesSuccess),
+        tap(() => console.log('uploadimagesuccess')),
         filter(({ event }) => event == this.auctionUpload),
+        tap(() => console.log('filtered')),
         withLatestFrom(this.store.select(selectAuctionDto)),
+        tap((v) => console.log('before filter', v)),
         filter((v) => v[1] != null),
         switchMap((v) => {
           let auctionDto: CreateAuctionDto = { ...v[1]!, images: v[0].images };
@@ -76,14 +84,27 @@ export class AuctionEffects {
         })
       )
       .pipe(
-        map(() => {
-          console.log('created');
-          return CreateAuctionSuccess();
+        map((auction) => {
+          console.log('created', auction);
+          return CreateAuctionSuccess({ auction });
         }),
         catchError((error) => {
           console.log(error);
           return of(CreateAuctionFailure({ error }));
         })
+      )
+  );
+  deleteAuction$ = createEffect(() =>
+    this.actions$
+      .pipe(
+        ofType(DeleteAuction),
+        switchMap(({ id }) => this.auctionsService.deleteAuction(id))
+      )
+      .pipe(
+        map(() => {
+          return DeleteAuctionSuccess();
+        }),
+        catchError((error) => of(DeleteAuctionFailure({ error })))
       )
   );
 }

@@ -1,7 +1,11 @@
 <mat-divider></mat-divider>
 <div *ngFor="let auction of auctions">
   <mat-card>
-    <app-auction-basic-info [auction]="auction"></app-auction-basic-info>
+    <app-auction-basic-info
+      (deleteClicked)="deleteAuctionEvent($event)"
+      [auction]="auction"
+      [userCanModify]="user != null && auction.owner.id == user.id"
+    ></app-auction-basic-info>
   </mat-card>
   <mat-divider></mat-divider>
 </div>

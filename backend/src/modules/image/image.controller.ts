@@ -18,10 +18,10 @@ import * as path from 'path';
 import { diskStorage } from 'multer';
 import { FilesInterceptor } from '@nestjs/platform-express';
 import { map, of, scan, switchMap } from 'rxjs';
-import { ImageService } from './image.service';
+import { ImageService, imagesPath } from './image.service';
 import { Image } from './image.entity';
 import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
-const imagesFolder = 'backend/public/images/';
+
 @Controller('images')
 export class ImagesController {
   constructor(private imageService: ImageService) {}
@@ -31,7 +31,7 @@ export class ImagesController {
     FilesInterceptor('images', 10, {
       storage: diskStorage({
         destination: (req, file, cb) => {
-          const uploadPath = path.join(__dirname, '../../', imagesFolder);
+          const uploadPath = imagesPath;
           if (!fs.existsSync(uploadPath)) {
             fs.mkdirSync(uploadPath, { recursive: true });
           }
@@ -45,7 +45,7 @@ export class ImagesController {
       }),
       fileFilter: (req, file, cb) => {
         if (!file.mimetype.startsWith('image/')) {
-          return cb(new Error('Only image files are allowed!'), false);
+          return cb(new Error('Samo slike su dozvoljene'), false);
         }
         cb(null, true);
       },
@@ -53,7 +53,7 @@ export class ImagesController {
   )
   async upload(@UploadedFiles() files: Array<Express.Multer.File>) {
     if (!files || files.length === 0) {
-      throw new BadRequestException('No files uploaded.');
+      throw new BadRequestException('Nisu poslati fajlovi.');
     }
 
     try {
@@ -65,12 +65,12 @@ export class ImagesController {
 
       return images;
     } catch (error) {
-      throw new BadRequestException('Error processing files.');
+      throw new BadRequestException('Greska u procesuiranju fajlova.');
     }
   }
   @Get(':filename')
   async getImage(@Param('filename') filename: string, @Res() res: Response) {
-    const filePath = join(__dirname, '../../', imagesFolder, filename);
+    const filePath = imagesPath;
 
     try {
       await fs.promises.access(filePath);
@@ -78,7 +78,7 @@ export class ImagesController {
       res.sendFile(filePath);
     } catch (error) {
       Logger.log(error);
-      throw new NotFoundException('Image not found');
+      throw new NotFoundException('Slika nije pronadjena');
     }
   }
 }

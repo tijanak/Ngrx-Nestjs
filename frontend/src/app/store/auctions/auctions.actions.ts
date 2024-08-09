@@ -12,13 +12,28 @@ export const LoadAuctionsFailure = createAction(
   '[Auction] Loaded Auctions',
   props<{ error: HttpErrorResponse }>()
 );
-export const UploadAuction = createAction(
+export const CreateAuction = createAction(
   '[Auction] Upload Auction',
   props<{ auctionDto: CreateAuctionDto; images: FileList }>()
 );
 
-export const CreateAuctionSuccess = createAction('[Auction] Created');
+export const CreateAuctionSuccess = createAction(
+  '[Auction] Created',
+  props<{ auction: IAuction }>()
+);
 export const CreateAuctionFailure = createAction(
   '[Auction] Failure',
+  props<{ error: HttpErrorResponse }>()
+);
+
+export const DeleteAuction = createAction(
+  '[Auction] Delete Auction',
+  props<{ id: number }>()
+);
+export const DeleteAuctionSuccess = createAction(
+  '[Auction] Delete Auction Success'
+);
+export const DeleteAuctionFailure = createAction(
+  '[Auction] Delete Auction Failure',
   props<{ error: HttpErrorResponse }>()
 );

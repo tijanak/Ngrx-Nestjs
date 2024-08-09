@@ -15,6 +15,7 @@ import { SaleSertificateService } from '../sale_certificate/sale_sertificate.ser
 import { max, of } from 'rxjs';
 import { SchedulerRegistry } from '@nestjs/schedule';
 import { CronJob } from 'cron';
+import { ImageService } from '../image/image.service';
 
 @Injectable()
 export class AuctionService {
@@ -22,7 +23,8 @@ export class AuctionService {
     @InjectRepository(Auction)
     private auctionRepo: Repository<Auction>,
     private saleCertificateService: SaleSertificateService,
-    private schedulerRegistry: SchedulerRegistry
+    private schedulerRegistry: SchedulerRegistry,
+    private imageService: ImageService
   ) {
     this.getAll(['sale_certificate']).then((auctions) => {
       of(...auctions).forEach((auction) => {
@@ -78,10 +80,20 @@ export class AuctionService {
   async delete(id) {
     const auction = await this.auctionRepo.findOne({
       where: [{ id: id }],
-      relations: ['sale_certificate'],
+      relations: ['sale_certificate', 'images'],
     });
+    Logger.log('deleting auction ' + id);
     if (auction.sale_certificate != null)
       throw new ForbiddenException('Aukcija je prodata');
+    const deleteImagePromises = auction.images.map(async (image) => {
+      try {
+        await this.imageService.delete(image.fileName);
+      } catch (e) {
+        Logger.log(e);
+      }
+    });
+
+    await Promise.all(deleteImagePromises);
     return this.auctionRepo.delete(id);
   }
   get(id: number, relations: string[] = []) {

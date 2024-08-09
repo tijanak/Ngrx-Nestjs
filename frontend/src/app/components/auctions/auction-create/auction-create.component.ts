@@ -20,7 +20,7 @@ import {
 import { maxImageAmount } from './validators/max-image-amount-validator';
 import { Store } from '@ngrx/store';
 import { AppState } from 'frontend/src/app/store/app.reducer';
-import { UploadAuction } from 'frontend/src/app/store/auctions/auctions.actions';
+import { CreateAuction } from 'frontend/src/app/store/auctions/auctions.actions';
 
 @Component({
   selector: 'app-auction-create',
@@ -50,7 +50,7 @@ export class AuctionCreateComponent {
       min_price: [null, [Validators.required, Validators.min(1)]],
       start_time: [null, Validators.required],
       end_time: [null, Validators.required],
-      images: [Array(), maxImageAmount(10)],
+      images: [FileList, maxImageAmount(10)],
     });
   }
   onFileChange(event: any) {
@@ -65,9 +65,10 @@ export class AuctionCreateComponent {
   onSubmit() {
     if (this.auctionForm.valid) {
       console.log(this.auctionForm.value);
-      let formData = this.auctionForm.value;
+      let formData = { ...this.auctionForm.value };
+      console.log(formData.images);
       this.store.dispatch(
-        UploadAuction({
+        CreateAuction({
           auctionDto: {
             title: formData.title,
             description: formData.description,
@@ -76,7 +77,7 @@ export class AuctionCreateComponent {
             start_time: formData.start_time,
             images: Array(),
           },
-          images: formData.images,
+          images: { ...formData.images, length: formData.images.length },
         })
       );
     }

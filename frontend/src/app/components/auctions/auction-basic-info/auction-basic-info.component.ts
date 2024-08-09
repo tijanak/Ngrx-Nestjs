@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IAuction } from '@org/models';
 import { environment } from '@org/environment';
@@ -34,5 +34,10 @@ import { MatIconModule } from '@angular/material/icon';
 export class AuctionBasicInfoComponent implements OnInit {
   ngOnInit(): void {}
   @Input() auction!: IAuction;
+  @Input() userCanModify: boolean;
+  @Output() deleteClicked = new EventEmitter<number>();
   imageBaseUrl = `${environment.API_URL}images/`;
+  deleteAuction(id: number) {
+    this.deleteClicked.emit(id);
+  }
 }

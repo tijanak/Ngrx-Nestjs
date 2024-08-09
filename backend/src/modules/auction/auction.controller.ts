@@ -28,7 +28,7 @@ export class AuctionController {
   }
   @Get('all')
   async getAll() {
-    return await this.service.getAll(['images']);
+    return await this.service.getAll(['owner', 'images']);
   }
   @Get()
   async getForUser(@Req() req) {

@@ -16,18 +16,18 @@ import { profileLoaded } from '../store/auth/auth.actions';
 })
 export class AuthGuard implements CanActivate {
   constructor(
-    private store: Store<AppState>,private authService: AuthService, private router: Router) {}
+    private store: Store<AppState>,
+    private authService: AuthService,
+    private router: Router
+  ) {}
 
   canActivate(
     route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot,
+    state: RouterStateSnapshot
   ): Observable<boolean> | Promise<boolean> | boolean {
-    console.log('auth guard');
     return this.authService.getProfile().pipe(
-      
       map((user) => {
-        console.log(user)
-        this.store.dispatch(profileLoaded({user}));
+        this.store.dispatch(profileLoaded({ user }));
         if (user) {
           return true;
         } else {

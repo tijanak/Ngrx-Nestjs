@@ -3,3 +3,9 @@ img {
   height: 100px;
   width: auto;
 }
+.card-header-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}

@@ -26,10 +26,9 @@ export class PublicGuard implements CanActivate {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): Observable<boolean> | Promise<boolean> | boolean {
-    console.log('public guard');
     return this.authService.getProfile().pipe(
       map((user) => {
-        this.store.dispatch(profileLoaded({user}));
+        this.store.dispatch(profileLoaded({ user }));
         if (user) {
           this.router.navigate(['/home']);
           return false;

@@ -24,14 +24,20 @@ export const auctionReducer = createReducer(
   on(actions.LoadAuctionsSuccess, (state, { auctions }) => {
     return auctionAdapter.setAll(auctions, state);
   }),
-  on(actions.UploadAuction, (state, { auctionDto }) => {
+  on(actions.CreateAuction, (state, { auctionDto }) => {
+    console.log('reducing auctiondto');
     return {
       ...state,
       uploadAuctionDto: auctionDto,
+      error: null,
     };
   }),
   on(actions.CreateAuctionFailure, (state, { error }) => {
-    return { ...state, error };
+    return { ...state, error, uploadAuctionDto: null };
+  }),
+  on(actions.CreateAuctionSuccess, (state, { auction }) => {
+    let newState = { ...state, uploadAuctionDto: null };
+    return auctionAdapter.addOne(auction, state);
   }),
   on(actions.LoadAuctionsFailure, (state, { error }) => {
     return { ...state, error };

@@ -1,8 +1,21 @@
 <mat-card-header>
-  <mat-card-title>{{ auction.title }}</mat-card-title>
-  <mat-card-subtitle
-    >Minimalna cena: {{ auction.min_price | currency }}</mat-card-subtitle
-  >
+  <div class="card-header-flex">
+    <div>
+      <mat-card-title>{{ auction.title }}</mat-card-title>
+      <mat-card-subtitle>
+        Minimalna cena: {{ auction.min_price | currency }}
+      </mat-card-subtitle>
+    </div>
+
+    <button
+      mat-icon-button
+      (click)="deleteAuction(auction.id)"
+      aria-label="Delete auction"
+      *ngIf="userCanModify"
+    >
+      <mat-icon>delete</mat-icon>
+    </button>
+  </div>
 </mat-card-header>
 <mat-card-content>
   <p>{{ auction.description }}</p>

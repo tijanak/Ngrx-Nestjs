@@ -15,12 +15,19 @@ export class ImageEffects {
   upload$ = createEffect(() =>
     this.actions$.pipe(
       ofType(uploadImages),
-      switchMap(({ images, event }) =>
-        this.imageService.postImages(images).pipe(
-          map((images) => uploadImagesSuccess({ images, event })),
-          catchError((error) => of(uploadImagesFailure({ error, event })))
-        )
-      )
+      switchMap(({ images, event }) => {
+        console.log('image effect uploading');
+        return this.imageService.postImages(images).pipe(
+          map((images) => {
+            console.log('success', images);
+            return uploadImagesSuccess({ images, event });
+          }),
+          catchError((error) => {
+            console.log('error', error);
+            return of(uploadImagesFailure({ error, event }));
+          })
+        );
+      })
     )
   );
 }
