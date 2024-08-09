@@ -79,8 +79,6 @@ export class AuctionCreateComponent {
           images: formData.images,
         })
       );
-    } else {
-      console.log('Form is invalid');
     }
   }
 }

@@ -14,7 +14,7 @@ export const LoadAuctionsFailure = createAction(
 );
 export const UploadAuction = createAction(
   '[Auction] Upload Auction',
-  props<{ auctionDto: CreateAuctionDto; images: File[] }>()
+  props<{ auctionDto: CreateAuctionDto; images: FileList }>()
 );
 
 export const CreateAuctionSuccess = createAction('[Auction] Created');

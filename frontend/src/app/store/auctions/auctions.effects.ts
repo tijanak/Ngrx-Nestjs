@@ -46,7 +46,7 @@ export class AuctionEffects {
         map((auctions) => {
           return LoadAuctionsSuccess({ auctions });
         }),
-        catchError((error) => of(LoadAuctionsFailure(error)))
+        catchError((error) => of(LoadAuctionsFailure({ error })))
       )
   );
   auctionUpload = 'auction upload';

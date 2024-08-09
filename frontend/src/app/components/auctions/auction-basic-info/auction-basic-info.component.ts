@@ -32,9 +32,7 @@ import { MatIconModule } from '@angular/material/icon';
   styleUrl: './auction-basic-info.component.css',
 })
 export class AuctionBasicInfoComponent implements OnInit {
-  ngOnInit(): void {
-    console.log(this.auction);
-  }
+  ngOnInit(): void {}
   @Input() auction!: IAuction;
   imageBaseUrl = `${environment.API_URL}images/`;
 }

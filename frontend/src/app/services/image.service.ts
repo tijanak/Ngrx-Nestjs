@@ -8,9 +8,14 @@ import { IImage } from '@org/models';
 })
 export class ImageService {
   constructor(private httpClient: HttpClient) {}
-  postImages(files: File[]) {
+  postImages(files: FileList) {
+    console.log(files);
     const formData = new FormData();
-    files.forEach((file) => formData.append('files', file));
-    return this.httpClient.post<IImage[]>(`${environment.API_URL}images`, formData);
+    Array.from(files).forEach((file) => formData.append('images', file));
+    return this.httpClient.post<IImage[]>(
+      `${environment.API_URL}images`,
+      formData,
+      {}
+    );
   }
 }

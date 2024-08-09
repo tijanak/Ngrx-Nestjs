@@ -13,7 +13,7 @@ export class AuthService {
     const user = await this.usersService.findOneIncludePassword(email);
     if (user) {
       let correct_password = await bcrypt.compare(pass, user.password);
-      Logger.log(pass);
+
       if (correct_password) {
         const { password, ...result } = user;
         return result;
