@@ -37,9 +37,12 @@ export const auctionReducer = createReducer(
   }),
   on(actions.CreateAuctionSuccess, (state, { auction }) => {
     let newState = { ...state, uploadAuctionDto: null };
-    return auctionAdapter.addOne(auction, state);
+    return auctionAdapter.addOne(auction, newState);
   }),
   on(actions.LoadAuctionsFailure, (state, { error }) => {
     return { ...state, error };
+  }),
+  on(actions.DeleteAuctionSuccess, (state, { id }) => {
+    return auctionAdapter.removeOne(id, state);
   })
 );

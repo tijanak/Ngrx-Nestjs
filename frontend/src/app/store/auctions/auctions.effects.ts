@@ -101,8 +101,8 @@ export class AuctionEffects {
         switchMap(({ id }) => this.auctionsService.deleteAuction(id))
       )
       .pipe(
-        map(() => {
-          return DeleteAuctionSuccess();
+        map((id) => {
+          return DeleteAuctionSuccess({ id });
         }),
         catchError((error) => of(DeleteAuctionFailure({ error })))
       )

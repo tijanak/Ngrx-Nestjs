@@ -31,7 +31,8 @@ export const DeleteAuction = createAction(
   props<{ id: number }>()
 );
 export const DeleteAuctionSuccess = createAction(
-  '[Auction] Delete Auction Success'
+  '[Auction] Delete Auction Success',
+  props<{ id: number }>()
 );
 export const DeleteAuctionFailure = createAction(
   '[Auction] Delete Auction Failure',

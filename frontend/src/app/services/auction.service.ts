@@ -27,7 +27,9 @@ export class AuctionService {
     );
   }
   deleteAuction(id: number) {
-    return this.httpClient.delete(`${environment.API_URL}auction/${id}`);
+    return this.httpClient.delete<number>(
+      `${environment.API_URL}auction/${id}`
+    );
   }
   updateAuction(id: number, updateDto: UpdateAuctionDto) {
     return this.httpClient.put(

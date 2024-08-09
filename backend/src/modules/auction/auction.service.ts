@@ -2,6 +2,7 @@ import {
   BadRequestException,
   ForbiddenException,
   Injectable,
+  InternalServerErrorException,
   Logger,
   NotFoundException,
 } from '@nestjs/common';
@@ -94,7 +95,13 @@ export class AuctionService {
     });
 
     await Promise.all(deleteImagePromises);
-    return this.auctionRepo.delete(id);
+    try {
+      await this.auctionRepo.delete(id);
+      return id;
+    } catch (error) {
+      Logger.error('Error deleting auction:', error);
+      throw new InternalServerErrorException('Greska u toku brisanje');
+    }
   }
   get(id: number, relations: string[] = []) {
     return this.auctionRepo.findOne({

@@ -70,7 +70,7 @@ export class ImagesController {
   }
   @Get(':filename')
   async getImage(@Param('filename') filename: string, @Res() res: Response) {
-    const filePath = imagesPath;
+    const filePath = path.join(imagesPath, filename);
 
     try {
       await fs.promises.access(filePath);
