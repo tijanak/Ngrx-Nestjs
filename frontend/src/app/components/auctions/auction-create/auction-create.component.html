@@ -69,7 +69,19 @@
     Možete maksimalno 10 slika da izaberete
   </mat-error>
 
-  <button mat-raised-button color="primary" type="submit">
-    Napravi aukciju
-  </button>
+  <div class="button-container">
+    <div *ngIf="isLoading; else submitButton">
+      <mat-progress-spinner
+        mode="indeterminate"
+        diameter="50"
+        strokeWidth="5"
+        class="spinner"
+      ></mat-progress-spinner>
+    </div>
+    <ng-template #submitButton>
+      <button mat-raised-button color="primary" type="submit">
+        Napravi aukciju
+      </button>
+    </ng-template>
+  </div>
 </form>

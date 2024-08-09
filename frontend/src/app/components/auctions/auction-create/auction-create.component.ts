@@ -21,7 +21,7 @@ import { maxImageAmount } from './validators/max-image-amount-validator';
 import { Store } from '@ngrx/store';
 import { AppState } from 'frontend/src/app/store/app.reducer';
 import { CreateAuction } from 'frontend/src/app/store/auctions/auctions.actions';
-
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 @Component({
   selector: 'app-auction-create',
   standalone: true,
@@ -36,13 +36,14 @@ import { CreateAuction } from 'frontend/src/app/store/auctions/auctions.actions'
     ReactiveFormsModule,
     OwlDateTimeModule,
     OwlNativeDateTimeModule,
+    MatProgressSpinnerModule,
   ],
   templateUrl: './auction-create.component.html',
   styleUrl: './auction-create.component.css',
 })
 export class AuctionCreateComponent {
   auctionForm: FormGroup;
-
+  isLoading: boolean = false;
   constructor(private fb: FormBuilder, private store: Store<AppState>) {
     this.auctionForm = this.fb.group({
       title: ['', Validators.required],
