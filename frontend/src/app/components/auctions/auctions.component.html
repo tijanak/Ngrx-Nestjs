@@ -1,6 +1,6 @@
 <mat-divider></mat-divider>
 <div *ngFor="let auction of auctions">
-  <mat-card>
+  <mat-card (click)="open(auction.id)">
     <app-auction-basic-info
       (deleteClicked)="deleteAuctionEvent($event)"
       [auction]="auction"

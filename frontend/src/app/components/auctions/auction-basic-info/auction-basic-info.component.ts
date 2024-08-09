@@ -37,7 +37,8 @@ export class AuctionBasicInfoComponent implements OnInit {
   @Input() userCanModify: boolean;
   @Output() deleteClicked = new EventEmitter<number>();
   imageBaseUrl = `${environment.API_URL}images/`;
-  deleteAuction(id: number) {
-    this.deleteClicked.emit(id);
+  deleteAuction(event: MouseEvent) {
+    event.stopPropagation();
+    this.deleteClicked.emit(this.auction.id);
   }
 }

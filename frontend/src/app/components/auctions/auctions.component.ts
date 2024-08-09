@@ -45,4 +45,7 @@ export class AuctionsComponent implements OnInit, OnDestroy {
   deleteAuctionEvent(id: number) {
     this.store.dispatch(DeleteAuction({ id }));
   }
+  open(id: number) {
+    console.log(id);
+  }
 }

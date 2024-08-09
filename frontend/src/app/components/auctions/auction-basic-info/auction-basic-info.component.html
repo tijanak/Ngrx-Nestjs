@@ -9,7 +9,7 @@
 
     <button
       mat-icon-button
-      (click)="deleteAuction(auction.id)"
+      (click)="deleteAuction($event)"
       aria-label="Delete auction"
       *ngIf="userCanModify"
     >
