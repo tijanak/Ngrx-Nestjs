@@ -31,7 +31,7 @@ import { Router, RouterModule } from '@angular/router';
 })
 export class AuctionsComponent implements OnInit, OnDestroy {
   subscription: Subscription[] = [];
-  user: IUser | null;
+
   constructor(private router: Router, private store: Store<AppState>) {}
   ngOnDestroy(): void {
     this.subscription.forEach((sub) => sub.unsubscribe());
@@ -41,9 +41,6 @@ export class AuctionsComponent implements OnInit, OnDestroy {
       this.store.select(selectAuctions).subscribe((auctions) => {
         this.auctions = auctions;
       })
-    );
-    this.subscription.push(
-      this.store.select(selectUser).subscribe((user) => (this.user = user))
     );
   }
   auctions: IAuction[] = [];

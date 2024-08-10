@@ -8,7 +8,7 @@ import { User } from './user.entity';
 import { Repository } from 'typeorm';
 
 import * as bcrypt from 'bcrypt';
-import { CreateUserDto, toIUser } from '@org/models';
+import { CreateUserDto, toIUser, UpdateUserDto } from '@org/models';
 import { validate } from 'class-validator';
 @Injectable()
 export class UserService {
@@ -38,5 +38,8 @@ export class UserService {
       .addSelect('user.password')
       .where('user.email = :email', { email })
       .getOne();
+  }
+  async update(id: number, updateDto: UpdateUserDto) {
+    return this.userRepo.update(id, updateDto);
   }
 }

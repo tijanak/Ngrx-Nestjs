@@ -20,5 +20,14 @@
   >
     Profil
   </button>
+  <button
+    routerLinkActive="active-link"
+    mat-button
+    routerLink="/sale-certificates"
+    class="menu-button"
+    [routerLinkActiveOptions]="{ exact: true }"
+  >
+    Potvrde o prodaji
+  </button>
   <app-logout></app-logout>
 </mat-toolbar>

@@ -4,7 +4,6 @@
     <app-auction-basic-info
       (deleteClicked)="deleteAuctionEvent($event)"
       [auction]="auction"
-      [userCanModify]="user != null && auction.owner.id == user.id"
     ></app-auction-basic-info>
   </mat-card>
   <mat-divider></mat-divider>

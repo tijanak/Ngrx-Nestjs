@@ -39,7 +39,9 @@ export class RouteEffects {
   navigationToProfil$ = createEffect(() =>
     this.actions$.pipe(
       ofType<RouterNavigatedAction>(ROUTER_NAVIGATED),
-      filter((action) => action.payload.routerState.url === '/profile'),
+      filter(
+        (action) => action.payload.routerState.url === '/sale-certificates'
+      ),
 
       mergeMap(() => {
         return [loadSaleCertificates()];

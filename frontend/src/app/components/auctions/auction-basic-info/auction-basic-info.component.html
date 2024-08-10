@@ -7,15 +7,18 @@
           Minimalna cena: {{ auction.min_price | currency }}
         </mat-card-subtitle>
       </div>
-
-      <button
-        mat-icon-button
-        (click)="deleteAuction($event)"
-        aria-label="Delete auction"
-        *ngIf="userCanModify"
-      >
-        <mat-icon>delete</mat-icon>
-      </button>
+      <div *ngIf="userCanModify">
+        <button
+          mat-icon-button
+          (click)="deleteAuction($event)"
+          aria-label="Delete auction"
+        >
+          <mat-icon>delete</mat-icon>
+        </button>
+        <button mat-icon-button aria-label="Edit">
+          <mat-icon>edit</mat-icon>
+        </button>
+      </div>
     </div>
   </mat-card-header>
   <mat-card-content>

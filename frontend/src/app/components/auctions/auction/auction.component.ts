@@ -1,7 +1,7 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BidsComponent } from '../../bids/bids.component';
-import { IAuction, IBid } from '@org/models';
+import { IAuction, IBid, IUser } from '@org/models';
 import { environment } from '@org/environment';
 import { MatCardModule } from '@angular/material/card';
 import { MatDividerModule } from '@angular/material/divider';
@@ -24,6 +24,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { BidFormComponent } from '../../bids/bid-form/bid-form.component';
 import { MatButtonModule } from '@angular/material/button';
 import { CreateBid } from 'frontend/src/app/store/bids/bids.actions';
+import { selectUser } from 'frontend/src/app/store/auth/auth.selectors';
 @Component({
   selector: 'app-auction',
   standalone: true,
@@ -39,23 +40,26 @@ import { CreateBid } from 'frontend/src/app/store/bids/bids.actions';
   styleUrl: './auction.component.css',
 })
 export class AuctionComponent implements OnInit, OnDestroy {
-  subscription: Subscription;
-  constructor(private store: Store<AppState>, private dialog: MatDialog) {
-    this.subscription = this.store
-      .select(selectSelectedAuction)
-      .subscribe((auction) => {
+  subscription: Subscription[] = [];
+  constructor(private store: Store<AppState>, private dialog: MatDialog) {}
+  ngOnDestroy(): void {
+    this.subscription.forEach((sub) => sub.unsubscribe());
+  }
+  @Input() auction!: IAuction | undefined;
+  user: IUser | null;
+  ngOnInit(): void {
+    this.subscription.push(
+      this.store.select(selectSelectedAuction).subscribe((auction) => {
         if (auction)
           this.auction = {
             ...auction,
           };
-      });
+      })
+    );
+    this.subscription.push(
+      this.store.select(selectUser).subscribe((user) => (this.user = user))
+    );
   }
-  ngOnDestroy(): void {
-    if (this.subscription) this.subscription.unsubscribe();
-  }
-  @Input() auction!: IAuction | undefined;
-
-  ngOnInit(): void {}
   openBidModal(): void {
     const dialogRef = this.dialog.open(BidFormComponent, {
       width: '400px',

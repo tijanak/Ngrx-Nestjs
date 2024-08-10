@@ -1,5 +1,9 @@
 <mat-card *ngIf="auction; else notFound" class="auction-card">
-  <app-auction-basic-info [auction]="auction"></app-auction-basic-info>
+  <app-auction-basic-info
+    [userCanModify]="true"
+    [auction]="auction"
+    [userCanModify]="user != null && auction.owner.id == user.id"
+  ></app-auction-basic-info>
   <mat-card-content>
     <mat-divider></mat-divider>
 
