@@ -1,1 +1,11 @@
-<p>sale-certificates works!</p>
+<mat-card *ngIf="saleCertificates.length === 0">
+  <mat-card-header>
+    <mat-card-title>Nema potvrda o prodaji</mat-card-title>
+  </mat-card-header>
+</mat-card>
+
+<div *ngFor="let saleCertificate of saleCertificates">
+  <app-sale-certificate
+    [saleCertificate]="saleCertificate"
+  ></app-sale-certificate>
+</div>

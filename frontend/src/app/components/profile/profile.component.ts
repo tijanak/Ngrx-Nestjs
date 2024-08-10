@@ -4,11 +4,12 @@ import { LogoutComponent } from '../logout/logout.component';
 import { MenuComponent } from '../menu/menu.component';
 import { SaleCertificateComponent } from '../sale-certificates/sale-certificate/sale-certificate.component';
 import { IAuction, ISale_Certificate } from '@org/models';
+import { SaleCertificatesComponent } from '../sale-certificates/sale-certificates.component';
 
 @Component({
   selector: 'app-profile',
   standalone: true,
-  imports: [CommonModule, SaleCertificateComponent, MenuComponent],
+  imports: [CommonModule, SaleCertificatesComponent, MenuComponent],
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.css',
 })

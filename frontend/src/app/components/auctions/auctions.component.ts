@@ -32,9 +32,7 @@ import { Router, RouterModule } from '@angular/router';
 export class AuctionsComponent implements OnInit, OnDestroy {
   subscription: Subscription[] = [];
   user: IUser | null;
-  constructor(private router: Router, private store: Store<AppState>) {
-    this.store.dispatch(LoadAuctions());
-  }
+  constructor(private router: Router, private store: Store<AppState>) {}
   ngOnDestroy(): void {
     this.subscription.forEach((sub) => sub.unsubscribe());
   }
