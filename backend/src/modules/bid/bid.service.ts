@@ -76,7 +76,7 @@ export class BidService {
           id: auctionId,
         },
       },
-      relations: ['owner'],
+      relations: ['bidder'],
     });
   }
 }
