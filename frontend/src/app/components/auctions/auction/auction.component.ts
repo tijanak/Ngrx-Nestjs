@@ -20,6 +20,10 @@ import { Store } from '@ngrx/store';
 import { AppState } from 'frontend/src/app/store/app.reducer';
 import { selectSelectedAuction } from 'frontend/src/app/store/auctions/auctions.selectors';
 import { Subscription } from 'rxjs';
+import { MatDialog } from '@angular/material/dialog';
+import { BidCreateComponent } from '../../bids/bid-create/bid-create.component';
+import { MatButtonModule } from '@angular/material/button';
+import { CreateBid } from 'frontend/src/app/store/bids/bids.actions';
 @Component({
   selector: 'app-auction',
   standalone: true,
@@ -29,100 +33,44 @@ import { Subscription } from 'rxjs';
     BidsComponent,
     MatCardModule,
     MatDividerModule,
+    MatButtonModule,
   ],
   templateUrl: './auction.component.html',
   styleUrl: './auction.component.css',
 })
 export class AuctionComponent implements OnInit, OnDestroy {
   subscription: Subscription;
-  constructor(private store: Store<AppState>) {
+  constructor(private store: Store<AppState>, private dialog: MatDialog) {
     this.subscription = this.store
       .select(selectSelectedAuction)
       .subscribe((auction) => {
         if (auction)
           this.auction = {
             ...auction,
-            bids: this.bids,
           };
+        console.log(auction);
       });
   }
   ngOnDestroy(): void {
     if (this.subscription) this.subscription.unsubscribe();
   }
   @Input() auction!: IAuction | undefined;
-  bids: IBid[] = [
-    {
-      id: 2,
-      time_created: new Date(),
-      amount: 500,
-      bidder: {
-        id: 2,
-        name: 'tijana',
-        surname: 'kvaic',
-        email: 'kv.tijana',
-        phone_number: '+3819656',
-        auctions: [],
-        bids: [],
-      },
-      auction: {
-        id: 5,
-        min_price: 5,
-        start_time: new Date(),
-        end_time: new Date(),
-        title: 'naziv',
-        description: 'opis',
-        categories: [],
-        owner: {
-          id: 2,
-          name: 'tijana',
-          surname: 'kvaic',
-          email: 'kv.tijana',
-          phone_number: '+3819656',
-          auctions: [],
-          bids: [],
-        },
-        images: [],
-        sale_certificate: null,
-        bids: [],
-      },
-      sale_certificate: null,
-    },
-    {
-      id: 2,
-      time_created: new Date(),
-      amount: 1500,
-      bidder: {
-        id: 2,
-        name: 'nzm',
-        surname: 'nbtn',
-        email: 'kv.tijana',
-        phone_number: '+3819656',
-        auctions: [],
-        bids: [],
-      },
-      auction: {
-        id: 5,
-        min_price: 5,
-        start_time: new Date(),
-        end_time: new Date(),
-        title: 'naziv',
-        description: 'opis',
-        categories: [],
-        owner: {
-          id: 2,
-          name: 'tijana',
-          surname: 'kvaic',
-          email: 'kv.tijana',
-          phone_number: '+3819656',
-          auctions: [],
-          bids: [],
-        },
-        images: [],
-        sale_certificate: null,
-        bids: [],
-      },
-      sale_certificate: null,
-    },
-  ];
+
   ngOnInit(): void {}
+  openBidModal(): void {
+    const dialogRef = this.dialog.open(BidCreateComponent, {
+      width: '400px',
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result) {
+        this.store.dispatch(
+          CreateBid({
+            auctionId: this.auction!.id,
+            createBidDto: { amount: result.amount },
+          })
+        );
+      }
+    });
+  }
 }

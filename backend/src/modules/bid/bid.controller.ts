@@ -16,6 +16,7 @@ import { CreateBidDto } from './dto/bid.create-dto';
 import { UpdateBidDto } from './dto/bid.update-dto';
 import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
 import { OwnerGuard } from './guards/owner.guard';
+import { Bid } from './bid.entity';
 
 @Controller('bid')
 @UseGuards(JwtAuthGuard)
@@ -53,5 +54,11 @@ export class BidController {
   @UseGuards(OwnerGuard)
   remove(@Param('id', ParseIntPipe) id: number) {
     return this.bidService.remove(id);
+  }
+  @Get('auction/:id')
+  async getBidsForAuction(
+    @Param('id', ParseIntPipe) auctionId: number
+  ): Promise<Bid[]> {
+    return this.bidService.findAllBidsForAuction(auctionId);
   }
 }

@@ -6,6 +6,7 @@ import { Store } from '@ngrx/store';
 import { merge, Subscription } from 'rxjs';
 import { selectAuthError } from '../../store/auth/auth.selectors';
 import { selectAuctionError } from '../../store/auctions/auctions.selectors';
+import { selectBidErrors } from '../../store/bids/bids.selector';
 
 @Component({
   selector: 'app-message-snackbar',
@@ -20,10 +21,11 @@ export class MessageSnackbarComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.error$ = merge(
       this.store.select(selectAuctionError),
-      this.store.select(selectAuthError)
+      this.store.select(selectAuthError),
+      this.store.select(selectBidErrors)
     ).subscribe((error) => {
       console.log(error);
-      if (error) {
+      if (error && error.error && error.error.message) {
         this.snackBar.open(error.error.message, 'Close', {
           duration: 2000,
         });

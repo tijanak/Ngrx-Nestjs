@@ -3681,6 +3681,15 @@
         "hash": "sha512-M+QMrHNKgcuiLaRGZxJ4aQi5/OCRfKC4+T/63dsHyLFZ53/FFpF6a/ytSO1Q+tzOplZ5o99S+i8FVaZqNQ3LmQ=="
       }
     },
+    "npm:@ngrx/router-store": {
+      "type": "npm",
+      "name": "npm:@ngrx/router-store",
+      "data": {
+        "version": "18.0.2",
+        "packageName": "@ngrx/router-store",
+        "hash": "sha512-jUrQ/uJJ53x8O1XbN2YxH2GpRREZlwS5gRxlCoc4fWL4Us/uS1/K6+QfRmKBPtpTKBIixqsOb+dIUV5iwBrivA=="
+      }
+    },
     "npm:@ngrx/store": {
       "type": "npm",
       "name": "npm:@ngrx/store",
@@ -10897,6 +10906,15 @@
         "version": "2.6.2",
         "packageName": "neo-async",
         "hash": "sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw=="
+      }
+    },
+    "npm:ng": {
+      "type": "npm",
+      "name": "npm:ng",
+      "data": {
+        "version": "0.0.0",
+        "packageName": "ng",
+        "hash": "sha512-HwR40IBJa1ZU+CIGyuy7vSCN3xFYlSRfw5eIwwKOdOMNNNIl8KhT6PXKmHuFEFYpfrbOMaCYtr4QOJ3gkkubcg=="
       }
     },
     "npm:nice-napi": {
@@ -20918,6 +20936,36 @@
     },
     {
       "source": "npm:@ngrx/operators",
+      "target": "npm:tslib",
+      "type": "static"
+    },
+    {
+      "source": "npm:@ngrx/router-store",
+      "target": "npm:@angular/common",
+      "type": "static"
+    },
+    {
+      "source": "npm:@ngrx/router-store",
+      "target": "npm:@angular/core",
+      "type": "static"
+    },
+    {
+      "source": "npm:@ngrx/router-store",
+      "target": "npm:@angular/router",
+      "type": "static"
+    },
+    {
+      "source": "npm:@ngrx/router-store",
+      "target": "npm:@ngrx/store",
+      "type": "static"
+    },
+    {
+      "source": "npm:@ngrx/router-store",
+      "target": "npm:rxjs",
+      "type": "static"
+    },
+    {
+      "source": "npm:@ngrx/router-store",
       "target": "npm:tslib",
       "type": "static"
     },

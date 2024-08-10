@@ -9,11 +9,12 @@ import { CreateBidDto, IBid, UpdateBidDto } from '@org/models';
   providedIn: 'root',
 })
 export class BidService {
-  private baseUrl = `${environment.API_URL}/bid`;
+  private baseUrl = `${environment.API_URL}bid`;
 
   constructor(private http: HttpClient) {}
 
   createBid(auctionId: number, createBidDto: CreateBidDto): Observable<IBid> {
+    console.log(createBidDto);
     return this.http.post<IBid>(`${this.baseUrl}/${auctionId}`, createBidDto);
   }
 
@@ -30,5 +31,8 @@ export class BidService {
   }
   deleteBid(id: number): Observable<void> {
     return this.http.delete<void>(`${this.baseUrl}/${id}`);
+  }
+  getBidsForAuction(auctionId: number): Observable<IBid[]> {
+    return this.http.get<IBid[]>(`${this.baseUrl}/auction/${auctionId}`);
   }
 }

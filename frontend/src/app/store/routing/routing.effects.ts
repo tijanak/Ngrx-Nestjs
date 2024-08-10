@@ -3,6 +3,7 @@ import { Actions, ofType, createEffect } from '@ngrx/effects';
 import { ROUTER_NAVIGATED, RouterNavigatedAction } from '@ngrx/router-store';
 import { map, filter, mergeMap, tap } from 'rxjs/operators';
 import { LoadAuction } from '../auctions/auctions.actions';
+import { LoadBidsForAuction } from '../bids/bids.actions';
 
 @Injectable()
 export class RouteEffects {
@@ -15,12 +16,12 @@ export class RouteEffects {
         /^\/auction\/\d+$/.test(action.payload.routerState.url)
       ),
 
-      map((action) => {
+      mergeMap((action) => {
         const routeParams = action.payload.routerState.root.firstChild!.params;
         console.log(routeParams);
         const id = routeParams['id'];
 
-        return LoadAuction({ id });
+        return [LoadAuction({ id }), LoadBidsForAuction({ auctionId: id })];
       })
     )
   );

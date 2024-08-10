@@ -8,8 +8,8 @@
     <p>Broj telefona: {{ auction.owner.phone_number }}</p>
 
     <mat-divider></mat-divider>
-
-    <app-bids *ngIf="auction && auction.bids" [bids]="auction.bids"></app-bids>
+    <button mat-button (click)="openBidModal()">Napravi ponudu</button>
+    <app-bids *ngIf="auction && auction.bids"></app-bids>
   </mat-card-content>
 </mat-card>
 <ng-template #notFound> Aukcija nije pronadjena </ng-template>

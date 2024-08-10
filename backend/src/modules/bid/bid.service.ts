@@ -69,4 +69,13 @@ export class BidService {
       throw new ForbiddenException('Aukcija je završena');
     return this.bidRepo.delete(id);
   }
+  async findAllBidsForAuction(auctionId: number): Promise<Bid[]> {
+    return await this.bidRepo.find({
+      where: {
+        auction: {
+          id: auctionId,
+        },
+      },
+    });
+  }
 }
