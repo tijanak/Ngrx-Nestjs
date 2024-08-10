@@ -13,6 +13,7 @@ import {
 import { MatDividerModule } from '@angular/material/divider';
 import { RouterLink } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
+import { ImageGalleryComponent } from '../../image-gallery/image-gallery.component';
 
 @Component({
   selector: 'app-auction-basic-info',
@@ -21,12 +22,8 @@ import { MatIconModule } from '@angular/material/icon';
     CommonModule,
     MatCardModule,
     MatDividerModule,
-    CarouselItemComponent,
-    CarouselControlComponent,
-    CarouselInnerComponent,
-    RouterLink,
     MatIconModule,
-    CarouselModule,
+    ImageGalleryComponent,
   ],
   templateUrl: './auction-basic-info.component.html',
   styleUrl: './auction-basic-info.component.css',
@@ -36,7 +33,7 @@ export class AuctionBasicInfoComponent implements OnInit {
   @Input() auction!: IAuction;
   @Input() userCanModify: boolean;
   @Output() deleteClicked = new EventEmitter<number>();
-  imageBaseUrl = `${environment.API_URL}images/`;
+
   deleteAuction(event: MouseEvent) {
     event.stopPropagation();
     this.deleteClicked.emit(this.auction.id);

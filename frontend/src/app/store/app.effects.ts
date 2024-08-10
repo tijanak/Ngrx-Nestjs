@@ -11,5 +11,5 @@ export const appEffects = [
   AuthEffects,
   ImageEffects,
   AuctionEffects,
-  //SaleCertificateEffects,
+  SaleCertificateEffects,
 ];

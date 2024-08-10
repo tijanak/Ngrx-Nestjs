@@ -14415,11 +14415,6 @@
       },
       {
         "source": "frontend",
-        "target": "npm:@nestjs/common",
-        "type": "static"
-      },
-      {
-        "source": "frontend",
         "target": "backend",
         "type": "static"
       },
