@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IBid } from '@org/models';
 import { MatCardModule } from '@angular/material/card';
@@ -15,7 +15,12 @@ import { MatIcon, MatIconModule } from '@angular/material/icon';
 export class BidComponent {
   @Input() bid: IBid;
   @Input() isEditable: boolean;
+  @Output() deleteClicked = new EventEmitter<number>();
+  @Output() updateClicked = new EventEmitter<number>();
   onDelete() {
-    alert('klik ' + this.bid.amount);
+    this.deleteClicked.next(this.bid.id);
+  }
+  onUpdate() {
+    this.updateClicked.next(this.bid.id);
   }
 }

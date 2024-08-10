@@ -26,5 +26,20 @@ export const bidReducer = createReducer(
   }),
   on(actions.CreateBidFailure, (state, { error }) => {
     return { ...state, error };
+  }),
+  on(actions.DeleteBidSuccess, (state, { id }) => {
+    return bidsAdapter.removeOne(id, state);
+  }),
+  on(actions.DeleteBidFailure, (state, { error }) => {
+    return { ...state, error };
+  }),
+  on(actions.UpdateBidSuccess, (state, { updatedBid }) => {
+    return bidsAdapter.updateOne(
+      { id: updatedBid.id, changes: updatedBid },
+      state
+    );
+  }),
+  on(actions.UpdateBidFailure, (state, { error }) => {
+    return { ...state, error };
   })
 );

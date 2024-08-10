@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { BidCreateComponent } from './bid-create.component';
+import { BidFormComponent } from './bid-form.component';
 
-describe('BidCreateComponent', () => {
-  let component: BidCreateComponent;
-  let fixture: ComponentFixture<BidCreateComponent>;
+describe('BidFormComponent', () => {
+  let component: BidFormComponent;
+  let fixture: ComponentFixture<BidFormComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [BidCreateComponent],
+      imports: [BidFormComponent],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(BidCreateComponent);
+    fixture = TestBed.createComponent(BidFormComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

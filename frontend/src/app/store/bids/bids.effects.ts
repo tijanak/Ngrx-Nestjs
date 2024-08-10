@@ -8,9 +8,16 @@ import {
   CreateBid,
   CreateBidSuccess,
   CreateBidFailure,
+  DeleteBid,
+  DeleteBidSuccess,
+  DeleteBidFailure,
+  UpdateBid,
+  UpdateBidSuccess,
+  UpdateBidFailure,
 } from './bids.actions';
 import { catchError, map, switchMap } from 'rxjs/operators';
 import { of } from 'rxjs';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Injectable()
 export class BidEffects {
@@ -34,6 +41,32 @@ export class BidEffects {
         this.bidService.createBid(action.auctionId, action.createBidDto).pipe(
           map((bid) => CreateBidSuccess({ bid })),
           catchError((error) => of(CreateBidFailure({ error })))
+        )
+      )
+    )
+  );
+  deleteBid$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(DeleteBid),
+      switchMap((action) =>
+        this.bidService.deleteBid(action.id).pipe(
+          map(() => DeleteBidSuccess({ id: action.id })),
+          catchError((error: HttpErrorResponse) =>
+            of(DeleteBidFailure({ error }))
+          )
+        )
+      )
+    )
+  );
+  updateBid$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(UpdateBid),
+      switchMap((action) =>
+        this.bidService.updateBid(action.id, action.updateBidDto).pipe(
+          map((updatedBid) => UpdateBidSuccess({ updatedBid })),
+          catchError((error: HttpErrorResponse) =>
+            of(UpdateBidFailure({ error }))
+          )
         )
       )
     )

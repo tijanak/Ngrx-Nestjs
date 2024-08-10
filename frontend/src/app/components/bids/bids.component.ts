@@ -3,11 +3,15 @@ import { CommonModule } from '@angular/common';
 import { BidComponent } from './bid/bid.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatListModule } from '@angular/material/list';
-import { IBid } from '@org/models';
+import { IBid, IUser } from '@org/models';
 import { Store } from '@ngrx/store';
 import { AppState } from '../../store/app.reducer';
 import { Subscription } from 'rxjs';
 import { selectAllBids } from '../../store/bids/bids.selector';
+import { selectUser } from '../../store/auth/auth.selectors';
+import { DeleteBid, UpdateBid } from '../../store/bids/bids.actions';
+import { MatDialog } from '@angular/material/dialog';
+import { BidFormComponent } from './bid-form/bid-form.component';
 
 @Component({
   selector: 'app-bids',
@@ -18,16 +22,41 @@ import { selectAllBids } from '../../store/bids/bids.selector';
 })
 export class BidsComponent implements OnInit, OnDestroy {
   bids: IBid[] = [];
-  subscription: Subscription;
-  constructor(private store: Store<AppState>) {}
+  subscription: Subscription[] = [];
+  user: IUser | null;
+  constructor(private store: Store<AppState>, private dialog: MatDialog) {}
   ngOnDestroy(): void {
-    if (this.subscription) this.subscription.unsubscribe();
+    this.subscription.forEach((sub) => sub.unsubscribe());
   }
   ngOnInit(): void {
-    this.subscription = this.store.select(selectAllBids).subscribe((bids) => {
-      this.bids = bids;
-      console.log(bids);
-      this.bids.sort((a, b) => b.amount - a.amount);
+    this.subscription.push(
+      this.store.select(selectAllBids).subscribe((bids) => {
+        this.bids = bids;
+        console.log(bids);
+        this.bids.sort((a, b) => b.amount - a.amount);
+      })
+    );
+    this.subscription.push(
+      this.store.select(selectUser).subscribe((user) => (this.user = user))
+    );
+  }
+  deleteBidEvent(id: number) {
+    this.store.dispatch(DeleteBid({ id }));
+  }
+  updateBidEvent(id: number) {
+    const dialogRef = this.dialog.open(BidFormComponent, {
+      width: '400px',
+      data: {
+        title: 'Povecajte ponudu',
+      },
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result) {
+        this.store.dispatch(
+          UpdateBid({ id, updateBidDto: { amount: result.amount } })
+        );
+      }
     });
   }
 }

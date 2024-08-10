@@ -57,7 +57,7 @@ export class BidService {
 
   async update(id: number, updateBidDto: UpdateBidDto) {
     let bid = await this.findOne(id);
-    if (bid.amount > updateBidDto.amount)
+    if (updateBidDto.amount < 0)
       throw new ForbiddenException('Iznos ponude ne može da se smanjuje');
     bid.amount += updateBidDto.amount;
     return this.bidRepo.save(bid);

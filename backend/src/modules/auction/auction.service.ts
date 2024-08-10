@@ -103,7 +103,7 @@ export class AuctionService {
       return id;
     } catch (error) {
       Logger.error('Error deleting auction:', error);
-      throw new InternalServerErrorException('Greska u toku brisanje');
+      throw new InternalServerErrorException('Greska u toku brisanja');
     }
   }
   get(id: number, relations: string[] = []) {

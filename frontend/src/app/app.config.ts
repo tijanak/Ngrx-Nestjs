@@ -1,6 +1,7 @@
 import {
   ApplicationConfig,
   importProvidersFrom,
+  LOCALE_ID,
   provideZoneChangeDetection,
 } from '@angular/core';
 import { provideRouter } from '@angular/router';
@@ -17,8 +18,10 @@ import { appReducers } from './store/app.reducer';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { appEffects } from './store/app.effects';
 import { provideEffects } from '@ngrx/effects';
-
+import { registerLocaleData } from '@angular/common';
+import localeSr from '@angular/common/locales/sr';
 import { provideRouterStore, routerReducer } from '@ngrx/router-store';
+registerLocaleData(localeSr);
 export const appConfig: ApplicationConfig = {
   providers: [
     provideHttpClient(withInterceptorsFromDi()),
@@ -35,5 +38,6 @@ export const appConfig: ApplicationConfig = {
     ),
     provideEffects(appEffects),
     provideRouterStore(),
+    { provide: LOCALE_ID, useValue: 'sr-RS' },
   ],
 };

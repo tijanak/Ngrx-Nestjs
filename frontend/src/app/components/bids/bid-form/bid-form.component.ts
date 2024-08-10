@@ -9,7 +9,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Inject } from '@angular/core';
 @Component({
-  selector: 'app-bid-create',
+  selector: 'app-bid-form',
   standalone: true,
   imports: [
     CommonModule,
@@ -19,16 +19,18 @@ import { Inject } from '@angular/core';
     MatButtonModule,
     ReactiveFormsModule,
   ],
-  templateUrl: './bid-create.component.html',
-  styleUrl: './bid-create.component.css',
+  templateUrl: './bid-form.component.html',
+  styleUrl: './bid-form.component.css',
 })
-export class BidCreateComponent {
+export class BidFormComponent {
   bidForm: FormGroup;
-
+  title: string;
   constructor(
-    public dialogRef: MatDialogRef<BidCreateComponent>,
-    private fb: FormBuilder
+    public dialogRef: MatDialogRef<BidFormComponent>,
+    private fb: FormBuilder,
+    @Inject(MAT_DIALOG_DATA) public data: { title: string }
   ) {
+    this.title = data.title;
     this.bidForm = this.fb.group({
       amount: ['', [Validators.required, Validators.min(1)]],
     });

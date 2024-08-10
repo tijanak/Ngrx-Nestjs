@@ -6,7 +6,12 @@
   <mat-card-content>
     <mat-list>
       <span *ngFor="let bid of bids">
-        <app-bid [bid]="bid"></app-bid>
+        <app-bid
+          [bid]="bid"
+          [isEditable]="user != null && user.id == bid.bidder.id"
+          (deleteClicked)="deleteBidEvent($event)"
+          (updateClicked)="updateBidEvent($event)"
+        ></app-bid>
       </span>
     </mat-list>
   </mat-card-content>

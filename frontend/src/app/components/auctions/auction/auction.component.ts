@@ -21,7 +21,7 @@ import { AppState } from 'frontend/src/app/store/app.reducer';
 import { selectSelectedAuction } from 'frontend/src/app/store/auctions/auctions.selectors';
 import { Subscription } from 'rxjs';
 import { MatDialog } from '@angular/material/dialog';
-import { BidCreateComponent } from '../../bids/bid-create/bid-create.component';
+import { BidFormComponent } from '../../bids/bid-form/bid-form.component';
 import { MatButtonModule } from '@angular/material/button';
 import { CreateBid } from 'frontend/src/app/store/bids/bids.actions';
 @Component({
@@ -57,8 +57,11 @@ export class AuctionComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {}
   openBidModal(): void {
-    const dialogRef = this.dialog.open(BidCreateComponent, {
+    const dialogRef = this.dialog.open(BidFormComponent, {
       width: '400px',
+      data: {
+        title: 'Postavite ponudu',
+      },
     });
 
     dialogRef.afterClosed().subscribe((result) => {

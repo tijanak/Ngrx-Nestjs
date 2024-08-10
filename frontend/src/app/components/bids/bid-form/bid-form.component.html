@@ -1,14 +1,14 @@
-<h2 mat-dialog-title>Postavite ponudu</h2>
+<h2 mat-dialog-title>{{ title }}</h2>
 <mat-dialog-content>
   <form [formGroup]="bidForm" (ngSubmit)="onSubmit()">
     <mat-form-field appearance="fill">
-      <mat-label>Iznos ponude</mat-label>
+      <mat-label>Iznos</mat-label>
       <input matInput formControlName="amount" type="number" />
       <mat-error *ngIf="bidForm.get('amount')?.hasError('required')">
-        Iznos ponude je obavezno polje.
+        Iznos je obavezno polje.
       </mat-error>
       <mat-error *ngIf="bidForm.get('amount')?.hasError('min')">
-        Iznos ponude mora biti bar 1.
+        Iznos mora biti bar 1.
       </mat-error>
     </mat-form-field>
   </form>
