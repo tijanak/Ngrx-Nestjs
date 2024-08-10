@@ -10,6 +10,8 @@ import {
   UseGuards,
   Req,
   Put,
+  Res,
+  HttpStatus,
 } from '@nestjs/common';
 import { BidService } from './bid.service';
 import { CreateBidDto } from './dto/bid.create-dto';
@@ -24,12 +26,28 @@ export class BidController {
   constructor(private readonly bidService: BidService) {}
 
   @Post(':auctionId')
-  create(
+  async create(
     @Body() createBidDto: CreateBidDto,
     @Param('auctionId', ParseIntPipe) auctionId,
-    @Req() req
+    @Req() req,
+    @Res() res
   ) {
-    return this.bidService.create(createBidDto, req.user, auctionId);
+    try {
+      const bid = await this.bidService.create(
+        createBidDto,
+        req.user,
+        auctionId
+      );
+      res.send(bid);
+    } catch (error) {
+      res.status(HttpStatus.BAD_REQUEST).json({
+        statusCode: HttpStatus.BAD_REQUEST,
+        message:
+          error.code == 23505
+            ? 'Vec ste napravili ponudu za ovu aukciju'
+            : error.message || 'Desila se greska prilikom registracije',
+      });
+    }
   }
   @Get('all')
   findAll() {

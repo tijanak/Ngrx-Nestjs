@@ -1,6 +1,6 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { IAuction } from '@org/models';
+import { IAuction, IBid } from '@org/models';
 import { environment } from '@org/environment';
 import { MatCardModule } from '@angular/material/card';
 import {

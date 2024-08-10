@@ -48,7 +48,6 @@ export class AuctionComponent implements OnInit, OnDestroy {
           this.auction = {
             ...auction,
           };
-        console.log(auction);
       });
   }
   ngOnDestroy(): void {

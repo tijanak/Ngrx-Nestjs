@@ -9,7 +9,7 @@
 
     <mat-divider></mat-divider>
     <button mat-button (click)="openBidModal()">Napravi ponudu</button>
-    <app-bids *ngIf="auction && auction.bids"></app-bids>
+    <app-bids></app-bids>
   </mat-card-content>
 </mat-card>
 <ng-template #notFound> Aukcija nije pronadjena </ng-template>

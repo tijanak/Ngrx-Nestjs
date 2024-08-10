@@ -21,11 +21,13 @@ export class BidsComponent implements OnInit, OnDestroy {
   subscription: Subscription;
   constructor(private store: Store<AppState>) {}
   ngOnDestroy(): void {
-    this.subscription = this.store.select(selectAllBids).subscribe((bids) => {
-      this.bids = bids;
-    });
+    if (this.subscription) this.subscription.unsubscribe();
   }
   ngOnInit(): void {
-    this.bids.sort((a, b) => b.amount - a.amount);
+    this.subscription = this.store.select(selectAllBids).subscribe((bids) => {
+      this.bids = bids;
+      console.log(bids);
+      this.bids.sort((a, b) => b.amount - a.amount);
+    });
   }
 }
