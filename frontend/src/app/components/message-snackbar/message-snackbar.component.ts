@@ -7,6 +7,7 @@ import { merge, Subscription } from 'rxjs';
 import { selectAuthError } from '../../store/auth/auth.selectors';
 import { selectAuctionError } from '../../store/auctions/auctions.selectors';
 import { selectBidErrors } from '../../store/bids/bids.selector';
+import { selectCertErrors } from '../../store/sale-certificate/sale-certificate..selectors';
 
 @Component({
   selector: 'app-message-snackbar',
@@ -22,7 +23,8 @@ export class MessageSnackbarComponent implements OnInit, OnDestroy {
     this.error$ = merge(
       this.store.select(selectAuctionError),
       this.store.select(selectAuthError),
-      this.store.select(selectBidErrors)
+      this.store.select(selectBidErrors),
+      this.store.select(selectCertErrors)
     ).subscribe((error) => {
       console.log(error);
       if (error && error.error && error.error.message) {

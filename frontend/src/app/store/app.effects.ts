@@ -3,6 +3,7 @@ import { AuthEffects } from './auth/auth.effects';
 import { BidEffects } from './bids/bids.effects';
 import { ImageEffects } from './images/images.effects';
 import { RouteEffects } from './routing/routing.effects';
+import { SaleCertificateEffects } from './sale-certificate/sale-certificate.effects';
 
 export const appEffects = [
   BidEffects,
@@ -10,4 +11,5 @@ export const appEffects = [
   AuthEffects,
   ImageEffects,
   AuctionEffects,
+  SaleCertificateEffects,
 ];

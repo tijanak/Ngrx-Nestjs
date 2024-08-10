@@ -7,11 +7,16 @@ import {
   SerializedRouterStateSnapshot,
 } from '@ngrx/router-store';
 import { bidReducer, BidState } from './bids/bids.reducer';
+import {
+  certsReducer,
+  SaleCertificateState,
+} from './sale-certificate/sale-certificate.reducer';
 export interface AppState {
   auth: AuthState;
   auction: AuctionState;
   router: RouterReducerState<SerializedRouterStateSnapshot>;
   bid: BidState;
+  saleCerts: SaleCertificateState;
 }
 
 export const appReducers: ActionReducerMap<AppState> = {
@@ -19,4 +24,5 @@ export const appReducers: ActionReducerMap<AppState> = {
   auction: auctionReducer,
   router: routerReducer,
   bid: bidReducer,
+  saleCerts: certsReducer,
 };
