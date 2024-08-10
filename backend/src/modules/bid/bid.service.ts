@@ -56,9 +56,12 @@ export class BidService {
   }
 
   async update(id: number, updateBidDto: UpdateBidDto) {
-    let bid = await this.findOne(id);
+    let bid = await this.findOne(id, ['auction']);
+    if (bid.auction.end_time < new Date())
+      throw new ForbiddenException('Aukcija je zavrsena');
     if (updateBidDto.amount < 0)
       throw new ForbiddenException('Iznos ponude ne može da se smanjuje');
+
     bid.amount += updateBidDto.amount;
     return this.bidRepo.save(bid);
   }

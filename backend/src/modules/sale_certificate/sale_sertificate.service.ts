@@ -21,6 +21,7 @@ export class SaleSertificateService {
       .createQueryBuilder('sale_certificate')
       .leftJoinAndSelect('sale_certificate.auction', 'auction')
       .leftJoinAndSelect('auction.owner', 'auction_owner')
+      .leftJoinAndSelect('auction.images', 'images')
       .leftJoinAndSelect('sale_certificate.winning_bid', 'winning_bid')
       .leftJoinAndSelect('winning_bid.bidder', 'bidder')
       .where('auction_owner.id = :userId OR bidder.id = :userId', {

@@ -4,6 +4,7 @@ import { ROUTER_NAVIGATED, RouterNavigatedAction } from '@ngrx/router-store';
 import { map, filter, mergeMap, tap } from 'rxjs/operators';
 import { LoadAuction, LoadAuctions } from '../auctions/auctions.actions';
 import { LoadBidsForAuction } from '../bids/bids.actions';
+import { loadSaleCertificates } from '../sale-certificate/sale-certificate.actions';
 
 @Injectable()
 export class RouteEffects {
@@ -32,6 +33,16 @@ export class RouteEffects {
 
       mergeMap(() => {
         return [LoadAuctions()];
+      })
+    )
+  );
+  navigationToProfil$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType<RouterNavigatedAction>(ROUTER_NAVIGATED),
+      filter((action) => action.payload.routerState.url === '/profile'),
+
+      mergeMap(() => {
+        return [loadSaleCertificates()];
       })
     )
   );
