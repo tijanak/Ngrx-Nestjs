@@ -1,4 +1,6 @@
+import { Logger } from '@nestjs/common';
 import {
+  ValidationArguments,
   ValidatorConstraint,
   ValidatorConstraintInterface,
 } from 'class-validator';
@@ -7,8 +9,14 @@ import {
 export class HasAtLeastOneFieldConstraint
   implements ValidatorConstraintInterface
 {
-  validate(value: any) {
-    return value && Object.keys(value).length > 0;
+  validate(_: any, args: ValidationArguments) {
+    const object = args.object as any;
+    const keys = Object.keys(object).filter((key) => key !== '_');
+    if (keys.length < Object.keys(object).length) return false;
+    return keys.some(
+      (key) =>
+        object[key] !== null && object[key] !== undefined && object[key] !== ''
+    );
   }
 
   defaultMessage() {
