@@ -1,6 +1,6 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { createAction, props } from '@ngrx/store';
-import { CreateUserDto, IUser } from '@org/models';
+import { CreateUserDto, IUser, UpdateUserDto } from '@org/models';
 
 export const login = createAction(
   '[Auth] Login',
@@ -17,7 +17,7 @@ export const loginFailure = createAction(
 );
 export const registration = createAction(
   '[Auth] Register',
-  props<{userDto:CreateUserDto}>()
+  props<{ userDto: CreateUserDto }>()
 );
 export const registrationSucces = createAction(
   '[Auth] Registration Success',
@@ -28,7 +28,7 @@ export const registrationFailure = createAction(
   props<{ error: HttpErrorResponse }>()
 );
 export const logout = createAction('[Auth] Logout');
-export const logoutFinished=createAction('[Auth] Logout Finished')
+export const logoutFinished = createAction('[Auth] Logout Finished');
 export const logoutFailure = createAction(
   '[Auth] Logout',
   props<{ error: HttpErrorResponse }>()

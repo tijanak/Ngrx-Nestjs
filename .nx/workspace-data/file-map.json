@@ -129,40 +129,48 @@
   "fileMap": {
     "nonProjectFiles": [
       {
-        "file": ".vscode/tasks.json",
-        "hash": "12985731391048181481"
+        "file": ".vscode/extensions.json",
+        "hash": "60901680939730831"
+      },
+      {
+        "file": ".eslintignore",
+        "hash": "13404745306227114823"
       },
       {
         "file": "docker-compose.yml",
         "hash": "7827576988494241518"
       },
       {
-        "file": ".vscode/extensions.json",
-        "hash": "60901680939730831"
+        "file": ".gitattributes",
+        "hash": "1572551857504561111"
       },
       {
-        "file": ".prettierrc",
-        "hash": "6820402234827505055"
+        "file": "tsconfig.base.json",
+        "hash": "3551299669992616240"
+      },
+      {
+        "file": "README.md",
+        "hash": "10862541853819140661"
+      },
+      {
+        "file": "jest.config.ts",
+        "hash": "7544409015863045561"
       },
       {
         "file": ".vscode/launch.json",
         "hash": "11840498223564460082"
       },
       {
-        "file": "package.json",
-        "hash": "5129727372076260166"
+        "file": ".prettierrc",
+        "hash": "6820402234827505055"
       },
       {
-        "file": "jest.preset.js",
-        "hash": "7473220183190921152"
+        "file": ".prettierignore",
+        "hash": "12269743867629339573"
       },
       {
-        "file": ".editorconfig",
-        "hash": "11532813898455409296"
-      },
-      {
-        "file": "tsconfig.base.json",
-        "hash": "3551299669992616240"
+        "file": ".vscode/tasks.json",
+        "hash": "12985731391048181481"
       },
       {
         "file": ".gitignore",
@@ -177,36 +185,28 @@
         "hash": "4566917484430375526"
       },
       {
-        "file": "jest.config.ts",
-        "hash": "7544409015863045561"
+        "file": ".dockerignore",
+        "hash": "1386920771022941307"
       },
       {
-        "file": ".gitattributes",
-        "hash": "1572551857504561111"
+        "file": "jest.preset.js",
+        "hash": "7473220183190921152"
       },
       {
         "file": "docker-compose.debug.yml",
         "hash": "14168878783884762562"
       },
       {
-        "file": ".dockerignore",
-        "hash": "1386920771022941307"
-      },
-      {
-        "file": ".prettierignore",
-        "hash": "12269743867629339573"
-      },
-      {
-        "file": ".eslintignore",
-        "hash": "13404745306227114823"
-      },
-      {
-        "file": "README.md",
-        "hash": "10862541853819140661"
-      },
-      {
         "file": "package-lock.json",
         "hash": "15512953368061561716"
+      },
+      {
+        "file": "package.json",
+        "hash": "5129727372076260166"
+      },
+      {
+        "file": ".editorconfig",
+        "hash": "11532813898455409296"
       }
     ],
     "projectFileMap": {
@@ -999,7 +999,7 @@
         },
         {
           "file": "frontend/src/app/store/auth/auth.actions.ts",
-          "hash": "4365296742500791919",
+          "hash": "11739968446994821285",
           "deps": [
             "npm:@angular/common",
             "npm:@ngrx/store",
@@ -1188,9 +1188,12 @@
         },
         {
           "file": "frontend/src/app/services/user.service.ts",
-          "hash": "75872822413329202",
+          "hash": "16812372242292133575",
           "deps": [
-            "npm:@angular/core"
+            "npm:@angular/common",
+            "npm:@angular/core",
+            "environment",
+            "models"
           ]
         },
         {
@@ -1217,6 +1220,25 @@
           "hash": "11648174794636962880",
           "deps": [
             "npm:@angular/core"
+          ]
+        },
+        {
+          "file": "frontend/src/app/store/user/user.effects.ts",
+          "hash": "16811742351718618237",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@ngrx/effects",
+            "npm:rxjs",
+            "npm:@angular/common"
+          ]
+        },
+        {
+          "file": "frontend/src/app/store/user/user.actions.ts",
+          "hash": "6894961073739049580",
+          "deps": [
+            "npm:@angular/common",
+            "npm:@ngrx/store",
+            "models"
           ]
         }
       ],
