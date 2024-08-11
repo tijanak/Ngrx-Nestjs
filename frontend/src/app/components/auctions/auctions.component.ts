@@ -13,7 +13,6 @@ import {
   DeleteAuction,
   LoadAuctions,
 } from '../../store/auctions/auctions.actions';
-import { selectUser } from '../../store/auth/auth.selectors';
 import { Router, RouterModule } from '@angular/router';
 
 @Component({

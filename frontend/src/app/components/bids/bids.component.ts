@@ -8,7 +8,7 @@ import { Store } from '@ngrx/store';
 import { AppState } from '../../store/app.reducer';
 import { Subscription } from 'rxjs';
 import { selectAllBids } from '../../store/bids/bids.selector';
-import { selectUser } from '../../store/auth/auth.selectors';
+import { selectProfile } from '../../store/user/user.selector';
 import { DeleteBid, UpdateBid } from '../../store/bids/bids.actions';
 import { MatDialog } from '@angular/material/dialog';
 import { BidFormComponent } from './bid-form/bid-form.component';
@@ -37,7 +37,7 @@ export class BidsComponent implements OnInit, OnDestroy {
       })
     );
     this.subscription.push(
-      this.store.select(selectUser).subscribe((user) => (this.user = user))
+      this.store.select(selectProfile).subscribe((user) => (this.user = user))
     );
   }
   deleteBidEvent(id: number) {

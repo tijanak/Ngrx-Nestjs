@@ -1,6 +1,6 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { createAction, props } from '@ngrx/store';
-import { UpdateUserDto } from '@org/models';
+import { IUser, UpdateUserDto } from '@org/models';
 
 export const UpdateUser = createAction(
   '[User] Update User',
@@ -15,4 +15,8 @@ export const UpdateUserSuccess = createAction(
 export const UpdateUserFailure = createAction(
   '[User] Update User Failure',
   props<{ error: HttpErrorResponse }>()
+);
+export const profileLoaded = createAction(
+  '[Auth] Profile Loaded',
+  props<{ user: IUser }>()
 );

@@ -40,6 +40,8 @@ export class UserService {
       .getOne();
   }
   async update(id: number, updateDto: UpdateUserDto) {
+    if (updateDto.password)
+      updateDto.password = await this.hashPassword(updateDto.password);
     return this.userRepo.update(id, updateDto);
   }
 }

@@ -24,7 +24,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { BidFormComponent } from '../../bids/bid-form/bid-form.component';
 import { MatButtonModule } from '@angular/material/button';
 import { CreateBid } from 'frontend/src/app/store/bids/bids.actions';
-import { selectUser } from 'frontend/src/app/store/auth/auth.selectors';
+import { selectProfile } from 'frontend/src/app/store/user/user.selector';
 @Component({
   selector: 'app-auction',
   standalone: true,
@@ -57,7 +57,7 @@ export class AuctionComponent implements OnInit, OnDestroy {
       })
     );
     this.subscription.push(
-      this.store.select(selectUser).subscribe((user) => (this.user = user))
+      this.store.select(selectProfile).subscribe((user) => (this.user = user))
     );
   }
   openBidModal(): void {

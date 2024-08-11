@@ -10,7 +10,7 @@ import { Observable, of } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
 import { AppState } from '../store/app.reducer';
 import { Store } from '@ngrx/store';
-import { profileLoaded } from '../store/auth/auth.actions';
+import { profileLoaded } from '../store/user/user.actions';
 
 @Injectable({
   providedIn: 'root',

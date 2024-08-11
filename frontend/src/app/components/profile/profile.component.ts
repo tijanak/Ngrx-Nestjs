@@ -8,7 +8,7 @@ import { SaleCertificatesComponent } from '../sale-certificates/sale-certificate
 import { Subscription } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { AppState } from '../../store/app.reducer';
-import { selectUser } from '../../store/auth/auth.selectors';
+import { selectProfile } from '../../store/user/user.selector';
 import { UserComponent } from '../user/user.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDialog } from '@angular/material/dialog';
@@ -33,7 +33,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
   constructor(private store: Store<AppState>, private dialog: MatDialog) {}
   ngOnInit(): void {
     this.subscription = this.store
-      .select(selectUser)
+      .select(selectProfile)
       .subscribe((user) => (this.user = user));
   }
   ngOnDestroy(): void {

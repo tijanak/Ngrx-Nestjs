@@ -11,12 +11,14 @@ import {
   certsReducer,
   SaleCertificateState,
 } from './sale-certificate/sale-certificate.reducer';
+import { userReducer, UserState } from './user/user.reducer';
 export interface AppState {
   auth: AuthState;
   auction: AuctionState;
   router: RouterReducerState<SerializedRouterStateSnapshot>;
   bid: BidState;
   saleCerts: SaleCertificateState;
+  user: UserState;
 }
 
 export const appReducers: ActionReducerMap<AppState> = {
@@ -25,4 +27,5 @@ export const appReducers: ActionReducerMap<AppState> = {
   router: routerReducer,
   bid: bidReducer,
   saleCerts: certsReducer,
+  user: userReducer,
 };
