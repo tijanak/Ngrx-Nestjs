@@ -10,3 +10,7 @@ export const selectProfile = createSelector(
   selectUserFeature,
   (user) => user.profile
 );
+export const selectUserError = createSelector(
+  selectUserFeature,
+  (user) => user.error
+);

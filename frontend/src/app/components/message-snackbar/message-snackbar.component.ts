@@ -8,6 +8,7 @@ import { selectAuthError } from '../../store/auth/auth.selectors';
 import { selectAuctionError } from '../../store/auctions/auctions.selectors';
 import { selectBidErrors } from '../../store/bids/bids.selector';
 import { selectCertErrors } from '../../store/sale-certificate/sale-certificate..selectors';
+import { selectUserError } from '../../store/user/user.selector';
 
 @Component({
   selector: 'app-message-snackbar',
@@ -24,7 +25,8 @@ export class MessageSnackbarComponent implements OnInit, OnDestroy {
       this.store.select(selectAuctionError),
       this.store.select(selectAuthError),
       this.store.select(selectBidErrors),
-      this.store.select(selectCertErrors)
+      this.store.select(selectCertErrors),
+      this.store.select(selectUserError)
     ).subscribe((error) => {
       console.log(error);
       if (error && error.error && error.error.message) {

@@ -4,6 +4,7 @@ import { BidEffects } from './bids/bids.effects';
 import { ImageEffects } from './images/images.effects';
 import { RouteEffects } from './routing/routing.effects';
 import { SaleCertificateEffects } from './sale-certificate/sale-certificate.effects';
+import { UserEffects } from './user/user.effects';
 
 export const appEffects = [
   BidEffects,
@@ -12,4 +13,5 @@ export const appEffects = [
   ImageEffects,
   AuctionEffects,
   SaleCertificateEffects,
+  UserEffects,
 ];

@@ -13,6 +13,9 @@ import { UserComponent } from '../user/user.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDialog } from '@angular/material/dialog';
 import { ProfileUpdateComponent } from './profile-update/profile-update.component';
+import { MatButtonModule } from '@angular/material/button';
+import { ChangePasswordComponent } from './change-password/change-password.component';
+import { UpdateUser } from '../../store/user/user.actions';
 
 @Component({
   selector: 'app-profile',
@@ -23,6 +26,7 @@ import { ProfileUpdateComponent } from './profile-update/profile-update.componen
     MenuComponent,
     UserComponent,
     MatIconModule,
+    MatButtonModule,
   ],
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.css',
@@ -46,8 +50,16 @@ export class ProfileComponent implements OnInit, OnDestroy {
 
     dialogRef.afterClosed().subscribe((result) => {
       if (result) {
-        console.log('Updated user data:', result);
-        this.user = { ...this.user, ...result };
+        this.store.dispatch(UpdateUser({ updateDto: result }));
+      }
+    });
+  }
+  openPasswordChangeDialog() {
+    const dialogRef = this.dialog.open(ChangePasswordComponent);
+
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result) {
+        this.store.dispatch(UpdateUser({ updateDto: { password: result } }));
       }
     });
   }

@@ -42,6 +42,7 @@ export class UserService {
   async update(id: number, updateDto: UpdateUserDto) {
     if (updateDto.password)
       updateDto.password = await this.hashPassword(updateDto.password);
-    return this.userRepo.update(id, updateDto);
+    await this.userRepo.update(id, updateDto);
+    return this.userRepo.findOne({ where: { id } });
   }
 }

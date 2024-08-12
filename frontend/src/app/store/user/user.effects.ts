@@ -19,7 +19,7 @@ export class UserEffects {
       ofType(UpdateUser),
       switchMap((action) =>
         this.userService.updateProfile(action.updateDto).pipe(
-          map((user) => UpdateUserSuccess({ updateDto: action.updateDto })),
+          map((user) => UpdateUserSuccess({ user })),
           catchError((error: HttpErrorResponse) =>
             of(UpdateUserFailure({ error }))
           )
