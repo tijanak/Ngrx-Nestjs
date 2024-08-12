@@ -129,84 +129,84 @@
   "fileMap": {
     "nonProjectFiles": [
       {
-        "file": ".gitignore",
-        "hash": "12203929471089777966"
-      },
-      {
-        "file": "jest.preset.js",
-        "hash": "7473220183190921152"
-      },
-      {
-        "file": ".gitattributes",
-        "hash": "1572551857504561111"
-      },
-      {
-        "file": "package-lock.json",
-        "hash": "15512953368061561716"
-      },
-      {
-        "file": ".editorconfig",
-        "hash": "11532813898455409296"
-      },
-      {
         "file": ".prettierrc",
         "hash": "6820402234827505055"
-      },
-      {
-        "file": "nx.json",
-        "hash": "1097630411021103535"
-      },
-      {
-        "file": ".vscode/launch.json",
-        "hash": "11840498223564460082"
       },
       {
         "file": "README.md",
         "hash": "10862541853819140661"
       },
       {
-        "file": ".dockerignore",
-        "hash": "1386920771022941307"
-      },
-      {
-        "file": ".eslintrc.json",
-        "hash": "4566917484430375526"
-      },
-      {
-        "file": "docker-compose.yml",
-        "hash": "7827576988494241518"
-      },
-      {
         "file": "tsconfig.base.json",
         "hash": "3551299669992616240"
-      },
-      {
-        "file": "package.json",
-        "hash": "5129727372076260166"
-      },
-      {
-        "file": "jest.config.ts",
-        "hash": "7544409015863045561"
-      },
-      {
-        "file": "docker-compose.debug.yml",
-        "hash": "14168878783884762562"
       },
       {
         "file": ".vscode/tasks.json",
         "hash": "12985731391048181481"
       },
       {
+        "file": "jest.preset.js",
+        "hash": "7473220183190921152"
+      },
+      {
+        "file": "docker-compose.debug.yml",
+        "hash": "14168878783884762562"
+      },
+      {
+        "file": "docker-compose.yml",
+        "hash": "7827576988494241518"
+      },
+      {
+        "file": "nx.json",
+        "hash": "1097630411021103535"
+      },
+      {
+        "file": ".prettierignore",
+        "hash": "12269743867629339573"
+      },
+      {
+        "file": ".editorconfig",
+        "hash": "11532813898455409296"
+      },
+      {
+        "file": ".dockerignore",
+        "hash": "1386920771022941307"
+      },
+      {
         "file": ".vscode/extensions.json",
         "hash": "60901680939730831"
+      },
+      {
+        "file": "jest.config.ts",
+        "hash": "7544409015863045561"
+      },
+      {
+        "file": ".eslintrc.json",
+        "hash": "4566917484430375526"
+      },
+      {
+        "file": ".gitattributes",
+        "hash": "1572551857504561111"
+      },
+      {
+        "file": ".gitignore",
+        "hash": "12203929471089777966"
       },
       {
         "file": ".eslintignore",
         "hash": "13404745306227114823"
       },
       {
-        "file": ".prettierignore",
-        "hash": "12269743867629339573"
+        "file": ".vscode/launch.json",
+        "hash": "11840498223564460082"
+      },
+      {
+        "file": "package.json",
+        "hash": "5129727372076260166"
+      },
+      {
+        "file": "package-lock.json",
+        "hash": "15512953368061561716"
       }
     ],
     "projectFileMap": {
@@ -347,7 +347,7 @@
         },
         {
           "file": "frontend/src/app/components/auctions/auction-create/validators/max-image-amount-validator.ts",
-          "hash": "7173760611588410818",
+          "hash": "6222840965395392826",
           "deps": [
             "npm:@angular/forms"
           ]
@@ -1244,6 +1244,13 @@
         {
           "file": "frontend/src/app/validators/password-match.validator.ts",
           "hash": "1446327091825520678",
+          "deps": [
+            "npm:@angular/forms"
+          ]
+        },
+        {
+          "file": "frontend/src/app/validators/max-image-amount-validator.ts",
+          "hash": "6222840965395392826",
           "deps": [
             "npm:@angular/forms"
           ]

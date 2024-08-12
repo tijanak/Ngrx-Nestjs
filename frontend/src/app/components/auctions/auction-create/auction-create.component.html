@@ -1,74 +1,83 @@
-<form [formGroup]="auctionForm" (ngSubmit)="onSubmit()">
-  <mat-form-field appearance="fill">
-    <mat-label>Naziv</mat-label>
-    <input matInput formControlName="title" />
-    <mat-error *ngIf="auctionForm.controls['title'].hasError('required')">
-      Naziv je obavezno polje
-    </mat-error>
-  </mat-form-field>
+<h2 mat-dialog-title>Napravi Aukciju</h2>
+<mat-dialog-content>
+  <form [formGroup]="auctionForm" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="fill">
+      <mat-label>Naziv</mat-label>
+      <input matInput formControlName="title" />
+      <mat-error *ngIf="auctionForm.controls['title'].hasError('required')">
+        Naziv je obavezno polje
+      </mat-error>
+    </mat-form-field>
 
-  <mat-form-field appearance="fill">
-    <mat-label>Opis</mat-label>
-    <textarea matInput formControlName="description"></textarea>
-    <mat-error *ngIf="auctionForm.controls['description'].hasError('required')">
-      Opis je obavezno polje
-    </mat-error>
-  </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Opis</mat-label>
+      <textarea matInput formControlName="description"></textarea>
+      <mat-error
+        *ngIf="auctionForm.controls['description'].hasError('required')"
+      >
+        Opis je obavezno polje
+      </mat-error>
+    </mat-form-field>
 
-  <mat-form-field appearance="fill">
-    <mat-label>Minimalna cena</mat-label>
-    <input matInput formControlName="min_price" type="number" />
-    <mat-error *ngIf="auctionForm.controls['min_price'].hasError('required')">
-      Minimalna cena je obavezno polje
-    </mat-error>
-    <mat-error *ngIf="auctionForm.controls['min_price'].hasError('min')">
-      Minimalna cena mora biti pozitivan broj
-    </mat-error>
-  </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Minimalna cena</mat-label>
+      <input matInput formControlName="min_price" type="number" />
+      <mat-error *ngIf="auctionForm.controls['min_price'].hasError('required')">
+        Minimalna cena je obavezno polje
+      </mat-error>
+      <mat-error *ngIf="auctionForm.controls['min_price'].hasError('min')">
+        Minimalna cena mora biti pozitivan broj
+      </mat-error>
+    </mat-form-field>
 
-  <mat-form-field appearance="fill">
-    <mat-label>Početak aukcije</mat-label>
+    <mat-form-field appearance="fill">
+      <mat-label>Početak aukcije</mat-label>
+      <input
+        matInput
+        [owlDateTime]="dt1"
+        [owlDateTimeTrigger]="dt1"
+        formControlName="start_time"
+        readonly="true"
+      />
+      <owl-date-time #dt1></owl-date-time>
+      <mat-error
+        *ngIf="auctionForm.controls['start_time'].hasError('required')"
+      >
+        Početak je obavezno polje
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Kraj aukcije</mat-label>
+      <input
+        matInput
+        [owlDateTime]="dt2"
+        [owlDateTimeTrigger]="dt2"
+        formControlName="end_time"
+        readonly="true"
+      />
+      <owl-date-time #dt2></owl-date-time>
+      <mat-error *ngIf="auctionForm.controls['end_time'].hasError('required')">
+        Kraj aukcije je obavezno polje
+      </mat-error>
+    </mat-form-field>
+
+    <mat-label>Slike</mat-label>
+    <br />
     <input
-      matInput
-      [owlDateTime]="dt1"
-      [owlDateTimeTrigger]="dt1"
-      placeholder=""
-      formControlName="start_time"
-      readonly="true"
+      type="file"
+      accept="image/*"
+      (change)="onFileChange($event)"
+      multiple
     />
-    <owl-date-time #dt1></owl-date-time>
-    <mat-error *ngIf="auctionForm.controls['start_time'].hasError('required')">
-      Početak je obavezno polje
+    <mat-error
+      *ngIf="auctionForm.controls['images'].hasError('maxImageAmount')"
+    >
+      Možete maksimalno 10 slika da izaberete
     </mat-error>
-  </mat-form-field>
-  <mat-form-field appearance="fill">
-    <mat-label>Kraj aukcije</mat-label>
-    <input
-      matInput
-      [owlDateTime]="dt2"
-      [owlDateTimeTrigger]="dt2"
-      placeholder=""
-      formControlName="end_time"
-      readonly="true"
-    />
-    <owl-date-time #dt2></owl-date-time>
-    <mat-error *ngIf="auctionForm.controls['end_time'].hasError('required')">
-      Kraj aukcije je obavezno polje
-    </mat-error>
-  </mat-form-field>
-
-  <mat-label>Slike</mat-label>
-  <br />
-  <input
-    type="file"
-    accept="image/*"
-    (change)="onFileChange($event)"
-    multiple
-  />
-  <mat-error *ngIf="auctionForm.controls['images'].hasError('maxImageAmount')">
-    Možete maksimalno 10 slika da izaberete
-  </mat-error>
-
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button (click)="onCancel()">Otkaži</button>
   <div class="button-container">
     <div *ngIf="isLoading; else submitButton">
       <mat-progress-spinner
@@ -79,9 +88,14 @@
       ></mat-progress-spinner>
     </div>
     <ng-template #submitButton>
-      <button mat-raised-button color="primary" type="submit">
+      <button
+        mat-raised-button
+        color="primary"
+        (click)="onSubmit()"
+        type="submit"
+      >
         Napravi aukciju
       </button>
     </ng-template>
   </div>
-</form>
+</mat-dialog-actions>

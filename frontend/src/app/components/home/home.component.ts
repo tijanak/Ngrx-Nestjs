@@ -6,6 +6,10 @@ import { LogoutComponent } from '../logout/logout.component';
 import { AuctionsComponent } from '../auctions/auctions.component';
 import { NewAuctionBtnComponent } from '../auctions/new-auction-btn/new-auction-btn.component';
 import { MenuComponent } from '../menu/menu.component';
+import {
+  OwlDateTimeModule,
+  OwlNativeDateTimeModule,
+} from '@danielmoncada/angular-datetime-picker';
 
 @Component({
   selector: 'app-home',
@@ -18,6 +22,8 @@ import { MenuComponent } from '../menu/menu.component';
     AuctionsComponent,
     NewAuctionBtnComponent,
     MenuComponent,
+    OwlDateTimeModule,
+    OwlNativeDateTimeModule,
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
