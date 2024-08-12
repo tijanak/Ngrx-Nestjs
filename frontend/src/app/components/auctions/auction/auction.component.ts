@@ -22,7 +22,7 @@ import {
   CarouselModule,
   ThemeDirective,
 } from '@coreui/angular';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
 import { AuctionBasicInfoComponent } from '../auction-basic-info/auction-basic-info.component';
 import { Store } from '@ngrx/store';

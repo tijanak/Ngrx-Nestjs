@@ -12,20 +12,7 @@
     ><br />
     <mat-form-field appearance="fill">
       <mat-label>Lozinka</mat-label>
-      <input
-        matInput
-        [type]="hide() ? 'password' : 'text'"
-        formControlName="password"
-      />
-      <button
-        mat-icon-button
-        matSuffix
-        (click)="clickEvent($event)"
-        [attr.aria-label]="'Hide password'"
-        [attr.aria-pressed]="hide()"
-      >
-        <mat-icon>{{ hide() ? 'visibility_off' : 'visibility' }}</mat-icon>
-      </button>
+      <input matInput type="password" formControlName="password" />
       <mat-error *ngIf="form.controls['password'].hasError('required')">
         Lozinka je <strong>Obavezna</strong>
       </mat-error>

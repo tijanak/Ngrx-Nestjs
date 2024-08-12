@@ -30,7 +30,7 @@ export class AuctionViewPageComponent implements OnInit, OnDestroy {
             this.auction = {
               ...auction,
             };
-          console.log(this.auction);
+          console.log('skibid', this.auction);
         })
     );
     this.subscription.push(

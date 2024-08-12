@@ -37,11 +37,6 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class LoginComponent implements OnInit, OnDestroy {
   form: FormGroup;
-  hide = signal(true);
-  clickEvent(event: MouseEvent) {
-    this.hide.set(!this.hide());
-    event.stopPropagation();
-  }
   constructor(
     private router: Router,
     private fb: FormBuilder,
@@ -52,10 +47,8 @@ export class LoginComponent implements OnInit, OnDestroy {
       password: ['', Validators.required],
     });
   }
-  ngOnInit(): void {
-  }
-  ngOnDestroy(): void {
-  }
+  ngOnInit(): void {}
+  ngOnDestroy(): void {}
   onSubmit() {
     if (this.form.valid) {
       console.log(this.form.value);

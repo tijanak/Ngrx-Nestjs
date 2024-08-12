@@ -8,6 +8,16 @@ export const selectAuctionFeature = createSelector(
   (state: AppState) => state.auction,
   (state) => state
 );
+export const selectAuctionEntities = createSelector(
+  selectAuctionFeature,
+  selectEntities
+);
+export const selectSelectedAuction = createSelector(
+  selectAuctionEntities,
+  selectRouteParams,
+  (auctions, { id }) => auctions[id]
+);
+
 export const selectAuctions = createSelector(selectAuctionFeature, selectAll);
 export const selectAuctionDto = createSelector(
   selectAuctionFeature,
@@ -17,14 +27,4 @@ export const selectAuctionDto = createSelector(
 export const selectAuctionError = createSelector(
   selectAuctionFeature,
   (auctionState) => auctionState.error
-);
-
-export const selectAuctionEntities = createSelector(
-  selectAuctionFeature,
-  selectEntities
-);
-export const selectSelectedAuction = createSelector(
-  selectAuctionEntities,
-  selectRouteParams,
-  (auctions, { id }) => auctions[id]
 );
