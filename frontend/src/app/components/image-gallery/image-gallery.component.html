@@ -1,4 +1,9 @@
-<ng-container *ngIf="images.length > 0; else emptyImages">
+<ng-container
+  *ngIf="
+    images != null && images != undefined && images.length > 0;
+    else emptyImages
+  "
+>
   <c-carousel [dark]="true" [interval]="0">
     <c-carousel-inner>
       <c-carousel-item *ngFor="let image of images">

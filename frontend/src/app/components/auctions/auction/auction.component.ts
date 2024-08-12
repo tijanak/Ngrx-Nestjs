@@ -19,7 +19,7 @@ import { AuctionBasicInfoComponent } from '../auction-basic-info/auction-basic-i
 import { Store } from '@ngrx/store';
 import { AppState } from 'frontend/src/app/store/app.reducer';
 import { selectSelectedAuction } from 'frontend/src/app/store/auctions/auctions.selectors';
-import { Subscription } from 'rxjs';
+import { skip, Subscription, take } from 'rxjs';
 import { MatDialog } from '@angular/material/dialog';
 import { BidFormComponent } from '../../bids/bid-form/bid-form.component';
 import { MatButtonModule } from '@angular/material/button';
@@ -49,12 +49,16 @@ export class AuctionComponent implements OnInit, OnDestroy {
   user: IUser | null;
   ngOnInit(): void {
     this.subscription.push(
-      this.store.select(selectSelectedAuction).subscribe((auction) => {
-        if (auction)
-          this.auction = {
-            ...auction,
-          };
-      })
+      this.store
+        .select(selectSelectedAuction)
+        .pipe(skip(1))
+        .subscribe((auction) => {
+          if (auction)
+            this.auction = {
+              ...auction,
+            };
+          console.log(this.auction);
+        })
     );
     this.subscription.push(
       this.store.select(selectProfile).subscribe((user) => (this.user = user))

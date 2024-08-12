@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IImage } from '@org/models';
 import {
@@ -24,7 +24,11 @@ import { environment } from '@org/environment';
   templateUrl: './image-gallery.component.html',
   styleUrl: './image-gallery.component.css',
 })
-export class ImageGalleryComponent {
+export class ImageGalleryComponent implements OnChanges {
   imageBaseUrl = `${environment.API_URL}images/`;
   @Input() images: IImage[];
+  constructor() {}
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log('change ', this.images);
+  }
 }

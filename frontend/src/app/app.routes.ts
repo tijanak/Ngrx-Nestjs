@@ -22,11 +22,6 @@ export const appRoutes: Route[] = [
     canActivate: [AuthGuard],
   },
   {
-    path: 'auction-create',
-    component: AuctionCreateComponent,
-    canActivate: [AuthGuard],
-  },
-  {
     path: 'auction/:id',
     component: AuctionComponent,
     canActivate: [AuthGuard],

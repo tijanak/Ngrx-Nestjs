@@ -26,7 +26,6 @@ export class NewAuctionBtnComponent {
   openAuctionCreationForm() {
     const dialogRef = this.dialog.open(AuctionCreateComponent, {
       width: '600px',
-      disableClose: true,
       injector: this.injector,
     });
 

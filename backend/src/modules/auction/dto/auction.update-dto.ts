@@ -5,5 +5,5 @@ import { HasAtLeastOneFieldConstraint } from 'backend/src/validation/validators/
 
 export class UpdateAuctionDto extends PartialType(CreateAuctionDto) {
   @Validate(HasAtLeastOneFieldConstraint)
-  _: any;
+  _?: any;
 }
