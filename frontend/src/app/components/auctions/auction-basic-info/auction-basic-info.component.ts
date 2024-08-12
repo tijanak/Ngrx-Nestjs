@@ -34,10 +34,15 @@ export class AuctionBasicInfoComponent implements OnInit {
   ngOnInit(): void {}
   @Input() auction!: IAuction;
   @Input() userCanModify: boolean;
-  @Output() deleteClicked = new EventEmitter<number>();
+  @Output() deleteClicked = new EventEmitter();
+  @Output() openClicked = new EventEmitter();
   @Input() isInList: boolean = false;
   deleteAuction(event: MouseEvent) {
     event.stopPropagation();
-    this.deleteClicked.emit(this.auction.id);
+    this.deleteClicked.emit();
+  }
+  openAuction(event: MouseEvent) {
+    event.stopPropagation();
+    this.openClicked.emit();
   }
 }

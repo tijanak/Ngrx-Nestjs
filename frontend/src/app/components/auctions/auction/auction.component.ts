@@ -1,4 +1,13 @@
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnChanges,
+  OnDestroy,
+  OnInit,
+  Output,
+  SimpleChanges,
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BidsComponent } from '../../bids/bids.component';
 import { IAuction, IBid, IUser } from '@org/models';
@@ -25,6 +34,8 @@ import { BidFormComponent } from '../../bids/bid-form/bid-form.component';
 import { MatButtonModule } from '@angular/material/button';
 import { CreateBid } from 'frontend/src/app/store/bids/bids.actions';
 import { selectProfile } from 'frontend/src/app/store/user/user.selector';
+import { DeleteAuction } from 'frontend/src/app/store/auctions/auctions.actions';
+
 @Component({
   selector: 'app-auction',
   standalone: true,
@@ -39,31 +50,28 @@ import { selectProfile } from 'frontend/src/app/store/user/user.selector';
   templateUrl: './auction.component.html',
   styleUrl: './auction.component.css',
 })
-export class AuctionComponent implements OnInit, OnDestroy {
-  subscription: Subscription[] = [];
+export class AuctionComponent implements OnInit, OnDestroy, OnChanges {
+  subscription: Subscription;
   constructor(private store: Store<AppState>, private dialog: MatDialog) {}
-  ngOnDestroy(): void {
-    this.subscription.forEach((sub) => sub.unsubscribe());
+  ngOnChanges(changes: SimpleChanges): void {
+    this.isOwner = this.user != null && this.user.id == this.auction?.owner.id;
   }
-  @Input() auction!: IAuction | undefined;
-  user: IUser | null;
   ngOnInit(): void {
-    this.subscription.push(
-      this.store
-        .select(selectSelectedAuction)
-        .pipe(skip(1))
-        .subscribe((auction) => {
-          if (auction)
-            this.auction = {
-              ...auction,
-            };
-          console.log(this.auction);
-        })
-    );
-    this.subscription.push(
-      this.store.select(selectProfile).subscribe((user) => (this.user = user))
-    );
+    this.subscription = this.store.select(selectProfile).subscribe((user) => {
+      this.user = user;
+      this.isOwner =
+        this.user != null && this.user.id == this.auction?.owner.id;
+    });
   }
+  ngOnDestroy(): void {
+    if (this.subscription) this.subscription.unsubscribe();
+  }
+
+  @Input() auction!: IAuction | undefined;
+  @Input() inList: boolean;
+  user: IUser | null;
+  isOwner: boolean = false;
+  @Output() openAuction = new EventEmitter<number>();
   openBidModal(): void {
     const dialogRef = this.dialog.open(BidFormComponent, {
       width: '400px',
@@ -82,5 +90,12 @@ export class AuctionComponent implements OnInit, OnDestroy {
         );
       }
     });
+  }
+  openMoreInfo() {
+    if (this.auction && this.inList) this.openAuction.emit(this.auction.id);
+  }
+  deleteAuction() {
+    if (this.auction)
+      this.store.dispatch(DeleteAuction({ id: this.auction.id }));
   }
 }

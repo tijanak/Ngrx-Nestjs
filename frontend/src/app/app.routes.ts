@@ -8,6 +8,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { AuctionCreateComponent } from './components/auctions/auction-create/auction-create.component';
 import { AuctionComponent } from './components/auctions/auction/auction.component';
 import { SaleCertificatePageComponent } from './components/sale-certificate-page/sale-certificate-page.component';
+import { AuctionViewPageComponent } from './components/pages/auction-view-page/auction-view-page.component';
 
 export const appRoutes: Route[] = [
   { path: 'login', component: LoginComponent, canActivate: [PublicGuard] },
@@ -23,7 +24,7 @@ export const appRoutes: Route[] = [
   },
   {
     path: 'auction/:id',
-    component: AuctionComponent,
+    component: AuctionViewPageComponent,
     canActivate: [AuthGuard],
   },
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },

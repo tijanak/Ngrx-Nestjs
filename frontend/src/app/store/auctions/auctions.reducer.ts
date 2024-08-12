@@ -43,6 +43,10 @@ export const auctionReducer = createReducer(
   on(actions.DeleteAuctionSuccess, (state, { id }) => {
     return auctionAdapter.removeOne(id, state);
   }),
+  on(actions.DeleteAuctionFailure, (state, { error }) => ({
+    ...state,
+    error,
+  })),
   on(actions.LoadAuctionSuccess, (state, { auction }) => {
     return auctionAdapter.upsertOne(auction, state);
   }),

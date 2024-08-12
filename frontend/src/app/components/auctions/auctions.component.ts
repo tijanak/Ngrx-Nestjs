@@ -24,6 +24,7 @@ import { Router, RouterModule } from '@angular/router';
     AuctionBasicInfoComponent,
     MatCardModule,
     MatDivider,
+    AuctionComponent,
   ],
   templateUrl: './auctions.component.html',
   styleUrl: './auctions.component.css',
@@ -43,9 +44,7 @@ export class AuctionsComponent implements OnInit, OnDestroy {
     );
   }
   auctions: IAuction[] = [];
-  deleteAuctionEvent(id: number) {
-    this.store.dispatch(DeleteAuction({ id }));
-  }
+
   open(id: number) {
     this.router.navigate(['/auction', id]);
   }

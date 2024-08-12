@@ -129,24 +129,12 @@
   "fileMap": {
     "nonProjectFiles": [
       {
-        "file": ".prettierrc",
-        "hash": "6820402234827505055"
+        "file": ".prettierignore",
+        "hash": "12269743867629339573"
       },
       {
-        "file": "README.md",
-        "hash": "10862541853819140661"
-      },
-      {
-        "file": "tsconfig.base.json",
-        "hash": "3551299669992616240"
-      },
-      {
-        "file": ".vscode/tasks.json",
-        "hash": "12985731391048181481"
-      },
-      {
-        "file": "jest.preset.js",
-        "hash": "7473220183190921152"
+        "file": "package-lock.json",
+        "hash": "15512953368061561716"
       },
       {
         "file": "docker-compose.debug.yml",
@@ -161,16 +149,8 @@
         "hash": "1097630411021103535"
       },
       {
-        "file": ".prettierignore",
-        "hash": "12269743867629339573"
-      },
-      {
-        "file": ".editorconfig",
-        "hash": "11532813898455409296"
-      },
-      {
-        "file": ".dockerignore",
-        "hash": "1386920771022941307"
+        "file": ".prettierrc",
+        "hash": "6820402234827505055"
       },
       {
         "file": ".vscode/extensions.json",
@@ -181,32 +161,52 @@
         "hash": "7544409015863045561"
       },
       {
-        "file": ".eslintrc.json",
-        "hash": "4566917484430375526"
-      },
-      {
-        "file": ".gitattributes",
-        "hash": "1572551857504561111"
-      },
-      {
-        "file": ".gitignore",
-        "hash": "12203929471089777966"
+        "file": ".dockerignore",
+        "hash": "1386920771022941307"
       },
       {
         "file": ".eslintignore",
         "hash": "13404745306227114823"
       },
       {
-        "file": ".vscode/launch.json",
-        "hash": "11840498223564460082"
+        "file": "tsconfig.base.json",
+        "hash": "3551299669992616240"
+      },
+      {
+        "file": ".vscode/tasks.json",
+        "hash": "12985731391048181481"
       },
       {
         "file": "package.json",
         "hash": "5129727372076260166"
       },
       {
-        "file": "package-lock.json",
-        "hash": "15512953368061561716"
+        "file": ".gitattributes",
+        "hash": "1572551857504561111"
+      },
+      {
+        "file": ".editorconfig",
+        "hash": "11532813898455409296"
+      },
+      {
+        "file": ".eslintrc.json",
+        "hash": "4566917484430375526"
+      },
+      {
+        "file": "jest.preset.js",
+        "hash": "7473220183190921152"
+      },
+      {
+        "file": ".vscode/launch.json",
+        "hash": "11840498223564460082"
+      },
+      {
+        "file": "README.md",
+        "hash": "10862541853819140661"
+      },
+      {
+        "file": ".gitignore",
+        "hash": "12203929471089777966"
       }
     ],
     "projectFileMap": {
@@ -277,7 +277,7 @@
         },
         {
           "file": "frontend/src/app/app.routes.ts",
-          "hash": "11645967879420390022",
+          "hash": "10106473342227284860",
           "deps": [
             "npm:@angular/router"
           ]
@@ -296,7 +296,7 @@
         },
         {
           "file": "frontend/src/app/components/auctions/auction-basic-info/auction-basic-info.component.html",
-          "hash": "4706444913494138246"
+          "hash": "8949822202704984131"
         },
         {
           "file": "frontend/src/app/components/auctions/auction-basic-info/auction-basic-info.component.spec.ts",
@@ -307,7 +307,7 @@
         },
         {
           "file": "frontend/src/app/components/auctions/auction-basic-info/auction-basic-info.component.ts",
-          "hash": "9366825735122645649",
+          "hash": "13921683715170643454",
           "deps": [
             "npm:@angular/core",
             "npm:@angular/common",
@@ -324,7 +324,7 @@
         },
         {
           "file": "frontend/src/app/components/auctions/auction-create/auction-create.component.html",
-          "hash": "16595802627718854583"
+          "hash": "7212531839661237277"
         },
         {
           "file": "frontend/src/app/components/auctions/auction-create/auction-create.component.spec.ts",
@@ -335,21 +335,14 @@
         },
         {
           "file": "frontend/src/app/components/auctions/auction-create/auction-create.component.ts",
-          "hash": "4556953197483124576",
+          "hash": "17565135182098480452",
           "deps": [
             "npm:@angular/core",
             "npm:@angular/common",
-            "npm:@angular/forms",
             "npm:@angular/material",
+            "npm:@angular/forms",
             "npm:@danielmoncada/angular-datetime-picker",
             "npm:@ngrx/store"
-          ]
-        },
-        {
-          "file": "frontend/src/app/components/auctions/auction-create/validators/max-image-amount-validator.ts",
-          "hash": "6222840965395392826",
-          "deps": [
-            "npm:@angular/forms"
           ]
         },
         {
@@ -358,7 +351,7 @@
         },
         {
           "file": "frontend/src/app/components/auctions/auction/auction.component.html",
-          "hash": "4666560800565506862"
+          "hash": "9254308887514680329"
         },
         {
           "file": "frontend/src/app/components/auctions/auction/auction.component.spec.ts",
@@ -369,7 +362,7 @@
         },
         {
           "file": "frontend/src/app/components/auctions/auction/auction.component.ts",
-          "hash": "16084613993591430863",
+          "hash": "9840843581477816791",
           "deps": [
             "npm:@angular/core",
             "npm:@angular/common",
@@ -388,7 +381,7 @@
         },
         {
           "file": "frontend/src/app/components/auctions/auctions.component.html",
-          "hash": "15655756808890459467"
+          "hash": "11748552067762568457"
         },
         {
           "file": "frontend/src/app/components/auctions/auctions.component.spec.ts",
@@ -399,7 +392,7 @@
         },
         {
           "file": "frontend/src/app/components/auctions/auctions.component.ts",
-          "hash": "15966821075223058487",
+          "hash": "2361086605574006275",
           "deps": [
             "npm:@angular/core",
             "npm:@angular/common",
@@ -427,12 +420,14 @@
         },
         {
           "file": "frontend/src/app/components/auctions/new-auction-btn/new-auction-btn.component.ts",
-          "hash": "225222191671236919",
+          "hash": "15870894357786731451",
           "deps": [
             "npm:@angular/core",
             "npm:@angular/common",
             "npm:@angular/router",
-            "npm:@angular/material"
+            "npm:@angular/material",
+            "models",
+            "npm:@ngrx/store"
           ]
         },
         {
@@ -477,7 +472,7 @@
         },
         {
           "file": "frontend/src/app/components/bids/bid/bid.component.ts",
-          "hash": "2180257018306746702",
+          "hash": "8047611587531938821",
           "deps": [
             "npm:@angular/core",
             "npm:@angular/common",
@@ -529,12 +524,13 @@
         },
         {
           "file": "frontend/src/app/components/home/home.component.ts",
-          "hash": "16285710191916648742",
+          "hash": "15650722021323801830",
           "deps": [
             "npm:@angular/common",
             "npm:@angular/core",
             "npm:@angular/material",
-            "npm:@angular/router"
+            "npm:@angular/router",
+            "npm:@danielmoncada/angular-datetime-picker"
           ]
         },
         {
@@ -543,7 +539,7 @@
         },
         {
           "file": "frontend/src/app/components/image-gallery/image-gallery.component.html",
-          "hash": "9966688276461073516"
+          "hash": "17561769437608232873"
         },
         {
           "file": "frontend/src/app/components/image-gallery/image-gallery.component.spec.ts",
@@ -554,7 +550,7 @@
         },
         {
           "file": "frontend/src/app/components/image-gallery/image-gallery.component.ts",
-          "hash": "2929056728925276942",
+          "hash": "17066146856345314780",
           "deps": [
             "npm:@angular/core",
             "npm:@angular/common",
@@ -668,6 +664,31 @@
             "npm:@angular/material",
             "npm:@ngrx/store",
             "npm:rxjs"
+          ]
+        },
+        {
+          "file": "frontend/src/app/components/profile/change-password/change-password.component.css",
+          "hash": "6668458500043771525"
+        },
+        {
+          "file": "frontend/src/app/components/profile/change-password/change-password.component.html",
+          "hash": "16422853947623154143"
+        },
+        {
+          "file": "frontend/src/app/components/profile/change-password/change-password.component.spec.ts",
+          "hash": "12664376643978720930",
+          "deps": [
+            "npm:@angular/core"
+          ]
+        },
+        {
+          "file": "frontend/src/app/components/profile/change-password/change-password.component.ts",
+          "hash": "9350050813180072395",
+          "deps": [
+            "npm:@angular/common",
+            "npm:@angular/core",
+            "npm:@angular/forms",
+            "npm:@angular/material"
           ]
         },
         {
@@ -977,7 +998,7 @@
         },
         {
           "file": "frontend/src/app/store/auctions/auctions.reducer.ts",
-          "hash": "6495070002536307265",
+          "hash": "2351497128509447917",
           "deps": [
             "npm:@ngrx/entity",
             "npm:@ngrx/store",
@@ -1168,6 +1189,20 @@
           ]
         },
         {
+          "file": "frontend/src/app/validators/max-image-amount-validator.ts",
+          "hash": "6222840965395392826",
+          "deps": [
+            "npm:@angular/forms"
+          ]
+        },
+        {
+          "file": "frontend/src/app/validators/password-match.validator.ts",
+          "hash": "1446327091825520678",
+          "deps": [
+            "npm:@angular/forms"
+          ]
+        },
+        {
           "file": "frontend/src/index.html",
           "hash": "16472720965644499545"
         },
@@ -1217,73 +1252,30 @@
           ]
         },
         {
-          "file": "frontend/src/app/components/profile/change-password/change-password.component.html",
-          "hash": "16422853947623154143"
+          "file": "frontend/src/app/components/pages/auction-view-page/auction-view-page.component.css",
+          "hash": "3244421341483603138"
         },
         {
-          "file": "frontend/src/app/components/profile/change-password/change-password.component.ts",
-          "hash": "9350050813180072395",
-          "deps": [
-            "npm:@angular/common",
-            "npm:@angular/core",
-            "npm:@angular/forms",
-            "npm:@angular/material"
-          ]
-        },
-        {
-          "file": "frontend/src/app/components/profile/change-password/change-password.component.css",
-          "hash": "6668458500043771525"
-        },
-        {
-          "file": "frontend/src/app/components/profile/change-password/change-password.component.spec.ts",
-          "hash": "12664376643978720930",
+          "file": "frontend/src/app/components/pages/auction-view-page/auction-view-page.component.spec.ts",
+          "hash": "10645586855798240244",
           "deps": [
             "npm:@angular/core"
           ]
         },
         {
-          "file": "frontend/src/app/validators/password-match.validator.ts",
-          "hash": "1446327091825520678",
+          "file": "frontend/src/app/components/pages/auction-view-page/auction-view-page.component.html",
+          "hash": "11464060449644110838"
+        },
+        {
+          "file": "frontend/src/app/components/pages/auction-view-page/auction-view-page.component.ts",
+          "hash": "9434756343466750129",
           "deps": [
-            "npm:@angular/forms"
+            "npm:@angular/core",
+            "npm:@angular/common",
+            "npm:@ngrx/store",
+            "npm:rxjs",
+            "models"
           ]
-        },
-        {
-          "file": "frontend/src/app/validators/max-image-amount-validator.ts",
-          "hash": "6222840965395392826",
-          "deps": [
-            "npm:@angular/forms"
-          ]
-        }
-      ],
-      "environment": [
-        {
-          "file": "environment/.eslintrc.json",
-          "hash": "7576038952477048970"
-        },
-        {
-          "file": "environment/README.md",
-          "hash": "16449130283266005199"
-        },
-        {
-          "file": "environment/project.json",
-          "hash": "18345892700103603654"
-        },
-        {
-          "file": "environment/src/index.ts",
-          "hash": "13131435811860634285"
-        },
-        {
-          "file": "environment/src/lib/environment.ts",
-          "hash": "14791958019809488009"
-        },
-        {
-          "file": "environment/tsconfig.json",
-          "hash": "2798976997790231623"
-        },
-        {
-          "file": "environment/tsconfig.lib.json",
-          "hash": "2618488611770405175"
         }
       ],
       "models": [
@@ -1324,6 +1316,36 @@
         },
         {
           "file": "models/tsconfig.lib.json",
+          "hash": "2618488611770405175"
+        }
+      ],
+      "environment": [
+        {
+          "file": "environment/.eslintrc.json",
+          "hash": "7576038952477048970"
+        },
+        {
+          "file": "environment/README.md",
+          "hash": "16449130283266005199"
+        },
+        {
+          "file": "environment/project.json",
+          "hash": "18345892700103603654"
+        },
+        {
+          "file": "environment/src/index.ts",
+          "hash": "13131435811860634285"
+        },
+        {
+          "file": "environment/src/lib/environment.ts",
+          "hash": "14791958019809488009"
+        },
+        {
+          "file": "environment/tsconfig.json",
+          "hash": "2798976997790231623"
+        },
+        {
+          "file": "environment/tsconfig.lib.json",
           "hash": "2618488611770405175"
         }
       ],
@@ -1437,7 +1459,7 @@
         },
         {
           "file": "backend/src/modules/auction/dto/auction.update-dto.ts",
-          "hash": "11380691141294394487",
+          "hash": "738072665484958207",
           "deps": [
             "npm:@nestjs/swagger",
             "npm:class-validator"
