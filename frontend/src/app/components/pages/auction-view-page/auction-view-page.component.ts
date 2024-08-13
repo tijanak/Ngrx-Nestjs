@@ -26,11 +26,7 @@ export class AuctionViewPageComponent implements OnInit, OnDestroy {
         .select(selectSelectedAuction)
         .pipe(skip(1))
         .subscribe((auction) => {
-          if (auction)
-            this.auction = {
-              ...auction,
-            };
-          console.log('skibid', this.auction);
+          this.auction = auction;
         })
     );
     this.subscription.push(
