@@ -76,7 +76,13 @@ export class AuctionService {
       throw new ForbiddenException(
         'Aukcija je već počela, ne može da se menja'
       );
-    return this.auctionRepo.update(id, updateDto);
+    await this.auctionRepo.update(id, updateDto);
+    let updatedAuction = await this.auctionRepo.findOne({ where: { id } });
+    if (updatedAuction.end_time != auction.end_time) {
+      this.deleteAuctionEndJob(id);
+      this.setAuctionEnd(updatedAuction);
+    }
+    return updatedAuction;
   }
   async delete(id) {
     const auction = await this.auctionRepo.findOne({
@@ -97,14 +103,17 @@ export class AuctionService {
     await Promise.all(deleteImagePromises);
     try {
       await this.auctionRepo.delete(id);
-      let job = this.schedulerRegistry.getCronJob('end auction ' + auction.id);
-      job.stop();
-      this.schedulerRegistry.deleteCronJob('end auction ' + auction.id);
+      this.deleteAuctionEndJob(auction.id);
       return id;
     } catch (error) {
       Logger.error('Error deleting auction:', error);
       throw new InternalServerErrorException('Greska u toku brisanja');
     }
+  }
+  deleteAuctionEndJob(id) {
+    let job = this.schedulerRegistry.getCronJob('end auction ' + id);
+    job.stop();
+    this.schedulerRegistry.deleteCronJob('end auction ' + id);
   }
   get(id: number, relations: string[] = []) {
     return this.auctionRepo.findOne({

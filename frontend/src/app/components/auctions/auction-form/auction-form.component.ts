@@ -1,6 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
+import {
+  MAT_DIALOG_DATA,
+  MatDialogModule,
+  MatDialogRef,
+} from '@angular/material/dialog';
 import {
   FormBuilder,
   FormGroup,
@@ -23,6 +27,7 @@ import { Store } from '@ngrx/store';
 import { AppState } from 'frontend/src/app/store/app.reducer';
 import { CreateAuction } from 'frontend/src/app/store/auctions/auctions.actions';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { IAuction } from '@org/models';
 @Component({
   selector: 'app-auction-create',
   standalone: true,
@@ -40,25 +45,35 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     MatProgressSpinnerModule,
     MatDialogModule,
   ],
-  templateUrl: './auction-create.component.html',
-  styleUrl: './auction-create.component.css',
+  templateUrl: './auction-form.component.html',
+  styleUrl: './auction-form.component.css',
 })
-export class AuctionCreateComponent {
+export class AuctionFormComponent {
   auctionForm: FormGroup;
   isLoading: boolean = false;
+  formTitle: string;
   constructor(
     private fb: FormBuilder,
-    private store: Store<AppState>,
-    public dialogRef: MatDialogRef<AuctionCreateComponent>
+    public dialogRef: MatDialogRef<AuctionFormComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: { title: string; auction?: IAuction }
   ) {
+    this.formTitle = this.data.title;
     this.auctionForm = this.fb.group({
-      title: ['', Validators.required],
-      description: ['', Validators.required],
-      min_price: [null, [Validators.required, Validators.min(1)]],
-      start_time: [null, Validators.required],
-      end_time: [null, Validators.required],
-      images: [FileList, maxImageAmount(10)],
+      title: [data.auction?.title ?? '', Validators.required],
+      description: [data.auction?.description ?? '', Validators.required],
+      min_price: [
+        data.auction?.min_price ?? null,
+        [Validators.required, Validators.min(1)],
+      ],
+      start_time: [data.auction?.start_time ?? null, Validators.required],
+      end_time: [data.auction?.end_time ?? null, Validators.required],
     });
+    if (!data.auction) {
+      this.auctionForm.addControl(
+        'images',
+        this.fb.control(FileList, maxImageAmount(10))
+      );
+    }
   }
   onFileChange(event: any) {
     const fileInput = event.target;

@@ -32,7 +32,7 @@ export class AuctionService {
     );
   }
   updateAuction(id: number, updateDto: UpdateAuctionDto) {
-    return this.httpClient.put(
+    return this.httpClient.patch<IAuction>(
       `${environment.API_URL}auction/${id}`,
       updateDto,
       {

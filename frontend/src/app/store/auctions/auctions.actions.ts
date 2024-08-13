@@ -1,6 +1,6 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { createAction, props } from '@ngrx/store';
-import { CreateAuctionDto, IAuction } from '@org/models';
+import { CreateAuctionDto, IAuction, UpdateAuctionDto } from '@org/models';
 
 export const LoadAuctions = createAction('[Auction] Load Auctions');
 
@@ -48,5 +48,19 @@ export const LoadAuctionSuccess = createAction(
 );
 export const LoadAuctionFailure = createAction(
   '[Auction] Loaded Auction',
+  props<{ error: HttpErrorResponse }>()
+);
+
+export const UpdateAuction = createAction(
+  '[Auction] Update Auction',
+  props<{ id: number; updateDto: UpdateAuctionDto }>()
+);
+
+export const UpdateAuctionSuccess = createAction(
+  '[Auction] Updated',
+  props<{ auction: IAuction }>()
+);
+export const UpdateAuctionFailure = createAction(
+  '[Auction] Update Failure',
   props<{ error: HttpErrorResponse }>()
 );

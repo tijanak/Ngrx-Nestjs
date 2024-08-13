@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { Router, RouterLink, RouterModule } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialog } from '@angular/material/dialog';
-import { AuctionCreateComponent } from '../auction-create/auction-create.component';
+import { AuctionFormComponent } from '../auction-form/auction-form.component';
 import { UpdateAuctionDto } from '@org/models';
 import { Store } from '@ngrx/store';
 import { AppState } from 'frontend/src/app/store/app.reducer';
@@ -24,8 +24,9 @@ export class NewAuctionBtnComponent {
   ) {}
 
   openAuctionCreationForm() {
-    const dialogRef = this.dialog.open(AuctionCreateComponent, {
+    const dialogRef = this.dialog.open(AuctionFormComponent, {
       width: '600px',
+      data: { title: 'Napravi aukciju' },
       injector: this.injector,
     });
 

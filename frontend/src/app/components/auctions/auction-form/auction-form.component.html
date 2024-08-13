@@ -1,4 +1,4 @@
-<h2 mat-dialog-title>Napravi Aukciju</h2>
+<h2 mat-dialog-title>{{ formTitle }}</h2>
 <mat-dialog-content>
   <form [formGroup]="auctionForm" (ngSubmit)="onSubmit()">
     <mat-form-field appearance="fill">
@@ -60,20 +60,21 @@
         Kraj aukcije je obavezno polje
       </mat-error>
     </mat-form-field>
-
-    <mat-label>Slike</mat-label>
-    <br />
-    <input
-      type="file"
-      accept="image/*"
-      (change)="onFileChange($event)"
-      multiple
-    />
-    <mat-error
-      *ngIf="auctionForm.controls['images'].hasError('maxImageAmount')"
+    <ng-container *ngIf="auctionForm.get('images')">
+      <mat-label>Slike</mat-label>
+      <br />
+      <input
+        type="file"
+        accept="image/*"
+        (change)="onFileChange($event)"
+        multiple
+      />
+      <mat-error
+        *ngIf="auctionForm.controls['images'].hasError('maxImageAmount')"
+      >
+        Možete maksimalno 10 slika da izaberete
+      </mat-error></ng-container
     >
-      Možete maksimalno 10 slika da izaberete
-    </mat-error>
   </form>
 </mat-dialog-content>
 <mat-dialog-actions>
@@ -94,7 +95,7 @@
         (click)="onSubmit()"
         type="submit"
       >
-        Napravi aukciju
+        Sacuvaj
       </button>
     </ng-template>
   </div>

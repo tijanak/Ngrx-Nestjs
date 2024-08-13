@@ -52,5 +52,15 @@ export const auctionReducer = createReducer(
   }),
   on(actions.LoadAuctionFailure, (state, { error }) => {
     return { ...state, error };
-  })
+  }),
+  on(actions.UpdateAuctionSuccess, (state, { auction }) => {
+    return auctionAdapter.updateOne(
+      { id: auction.id, changes: auction },
+      state
+    );
+  }),
+  on(actions.UpdateAuctionFailure, (state, { error }) => ({
+    ...state,
+    error,
+  }))
 );

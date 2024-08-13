@@ -36,6 +36,7 @@ export class AuctionBasicInfoComponent implements OnInit {
   @Input() userCanModify: boolean;
   @Output() deleteClicked = new EventEmitter();
   @Output() openClicked = new EventEmitter();
+  @Output() updateClicked = new EventEmitter();
   @Input() isInList: boolean = false;
   deleteAuction(event: MouseEvent) {
     event.stopPropagation();
@@ -44,5 +45,9 @@ export class AuctionBasicInfoComponent implements OnInit {
   openAuction(event: MouseEvent) {
     event.stopPropagation();
     this.openClicked.emit();
+  }
+  updateAuction(event: MouseEvent) {
+    event.stopPropagation();
+    this.updateClicked.emit();
   }
 }

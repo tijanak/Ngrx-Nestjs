@@ -15,7 +15,11 @@
         >
           <mat-icon>delete</mat-icon>
         </button>
-        <button mat-icon-button aria-label="Edit">
+        <button
+          (click)="updateAuction($event)"
+          mat-icon-button
+          aria-label="Edit"
+        >
           <mat-icon>edit</mat-icon>
         </button>
       </div>

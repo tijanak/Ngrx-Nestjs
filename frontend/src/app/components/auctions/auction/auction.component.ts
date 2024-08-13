@@ -1,6 +1,7 @@
 import {
   Component,
   EventEmitter,
+  Injector,
   Input,
   OnChanges,
   OnDestroy,
@@ -34,7 +35,11 @@ import { BidFormComponent } from '../../bids/bid-form/bid-form.component';
 import { MatButtonModule } from '@angular/material/button';
 import { CreateBid } from 'frontend/src/app/store/bids/bids.actions';
 import { selectProfile } from 'frontend/src/app/store/user/user.selector';
-import { DeleteAuction } from 'frontend/src/app/store/auctions/auctions.actions';
+import {
+  DeleteAuction,
+  UpdateAuction,
+} from 'frontend/src/app/store/auctions/auctions.actions';
+import { AuctionFormComponent } from '../auction-form/auction-form.component';
 
 @Component({
   selector: 'app-auction',
@@ -52,7 +57,11 @@ import { DeleteAuction } from 'frontend/src/app/store/auctions/auctions.actions'
 })
 export class AuctionComponent implements OnInit, OnDestroy, OnChanges {
   subscription: Subscription;
-  constructor(private store: Store<AppState>, private dialog: MatDialog) {}
+  constructor(
+    private injector: Injector,
+    private store: Store<AppState>,
+    private dialog: MatDialog
+  ) {}
   ngOnChanges(changes: SimpleChanges): void {
     this.isOwner = this.user != null && this.user.id == this.auction?.owner.id;
   }
@@ -97,5 +106,31 @@ export class AuctionComponent implements OnInit, OnDestroy, OnChanges {
   deleteAuction() {
     if (this.auction)
       this.store.dispatch(DeleteAuction({ id: this.auction.id }));
+  }
+  updateAuction() {
+    if (this.auction) {
+      const dialogRef = this.dialog.open(AuctionFormComponent, {
+        width: '600px',
+        data: {
+          title: 'Azuriranje aukcije',
+          auction: this.auction,
+        },
+        injector: this.injector,
+      });
+
+      dialogRef.afterClosed().subscribe((result) => {
+        if (result) {
+          console.log(result);
+          this.store.dispatch(
+            UpdateAuction({
+              id: this.auction!.id,
+              updateDto: {
+                ...result,
+              },
+            })
+          );
+        }
+      });
+    }
   }
 }
