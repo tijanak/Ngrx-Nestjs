@@ -34,5 +34,9 @@
 <mat-card-content>
   <mat-divider></mat-divider>
   <mat-card-subtitle>Slike</mat-card-subtitle>
-  <app-image-gallery [images]="auction.images" />
+  <app-image-gallery
+    (deleteImgEvent)="deleteImgEvent.emit($event)"
+    [canModify]="userCanModify"
+    [images]="auction.images"
+  />
 </mat-card-content>

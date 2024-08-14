@@ -6,6 +6,7 @@
     (openClicked)="openMoreInfo()"
     (deleteClicked)="deleteAuction()"
     (updateClicked)="updateAuction()"
+    (deleteImgEvent)="deleteImg($event)"
   ></app-auction-basic-info>
   <mat-card-content *ngIf="!inList">
     <mat-divider></mat-divider>

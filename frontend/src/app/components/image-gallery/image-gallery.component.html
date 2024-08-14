@@ -12,6 +12,11 @@
           alt="{{ image.fileName }}"
           class="d-block w-100"
         />
+        <div class="flex justify-center items-center" *ngIf="canModify">
+          <button mat-icon-button (click)="deleteImg(image.id)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </div>
       </c-carousel-item>
     </c-carousel-inner>
     <c-carousel-control
@@ -25,3 +30,6 @@
       direction="next"
     ></c-carousel-control> </c-carousel></ng-container
 ><ng-template #emptyImages><img src="empty.jpg" /></ng-template>
+<button *ngIf="canModify" mat-icon-button>
+  <mat-icon>add_a_photo</mat-icon>
+</button>

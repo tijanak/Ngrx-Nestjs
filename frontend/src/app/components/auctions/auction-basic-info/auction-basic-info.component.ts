@@ -38,6 +38,7 @@ export class AuctionBasicInfoComponent implements OnInit {
   @Output() openClicked = new EventEmitter();
   @Output() updateClicked = new EventEmitter();
   @Input() isInList: boolean = false;
+  @Output() deleteImgEvent = new EventEmitter<number>();
   deleteAuction(event: MouseEvent) {
     event.stopPropagation();
     this.deleteClicked.emit();

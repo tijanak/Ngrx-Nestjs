@@ -133,4 +133,7 @@ export class AuctionComponent implements OnInit, OnDestroy, OnChanges {
       });
     }
   }
+  deleteImg(id: number) {
+    alert(id);
+  }
 }
