@@ -20,7 +20,11 @@ import { appEffects } from './store/app.effects';
 import { provideEffects } from '@ngrx/effects';
 import { registerLocaleData } from '@angular/common';
 import localeSr from '@angular/common/locales/sr';
-import { provideRouterStore, routerReducer } from '@ngrx/router-store';
+import {
+  NavigationActionTiming,
+  provideRouterStore,
+  routerReducer,
+} from '@ngrx/router-store';
 registerLocaleData(localeSr);
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -37,7 +41,9 @@ export const appConfig: ApplicationConfig = {
       })
     ),
     provideEffects(appEffects),
-    provideRouterStore(),
+    provideRouterStore({
+      navigationActionTiming: NavigationActionTiming.PostActivation,
+    }),
     { provide: LOCALE_ID, useValue: 'sr-RS' },
   ],
 };
