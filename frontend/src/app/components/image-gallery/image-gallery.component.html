@@ -1,23 +1,25 @@
-<ng-container
+<div
   *ngIf="
-    images != null && images != undefined && images.length > 0;
+    isVisible && images != null && images != undefined && images.length > 0;
     else emptyImages
   "
 >
-  <c-carousel key="carouselKey" [animate]="false" [dark]="true" [interval]="0">
+  <c-carousel [animate]="false" [dark]="true" [interval]="0">
     <c-carousel-inner>
-      <c-carousel-item *ngFor="let image of images; trackBy: trackByFn">
-        <img
-          [src]="imageBaseUrl + image.fileName"
-          alt="{{ image.fileName }}"
-          class="d-block w-100"
-        />
-        <div class="flex justify-center items-center" *ngIf="canModify">
-          <button mat-icon-button (click)="deleteImg(image.id)">
-            <mat-icon>delete</mat-icon>
-          </button>
-        </div>
-      </c-carousel-item>
+      <ng-container *ngFor="let image of images">
+        <c-carousel-item *ngIf="image.fileName">
+          <img
+            [src]="imageBaseUrl + image.fileName"
+            alt="{{ image.fileName }}"
+            class="d-block w-100"
+          />
+          <div class="flex justify-center items-center" *ngIf="canModify">
+            <button mat-icon-button (click)="deleteImg(image.id)">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </div>
+        </c-carousel-item></ng-container
+      >
     </c-carousel-inner>
     <c-carousel-control
       [routerLink]
@@ -28,8 +30,10 @@
       [routerLink]
       caption="Next"
       direction="next"
-    ></c-carousel-control> </c-carousel></ng-container
-><ng-template #emptyImages><img src="empty.jpg" /></ng-template>
+    ></c-carousel-control>
+  </c-carousel>
+</div>
+<ng-template #emptyImages><img src="empty.jpg" /></ng-template>
 <input
   type="file"
   #fileInput

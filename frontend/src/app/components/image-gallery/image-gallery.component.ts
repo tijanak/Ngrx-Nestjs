@@ -38,7 +38,7 @@ import { IImage } from '@org/models';
 })
 export class ImageGalleryComponent implements OnChanges {
   imageBaseUrl = `${environment.API_URL}images/`;
-  carouselKey = 0;
+  isVisible = true;
   @Input() images: IImage[];
   @Output() deleteImgEvent = new EventEmitter<number>();
   @Output() uploadImgEvent = new EventEmitter<FileList>();
@@ -46,16 +46,16 @@ export class ImageGalleryComponent implements OnChanges {
   constructor(private cdr: ChangeDetectorRef) {}
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['images']) {
+      console.log('image changes', this.images);
+      this.isVisible = false;
       this.cdr.detectChanges();
-      this.carouselKey++;
+      this.isVisible = true;
     }
   }
   deleteImg(id: number) {
     this.deleteImgEvent.emit(id);
   }
-  trackByFn(index: number, item: any): any {
-    return item.id;
-  }
+
   onFileSelected(event: Event) {
     const input = event.target as HTMLInputElement;
     if (input.files && input.files.length > 0) {

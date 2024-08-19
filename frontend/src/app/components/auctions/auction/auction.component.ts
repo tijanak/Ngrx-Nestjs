@@ -75,8 +75,6 @@ export class AuctionComponent implements OnInit, OnDestroy, OnChanges {
         this.imageSubscription = this.store
           .select(selectImagesForAuction(this.auction!.id))
           .subscribe((images) => {
-            console.log('images for ', this.auction!.id);
-            console.log(images);
             this.images = [...images];
           });
     }
