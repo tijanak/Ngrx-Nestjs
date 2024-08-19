@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import {
   Component,
   EventEmitter,
@@ -9,42 +10,29 @@ import {
   Output,
   SimpleChanges,
 } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { BidsComponent } from '../../bids/bids.component';
-import { IAuction, IBid, IImage, IUser } from '@org/models';
-import { environment } from '@org/environment';
-import { MatCardModule } from '@angular/material/card';
-import { MatDividerModule } from '@angular/material/divider';
-import {
-  CarouselComponent,
-  CarouselControlComponent,
-  CarouselInnerComponent,
-  CarouselItemComponent,
-  CarouselModule,
-  ThemeDirective,
-} from '@coreui/angular';
-import { Router, RouterLink } from '@angular/router';
-import { MatIconModule } from '@angular/material/icon';
-import { AuctionBasicInfoComponent } from '../auction-basic-info/auction-basic-info.component';
-import { Store } from '@ngrx/store';
-import { AppState } from 'frontend/src/app/store/app.reducer';
-import { selectSelectedAuction } from 'frontend/src/app/store/auctions/auctions.selectors';
-import { skip, Subscription, take } from 'rxjs';
-import { MatDialog } from '@angular/material/dialog';
-import { BidFormComponent } from '../../bids/bid-form/bid-form.component';
 import { MatButtonModule } from '@angular/material/button';
-import { CreateBid } from 'frontend/src/app/store/bids/bids.actions';
-import { selectProfile } from 'frontend/src/app/store/user/user.selector';
+import { MatCardModule } from '@angular/material/card';
+import { MatDialog } from '@angular/material/dialog';
+import { MatDividerModule } from '@angular/material/divider';
+import { Store } from '@ngrx/store';
+import { IAuction, IImage, IUser } from '@org/models';
+import { AppState } from 'frontend/src/app/store/app.reducer';
 import {
   DeleteAuction,
   UpdateAuction,
 } from 'frontend/src/app/store/auctions/auctions.actions';
-import { AuctionFormComponent } from '../auction-form/auction-form.component';
-import { selectImagesForAuction } from 'frontend/src/app/store/images/images.selectors';
+import { CreateBid } from 'frontend/src/app/store/bids/bids.actions';
 import {
   deleteImage,
   uploadImages,
 } from 'frontend/src/app/store/images/images.actions';
+import { selectImagesForAuction } from 'frontend/src/app/store/images/images.selectors';
+import { selectProfile } from 'frontend/src/app/store/user/user.selector';
+import { Subscription } from 'rxjs';
+import { BidFormComponent } from '../../bids/bid-form/bid-form.component';
+import { BidsComponent } from '../../bids/bids.component';
+import { AuctionBasicInfoComponent } from '../auction-basic-info/auction-basic-info.component';
+import { AuctionFormComponent } from '../auction-form/auction-form.component';
 
 @Component({
   selector: 'app-auction',
@@ -138,7 +126,6 @@ export class AuctionComponent implements OnInit, OnDestroy, OnChanges {
 
       dialogRef.afterClosed().subscribe((result) => {
         if (result) {
-          console.log(result);
           this.store.dispatch(
             UpdateAuction({
               id: this.auction!.id,

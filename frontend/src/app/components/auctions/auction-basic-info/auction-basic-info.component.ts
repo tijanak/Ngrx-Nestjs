@@ -1,28 +1,19 @@
+import { CommonModule } from '@angular/common';
 import {
   Component,
+  EventEmitter,
   Input,
+  OnChanges,
   OnInit,
   Output,
-  EventEmitter,
-  OnChanges,
   SimpleChanges,
 } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { IAuction, IBid, IImage } from '@org/models';
-import { environment } from '@org/environment';
-import { MatCardModule } from '@angular/material/card';
-import {
-  CarouselComponent,
-  CarouselControlComponent,
-  CarouselInnerComponent,
-  CarouselItemComponent,
-  CarouselModule,
-} from '@coreui/angular';
-import { MatDividerModule } from '@angular/material/divider';
-import { RouterLink } from '@angular/router';
-import { MatIconModule } from '@angular/material/icon';
-import { ImageGalleryComponent } from '../../image-gallery/image-gallery.component';
 import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatIconModule } from '@angular/material/icon';
+import { IAuction, IImage } from '@org/models';
+import { ImageGalleryComponent } from '../../image-gallery/image-gallery.component';
 
 @Component({
   selector: 'app-auction-basic-info',
@@ -38,11 +29,7 @@ import { MatButtonModule } from '@angular/material/button';
   templateUrl: './auction-basic-info.component.html',
   styleUrl: './auction-basic-info.component.css',
 })
-export class AuctionBasicInfoComponent implements OnInit, OnChanges {
-  ngOnChanges(changes: SimpleChanges): void {
-    console.log('changes', this.images);
-  }
-  ngOnInit(): void {}
+export class AuctionBasicInfoComponent {
   @Input() auction!: IAuction;
   @Input() userCanModify: boolean;
   @Input() images: IImage[];

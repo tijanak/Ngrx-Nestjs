@@ -17,14 +17,17 @@ import { max, of } from 'rxjs';
 import { SchedulerRegistry } from '@nestjs/schedule';
 import { CronJob } from 'cron';
 import { ImageService } from '../image/image.service';
-
+import { AuctionDeletedEvent } from './auction.events';
+import { EventEmitter2 } from '@nestjs/event-emitter';
 @Injectable()
 export class AuctionService {
   constructor(
     @InjectRepository(Auction)
     private auctionRepo: Repository<Auction>,
     private saleCertificateService: SaleSertificateService,
-    private schedulerRegistry: SchedulerRegistry
+    private schedulerRegistry: SchedulerRegistry,
+
+    private readonly eventEmitter: EventEmitter2
   ) {
     this.getAll(['sale_certificate']).then((auctions) => {
       of(...auctions).forEach((auction) => {
@@ -101,6 +104,11 @@ export class AuctionService {
     Logger.log(auction);
     try {
       await this.auctionRepo.remove(auction);
+
+      this.eventEmitter.emit(
+        'auction.deleted',
+        new AuctionDeletedEvent(id, auction.images)
+      );
       this.deleteAuctionEndJob(id);
       return id;
     } catch (error) {

@@ -17,9 +17,10 @@ import { ImageModule } from '../image/image.module';
 import { SaleSertificateModule } from '../sale_certificate/sale_sertificate.module';
 
 import { ScheduleModule } from '@nestjs/schedule';
-import { ImageSubscriber } from '../image/subscribers/image.subscriber';
+import { EventEmitterModule } from '@nestjs/event-emitter';
 @Module({
   imports: [
+    EventEmitterModule.forRoot(),
     TypeOrmModule.forRoot({
       type: 'postgres',
       host: process.env.NX_POSTGRES_HOST,
@@ -29,7 +30,6 @@ import { ImageSubscriber } from '../image/subscribers/image.subscriber';
       database: process.env.NX_POSTGRES_DB,
       entities: [User, Auction, Bid, Image, SaleCertificate],
       synchronize: true,
-      subscribers: [ImageSubscriber],
     }),
     AuctionModule,
     UserModule,

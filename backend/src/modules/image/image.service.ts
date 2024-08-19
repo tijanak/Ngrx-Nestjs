@@ -49,7 +49,6 @@ export class ImageService {
     const filename = image.fileName;
     await this.imageRepo.delete(image.id);
 
-    //TODO - obrisi
     await this.deleteFile(filename);
   }
   async findImageWithAuctionOwner(imageId: number): Promise<Image | null> {
