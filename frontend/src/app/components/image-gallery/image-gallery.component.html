@@ -1,10 +1,10 @@
 <div
   *ngIf="
-    isVisible && images != null && images != undefined && images.length > 0;
+    images != null && images != undefined && images.length > 0;
     else emptyImages
   "
 >
-  <c-carousel [animate]="false" [dark]="true" [interval]="0">
+  <c-carousel *ngIf="isVisible" [animate]="false" [dark]="true" [interval]="0">
     <c-carousel-inner>
       <ng-container *ngFor="let image of images">
         <c-carousel-item *ngIf="image.fileName">
