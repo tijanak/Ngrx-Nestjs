@@ -14,15 +14,29 @@ export class ImageService {
     const image = this.imageRepo.create(imageDto);
     return this.imageRepo.save(image);
   }
+  createForAuction(imageDto: CreateImageDto, auctionId: number) {
+    const image = this.imageRepo.create({
+      fileName: imageDto.fileName,
+      auction: { id: auctionId },
+    });
+    return this.imageRepo.save(image, {});
+  }
+  async findImagesByAuctionId(auctionId: number): Promise<Image[]> {
+    const images = await this.imageRepo.find({
+      where: { auction: { id: auctionId } },
+      relations: ['auction'],
+    });
 
-  async delete(filename: string) {
+    return images;
+  }
+  async delete(id: number) {
     const image = await this.imageRepo.findOne({
-      where: { fileName: filename },
+      where: { id },
     });
     if (!image) {
-      throw new NotFoundException(`Slika ${filename} ne postoji.`);
+      throw new NotFoundException(`Slika ne postoji.`);
     }
-
+    const filename = image.fileName;
     await this.imageRepo.delete(image.id);
     Logger.log('delete image ' + filename);
 

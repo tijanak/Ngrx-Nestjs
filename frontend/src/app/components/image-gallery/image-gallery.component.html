@@ -4,9 +4,9 @@
     else emptyImages
   "
 >
-  <c-carousel [animate]="false" [dark]="true" [interval]="0">
+  <c-carousel key="carouselKey" [animate]="false" [dark]="true" [interval]="0">
     <c-carousel-inner>
-      <c-carousel-item *ngFor="let image of images">
+      <c-carousel-item *ngFor="let image of images; trackBy: trackByFn">
         <img
           [src]="imageBaseUrl + image.fileName"
           alt="{{ image.fileName }}"

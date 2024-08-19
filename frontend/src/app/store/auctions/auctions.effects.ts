@@ -21,8 +21,11 @@ import {
 import {
   catchError,
   concatMap,
+  exhaustMap,
   filter,
+  from,
   map,
+  mergeMap,
   of,
   switchMap,
   tap,
@@ -30,6 +33,7 @@ import {
   zip,
 } from 'rxjs';
 import {
+  loadImagesForAuction,
   uploadImages,
   uploadImagesFailure,
   uploadImagesSuccess,
@@ -72,41 +76,36 @@ export class AuctionEffects {
       )
     )
   );
-  auctionUpload = 'auction upload';
-  startUploadImage$ = createEffect(() =>
+  auctionLoadSuccess$ = createEffect(() =>
     this.actions$.pipe(
-      ofType(CreateAuction),
-      map(({ auctionDto, images }) => {
-        console.log('uploading', images);
-        console.log(images.length);
-        if (images.length > 0) {
-          return uploadImages({ images, event: this.auctionUpload });
-        }
-
-        return uploadImagesSuccess({
-          images: Array<IImage>(),
-          event: this.auctionUpload,
-        });
-      })
+      ofType(LoadAuctionSuccess),
+      switchMap(({ auction }) => [
+        loadImagesForAuction({ auctionId: auction.id }),
+      ])
     )
   );
+  auctionsLoadSuccess$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(LoadAuctionsSuccess),
+      switchMap(({ auctions }) =>
+        from(auctions).pipe(
+          mergeMap((auction) => [
+            loadImagesForAuction({ auctionId: auction.id }),
+          ])
+        )
+      )
+    )
+  );
+
   uploadAuction$ = createEffect(() =>
     this.actions$.pipe(
-      ofType(uploadImagesSuccess),
-      tap(() => console.log('uploadimagesuccess')),
-      filter(({ event }) => event == this.auctionUpload),
-      tap(() => console.log('filtered')),
-      withLatestFrom(this.store.select(selectAuctionDto)),
-      tap((v) => console.log('before filter', v)),
-      filter((v) => v[1] != null),
-      switchMap((v) => {
-        let auctionDto: CreateAuctionDto = { ...v[1]!, images: v[0].images };
-        console.log('calling service', auctionDto);
+      ofType(CreateAuction),
+      switchMap(({ auctionDto, images }) => {
         return this.auctionsService.createAuction(auctionDto).pipe(
-          map((auction) => {
-            console.log('created', auction);
-            return CreateAuctionSuccess({ auction });
-          }),
+          mergeMap((auction) => [
+            CreateAuctionSuccess({ auction }),
+            uploadImages({ images, auctionId: auction.id }),
+          ]),
           catchError((error) => {
             console.log(error);
             return of(CreateAuctionFailure({ error }));

@@ -2,11 +2,17 @@ import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { ImageService } from '../../services/image.service';
 import {
+  deleteImage,
+  deleteImageFailure,
+  deleteImageSuccess,
+  loadImagesForAuction,
+  loadImagesForAuctionFailure,
+  loadImagesForAuctionSuccess,
   uploadImages,
   uploadImagesFailure,
   uploadImagesSuccess,
 } from './images.actions';
-import { catchError, filter, map, of, switchMap, tap } from 'rxjs';
+import { catchError, filter, map, mergeMap, of, switchMap, tap } from 'rxjs';
 
 @Injectable()
 export class ImageEffects {
@@ -15,19 +21,38 @@ export class ImageEffects {
   upload$ = createEffect(() =>
     this.actions$.pipe(
       ofType(uploadImages),
-      switchMap(({ images, event }) => {
-        console.log('image effect uploading');
-        return this.imageService.postImages(images).pipe(
+      switchMap(({ images, auctionId }) => {
+        return this.imageService.postImagesForAuction(images, auctionId).pipe(
           map((images) => {
-            console.log('success', images);
-            return uploadImagesSuccess({ images, event });
+            return uploadImagesSuccess({ images });
           }),
           catchError((error) => {
-            console.log('error', error);
-            return of(uploadImagesFailure({ error, event }));
+            return of(uploadImagesFailure({ error }));
           })
         );
       })
+    )
+  );
+  loadImagesForAuction$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(loadImagesForAuction),
+      mergeMap((action) =>
+        this.imageService.getImageForAuction(action.auctionId).pipe(
+          map((images) => loadImagesForAuctionSuccess({ images })),
+          catchError((error) => of(loadImagesForAuctionFailure({ error })))
+        )
+      )
+    )
+  );
+  deleteImage$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(deleteImage),
+      switchMap(({ id }) =>
+        this.imageService.deleteImage(id).pipe(
+          map(() => deleteImageSuccess({ id })),
+          catchError((error) => of(deleteImageFailure({ error })))
+        )
+      )
     )
   );
 }

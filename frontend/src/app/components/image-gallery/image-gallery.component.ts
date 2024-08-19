@@ -1,4 +1,5 @@
 import {
+  ChangeDetectorRef,
   Component,
   EventEmitter,
   Input,
@@ -35,13 +36,23 @@ import { MatButtonModule } from '@angular/material/button';
   templateUrl: './image-gallery.component.html',
   styleUrl: './image-gallery.component.css',
 })
-export class ImageGalleryComponent {
+export class ImageGalleryComponent implements OnChanges {
   imageBaseUrl = `${environment.API_URL}images/`;
+  carouselKey = 0;
   @Input() images: IImage[];
   @Output() deleteImgEvent = new EventEmitter<number>();
   @Input() canModify: boolean;
-  constructor() {}
+  constructor(private cdr: ChangeDetectorRef) {}
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['images']) {
+      this.cdr.detectChanges();
+      this.carouselKey++;
+    }
+  }
   deleteImg(id: number) {
     this.deleteImgEvent.emit(id);
+  }
+  trackByFn(index: number, item: any): any {
+    return item.id;
   }
 }

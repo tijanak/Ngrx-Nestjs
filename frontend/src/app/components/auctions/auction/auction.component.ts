@@ -11,7 +11,7 @@ import {
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BidsComponent } from '../../bids/bids.component';
-import { IAuction, IBid, IUser } from '@org/models';
+import { IAuction, IBid, IImage, IUser } from '@org/models';
 import { environment } from '@org/environment';
 import { MatCardModule } from '@angular/material/card';
 import { MatDividerModule } from '@angular/material/divider';
@@ -40,6 +40,8 @@ import {
   UpdateAuction,
 } from 'frontend/src/app/store/auctions/auctions.actions';
 import { AuctionFormComponent } from '../auction-form/auction-form.component';
+import { selectImagesForAuction } from 'frontend/src/app/store/images/images.selectors';
+import { deleteImage } from 'frontend/src/app/store/images/images.actions';
 
 @Component({
   selector: 'app-auction',
@@ -56,7 +58,8 @@ import { AuctionFormComponent } from '../auction-form/auction-form.component';
   styleUrl: './auction.component.css',
 })
 export class AuctionComponent implements OnInit, OnDestroy, OnChanges {
-  subscription: Subscription;
+  subscription: Subscription[] = [];
+  imageSubscription: Subscription;
   constructor(
     private injector: Injector,
     private store: Store<AppState>,
@@ -64,20 +67,34 @@ export class AuctionComponent implements OnInit, OnDestroy, OnChanges {
   ) {}
   ngOnChanges(changes: SimpleChanges): void {
     this.isOwner = this.user != null && this.user.id == this.auction?.owner.id;
+    if (changes['auction']) {
+      if (this.auction)
+        this.imageSubscription = this.store
+          .select(selectImagesForAuction(this.auction!.id))
+          .subscribe((images) => {
+            console.log('images for ', this.auction!.id);
+            console.log(images);
+            this.images = [...images];
+          });
+    }
   }
   ngOnInit(): void {
-    this.subscription = this.store.select(selectProfile).subscribe((user) => {
-      this.user = user;
-      this.isOwner =
-        this.user != null && this.user.id == this.auction?.owner.id;
-    });
+    this.subscription.push(
+      this.store.select(selectProfile).subscribe((user) => {
+        this.user = user;
+        this.isOwner =
+          this.user != null && this.user.id == this.auction?.owner.id;
+      })
+    );
   }
   ngOnDestroy(): void {
-    if (this.subscription) this.subscription.unsubscribe();
+    this.subscription.forEach((sub) => sub.unsubscribe());
+    if (this.imageSubscription) this.imageSubscription.unsubscribe();
   }
 
   @Input() auction!: IAuction | undefined;
   @Input() inList: boolean;
+  images: IImage[] = [];
   user: IUser | null;
   isOwner: boolean = false;
   @Output() openAuction = new EventEmitter<number>();
@@ -134,6 +151,6 @@ export class AuctionComponent implements OnInit, OnDestroy, OnChanges {
     }
   }
   deleteImg(id: number) {
-    alert(id);
+    this.store.dispatch(deleteImage({ id }));
   }
 }

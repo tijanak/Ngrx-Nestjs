@@ -12,6 +12,7 @@ import {
   SaleCertificateState,
 } from './sale-certificate/sale-certificate.reducer';
 import { userReducer, UserState } from './user/user.reducer';
+import { imageReducer, ImageState } from './images/images.reducer';
 export interface AppState {
   auth: AuthState;
   auction: AuctionState;
@@ -19,6 +20,7 @@ export interface AppState {
   bid: BidState;
   saleCerts: SaleCertificateState;
   user: UserState;
+  image: ImageState;
 }
 
 export const appReducers: ActionReducerMap<AppState> = {
@@ -28,4 +30,5 @@ export const appReducers: ActionReducerMap<AppState> = {
   bid: bidReducer,
   saleCerts: certsReducer,
   user: userReducer,
+  image: imageReducer,
 };

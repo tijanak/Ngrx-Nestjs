@@ -10,6 +10,8 @@ import {
   UseInterceptors,
   BadRequestException,
   UseGuards,
+  Delete,
+  ParseIntPipe,
 } from '@nestjs/common';
 import { join } from 'path';
 import * as fs from 'fs';
@@ -26,7 +28,7 @@ import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
 export class ImagesController {
   constructor(private imageService: ImageService) {}
   @UseGuards(JwtAuthGuard)
-  @Post()
+  @Post(':id')
   @UseInterceptors(
     FilesInterceptor('images', 10, {
       storage: diskStorage({
@@ -51,7 +53,10 @@ export class ImagesController {
       },
     })
   )
-  async upload(@UploadedFiles() files: Array<Express.Multer.File>) {
+  async upload(
+    @UploadedFiles() files: Array<Express.Multer.File>,
+    @Param('id', ParseIntPipe) id: number
+  ) {
     if (!files || files.length === 0) {
       throw new BadRequestException('Nisu poslati fajlovi.');
     }
@@ -59,7 +64,7 @@ export class ImagesController {
     try {
       const images = await Promise.all(
         files.map((file) =>
-          this.imageService.create({ fileName: file.filename })
+          this.imageService.createForAuction({ fileName: file.filename }, id)
         )
       );
 
@@ -67,6 +72,14 @@ export class ImagesController {
     } catch (error) {
       throw new BadRequestException('Greska u procesuiranju fajlova.');
     }
+  }
+  @Delete(':id')
+  async delete(@Param('id', ParseIntPipe) id: number) {
+    return this.imageService.delete(id);
+  }
+  @Get('auction/:id')
+  async getForAuction(@Param('id', ParseIntPipe) id: number) {
+    return this.imageService.findImagesByAuctionId(id);
   }
   @Get(':filename')
   async getImage(@Param('filename') filename: string, @Res() res: Response) {

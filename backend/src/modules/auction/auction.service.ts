@@ -94,7 +94,7 @@ export class AuctionService {
       throw new ForbiddenException('Aukcija je prodata');
     const deleteImagePromises = auction.images.map(async (image) => {
       try {
-        await this.imageService.delete(image.fileName);
+        await this.imageService.delete(image.id);
       } catch (e) {
         Logger.log(e);
       }

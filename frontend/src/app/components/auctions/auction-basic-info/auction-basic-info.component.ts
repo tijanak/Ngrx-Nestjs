@@ -1,6 +1,14 @@
-import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import {
+  Component,
+  Input,
+  OnInit,
+  Output,
+  EventEmitter,
+  OnChanges,
+  SimpleChanges,
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { IAuction, IBid } from '@org/models';
+import { IAuction, IBid, IImage } from '@org/models';
 import { environment } from '@org/environment';
 import { MatCardModule } from '@angular/material/card';
 import {
@@ -30,10 +38,14 @@ import { MatButtonModule } from '@angular/material/button';
   templateUrl: './auction-basic-info.component.html',
   styleUrl: './auction-basic-info.component.css',
 })
-export class AuctionBasicInfoComponent implements OnInit {
+export class AuctionBasicInfoComponent implements OnInit, OnChanges {
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log('changes', this.images);
+  }
   ngOnInit(): void {}
   @Input() auction!: IAuction;
   @Input() userCanModify: boolean;
+  @Input() images: IImage[];
   @Output() deleteClicked = new EventEmitter();
   @Output() openClicked = new EventEmitter();
   @Output() updateClicked = new EventEmitter();
