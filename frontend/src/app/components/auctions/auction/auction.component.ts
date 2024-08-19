@@ -41,7 +41,10 @@ import {
 } from 'frontend/src/app/store/auctions/auctions.actions';
 import { AuctionFormComponent } from '../auction-form/auction-form.component';
 import { selectImagesForAuction } from 'frontend/src/app/store/images/images.selectors';
-import { deleteImage } from 'frontend/src/app/store/images/images.actions';
+import {
+  deleteImage,
+  uploadImages,
+} from 'frontend/src/app/store/images/images.actions';
 
 @Component({
   selector: 'app-auction',
@@ -152,5 +155,14 @@ export class AuctionComponent implements OnInit, OnDestroy, OnChanges {
   }
   deleteImg(id: number) {
     this.store.dispatch(deleteImage({ id }));
+  }
+  uploadImg(images: FileList) {
+    if (this.auction)
+      this.store.dispatch(
+        uploadImages({
+          images: { ...images, length: images.length },
+          auctionId: this.auction.id,
+        })
+      );
   }
 }

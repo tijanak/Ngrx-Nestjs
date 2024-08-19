@@ -51,6 +51,7 @@ export class AuctionBasicInfoComponent implements OnInit, OnChanges {
   @Output() updateClicked = new EventEmitter();
   @Input() isInList: boolean = false;
   @Output() deleteImgEvent = new EventEmitter<number>();
+  @Output() uploadImgEvent = new EventEmitter<FileList>();
   deleteAuction(event: MouseEvent) {
     event.stopPropagation();
     this.deleteClicked.emit();

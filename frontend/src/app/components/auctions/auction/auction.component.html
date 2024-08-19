@@ -8,6 +8,7 @@
     (updateClicked)="updateAuction()"
     (deleteImgEvent)="deleteImg($event)"
     [images]="images"
+    (uploadImgEvent)="uploadImg($event)"
   ></app-auction-basic-info>
   <mat-card-content *ngIf="!inList">
     <mat-divider></mat-divider>

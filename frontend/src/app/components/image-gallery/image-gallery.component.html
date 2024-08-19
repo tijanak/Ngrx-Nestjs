@@ -30,6 +30,14 @@
       direction="next"
     ></c-carousel-control> </c-carousel></ng-container
 ><ng-template #emptyImages><img src="empty.jpg" /></ng-template>
-<button *ngIf="canModify" mat-icon-button>
+<input
+  type="file"
+  #fileInput
+  (change)="onFileSelected($event)"
+  multiple
+  style="display: none"
+/>
+
+<button *ngIf="canModify" mat-icon-button (click)="fileInput.click()">
   <mat-icon>add_a_photo</mat-icon>
 </button>

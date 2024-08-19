@@ -41,6 +41,7 @@ export class ImageGalleryComponent implements OnChanges {
   carouselKey = 0;
   @Input() images: IImage[];
   @Output() deleteImgEvent = new EventEmitter<number>();
+  @Output() uploadImgEvent = new EventEmitter<FileList>();
   @Input() canModify: boolean;
   constructor(private cdr: ChangeDetectorRef) {}
   ngOnChanges(changes: SimpleChanges): void {
@@ -54,5 +55,12 @@ export class ImageGalleryComponent implements OnChanges {
   }
   trackByFn(index: number, item: any): any {
     return item.id;
+  }
+  onFileSelected(event: Event) {
+    const input = event.target as HTMLInputElement;
+    if (input.files && input.files.length > 0) {
+      const files = input.files;
+      this.uploadImgEvent.emit(files);
+    }
   }
 }
