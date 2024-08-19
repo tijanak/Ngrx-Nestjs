@@ -10,7 +10,6 @@ import { UserModule } from '../user/user.module';
 import { AuthModule } from '../auth/auth.module';
 import { User } from '../user/user.entity';
 import { Bid } from '../bid/bid.entity';
-import { AuctionCategory } from '../auction_category/auction_category.entity';
 import { Image } from '../image/image.entity';
 import { SaleCertificate } from '../sale_certificate/sale_certificate.entity';
 import { BidModule } from '../bid/bid.module';
@@ -18,6 +17,7 @@ import { ImageModule } from '../image/image.module';
 import { SaleSertificateModule } from '../sale_certificate/sale_sertificate.module';
 
 import { ScheduleModule } from '@nestjs/schedule';
+import { ImageSubscriber } from '../image/subscribers/image.subscriber';
 @Module({
   imports: [
     TypeOrmModule.forRoot({
@@ -27,8 +27,9 @@ import { ScheduleModule } from '@nestjs/schedule';
       username: process.env.NX_POSTGRES_USER,
       password: process.env.NX_POSTGRES_PASSWORD,
       database: process.env.NX_POSTGRES_DB,
-      entities: [User, Auction, Bid, AuctionCategory, Image, SaleCertificate],
+      entities: [User, Auction, Bid, Image, SaleCertificate],
       synchronize: true,
+      subscribers: [ImageSubscriber],
     }),
     AuctionModule,
     UserModule,

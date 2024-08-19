@@ -1,10 +1,8 @@
 import {
-  BadRequestException,
   Body,
   Controller,
   Delete,
   Get,
-  Logger,
   Param,
   ParseIntPipe,
   Patch,
@@ -12,11 +10,11 @@ import {
   Req,
   UseGuards,
 } from '@nestjs/common';
+import { UpdateAuctionDto } from '@org/models';
+import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
 import { AuctionService } from './auction.service';
 import { CreateAuctionDto } from './dto/auction.create-dto';
-import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
 import { OwnerGuard } from './guards/owner.guard';
-import { UpdateAuctionDto } from '@org/models';
 
 @Controller('auction')
 @UseGuards(JwtAuthGuard)

@@ -1,21 +1,19 @@
 import {
-  Controller,
-  Post,
-  UseGuards,
-  Get,
-  Res,
-  Req,
   Body,
+  Controller,
+  Get,
   HttpStatus,
-  Logger,
+  Post,
+  Req,
+  Res,
+  UseGuards,
 } from '@nestjs/common';
-import { AuthGuard } from '@nestjs/passport';
-import { LocalAuthGuard } from './guards/local-auth.guard';
 import { AuthService } from './auth.service';
 import { JwtAuthGuard } from './guards/jwt-auth.guard';
+import { LocalAuthGuard } from './guards/local-auth.guard';
 
-import { Response } from 'express';
 import { CreateUserDto, toIUser } from '@org/models';
+import { Response } from 'express';
 
 @Controller('auth')
 export class AuthController {
@@ -45,7 +43,6 @@ export class AuthController {
       await this.authService.setCookie(res, token);
       res.send(toIUser(user));
     } catch (error) {
-      Logger.log(error.code);
       res.status(HttpStatus.BAD_REQUEST).json({
         statusCode: HttpStatus.BAD_REQUEST,
         message:

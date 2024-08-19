@@ -10,6 +10,8 @@ export class Image implements IImage {
   @Column()
   @IsString()
   fileName: string;
-  @ManyToOne(() => Auction, (auction) => auction.images)
+  @ManyToOne(() => Auction, (auction) => auction.images, {
+    onDelete: 'CASCADE',
+  })
   auction: Auction;
 }

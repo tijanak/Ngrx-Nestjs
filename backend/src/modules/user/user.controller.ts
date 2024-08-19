@@ -1,20 +1,7 @@
-import {
-  Body,
-  ConflictException,
-  Controller,
-  HttpException,
-  HttpStatus,
-  Logger,
-  Patch,
-  Post,
-  Req,
-  Res,
-  UseGuards,
-} from '@nestjs/common';
-import { UserService } from './user.service';
-import { CreateUserDto, UpdateUserDto } from '@org/models';
-import { Response } from 'express';
+import { Body, Controller, Patch, Req, UseGuards } from '@nestjs/common';
+import { UpdateUserDto } from '@org/models';
 import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
+import { UserService } from './user.service';
 
 @Controller('user')
 @UseGuards(JwtAuthGuard)

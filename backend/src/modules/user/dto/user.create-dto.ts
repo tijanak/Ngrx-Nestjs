@@ -1,5 +1,3 @@
-import { OmitType } from '@nestjs/swagger';
-import { User } from '../user.entity';
 import {
   IsEmail,
   IsPhoneNumber,

@@ -1,10 +1,8 @@
 import { IBid } from '@org/models';
-import { IsDate } from 'class-validator';
 import {
   Column,
   CreateDateColumn,
   Entity,
-  JoinColumn,
   ManyToOne,
   OneToOne,
   PrimaryGeneratedColumn,
@@ -26,7 +24,7 @@ export class Bid implements IBid {
   amount: number;
   @ManyToOne(() => User, (user) => user.bids)
   bidder: User;
-  @ManyToOne(() => Auction, (auction) => auction.bids)
+  @ManyToOne(() => Auction, (auction) => auction.bids, { onDelete: 'CASCADE' })
   auction: Auction;
   @OneToOne(
     () => SaleCertificate,

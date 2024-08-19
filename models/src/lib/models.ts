@@ -5,7 +5,6 @@ export interface IAuction {
   end_time: Date;
   title: string;
   description: string;
-  categories: IAuction_Category[];
   owner: IUser;
   images: IImage[];
   sale_certificate: ISale_Certificate | null;
@@ -33,11 +32,6 @@ export interface ISale_Certificate {
   time_granted: Date;
   winning_bid: IBid;
   auction: IAuction;
-}
-export interface IAuction_Category {
-  id: number;
-  name: string;
-  auctions: IAuction[];
 }
 export interface IImage {
   id: number;

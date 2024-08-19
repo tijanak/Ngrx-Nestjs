@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Actions, ofType, createEffect } from '@ngrx/effects';
+import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { ROUTER_NAVIGATED, RouterNavigatedAction } from '@ngrx/router-store';
-import { map, filter, mergeMap, tap } from 'rxjs/operators';
+import { filter, mergeMap } from 'rxjs/operators';
 import { LoadAuction, LoadAuctions } from '../auctions/auctions.actions';
 import { LoadBidsForAuction } from '../bids/bids.actions';
 import { loadSaleCertificates } from '../sale-certificate/sale-certificate.actions';

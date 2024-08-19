@@ -1,6 +1,5 @@
 import { ISale_Certificate } from '@org/models';
 import {
-  Column,
   CreateDateColumn,
   Entity,
   JoinColumn,
@@ -10,7 +9,6 @@ import {
 } from 'typeorm';
 import { Auction } from '../auction/auction.entity';
 import { Bid } from '../bid/bid.entity';
-import { IsDate } from 'class-validator';
 
 @Entity()
 @Unique(['auction'])

@@ -1,21 +1,19 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { LogoutComponent } from '../logout/logout.component';
-import { MenuComponent } from '../menu/menu.component';
-import { SaleCertificateComponent } from '../sale-certificates/sale-certificate/sale-certificate.component';
-import { IAuction, ISale_Certificate, IUser } from '@org/models';
-import { SaleCertificatesComponent } from '../sale-certificates/sale-certificates.component';
-import { Subscription } from 'rxjs';
-import { Store } from '@ngrx/store';
-import { AppState } from '../../store/app.reducer';
-import { selectProfile } from '../../store/user/user.selector';
-import { UserComponent } from '../user/user.component';
-import { MatIconModule } from '@angular/material/icon';
-import { MatDialog } from '@angular/material/dialog';
-import { ProfileUpdateComponent } from './profile-update/profile-update.component';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
-import { ChangePasswordComponent } from './change-password/change-password.component';
+import { MatDialog } from '@angular/material/dialog';
+import { MatIconModule } from '@angular/material/icon';
+import { Store } from '@ngrx/store';
+import { IUser } from '@org/models';
+import { Subscription } from 'rxjs';
+import { AppState } from '../../store/app.reducer';
 import { UpdateUser } from '../../store/user/user.actions';
+import { selectProfile } from '../../store/user/user.selector';
+import { MenuComponent } from '../menu/menu.component';
+import { SaleCertificatesComponent } from '../sale-certificates/sale-certificates.component';
+import { UserComponent } from '../user/user.component';
+import { ChangePasswordComponent } from './change-password/change-password.component';
+import { ProfileUpdateComponent } from './profile-update/profile-update.component';
 
 @Component({
   selector: 'app-profile',

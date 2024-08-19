@@ -1,15 +1,13 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { createReducer, on } from '@ngrx/store';
 import {
-  login,
-  loginSuccess,
   loginFailure,
+  loginSuccess,
   logout,
-  registrationSucces,
-  registrationFailure,
   logoutFinished,
+  registrationFailure,
+  registrationSucces,
 } from './auth.actions';
-import { HttpErrorResponse } from '@angular/common/http';
-import { IUser } from '@org/models';
 
 export interface AuthState {
   error: HttpErrorResponse | null;

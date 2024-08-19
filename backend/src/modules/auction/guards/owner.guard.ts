@@ -1,13 +1,11 @@
 import {
+  BadRequestException,
   CanActivate,
   ExecutionContext,
-  Injectable,
   ForbiddenException,
-  Logger,
-  BadRequestException,
+  Injectable,
 } from '@nestjs/common';
 import { Reflector } from '@nestjs/core';
-import { Observable } from 'rxjs';
 import { AuctionService } from '../auction.service';
 
 @Injectable()

@@ -1,24 +1,23 @@
 import {
-  Controller,
-  Get,
-  Post,
   Body,
-  Patch,
-  Param,
+  Controller,
   Delete,
-  ParseIntPipe,
-  UseGuards,
-  Req,
-  Put,
-  Res,
+  Get,
   HttpStatus,
+  Param,
+  ParseIntPipe,
+  Patch,
+  Post,
+  Req,
+  Res,
+  UseGuards,
 } from '@nestjs/common';
+import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
+import { Bid } from './bid.entity';
 import { BidService } from './bid.service';
 import { CreateBidDto } from './dto/bid.create-dto';
 import { UpdateBidDto } from './dto/bid.update-dto';
-import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
 import { OwnerGuard } from './guards/owner.guard';
-import { Bid } from './bid.entity';
 
 @Controller('bid')
 @UseGuards(JwtAuthGuard)

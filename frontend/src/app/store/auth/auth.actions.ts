@@ -1,6 +1,6 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { createAction, props } from '@ngrx/store';
-import { CreateUserDto, IUser, UpdateUserDto } from '@org/models';
+import { CreateUserDto, IUser } from '@org/models';
 
 export const login = createAction(
   '[Auth] Login',

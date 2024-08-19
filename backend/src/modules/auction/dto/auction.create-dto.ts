@@ -1,19 +1,16 @@
-import { OmitType } from '@nestjs/swagger';
-import { Auction } from '../auction.entity';
+import { IImage } from '@org/models';
+import { IsDateGreaterThan } from 'backend/src/validation/validators/is-date-greater-than.validator';
+import { IsNotInPast } from 'backend/src/validation/validators/is-not-in-past.validator';
+import { Type } from 'class-transformer';
 import {
   IsDate,
   IsNumber,
   IsString,
   MaxLength,
   Min,
-  MinLength,
   Validate,
   ValidateNested,
 } from 'class-validator';
-import { Type } from 'class-transformer';
-import { IsDateGreaterThan } from 'backend/src/validation/validators/is-date-greater-than.validator';
-import { IsNotInPast } from 'backend/src/validation/validators/is-not-in-past.validator';
-import { IImage } from '@org/models';
 import { Image } from '../../image/image.entity';
 export class CreateAuctionDto {
   @IsString()

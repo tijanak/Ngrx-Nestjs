@@ -1,22 +1,6 @@
 import { IUser } from '@org/models';
-import {
-  IsEmail,
-  IsPhoneNumber,
-  IsString,
-  Length,
-  Matches,
-  MaxLength,
-  validateOrReject,
-} from 'class-validator';
-import {
-  BeforeInsert,
-  BeforeUpdate,
-  Column,
-  Entity,
-  OneToMany,
-  PrimaryGeneratedColumn,
-  Unique,
-} from 'typeorm';
+import { IsEmail, IsPhoneNumber, IsString } from 'class-validator';
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 import { Auction } from '../auction/auction.entity';
 import { Bid } from '../bid/bid.entity';
 

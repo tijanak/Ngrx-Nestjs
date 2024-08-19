@@ -12,7 +12,7 @@ export class SaleSertificateService {
   ) {}
   create(createSaleSertificateDto: CreateSaleCertificateDto) {
     const certificate = this.certificateRepo.create(createSaleSertificateDto);
-    Logger.log(certificate.winning_bid);
+
     return this.certificateRepo.save(certificate);
   }
 

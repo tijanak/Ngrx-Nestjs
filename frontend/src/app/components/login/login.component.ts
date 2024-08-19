@@ -1,23 +1,20 @@
-import { Component, OnDestroy, OnInit, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Router, RouterModule } from '@angular/router';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import {
+  FormBuilder,
+  FormGroup,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ReactiveFormsModule } from '@angular/forms';
-import { AuthService } from '../../services/auth.service';
+import { Router, RouterModule } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { AppState } from '../../store/app.reducer';
 import { login } from '../../store/auth/auth.actions';
-import {
-  selectAuthError,
-  selectAuthFeature,
-} from '../../store/auth/auth.selectors';
-import { MatCardModule } from '@angular/material/card';
-import { skip, Subscription } from 'rxjs';
-import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-login',

@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
+import { catchError, map, mergeMap, of, switchMap } from 'rxjs';
 import { ImageService } from '../../services/image.service';
 import {
   deleteImage,
@@ -12,7 +13,6 @@ import {
   uploadImagesFailure,
   uploadImagesSuccess,
 } from './images.actions';
-import { catchError, filter, map, mergeMap, of, switchMap, tap } from 'rxjs';
 
 @Injectable()
 export class ImageEffects {

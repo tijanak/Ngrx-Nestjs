@@ -1,19 +1,13 @@
 import { Module } from '@nestjs/common';
-import { AuctionService } from './auction.service';
-import { AuctionController } from './auction.controller';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { Auction } from './auction.entity';
-import { APP_GUARD } from '@nestjs/core';
-import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
-import { SaleSertificateModule } from '../sale_certificate/sale_sertificate.module';
 import { ImageModule } from '../image/image.module';
+import { SaleSertificateModule } from '../sale_certificate/sale_sertificate.module';
+import { AuctionController } from './auction.controller';
+import { Auction } from './auction.entity';
+import { AuctionService } from './auction.service';
 
 @Module({
-  imports: [
-    ImageModule,
-    TypeOrmModule.forFeature([Auction]),
-    SaleSertificateModule,
-  ],
+  imports: [TypeOrmModule.forFeature([Auction]), SaleSertificateModule],
   providers: [AuctionService],
   controllers: [AuctionController],
   exports: [AuctionService],

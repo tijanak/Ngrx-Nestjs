@@ -1,8 +1,7 @@
-import { IsDate, Min } from 'class-validator';
+import { IAuction } from '@org/models';
 import {
   Column,
   Entity,
-  JoinColumn,
   ManyToMany,
   ManyToOne,
   OneToMany,
@@ -10,11 +9,9 @@ import {
   PrimaryGeneratedColumn,
 } from 'typeorm';
 import { Bid } from '../bid/bid.entity';
-import { IAuction } from '@org/models';
-import { AuctionCategory } from '../auction_category/auction_category.entity';
-import { User } from '../user/user.entity';
 import { Image } from '../image/image.entity';
 import { SaleCertificate } from '../sale_certificate/sale_certificate.entity';
+import { User } from '../user/user.entity';
 @Entity()
 export class Auction implements IAuction {
   @PrimaryGeneratedColumn()
@@ -31,13 +28,10 @@ export class Auction implements IAuction {
   @Column()
   min_price: number;
 
-  @ManyToMany(() => AuctionCategory, (category) => category.auctions)
-  categories: AuctionCategory[];
   @ManyToOne(() => User, (user) => user.auctions)
   owner: User;
   @OneToMany(() => Image, (image) => image.auction, {
     cascade: true,
-    onDelete: 'CASCADE',
     onUpdate: 'CASCADE',
   })
   images: Image[];
@@ -50,7 +44,6 @@ export class Auction implements IAuction {
 
   @OneToMany(() => Bid, (bid) => bid.auction, {
     cascade: true,
-    onDelete: 'CASCADE',
     onUpdate: 'CASCADE',
   })
   bids: Bid[];

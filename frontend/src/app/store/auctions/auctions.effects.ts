@@ -1,54 +1,33 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
+import { Store } from '@ngrx/store';
+import { catchError, from, map, mergeMap, of, switchMap } from 'rxjs';
 import { AuctionService } from '../../services/auction.service';
+import { AppState } from '../app.reducer';
+import { loadImagesForAuction, uploadImages } from '../images/images.actions';
 import {
+  CreateAuction,
   CreateAuctionFailure,
   CreateAuctionSuccess,
+  DeleteAuction,
+  DeleteAuctionFailure,
+  DeleteAuctionSuccess,
+  LoadAuction,
+  LoadAuctionFailure,
   LoadAuctions,
   LoadAuctionsFailure,
   LoadAuctionsSuccess,
-  CreateAuction,
-  DeleteAuction,
-  DeleteAuctionSuccess,
-  DeleteAuctionFailure,
-  LoadAuction,
   LoadAuctionSuccess,
-  LoadAuctionFailure,
   UpdateAuction,
-  UpdateAuctionSuccess,
   UpdateAuctionFailure,
+  UpdateAuctionSuccess,
 } from './auctions.actions';
-import {
-  catchError,
-  concatMap,
-  exhaustMap,
-  filter,
-  from,
-  map,
-  mergeMap,
-  of,
-  switchMap,
-  tap,
-  withLatestFrom,
-  zip,
-} from 'rxjs';
-import {
-  loadImagesForAuction,
-  uploadImages,
-  uploadImagesFailure,
-  uploadImagesSuccess,
-} from '../images/images.actions';
-import { Store } from '@ngrx/store';
-import { AppState } from '../app.reducer';
-import { selectAuctionDto } from './auctions.selectors';
-import { CreateAuctionDto, IImage } from '@org/models';
 
 @Injectable()
 export class AuctionEffects {
   constructor(
     private actions$: Actions,
-    private auctionsService: AuctionService,
-    private store: Store<AppState>
+    private auctionsService: AuctionService
   ) {}
   auction$ = createEffect(() =>
     this.actions$.pipe(

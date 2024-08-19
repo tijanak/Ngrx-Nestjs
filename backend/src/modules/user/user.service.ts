@@ -1,15 +1,10 @@
-import {
-  BadRequestException,
-  ConflictException,
-  Injectable,
-} from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { User } from './user.entity';
 import { Repository } from 'typeorm';
+import { User } from './user.entity';
 
+import { CreateUserDto, UpdateUserDto } from '@org/models';
 import * as bcrypt from 'bcrypt';
-import { CreateUserDto, toIUser, UpdateUserDto } from '@org/models';
-import { validate } from 'class-validator';
 @Injectable()
 export class UserService {
   constructor(

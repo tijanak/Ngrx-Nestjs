@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import {
   ChangeDetectorRef,
   Component,
@@ -7,18 +8,17 @@ import {
   Output,
   SimpleChanges,
 } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { IImage } from '@org/models';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { RouterModule } from '@angular/router';
 import {
   CarouselControlComponent,
   CarouselInnerComponent,
   CarouselItemComponent,
   CarouselModule,
 } from '@coreui/angular';
-import { RouterModule } from '@angular/router';
 import { environment } from '@org/environment';
-import { MatIconModule } from '@angular/material/icon';
-import { MatButtonModule } from '@angular/material/button';
+import { IImage } from '@org/models';
 
 @Component({
   selector: 'app-image-gallery',

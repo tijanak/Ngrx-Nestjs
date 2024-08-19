@@ -1,14 +1,12 @@
 import { Route } from '@angular/router';
-import { LoginComponent } from './components/login/login.component';
-import { RegisterComponent } from './components/register/register.component';
 import { HomeComponent } from './components/home/home.component';
+import { LoginComponent } from './components/login/login.component';
+import { AuctionViewPageComponent } from './components/pages/auction-view-page/auction-view-page.component';
+import { ProfileComponent } from './components/profile/profile.component';
+import { RegisterComponent } from './components/register/register.component';
+import { SaleCertificatePageComponent } from './components/sale-certificate-page/sale-certificate-page.component';
 import { AuthGuard } from './guards/auth.guard';
 import { PublicGuard } from './guards/public.guard';
-import { ProfileComponent } from './components/profile/profile.component';
-import { AuctionFormComponent } from './components/auctions/auction-form/auction-form.component';
-import { AuctionComponent } from './components/auctions/auction/auction.component';
-import { SaleCertificatePageComponent } from './components/sale-certificate-page/sale-certificate-page.component';
-import { AuctionViewPageComponent } from './components/pages/auction-view-page/auction-view-page.component';
 
 export const appRoutes: Route[] = [
   { path: 'login', component: LoginComponent, canActivate: [PublicGuard] },

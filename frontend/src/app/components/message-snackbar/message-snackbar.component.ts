@@ -30,7 +30,6 @@ export class MessageSnackbarComponent implements OnInit, OnDestroy {
       this.store.select(selectUserError),
       this.store.select(selectImageError)
     ).subscribe((error) => {
-      console.log(error);
       if (error && error.error && error.error.message) {
         this.snackBar.open(error.error.message, 'Close', {
           duration: 2000,

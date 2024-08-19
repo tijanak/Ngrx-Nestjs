@@ -1,15 +1,11 @@
-import {
-  BadRequestException,
-  ForbiddenException,
-  Injectable,
-} from '@nestjs/common';
+import { ForbiddenException, Injectable } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
+import { AuctionService } from '../auction/auction.service';
+import { User } from '../user/user.entity';
+import { Bid } from './bid.entity';
 import { CreateBidDto } from './dto/bid.create-dto';
 import { UpdateBidDto } from './dto/bid.update-dto';
-import { InjectRepository } from '@nestjs/typeorm';
-import { Bid } from './bid.entity';
-import { Repository } from 'typeorm';
-import { User } from '../user/user.entity';
-import { AuctionService } from '../auction/auction.service';
 
 @Injectable()
 export class BidService {

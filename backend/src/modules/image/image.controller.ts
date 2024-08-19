@@ -1,33 +1,32 @@
 import {
-  Controller,
-  Get,
-  Param,
-  Res,
-  NotFoundException,
-  Logger,
-  Post,
-  UploadedFiles,
-  UseInterceptors,
   BadRequestException,
-  UseGuards,
+  Controller,
   Delete,
+  Get,
+  Logger,
+  NotFoundException,
+  Param,
   ParseIntPipe,
+  Post,
+  Res,
+  UploadedFiles,
+  UseGuards,
+  UseInterceptors,
 } from '@nestjs/common';
-import { join } from 'path';
-import * as fs from 'fs';
-import { Response } from 'express';
-import * as path from 'path';
-import { diskStorage } from 'multer';
 import { FilesInterceptor } from '@nestjs/platform-express';
-import { map, of, scan, switchMap } from 'rxjs';
-import { ImageService, imagesPath } from './image.service';
-import { Image } from './image.entity';
+import { Response } from 'express';
+import * as fs from 'fs';
+import { diskStorage } from 'multer';
+import * as path from 'path';
 import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
+import { ImageOwnerGuard } from './guards/owner.guard';
+import { ImageService, imagesPath } from './image.service';
+import { OwnerGuard } from '../auction/guards/owner.guard';
 
 @Controller('images')
 export class ImagesController {
   constructor(private imageService: ImageService) {}
-  @UseGuards(JwtAuthGuard)
+  @UseGuards(JwtAuthGuard, OwnerGuard)
   @Post(':id')
   @UseInterceptors(
     FilesInterceptor('images', 10, {
@@ -73,6 +72,7 @@ export class ImagesController {
       throw new BadRequestException('Greska u procesuiranju fajlova.');
     }
   }
+  @UseGuards(JwtAuthGuard, ImageOwnerGuard)
   @Delete(':id')
   async delete(@Param('id', ParseIntPipe) id: number) {
     return this.imageService.delete(id);

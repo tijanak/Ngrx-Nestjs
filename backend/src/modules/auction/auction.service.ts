@@ -24,8 +24,7 @@ export class AuctionService {
     @InjectRepository(Auction)
     private auctionRepo: Repository<Auction>,
     private saleCertificateService: SaleSertificateService,
-    private schedulerRegistry: SchedulerRegistry,
-    private imageService: ImageService
+    private schedulerRegistry: SchedulerRegistry
   ) {
     this.getAll(['sale_certificate']).then((auctions) => {
       of(...auctions).forEach((auction) => {
@@ -85,28 +84,28 @@ export class AuctionService {
     return updatedAuction;
   }
   async delete(id) {
-    const auction = await this.auctionRepo.findOne({
+    let auction = await this.auctionRepo.findOne({
       where: [{ id: id }],
       relations: ['sale_certificate', 'images'],
     });
-    Logger.log('deleting auction ' + id);
+    if (!auction) {
+      throw new BadRequestException('Aukcija ne postoji');
+    }
     if (auction.sale_certificate != null)
       throw new ForbiddenException('Aukcija je prodata');
-    const deleteImagePromises = auction.images.map(async (image) => {
-      try {
-        await this.imageService.delete(image.id);
-      } catch (e) {
-        Logger.log(e);
-      }
-    });
 
-    await Promise.all(deleteImagePromises);
+    auction = await this.auctionRepo.findOne({
+      where: [{ id: id }],
+      relations: ['images', 'bids'],
+    });
+    Logger.log(auction);
     try {
-      await this.auctionRepo.delete(id);
-      this.deleteAuctionEndJob(auction.id);
+      await this.auctionRepo.remove(auction);
+      this.deleteAuctionEndJob(id);
       return id;
     } catch (error) {
       Logger.error('Error deleting auction:', error);
+      Logger.error('Stack trace:', error.stack);
       throw new InternalServerErrorException('Greska u toku brisanja');
     }
   }

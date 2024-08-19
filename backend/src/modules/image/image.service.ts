@@ -10,10 +10,7 @@ export const imagesPath = path.join(__dirname, '../../', imagesFolder);
 @Injectable()
 export class ImageService {
   constructor(@InjectRepository(Image) private imageRepo: Repository<Image>) {}
-  create(imageDto: CreateImageDto) {
-    const image = this.imageRepo.create(imageDto);
-    return this.imageRepo.save(image);
-  }
+
   createForAuction(imageDto: CreateImageDto, auctionId: number) {
     const image = this.imageRepo.create({
       fileName: imageDto.fileName,
@@ -29,6 +26,19 @@ export class ImageService {
 
     return images;
   }
+  async deleteFile(filename: string) {
+    const filePath = path.join(imagesPath, filename);
+    try {
+      await fs.promises.unlink(filePath);
+    } catch (error) {
+      if (error.code === 'ENOENT') {
+        throw new NotFoundException(
+          `Slika ${filename} nije pronadjena u folderu`
+        );
+      }
+      throw error;
+    }
+  }
   async delete(id: number) {
     const image = await this.imageRepo.findOne({
       where: { id },
@@ -38,19 +48,14 @@ export class ImageService {
     }
     const filename = image.fileName;
     await this.imageRepo.delete(image.id);
-    Logger.log('delete image ' + filename);
 
-    const filePath = path.join(imagesPath, filename);
-    try {
-      await fs.promises.unlink(filePath);
-      Logger.log(`Slika ${filename} obrisana.`);
-    } catch (error) {
-      if (error.code === 'ENOENT') {
-        throw new NotFoundException(
-          `Slika ${filename} nije pronadjena u folderu`
-        );
-      }
-      throw error;
-    }
+    //TODO - obrisi
+    await this.deleteFile(filename);
+  }
+  async findImageWithAuctionOwner(imageId: number): Promise<Image | null> {
+    return this.imageRepo.findOne({
+      where: { id: imageId },
+      relations: ['auction', 'auction.owner'],
+    });
   }
 }
