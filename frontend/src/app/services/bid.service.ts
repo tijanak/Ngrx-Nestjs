@@ -17,7 +17,7 @@ export class BidService {
   }
 
   getAllBids(): Observable<IBid[]> {
-    return this.http.get<IBid[]>(`${this.baseUrl}/all`);
+    return this.http.get<IBid[]>(`${this.baseUrl}`);
   }
 
   getBidById(id: number): Observable<IBid> {

@@ -21,6 +21,9 @@
     <button *ngIf="!isOwner" mat-button (click)="openBidModal()">
       Napravi ponudu
     </button>
+    <mat-card-header>
+      <mat-card-title>Ponude</mat-card-title>
+    </mat-card-header>
     <app-bids></app-bids>
   </mat-card-content>
 </mat-card>

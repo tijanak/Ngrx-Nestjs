@@ -43,8 +43,15 @@ export class BidService {
     return this.bidRepo.save(bid);
   }
 
-  findAll() {
-    return this.bidRepo.find();
+  async findAll(userId: number): Promise<Bid[]> {
+    return this.bidRepo.find({
+      where: {
+        bidder: {
+          id: userId,
+        },
+      },
+      relations: ['bidder'],
+    });
   }
 
   findOne(id: number, relations: string[] = []) {

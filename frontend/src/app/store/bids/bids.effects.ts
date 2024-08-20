@@ -14,6 +14,9 @@ import {
   UpdateBid,
   UpdateBidSuccess,
   UpdateBidFailure,
+  LoadBidsForUser,
+  LoadBidsForUserSuccess,
+  LoadBidsForUserFailure,
 } from './bids.actions';
 import { catchError, map, switchMap } from 'rxjs/operators';
 import { of } from 'rxjs';
@@ -30,6 +33,17 @@ export class BidEffects {
         this.bidService.getBidsForAuction(action.auctionId).pipe(
           map((bids) => LoadBidsForAuctionSuccess({ bids })),
           catchError((error) => of(LoadBidsForAuctionFailure({ error })))
+        )
+      )
+    )
+  );
+  loadBidsForUser$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(LoadBidsForUser),
+      switchMap((action) =>
+        this.bidService.getAllBids().pipe(
+          map((bids) => LoadBidsForUserSuccess({ bids })),
+          catchError((error) => of(LoadBidsForUserFailure({ error })))
         )
       )
     )

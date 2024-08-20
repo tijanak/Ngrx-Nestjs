@@ -48,9 +48,9 @@ export class BidController {
       });
     }
   }
-  @Get('all')
-  findAll() {
-    return this.bidService.findAll();
+  @Get()
+  async findAll(@Req() req) {
+    return this.bidService.findAll(req.user.id);
   }
 
   @Get(':id')

@@ -2,8 +2,12 @@ import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { ROUTER_NAVIGATED, RouterNavigatedAction } from '@ngrx/router-store';
 import { filter, mergeMap } from 'rxjs/operators';
-import { LoadAuction, LoadAuctions } from '../auctions/auctions.actions';
-import { LoadBidsForAuction } from '../bids/bids.actions';
+import {
+  LoadAuction,
+  LoadAuctions,
+  LoadAuctionsForUser,
+} from '../auctions/auctions.actions';
+import { LoadBidsForAuction, LoadBidsForUser } from '../bids/bids.actions';
 import { loadSaleCertificates } from '../sale-certificate/sale-certificate.actions';
 
 @Injectable()
@@ -36,7 +40,7 @@ export class RouteEffects {
       })
     )
   );
-  navigationToProfil$ = createEffect(() =>
+  navigationToCertificate$ = createEffect(() =>
     this.actions$.pipe(
       ofType<RouterNavigatedAction>(ROUTER_NAVIGATED),
       filter(
@@ -45,6 +49,16 @@ export class RouteEffects {
 
       mergeMap(() => {
         return [loadSaleCertificates()];
+      })
+    )
+  );
+  navigationToProfile$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType<RouterNavigatedAction>(ROUTER_NAVIGATED),
+      filter((action) => action.payload.routerState.url === '/profile'),
+
+      mergeMap(() => {
+        return [LoadBidsForUser(), LoadAuctionsForUser()];
       })
     )
   );

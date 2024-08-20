@@ -9,9 +9,11 @@ export const LoadAuctionsSuccess = createAction(
   props<{ auctions: IAuction[] }>()
 );
 export const LoadAuctionsFailure = createAction(
-  '[Auction] Loaded Auctions',
+  '[Auction] Load Auctions Failure',
   props<{ error: HttpErrorResponse }>()
 );
+export const LoadAuctionsForUser = createAction('[Auction] Load User Auctions');
+
 export const CreateAuction = createAction(
   '[Auction] Upload Auction',
   props<{ auctionDto: CreateAuctionDto; images: FileList }>()

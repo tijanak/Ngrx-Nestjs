@@ -14,6 +14,9 @@ export class AuctionService {
   getAuction(id: number) {
     return this.httpClient.get<IAuction>(`${environment.API_URL}auction/${id}`);
   }
+  getAuctionsForUser() {
+    return this.httpClient.get<IAuction[]>(`${environment.API_URL}auction`);
+  }
   createAuction(auction: CreateAuctionDto) {
     return this.httpClient.post<IAuction>(
       `${environment.API_URL}auction`,

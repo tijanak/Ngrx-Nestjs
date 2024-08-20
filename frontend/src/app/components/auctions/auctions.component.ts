@@ -37,6 +37,10 @@ export class AuctionsComponent implements OnInit, OnDestroy {
       .select(selectAuctions)
       .subscribe((auctions) => {
         this.auctions = auctions;
+        this.auctions.sort(
+          (a, b) =>
+            new Date(a.start_time).getTime() - new Date(b.start_time).getTime()
+        );
       });
   }
   auctions: IAuction[] = [];

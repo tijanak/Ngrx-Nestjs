@@ -21,6 +21,12 @@ export const bidReducer = createReducer(
   on(actions.LoadBidsForAuctionFailure, (state, { error }) => {
     return { ...state, error };
   }),
+  on(actions.LoadBidsForUserSuccess, (state, { bids }) => {
+    return bidsAdapter.setAll(bids, state);
+  }),
+  on(actions.LoadBidsForUserFailure, (state, { error }) => {
+    return { ...state, error };
+  }),
   on(actions.CreateBidSuccess, (state, { bid }) => {
     return bidsAdapter.setOne(bid, state);
   }),

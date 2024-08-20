@@ -55,3 +55,12 @@ export const UpdateBidFailure = createAction(
   '[Bid] Update Bid Failure',
   props<{ error: HttpErrorResponse }>()
 );
+export const LoadBidsForUser = createAction('[Bid] Load For User');
+export const LoadBidsForUserSuccess = createAction(
+  '[Bid] Load User Bids Success',
+  props<{ bids: IBid[] }>()
+);
+export const LoadBidsForUserFailure = createAction(
+  '[Bid] Load User Bids Failure',
+  props<{ error: HttpErrorResponse }>()
+);

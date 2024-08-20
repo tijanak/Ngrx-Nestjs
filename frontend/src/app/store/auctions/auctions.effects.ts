@@ -14,6 +14,7 @@ import {
   LoadAuctionFailure,
   LoadAuctions,
   LoadAuctionsFailure,
+  LoadAuctionsForUser,
   LoadAuctionsSuccess,
   LoadAuctionSuccess,
   UpdateAuction,
@@ -32,6 +33,19 @@ export class AuctionEffects {
       ofType(LoadAuctions),
       switchMap(() =>
         this.auctionsService.getAuctions().pipe(
+          map((auctions) => {
+            return LoadAuctionsSuccess({ auctions });
+          }),
+          catchError((error) => of(LoadAuctionsFailure({ error })))
+        )
+      )
+    )
+  );
+  userAuction$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(LoadAuctionsForUser),
+      switchMap(() =>
+        this.auctionsService.getAuctionsForUser().pipe(
           map((auctions) => {
             return LoadAuctionsSuccess({ auctions });
           }),
