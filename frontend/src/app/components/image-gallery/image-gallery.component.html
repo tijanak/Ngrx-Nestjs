@@ -4,7 +4,13 @@
     else emptyImages
   "
 >
-  <c-carousel *ngIf="isVisible" [animate]="false" [dark]="true" [interval]="0">
+  <c-carousel
+    *ngIf="isVisible"
+    [wrap]="false"
+    [animate]="false"
+    [dark]="true"
+    [interval]="0"
+  >
     <c-carousel-inner>
       <ng-container *ngFor="let image of images">
         <c-carousel-item *ngIf="image.fileName">
@@ -33,7 +39,9 @@
     ></c-carousel-control>
   </c-carousel>
 </div>
-<ng-template #emptyImages><img src="empty.jpg" /></ng-template>
+<ng-template #emptyImages
+  ><img src="empty.jpg" style="display: block"
+/></ng-template>
 <input
   type="file"
   #fileInput

@@ -18,10 +18,10 @@ import { Response } from 'express';
 import * as fs from 'fs';
 import { diskStorage } from 'multer';
 import * as path from 'path';
+import { OwnerGuard } from '../auction/guards/owner.guard';
 import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
 import { ImageOwnerGuard } from './guards/owner.guard';
 import { ImageService, imagesPath } from './image.service';
-import { OwnerGuard } from '../auction/guards/owner.guard';
 
 @Controller('images')
 export class ImagesController {

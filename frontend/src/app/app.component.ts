@@ -24,7 +24,7 @@ import { CommonModule } from '@angular/common';
   styleUrl: './app.component.scss',
 })
 export class AppComponent implements OnInit, OnDestroy {
-  title = 'aukcije';
+  title = 'e-aukcije';
   userSubscription: Subscription;
   user: IUser | null = null;
   constructor(private store: Store<AppState>) {}

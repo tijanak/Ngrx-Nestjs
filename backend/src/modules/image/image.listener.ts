@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { OnEvent } from '@nestjs/event-emitter';
-import { ImageService } from './image.service';
 import { AuctionDeletedEvent } from '../auction/auction.events';
+import { ImageService } from './image.service';
 
 @Injectable()
 export class ImageListener {

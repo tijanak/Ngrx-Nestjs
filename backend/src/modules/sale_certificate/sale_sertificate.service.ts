@@ -1,8 +1,8 @@
-import { Injectable, Logger } from '@nestjs/common';
-import { CreateSaleCertificateDto } from './dto/sale_certificate.create-dto';
+import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { SaleCertificate } from './sale_certificate.entity';
 import { Repository } from 'typeorm';
+import { CreateSaleCertificateDto } from './dto/sale_certificate.create-dto';
+import { SaleCertificate } from './sale_certificate.entity';
 
 @Injectable()
 export class SaleSertificateService {

@@ -1,8 +1,8 @@
-<mat-card *ngIf="saleCertificates.length === 0">
-  <mat-card-header>
-    <mat-card-title>Nema potvrda o prodaji</mat-card-title>
+<div *ngIf="saleCertificates.length === 0">
+  <mat-card-header class="flex justify-center">
+    <mat-card-title><b>Nema potvrda o prodaji</b></mat-card-title>
   </mat-card-header>
-</mat-card>
+</div>
 
 <div *ngFor="let saleCertificate of saleCertificates">
   <app-sale-certificate

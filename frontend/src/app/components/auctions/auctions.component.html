@@ -1,5 +1,4 @@
-<mat-divider></mat-divider>
-<div *ngFor="let auction of auctions">
+<div class="auction" *ngFor="let auction of auctions">
   <mat-card>
     <app-auction
       (openAuction)="open($event)"
@@ -7,5 +6,4 @@
       [inList]="true"
     ></app-auction>
   </mat-card>
-  <mat-divider></mat-divider>
 </div>

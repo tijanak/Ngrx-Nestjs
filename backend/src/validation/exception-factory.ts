@@ -1,5 +1,5 @@
-import { ValidationError } from 'class-validator';
 import { BadRequestException } from '@nestjs/common';
+import { ValidationError } from 'class-validator';
 
 export function exceptionFactory(
   validationErrors: ValidationError[]

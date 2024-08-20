@@ -14,6 +14,7 @@ import { SaleCertificatesComponent } from '../sale-certificates/sale-certificate
 import { UserComponent } from '../user/user.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
 import { ProfileUpdateComponent } from './profile-update/profile-update.component';
+import { MatCardModule } from '@angular/material/card';
 
 @Component({
   selector: 'app-profile',
@@ -25,6 +26,7 @@ import { ProfileUpdateComponent } from './profile-update/profile-update.componen
     UserComponent,
     MatIconModule,
     MatButtonModule,
+    MatCardModule,
   ],
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.css',

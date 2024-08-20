@@ -27,8 +27,12 @@
   </mat-card-header>
   <mat-card-content>
     <p>{{ auction.description }}</p>
-    <p>Početak aukcije: {{ auction.start_time | date : 'short' }}</p>
-    <p>Kraj aukcije: {{ auction.end_time | date : 'short' }}</p>
+    <p>
+      Početak aukcije: <u>{{ auction.start_time | date : 'short' }}</u>
+    </p>
+    <p>
+      Kraj aukcije: <u>{{ auction.end_time | date : 'short' }}</u>
+    </p>
   </mat-card-content>
 </div>
 <mat-card-content>

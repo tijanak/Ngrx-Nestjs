@@ -1,23 +1,22 @@
 import { Module } from '@nestjs/common';
 
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { Auction } from '../auction/auction.entity';
+import { AuctionModule } from '../auction/auction.module';
+import { AuthModule } from '../auth/auth.module';
+import { Bid } from '../bid/bid.entity';
+import { BidModule } from '../bid/bid.module';
+import { Image } from '../image/image.entity';
+import { ImageModule } from '../image/image.module';
+import { SaleCertificate } from '../sale_certificate/sale_certificate.entity';
+import { SaleSertificateModule } from '../sale_certificate/sale_sertificate.module';
+import { User } from '../user/user.entity';
+import { UserModule } from '../user/user.module';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { AuctionModule } from '../auction/auction.module';
-import { TypeOrmModule } from '@nestjs/typeorm';
-import { environment } from '@org/environment';
-import { Auction } from '../auction/auction.entity';
-import { UserModule } from '../user/user.module';
-import { AuthModule } from '../auth/auth.module';
-import { User } from '../user/user.entity';
-import { Bid } from '../bid/bid.entity';
-import { Image } from '../image/image.entity';
-import { SaleCertificate } from '../sale_certificate/sale_certificate.entity';
-import { BidModule } from '../bid/bid.module';
-import { ImageModule } from '../image/image.module';
-import { SaleSertificateModule } from '../sale_certificate/sale_sertificate.module';
 
-import { ScheduleModule } from '@nestjs/schedule';
 import { EventEmitterModule } from '@nestjs/event-emitter';
+import { ScheduleModule } from '@nestjs/schedule';
 @Module({
   imports: [
     EventEmitterModule.forRoot(),

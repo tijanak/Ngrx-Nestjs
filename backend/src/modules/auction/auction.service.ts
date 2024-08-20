@@ -6,19 +6,18 @@ import {
   Logger,
   NotFoundException,
 } from '@nestjs/common';
-import { InjectRepository } from '@nestjs/typeorm';
-import { Auction } from './auction.entity';
-import { Repository } from 'typeorm';
-import { CreateAuctionDto } from './dto/auction.create-dto';
-import { User } from '../user/user.entity';
-import { UpdateAuctionDto } from '@org/models';
-import { SaleSertificateService } from '../sale_certificate/sale_sertificate.service';
-import { max, of } from 'rxjs';
-import { SchedulerRegistry } from '@nestjs/schedule';
-import { CronJob } from 'cron';
-import { ImageService } from '../image/image.service';
-import { AuctionDeletedEvent } from './auction.events';
 import { EventEmitter2 } from '@nestjs/event-emitter';
+import { SchedulerRegistry } from '@nestjs/schedule';
+import { InjectRepository } from '@nestjs/typeorm';
+import { UpdateAuctionDto } from '@org/models';
+import { CronJob } from 'cron';
+import { max, of } from 'rxjs';
+import { Repository } from 'typeorm';
+import { SaleSertificateService } from '../sale_certificate/sale_sertificate.service';
+import { User } from '../user/user.entity';
+import { Auction } from './auction.entity';
+import { AuctionDeletedEvent } from './auction.events';
+import { CreateAuctionDto } from './dto/auction.create-dto';
 @Injectable()
 export class AuctionService {
   constructor(
@@ -32,8 +31,6 @@ export class AuctionService {
     this.getAll(['sale_certificate']).then((auctions) => {
       of(...auctions).forEach((auction) => {
         if (auction.sale_certificate == null && auction.end_time < new Date()) {
-          Logger.log(auction.id, auction.sale_certificate, auction.end_time);
-
           this.endAuction(auction.id);
         } else {
           if (auction.end_time >= new Date()) this.setAuctionEnd(auction);
@@ -45,8 +42,8 @@ export class AuctionService {
     const job = new CronJob(auction.end_time, () => {
       try {
         this.endAuction(auction.id);
-      } catch (e) {
-        Logger.log(e);
+      } catch (error) {
+        Logger.log(error);
       }
     });
     this.schedulerRegistry.addCronJob('end auction ' + auction.id, job);
@@ -101,7 +98,6 @@ export class AuctionService {
       where: [{ id: id }],
       relations: ['images', 'bids'],
     });
-    Logger.log(auction);
     try {
       await this.auctionRepo.remove(auction);
 
@@ -113,7 +109,6 @@ export class AuctionService {
       return id;
     } catch (error) {
       Logger.error('Error deleting auction:', error);
-      Logger.error('Stack trace:', error.stack);
       throw new InternalServerErrorException('Greska u toku brisanja');
     }
   }
@@ -146,9 +141,8 @@ export class AuctionService {
     }
     if (auction.bids.length > 0) {
       of(...auction.bids)
-        .pipe(max((a, b) => b.amount - a.amount))
+        .pipe(max((a, b) => a.amount - b.amount))
         .subscribe((winningBid) => {
-          Logger.log(winningBid.id);
           return this.saleCertificateService.create({
             winning_bid: winningBid,
             auction,

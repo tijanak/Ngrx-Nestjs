@@ -2,7 +2,6 @@ import { IAuction } from '@org/models';
 import {
   Column,
   Entity,
-  ManyToMany,
   ManyToOne,
   OneToMany,
   OneToOne,
