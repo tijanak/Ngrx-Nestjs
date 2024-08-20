@@ -1,3 +1,8 @@
+<div *ngIf="auctions.length === 0">
+  <mat-card-header class="flex justify-center">
+    <mat-card-title><b>Nema aukcija</b></mat-card-title>
+  </mat-card-header>
+</div>
 <div class="auction" *ngFor="let auction of auctions">
   <mat-card>
     <app-auction

@@ -1,4 +1,9 @@
 <mat-card class="bid-list-card">
+  <div *ngIf="bids.length === 0">
+    <mat-card-header class="flex justify-center">
+      <mat-card-title><b>Nema ponuda</b></mat-card-title>
+    </mat-card-header>
+  </div>
   <mat-card-content>
     <mat-list>
       <span *ngFor="let bid of bids">
