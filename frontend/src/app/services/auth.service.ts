@@ -13,7 +13,6 @@ export class AuthService {
   getProfile() {
     return this.httpClient.get<any>(`${environment.API_URL}auth/profile`).pipe(
       catchError((error) => {
-        console.error('Profile retrieval failed:', error);
         return of(null);
       })
     );
@@ -33,7 +32,6 @@ export class AuthService {
     return this.httpClient.post(`${environment.API_URL}auth/logout`, null);
   }
   register(dto: CreateUserDto): Observable<any> {
-    console.log('registering ',dto)
     return this.httpClient.post(`${environment.API_URL}auth/register`, dto, {
       headers: {
         'Content-Type': 'application/json',

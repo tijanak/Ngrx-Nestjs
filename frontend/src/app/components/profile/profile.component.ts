@@ -30,16 +30,16 @@ import { ProfileUpdateComponent } from './profile-update/profile-update.componen
   styleUrl: './profile.component.css',
 })
 export class ProfileComponent implements OnInit, OnDestroy {
-  subscription: Subscription;
+  userSubscription: Subscription;
   user: IUser | null;
   constructor(private store: Store<AppState>, private dialog: MatDialog) {}
   ngOnInit(): void {
-    this.subscription = this.store
+    this.userSubscription = this.store
       .select(selectProfile)
       .subscribe((user) => (this.user = user));
   }
   ngOnDestroy(): void {
-    if (this.subscription) this.subscription.unsubscribe();
+    if (this.userSubscription) this.userSubscription.unsubscribe();
   }
   openUpdateDialog(): void {
     const dialogRef = this.dialog.open(ProfileUpdateComponent, {

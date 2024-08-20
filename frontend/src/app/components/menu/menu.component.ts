@@ -1,9 +1,9 @@
-import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { LogoutComponent } from '../logout/logout.component';
-import { MatToolbarModule } from '@angular/material/toolbar';
+import { Component } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { RouterModule } from '@angular/router';
+import { LogoutComponent } from '../logout/logout.component';
 @Component({
   selector: 'app-menu',
   standalone: true,

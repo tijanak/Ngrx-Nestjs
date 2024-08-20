@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MenuComponent } from '../menu/menu.component';
-import { SaleCertificatesComponent } from '../sale-certificates/sale-certificates.component';
+import { MenuComponent } from '../../menu/menu.component';
+import { SaleCertificatesComponent } from '../../sale-certificates/sale-certificates.component';
 
 @Component({
   selector: 'app-sale-certificate-page',

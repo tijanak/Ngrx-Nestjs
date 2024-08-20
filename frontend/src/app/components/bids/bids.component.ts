@@ -1,17 +1,17 @@
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { BidComponent } from './bid/bid.component';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
+import { MatDialog } from '@angular/material/dialog';
 import { MatListModule } from '@angular/material/list';
-import { IBid, IUser } from '@org/models';
 import { Store } from '@ngrx/store';
-import { AppState } from '../../store/app.reducer';
+import { IBid, IUser } from '@org/models';
 import { Subscription } from 'rxjs';
+import { AppState } from '../../store/app.reducer';
+import { DeleteBid, UpdateBid } from '../../store/bids/bids.actions';
 import { selectAllBids } from '../../store/bids/bids.selector';
 import { selectProfile } from '../../store/user/user.selector';
-import { DeleteBid, UpdateBid } from '../../store/bids/bids.actions';
-import { MatDialog } from '@angular/material/dialog';
 import { BidFormComponent } from './bid-form/bid-form.component';
+import { BidComponent } from './bid/bid.component';
 
 @Component({
   selector: 'app-bids',
@@ -32,7 +32,6 @@ export class BidsComponent implements OnInit, OnDestroy {
     this.subscription.push(
       this.store.select(selectAllBids).subscribe((bids) => {
         this.bids = bids;
-        console.log(bids);
         this.bids.sort((a, b) => b.amount - a.amount);
       })
     );

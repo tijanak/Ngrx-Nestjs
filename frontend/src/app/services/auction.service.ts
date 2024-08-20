@@ -2,7 +2,6 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '@org/environment';
 import { CreateAuctionDto, IAuction, UpdateAuctionDto } from '@org/models';
-import { catchError, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',

@@ -1,8 +1,8 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { EntityAdapter, EntityState, createEntityAdapter } from '@ngrx/entity';
 import { createReducer, on } from '@ngrx/store';
 import { CreateAuctionDto, IAuction } from '@org/models';
 import * as actions from './auctions.actions';
-import { HttpErrorResponse } from '@angular/common/http';
 export interface AuctionState extends EntityState<IAuction> {
   uploadAuctionDto: CreateAuctionDto | null;
   error: HttpErrorResponse | null;
@@ -23,7 +23,6 @@ export const auctionReducer = createReducer(
     return auctionAdapter.setAll(auctions, state);
   }),
   on(actions.CreateAuction, (state, { auctionDto }) => {
-    console.log('reducing auctiondto');
     return {
       ...state,
       uploadAuctionDto: auctionDto,

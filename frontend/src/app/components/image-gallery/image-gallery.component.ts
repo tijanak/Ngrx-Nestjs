@@ -46,7 +46,6 @@ export class ImageGalleryComponent implements OnChanges {
   constructor(private cdr: ChangeDetectorRef) {}
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['images']) {
-      console.log('image changes', this.images);
       this.isVisible = false;
       this.cdr.detectChanges();
       this.isVisible = true;

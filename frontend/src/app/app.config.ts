@@ -1,30 +1,26 @@
+import { registerLocaleData } from '@angular/common';
+import {
+  HTTP_INTERCEPTORS,
+  provideHttpClient,
+  withInterceptorsFromDi,
+} from '@angular/common/http';
+import localeSr from '@angular/common/locales/sr';
 import {
   ApplicationConfig,
   importProvidersFrom,
   LOCALE_ID,
   provideZoneChangeDetection,
 } from '@angular/core';
-import { provideRouter } from '@angular/router';
-import { appRoutes } from './app.routes';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
-import {
-  HTTP_INTERCEPTORS,
-  provideHttpClient,
-  withInterceptorsFromDi,
-} from '@angular/common/http';
-import { AuthInterceptor } from './auth.interceptor';
-import { provideStore } from '@ngrx/store';
-import { appReducers } from './store/app.reducer';
-import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { appEffects } from './store/app.effects';
+import { provideRouter } from '@angular/router';
 import { provideEffects } from '@ngrx/effects';
-import { registerLocaleData } from '@angular/common';
-import localeSr from '@angular/common/locales/sr';
-import {
-  NavigationActionTiming,
-  provideRouterStore,
-  routerReducer,
-} from '@ngrx/router-store';
+import { NavigationActionTiming, provideRouterStore } from '@ngrx/router-store';
+import { provideStore } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { appRoutes } from './app.routes';
+import { AuthInterceptor } from './auth.interceptor';
+import { appEffects } from './store/app.effects';
+import { appReducers } from './store/app.reducer';
 registerLocaleData(localeSr);
 export const appConfig: ApplicationConfig = {
   providers: [

@@ -13,7 +13,6 @@ export class BidService {
   constructor(private http: HttpClient) {}
 
   createBid(auctionId: number, createBidDto: CreateBidDto): Observable<IBid> {
-    console.log(createBidDto);
     return this.http.post<IBid>(`${this.baseUrl}/${auctionId}`, createBidDto);
   }
 

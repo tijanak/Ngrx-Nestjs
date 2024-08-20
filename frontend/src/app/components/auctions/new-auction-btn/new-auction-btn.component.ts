@@ -1,13 +1,12 @@
-import { Component, Injector, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Router, RouterLink, RouterModule } from '@angular/router';
+import { Component, Injector } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialog } from '@angular/material/dialog';
-import { AuctionFormComponent } from '../auction-form/auction-form.component';
-import { UpdateAuctionDto } from '@org/models';
+import { RouterModule } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { AppState } from 'frontend/src/app/store/app.reducer';
 import { CreateAuction } from 'frontend/src/app/store/auctions/auctions.actions';
+import { AuctionFormComponent } from '../auction-form/auction-form.component';
 
 @Component({
   selector: 'app-new-auction-btn',
@@ -31,7 +30,6 @@ export class NewAuctionBtnComponent {
     });
 
     dialogRef.afterClosed().subscribe((result) => {
-      console.log(result);
       this.store.dispatch(
         CreateAuction({
           auctionDto: {

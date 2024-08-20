@@ -13,7 +13,6 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { Subscription, skip } from 'rxjs';
 import { AppState } from '../../store/app.reducer';
 import { registration } from '../../store/auth/auth.actions';
 @Component({
@@ -32,14 +31,10 @@ import { registration } from '../../store/auth/auth.actions';
   templateUrl: './register.component.html',
   styleUrl: './register.component.css',
 })
-export class RegisterComponent implements OnInit, OnDestroy {
+export class RegisterComponent implements OnInit {
   registerForm: FormGroup | undefined;
 
-  constructor(
-    private store: Store<AppState>,
-    private router: Router,
-    private fb: FormBuilder
-  ) {}
+  constructor(private store: Store<AppState>, private fb: FormBuilder) {}
   ngOnInit(): void {
     this.registerForm = this.fb.group({
       name: ['', [Validators.required]],
@@ -51,22 +46,20 @@ export class RegisterComponent implements OnInit, OnDestroy {
         [Validators.required, Validators.pattern(/^\+?\d{10,15}$/)],
       ],
     });
-   
-  }
-  ngOnDestroy(): void {
   }
   onSubmit(): void {
     if (this.registerForm?.valid) {
       const formValues = this.registerForm.value;
-      console.log('Form Submitted', formValues);
       this.store.dispatch(
         registration({
-          userDto:{name: formValues.name,
-          surname: formValues.surname,
-          phone_number: formValues.phoneNumber,
-          password: formValues.password,
-          email: formValues.email,
-        }})
+          userDto: {
+            name: formValues.name,
+            surname: formValues.surname,
+            phone_number: formValues.phoneNumber,
+            password: formValues.password,
+            email: formValues.email,
+          },
+        })
       );
     }
   }

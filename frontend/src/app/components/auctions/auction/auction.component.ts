@@ -49,7 +49,14 @@ import { AuctionFormComponent } from '../auction-form/auction-form.component';
   styleUrl: './auction.component.css',
 })
 export class AuctionComponent implements OnInit, OnDestroy, OnChanges {
-  subscription: Subscription[] = [];
+  @Input() auction!: IAuction | undefined;
+  @Input() inList: boolean;
+  images: IImage[] = [];
+  user: IUser | null;
+  isOwner: boolean = false;
+  @Output() openAuction = new EventEmitter<number>();
+
+  userSubscription: Subscription;
   imageSubscription: Subscription;
   constructor(
     private injector: Injector,
@@ -68,25 +75,19 @@ export class AuctionComponent implements OnInit, OnDestroy, OnChanges {
     }
   }
   ngOnInit(): void {
-    this.subscription.push(
-      this.store.select(selectProfile).subscribe((user) => {
+    this.userSubscription = this.store
+      .select(selectProfile)
+      .subscribe((user) => {
         this.user = user;
         this.isOwner =
           this.user != null && this.user.id == this.auction?.owner.id;
-      })
-    );
+      });
   }
   ngOnDestroy(): void {
-    this.subscription.forEach((sub) => sub.unsubscribe());
+    if (this.userSubscription) this.userSubscription.unsubscribe();
     if (this.imageSubscription) this.imageSubscription.unsubscribe();
   }
 
-  @Input() auction!: IAuction | undefined;
-  @Input() inList: boolean;
-  images: IImage[] = [];
-  user: IUser | null;
-  isOwner: boolean = false;
-  @Output() openAuction = new EventEmitter<number>();
   openBidModal(): void {
     const dialogRef = this.dialog.open(BidFormComponent, {
       width: '400px',

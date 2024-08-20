@@ -1,23 +1,27 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
+import { of } from 'rxjs';
+import { catchError, map, switchMap } from 'rxjs/operators';
 import { AuthService } from '../../services/auth.service';
 import {
   login,
-  loginSuccess,
   loginFailure,
+  loginSuccess,
   logout,
-  registration,
-  registrationSucces,
-  registrationFailure,
   logoutFinished,
+  registration,
+  registrationFailure,
+  registrationSucces,
 } from './auth.actions';
-import { catchError, map, switchMap, tap } from 'rxjs/operators';
-import { of } from 'rxjs';
-import { Router, RouterLink } from '@angular/router';
 
 @Injectable()
 export class AuthEffects {
-  constructor(private router:Router, private actions$: Actions, private authService: AuthService) {}
+  constructor(
+    private router: Router,
+    private actions$: Actions,
+    private authService: AuthService
+  ) {}
 
   login$ = createEffect(() =>
     this.actions$.pipe(
@@ -58,16 +62,20 @@ export class AuthEffects {
       )
     )
   );
-  loginSucces$=createEffect(()=>
-    this.actions$.pipe(
-      ofType(loginSuccess,registrationSucces),
-      map(()=>this.router.navigate(['/home']))
-    )
-  ,{dispatch:false});
-  logoutSucces$=createEffect(()=>
-    this.actions$.pipe(
-      ofType(logoutFinished),
-      map(()=>this.router.navigate(['/login']))
-    )
-  ,{dispatch:false})
+  loginSucces$ = createEffect(
+    () =>
+      this.actions$.pipe(
+        ofType(loginSuccess, registrationSucces),
+        map(() => this.router.navigate(['/home']))
+      ),
+    { dispatch: false }
+  );
+  logoutSucces$ = createEffect(
+    () =>
+      this.actions$.pipe(
+        ofType(logoutFinished),
+        map(() => this.router.navigate(['/login']))
+      ),
+    { dispatch: false }
+  );
 }

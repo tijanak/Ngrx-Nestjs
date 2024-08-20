@@ -1,7 +1,7 @@
-import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { IAuction, ISale_Certificate } from '@org/models';
+import { Component, Input } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
+import { ISale_Certificate } from '@org/models';
 import { ImageGalleryComponent } from '../../image-gallery/image-gallery.component';
 
 @Component({

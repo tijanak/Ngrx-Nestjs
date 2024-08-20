@@ -1,7 +1,7 @@
-import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { IUser } from '@org/models';
+import { Component, Input } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
+import { IUser } from '@org/models';
 
 @Component({
   selector: 'app-user',

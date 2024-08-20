@@ -4065,6 +4065,15 @@
         "hash": "sha512-5DFkuoqlv1uYQKxy8omFBeJPQcdoE07Kv2sferDCrAq1ohOU+MSDswDIbnx3YAM60qIOnYa53wBhXW0EbMonrQ=="
       }
     },
+    "npm:@nestjs/event-emitter": {
+      "type": "npm",
+      "name": "npm:@nestjs/event-emitter",
+      "data": {
+        "version": "2.0.4",
+        "packageName": "@nestjs/event-emitter",
+        "hash": "sha512-quMiw8yOwoSul0pp3mOonGz8EyXWHSBTqBy8B0TbYYgpnG1Ix2wGUnuTksLWaaBiiOTDhciaZ41Y5fJZsSJE1Q=="
+      }
+    },
     "npm:@nestjs/jwt": {
       "type": "npm",
       "name": "npm:@nestjs/jwt",
@@ -8968,6 +8977,15 @@
         "version": "1.8.1",
         "packageName": "etag",
         "hash": "sha512-aIL5Fx7mawVa300al2BnEE4iNvo1qETxLrPI/o05L7z6go7fCw1J6EQmbK4FmJ2AS7kgVF/KEZWufBfdClMcPg=="
+      }
+    },
+    "npm:eventemitter2": {
+      "type": "npm",
+      "name": "npm:eventemitter2",
+      "data": {
+        "version": "6.4.9",
+        "packageName": "eventemitter2",
+        "hash": "sha512-JEPTiaOt9f04oa6NOkc4aH+nVp5I3wEjpHbIPqfgCdD5v5bUzy7xQqwcVO2aDQgOWhI28da57HksMrzK9HlRxg=="
       }
     },
     "npm:eventemitter3": {
@@ -14350,7 +14368,7 @@
       },
       {
         "source": "frontend",
-        "target": "npm:@angular/common",
+        "target": "npm:rxjs",
         "type": "static"
       },
       {
@@ -14360,12 +14378,17 @@
       },
       {
         "source": "frontend",
-        "target": "npm:@angular/platform-browser",
+        "target": "models",
         "type": "static"
       },
       {
         "source": "frontend",
-        "target": "npm:@ngrx/store-devtools",
+        "target": "npm:@angular/common",
+        "type": "static"
+      },
+      {
+        "source": "frontend",
+        "target": "npm:@angular/platform-browser",
         "type": "static"
       },
       {
@@ -14380,22 +14403,12 @@
       },
       {
         "source": "frontend",
-        "target": "models",
-        "type": "static"
-      },
-      {
-        "source": "frontend",
-        "target": "environment",
+        "target": "npm:@ngrx/store-devtools",
         "type": "static"
       },
       {
         "source": "frontend",
         "target": "npm:@angular/material",
-        "type": "static"
-      },
-      {
-        "source": "frontend",
-        "target": "npm:@coreui/angular",
         "type": "static"
       },
       {
@@ -14410,7 +14423,12 @@
       },
       {
         "source": "frontend",
-        "target": "npm:rxjs",
+        "target": "npm:@coreui/angular",
+        "type": "static"
+      },
+      {
+        "source": "frontend",
+        "target": "environment",
         "type": "static"
       },
       {
@@ -14467,12 +14485,12 @@
       },
       {
         "source": "backend",
-        "target": "models",
+        "target": "npm:@nestjs/event-emitter",
         "type": "static"
       },
       {
         "source": "backend",
-        "target": "npm:class-validator",
+        "target": "models",
         "type": "static"
       },
       {
@@ -14492,22 +14510,27 @@
       },
       {
         "source": "backend",
-        "target": "npm:@nestjs/swagger",
-        "type": "static"
-      },
-      {
-        "source": "backend",
         "target": "npm:class-transformer",
         "type": "static"
       },
       {
         "source": "backend",
-        "target": "npm:@nestjs/passport",
+        "target": "npm:class-validator",
+        "type": "static"
+      },
+      {
+        "source": "backend",
+        "target": "npm:@nestjs/swagger",
         "type": "static"
       },
       {
         "source": "backend",
         "target": "npm:express",
+        "type": "static"
+      },
+      {
+        "source": "backend",
+        "target": "npm:@nestjs/passport",
         "type": "static"
       },
       {
@@ -14532,12 +14555,12 @@
       },
       {
         "source": "backend",
-        "target": "npm:multer",
+        "target": "npm:@nestjs/platform-express",
         "type": "static"
       },
       {
         "source": "backend",
-        "target": "npm:@nestjs/platform-express",
+        "target": "npm:multer",
         "type": "static"
       },
       {
@@ -20853,6 +20876,23 @@
       {
         "source": "npm:@nestjs/core",
         "target": "npm:uid",
+        "type": "static"
+      }
+    ],
+    "npm:@nestjs/event-emitter": [
+      {
+        "source": "npm:@nestjs/event-emitter",
+        "target": "npm:@nestjs/common",
+        "type": "static"
+      },
+      {
+        "source": "npm:@nestjs/event-emitter",
+        "target": "npm:@nestjs/core",
+        "type": "static"
+      },
+      {
+        "source": "npm:@nestjs/event-emitter",
+        "target": "npm:eventemitter2",
         "type": "static"
       }
     ],

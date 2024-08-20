@@ -32,20 +32,14 @@ import { login } from '../../store/auth/auth.actions';
   templateUrl: './login.component.html',
   styleUrl: './login.component.css',
 })
-export class LoginComponent implements OnInit, OnDestroy {
+export class LoginComponent {
   form: FormGroup;
-  constructor(
-    private router: Router,
-    private fb: FormBuilder,
-    private store: Store<AppState>
-  ) {
+  constructor(private fb: FormBuilder, private store: Store<AppState>) {
     this.form = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required],
     });
   }
-  ngOnInit(): void {}
-  ngOnDestroy(): void {}
   onSubmit() {
     if (this.form.valid) {
       console.log(this.form.value);

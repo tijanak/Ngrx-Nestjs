@@ -1,9 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { Store } from '@ngrx/store';
 import { catchError, from, map, mergeMap, of, switchMap } from 'rxjs';
 import { AuctionService } from '../../services/auction.service';
-import { AppState } from '../app.reducer';
 import { loadImagesForAuction, uploadImages } from '../images/images.actions';
 import {
   CreateAuction,
@@ -86,7 +84,6 @@ export class AuctionEffects {
             uploadImages({ images, auctionId: auction.id }),
           ]),
           catchError((error) => {
-            console.log(error);
             return of(CreateAuctionFailure({ error }));
           })
         );

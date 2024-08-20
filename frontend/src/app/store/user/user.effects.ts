@@ -1,14 +1,14 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { of } from 'rxjs';
-import { catchError, map, mergeMap, switchMap } from 'rxjs/operators';
+import { catchError, map, switchMap } from 'rxjs/operators';
 import { UserService } from '../../services/user.service';
 import {
   UpdateUser,
-  UpdateUserSuccess,
   UpdateUserFailure,
+  UpdateUserSuccess,
 } from './user.actions';
-import { HttpErrorResponse } from '@angular/common/http';
 
 @Injectable()
 export class UserEffects {

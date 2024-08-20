@@ -1,33 +1,30 @@
-import { Component, Inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {
-  MAT_DIALOG_DATA,
-  MatDialogModule,
-  MatDialogRef,
-} from '@angular/material/dialog';
+import { Component, Inject } from '@angular/core';
 import {
   FormBuilder,
   FormGroup,
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import { MatInputModule } from '@angular/material/input';
-import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
-import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import {
+  MAT_DIALOG_DATA,
+  MatDialogModule,
+  MatDialogRef,
+} from '@angular/material/dialog';
 import { MatDividerModule } from '@angular/material/divider';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 import {
   OwlDateTimeModule,
   OwlNativeDateTimeModule,
 } from '@danielmoncada/angular-datetime-picker';
 
-import { maxImageAmount } from '../../../validators/max-image-amount-validator';
-import { Store } from '@ngrx/store';
-import { AppState } from 'frontend/src/app/store/app.reducer';
-import { CreateAuction } from 'frontend/src/app/store/auctions/auctions.actions';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { IAuction } from '@org/models';
+import { maxImageAmount } from '../../../validators/max-image-amount-validator';
 @Component({
   selector: 'app-auction-create',
   standalone: true,

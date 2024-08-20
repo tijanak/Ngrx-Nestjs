@@ -1,19 +1,15 @@
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AuctionComponent } from './auction/auction.component';
-import { IAuction, IUser } from '@org/models';
-import { AuctionBasicInfoComponent } from './auction-basic-info/auction-basic-info.component';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatDivider } from '@angular/material/divider';
-import { Store } from '@ngrx/store';
-import { AppState } from '../../store/app.reducer';
-import { Subscription } from 'rxjs';
-import { selectAuctions } from '../../store/auctions/auctions.selectors';
-import {
-  DeleteAuction,
-  LoadAuctions,
-} from '../../store/auctions/auctions.actions';
 import { Router, RouterModule } from '@angular/router';
+import { Store } from '@ngrx/store';
+import { IAuction } from '@org/models';
+import { Subscription } from 'rxjs';
+import { AppState } from '../../store/app.reducer';
+import { selectAuctions } from '../../store/auctions/auctions.selectors';
+import { AuctionBasicInfoComponent } from './auction-basic-info/auction-basic-info.component';
+import { AuctionComponent } from './auction/auction.component';
 
 @Component({
   selector: 'app-auctions',
@@ -30,18 +26,18 @@ import { Router, RouterModule } from '@angular/router';
   styleUrl: './auctions.component.css',
 })
 export class AuctionsComponent implements OnInit, OnDestroy {
-  subscription: Subscription[] = [];
+  auctionsSubscription: Subscription;
 
   constructor(private router: Router, private store: Store<AppState>) {}
   ngOnDestroy(): void {
-    this.subscription.forEach((sub) => sub.unsubscribe());
+    if (this.auctionsSubscription) this.auctionsSubscription.unsubscribe();
   }
   ngOnInit(): void {
-    this.subscription.push(
-      this.store.select(selectAuctions).subscribe((auctions) => {
+    this.auctionsSubscription = this.store
+      .select(selectAuctions)
+      .subscribe((auctions) => {
         this.auctions = auctions;
-      })
-    );
+      });
   }
   auctions: IAuction[] = [];
 
