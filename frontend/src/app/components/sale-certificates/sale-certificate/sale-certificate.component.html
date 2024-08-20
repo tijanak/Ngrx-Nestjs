@@ -1,4 +1,4 @@
-<mat-card>
+<mat-card class="certificate">
   <mat-card-header>
     <mat-card-title>Potvrda o prodaji</mat-card-title>
   </mat-card-header>
@@ -10,23 +10,16 @@
       Prodato za:
       {{ saleCertificate.winning_bid.amount | currency }}
     </h3>
-
-    <h4>Informacije o kupcu:</h4>
-    <p>
-      Ime: {{ saleCertificate.winning_bid.bidder.name }}
-      {{ saleCertificate.winning_bid.bidder.surname }}
-    </p>
-    <p>Email: {{ saleCertificate.winning_bid.bidder.email }}</p>
-    <p>Broj telefona: {{ saleCertificate.winning_bid.bidder.phone_number }}</p>
-
-    <h4>Informacije o prodavcu:</h4>
-    <p>
-      Ime: {{ saleCertificate.auction.owner.name }}
-      {{ saleCertificate.auction.owner.surname }}
-    </p>
-    <p>Email: {{ saleCertificate.auction.owner.email }}</p>
-    <p>Broj telefona: {{ saleCertificate.auction.owner.phone_number }}</p>
-
+    <div class="info-row">
+      <div class="info-column">
+        <h4>Kupac:</h4>
+        <app-user [user]="saleCertificate.winning_bid.bidder"></app-user>
+      </div>
+      <div class="info-column">
+        <h4>Prodavac:</h4>
+        <app-user [user]="saleCertificate.auction.owner"></app-user>
+      </div>
+    </div>
     <h4>Informacije o aukciji:</h4>
     <p>Naslov: {{ saleCertificate.auction.title }}</p>
     <p>Opis: {{ saleCertificate.auction.description }}</p>
