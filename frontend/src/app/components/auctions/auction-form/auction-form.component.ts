@@ -86,6 +86,8 @@ export class AuctionFormComponent {
   onSubmit() {
     if (this.auctionForm.valid) {
       let formData = { ...this.auctionForm.value };
+      formData.start_time.setSeconds(0);
+      formData.end_time.setSeconds(0);
       this.dialogRef.close(formData);
     }
   }
