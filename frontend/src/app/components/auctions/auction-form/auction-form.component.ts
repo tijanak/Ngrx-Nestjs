@@ -90,6 +90,7 @@ export class AuctionFormComponent {
     this.dialogRef.close();
   }
   onSubmit() {
+    this.auctionForm.markAllAsTouched();
     if (this.auctionForm.valid) {
       let formData = { ...this.auctionForm.value };
       formData.start_time.setSeconds(0);
