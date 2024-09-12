@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { catchError, map, mergeMap, of, switchMap } from 'rxjs';
+import { catchError, filter, map, mergeMap, of, switchMap } from 'rxjs';
 import { ImageService } from '../../services/image.service';
 import {
   deleteImage,
@@ -21,6 +21,7 @@ export class ImageEffects {
   upload$ = createEffect(() =>
     this.actions$.pipe(
       ofType(uploadImages),
+      filter(({ images }) => images.length > 0),
       switchMap(({ images, auctionId }) => {
         return this.imageService.postImagesForAuction(images, auctionId).pipe(
           map((images) => {

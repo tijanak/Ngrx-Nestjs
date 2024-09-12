@@ -19,10 +19,6 @@ export const selectSelectedAuction = createSelector(
 );
 
 export const selectAuctions = createSelector(selectAuctionFeature, selectAll);
-export const selectAuctionDto = createSelector(
-  selectAuctionFeature,
-  (auctionState) => auctionState.uploadAuctionDto
-);
 
 export const selectAuctionError = createSelector(
   selectAuctionFeature,
