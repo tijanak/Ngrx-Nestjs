@@ -29,7 +29,7 @@ export class AppComponent implements OnInit, OnDestroy {
   user: IUser | null = null;
   constructor(private store: Store<AppState>) {}
   ngOnDestroy(): void {
-    throw new Error('Method not implemented.');
+    if (this.userSubscription) this.userSubscription.unsubscribe();
   }
   ngOnInit(): void {
     this.userSubscription = this.store
