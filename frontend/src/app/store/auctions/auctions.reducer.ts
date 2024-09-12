@@ -4,13 +4,11 @@ import { createReducer, on } from '@ngrx/store';
 import { CreateAuctionDto, IAuction } from '@org/models';
 import * as actions from './auctions.actions';
 export interface AuctionState extends EntityState<IAuction> {
-  uploadAuctionDto: CreateAuctionDto | null;
   error: HttpErrorResponse | null;
 }
 export const initialState: AuctionState = {
   ids: [],
   entities: {},
-  uploadAuctionDto: null,
   error: null,
 };
 
@@ -22,18 +20,11 @@ export const auctionReducer = createReducer(
   on(actions.LoadAuctionsSuccess, (state, { auctions }) => {
     return auctionAdapter.setAll(auctions, state);
   }),
-  on(actions.CreateAuction, (state, { auctionDto }) => {
-    return {
-      ...state,
-      uploadAuctionDto: auctionDto,
-      error: null,
-    };
-  }),
   on(actions.CreateAuctionFailure, (state, { error }) => {
-    return { ...state, error, uploadAuctionDto: null };
+    return { ...state, error };
   }),
   on(actions.CreateAuctionSuccess, (state, { auction }) => {
-    let newState = { ...state, uploadAuctionDto: null };
+    let newState = { ...state };
     return auctionAdapter.addOne(auction, newState);
   }),
   on(actions.LoadAuctionsFailure, (state, { error }) => {

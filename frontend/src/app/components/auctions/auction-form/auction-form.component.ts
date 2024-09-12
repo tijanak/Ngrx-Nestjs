@@ -62,8 +62,14 @@ export class AuctionFormComponent {
         data.auction?.min_price ?? null,
         [Validators.required, Validators.min(1)],
       ],
-      start_time: [data.auction?.start_time ?? null, Validators.required],
-      end_time: [data.auction?.end_time ?? null, Validators.required],
+      start_time: [
+        data.auction?.start_time ? new Date(data.auction?.start_time) : null,
+        Validators.required,
+      ],
+      end_time: [
+        data.auction?.end_time ? new Date(data.auction?.end_time) : null,
+        Validators.required,
+      ],
     });
     if (!data.auction) {
       this.auctionForm.addControl(
