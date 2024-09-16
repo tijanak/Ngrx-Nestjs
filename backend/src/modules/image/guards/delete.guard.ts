@@ -8,7 +8,7 @@ import { Reflector } from '@nestjs/core';
 import { ImageService } from '../image.service';
 
 @Injectable()
-export class ImageOwnerGuard implements CanActivate {
+export class ImageDeleteGuard implements CanActivate {
   constructor(
     private imageService: ImageService,
 
@@ -38,6 +38,9 @@ export class ImageOwnerGuard implements CanActivate {
       throw new ForbiddenException('Aukcija je zavrsena');
     }
 
+    if (image.auction?.start_time < new Date()) {
+      throw new ForbiddenException('Aukcija je vec pocela');
+    }
     return true;
   }
 }

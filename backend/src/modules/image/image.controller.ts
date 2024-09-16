@@ -20,7 +20,7 @@ import { diskStorage } from 'multer';
 import * as path from 'path';
 import { OwnerGuard } from '../auction/guards/owner.guard';
 import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
-import { ImageOwnerGuard } from './guards/owner.guard';
+import { ImageDeleteGuard } from './guards/delete.guard';
 import { ImageService, imagesPath } from './image.service';
 
 @Controller('images')
@@ -72,7 +72,7 @@ export class ImagesController {
       throw new BadRequestException('Greska u procesuiranju fajlova.');
     }
   }
-  @UseGuards(JwtAuthGuard, ImageOwnerGuard)
+  @UseGuards(JwtAuthGuard, ImageDeleteGuard)
   @Delete(':id')
   async delete(@Param('id', ParseIntPipe) id: number) {
     return this.imageService.delete(id);
